@@ -33,7 +33,10 @@ export function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
 
   // 1. Maintenance mode rewrite (preserved from prior behavior).
-  if (process.env.MAINTENANCE_MODE === "1") {
+  // Accepts "1" (legacy) or "true" so a single MAINTENANCE_MODE=true value
+  // works across all Lechner Studios Vercel projects.
+  const maintenance = process.env.MAINTENANCE_MODE;
+  if (maintenance === "1" || maintenance === "true") {
     if (
       pathname.startsWith("/_next/") ||
       pathname.startsWith("/api/") ||
