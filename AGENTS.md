@@ -24,3 +24,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 4. **Legal-page accuracy overrides marketing voice.** Impressum + Datenschutz preserve registered legal designations (`Einzelunternehmerin` / `sole proprietor`). Don't replace with brand titles. Jason is not yet named as Geschäftsführer on legal pages — that waits for the Firmenbuch entry of the FlexKapG (currently in formation).
 5. **Bilingual parity.** Any dictionary or legal-page edit ships in EN + DE simultaneously.
 6. **Mobile breakpoint is `max-width: 768px`.** Use the `.lc-*` class set in `globals.css`. Don't introduce a competing scheme.
+
+## Engineering standard — Ship Complete
+
+Default deliverable is the finished, working artifact — not a plan or a partial.
+**Done is tier-scaled** (trivial / simple / complex): a copy tweak is not held to
+the payments-surface bar, and a sensitive surface is not waved through. Claims
+need receipts, risky changes need a rollback, and work ends reviewable. Security
+plus the GDPR/legal human-review gate (Claude drafts and flags; a human certifies)
+live in `ai-brain/patterns/security-standard.md`. Full standard and the
+`self-iteration` / `security-review` skills: `ai-brain/patterns/ship-complete.md`.
