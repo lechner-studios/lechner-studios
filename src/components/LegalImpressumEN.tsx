@@ -1,10 +1,8 @@
 // src/components/LegalImpressumEN.tsx
 //
 // EN-only Impressum body. Rendered at /en/impressum.
-// Legal copy is preserved verbatim from the prior bilingual Impressum.
-// Sonja Lechner, Einzelunternehmerin remains the registered legal entity.
-// The Lechner-Studios FlexKapG is in formation but not yet operative;
-// legal pages update in lockstep when the Firmenbuch entry lands.
+// Legal copy ported from ai-brain 00g (finalized 2026-06-13, GISA 39801708).
+// Sonja Lechner, Einzelunternehmerin — business designation "Lechner Studios".
 
 import Link from "next/link";
 import {
@@ -28,16 +26,20 @@ export default function LegalImpressumEN() {
             exception — it's the registered legal designation in AT. */}
         <h1 style={headlineStyle}>Impressum</h1>
         <p style={subStyle}>
-          Disclosure pursuant to Austrian E-Commerce Act (§ 5 ECG) and Media
-          Act (§ 25 MedienG).
+          Disclosure pursuant to § 5 E-Commerce Act (ECG), § 63 Trade Act 1994
+          (GewO) and § 25 Media Act (MedienG).
         </p>
 
         <section>
-          <div style={sectionLabelStyle}>Operator & Service Provider</div>
+          <div style={sectionLabelStyle}>
+            Media owner & responsible for content
+          </div>
           <div style={sectionValueStyle}>
             Sonja Lechner
             <br />
             Sole proprietor (Einzelunternehmerin)
+            <br />
+            Business designation: Lechner Studios
             <br />
             Wattenbachgasse 29
             <br />
@@ -56,32 +58,34 @@ export default function LegalImpressumEN() {
 
           <div style={sectionLabelStyle}>Object of business</div>
           <div style={sectionValueStyle}>
-            Design-led, family-run digital studio. Web & Design, Apps &
-            Automation, SEO & Growth, and Brand & Identity.
+            Services in automatic data processing and information technology
+            (incl. software and web development, web design, automation,
+            hosting/configuration, IT consulting and training).
           </div>
 
-          <div style={sectionLabelStyle}>VAT</div>
+          <div style={sectionLabelStyle}>Trade (Gewerbe)</div>
           <div style={sectionValueStyle}>
-            Small-business operator (Kleinunternehmerin) pursuant to § 6 (1)
-            no. 27 UStG. Therefore no VAT identification number is held;
-            amounts shown do not include VAT.
+            Dienstleistungen in der automatischen Datenverarbeitung und
+            Informationstechnik (free trade)
+            <br />
+            GISA no.: 39801708
           </div>
 
-          <div style={sectionLabelStyle}>Commercial register</div>
-          <div style={sectionValueStyle}>
-            No commercial-register entry (sole proprietorship, not subject to
-            registration).
-          </div>
-
-          <div style={sectionLabelStyle}>Supervisory authority</div>
+          <div style={sectionLabelStyle}>Trade authority</div>
           <div style={sectionValueStyle}>
             Bezirkshauptmannschaft Innsbruck (district administrative
             authority).
           </div>
 
-          <div style={sectionLabelStyle}>Applicable trade regulation</div>
+          <div style={sectionLabelStyle}>Chamber membership</div>
           <div style={sectionValueStyle}>
-            Austrian Trade Act (Gewerbeordnung — GewO), available at{" "}
+            Wirtschaftskammer Tirol (Tyrol Economic Chamber) — Professional
+            Group UBIT (Management Consulting, Accounting & IT).
+          </div>
+
+          <div style={sectionLabelStyle}>Applicable professional law</div>
+          <div style={sectionValueStyle}>
+            Gewerbeordnung 1994 (Austrian Trade Act), available at{" "}
             <a
               href="https://www.ris.bka.gv.at"
               target="_blank"
@@ -93,35 +97,45 @@ export default function LegalImpressumEN() {
             .
           </div>
 
-          <div style={sectionLabelStyle}>EU online dispute resolution</div>
+          <div style={sectionLabelStyle}>VAT</div>
           <div style={sectionValueStyle}>
-            The European Commission provides a platform for online dispute
-            resolution (ODR) under Reg. (EU) 524/2013 Art. 14(1):{" "}
-            <a
-              href="https://ec.europa.eu/consumers/odr"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyle}
-            >
-              https://ec.europa.eu/consumers/odr
-            </a>
-            . We are neither obliged nor willing to participate in dispute
-            resolution proceedings before a consumer arbitration board.
+            Small-business exemption under § 6 (1) line 27 UStG — VAT-exempt; no
+            VAT identification number is held, amounts shown do not include VAT.
           </div>
 
-          <div style={sectionLabelStyle}>Liability for content & links</div>
+          <div style={sectionLabelStyle}>Consumer dispute resolution</div>
           <div style={sectionValueStyle}>
-            The content of this website has been compiled with care. No
-            liability is assumed for the accuracy, completeness or timeliness
-            of the content. The respective provider is solely responsible for
-            the content of externally linked pages.
+            We are neither obliged nor willing to participate in
+            dispute-resolution proceedings before a consumer arbitration board.
+            (Note: the EU Online Dispute Resolution [ODR] platform was
+            discontinued on 20 July 2025 — hence no ODR link.)
+          </div>
+
+          <div style={sectionLabelStyle}>
+            Basic orientation (§ 25 MedienG)
+          </div>
+          <div style={sectionValueStyle}>
+            Company website of Lechner Studios — information about the services
+            offered by Sonja Lechner in web and software development, digital
+            products and content.
           </div>
 
           <div style={sectionLabelStyle}>Copyright</div>
           <div style={sectionValueStyle}>
-            All content (text, images, code, design) is protected by
-            copyright. Use only with prior written consent.
+            Content and works on this website are subject to Austrian copyright
+            law. Any use beyond the limits of copyright requires the prior
+            written consent of the media owner.
           </div>
+
+          <div style={sectionLabelStyle}>Liability for content and links</div>
+          <div style={sectionValueStyle}>
+            Content was prepared with utmost care; no guarantee is given for
+            accuracy, completeness or timeliness. Operators of external linked
+            sites are solely responsible for their content.
+          </div>
+
+          <div style={sectionLabelStyle}>Last updated</div>
+          <div style={sectionValueStyle}>June 2026</div>
         </section>
 
         <Link href="/en" style={backLinkStyle}>

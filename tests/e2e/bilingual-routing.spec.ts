@@ -62,13 +62,13 @@ test.describe("Bilingual routing — SEO contract", () => {
     await page.goto("/de/impressum");
     const body = await page.textContent("main");
     expect(body).toContain("Medieninhaber");
-    expect(body ?? "").not.toContain("Operator & Service Provider");
+    expect(body ?? "").not.toContain("Media owner");
   });
 
   test("/en/impressum renders EN only (no DE section)", async ({ page }) => {
     await page.goto("/en/impressum");
     const body = await page.textContent("main");
-    expect(body).toContain("Operator & Service Provider");
+    expect(body).toContain("Media owner & responsible for content");
     expect(body ?? "").not.toContain("Medieninhaber");
   });
 

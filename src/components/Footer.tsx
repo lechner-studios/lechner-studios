@@ -31,7 +31,7 @@ export default function Footer() {
         <span style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.6rem",
-          color: "rgba(246,241,235,0.2)",
+          color: "rgba(246,241,235,0.6)",
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           textAlign: "center",
@@ -42,7 +42,7 @@ export default function Footer() {
         <span style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.6rem",
-          color: "rgba(246,241,235,0.25)",
+          color: "rgba(246,241,235,0.6)",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
         }}>

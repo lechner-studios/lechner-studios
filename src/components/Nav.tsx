@@ -63,7 +63,7 @@ export default function Nav() {
     fontWeight: 600,
     letterSpacing: "0.18em",
     textTransform: "uppercase",
-    color: scrolled ? "#8B8578" : "#F6F1EB",
+    color: scrolled ? "#6B6356" : "#F6F1EB",
     textDecoration: "none",
     transition: "color 0.3s",
     cursor: "pointer",

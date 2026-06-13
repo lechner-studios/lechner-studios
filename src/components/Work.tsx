@@ -4,10 +4,10 @@ import { useLanguage } from "../context/LanguageContext";
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   live:    { bg: "rgba(61,74,58,0.12)", color: "#3D4A3A" },
-  service: { bg: "rgba(184,148,77,0.15)", color: "#A08040" },
-  dev:     { bg: "rgba(26,24,18,0.07)", color: "#8B8578" },
-  paused:  { bg: "rgba(139,133,120,0.1)", color: "#8B8578" },
-  planned: { bg: "rgba(139,133,120,0.07)", color: "#B0A898" },
+  service: { bg: "rgba(184,148,77,0.15)", color: "#7A6029" },
+  dev:     { bg: "rgba(26,24,18,0.07)", color: "#6B6356" },
+  paused:  { bg: "rgba(139,133,120,0.1)", color: "#6B6356" },
+  planned: { bg: "rgba(139,133,120,0.07)", color: "#6B6356" },
 };
 
 const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dict"]["work"]> = {
@@ -50,7 +50,7 @@ export default function Work() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#B8944D",
+              color: "#7A6029",
               marginBottom: "12px",
             }}>
               {d.overline}
@@ -68,7 +68,7 @@ export default function Work() {
           <span style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.6rem",
-            color: "#B0A898",
+            color: "#6B6356",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
           }}>
@@ -114,7 +114,7 @@ export default function Work() {
                 <span style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.65rem",
-                  color: "#B0A898",
+                  color: "#6B6356",
                   fontWeight: 400,
                   paddingTop: "4px",
                 }}>
@@ -149,7 +149,7 @@ export default function Work() {
                   </div>
                   <p style={{
                     fontSize: "0.9rem",
-                    color: "#8B8578",
+                    color: "#6B6356",
                     lineHeight: 1.7,
                     maxWidth: "600px",
                   }}>
@@ -162,7 +162,7 @@ export default function Work() {
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#B0A898",
+                    color: "#6B6356",
                     letterSpacing: "0.15em",
                     marginBottom: "8px",
                     textTransform: "uppercase",
@@ -172,7 +172,7 @@ export default function Work() {
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#B0A898",
+                    color: "#6B6356",
                     letterSpacing: "0.1em",
                     marginBottom: "12px",
                   }}>
@@ -183,7 +183,7 @@ export default function Work() {
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.65rem",
                       fontWeight: 600,
-                      color: "#B8944D",
+                      color: "#7A6029",
                       letterSpacing: "0.08em",
                       opacity: isHovered ? 1 : 0,
                       transition: "opacity 0.2s",

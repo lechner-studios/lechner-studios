@@ -24,7 +24,7 @@ export default function About() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#B8944D",
+          color: "#7A6029",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
@@ -53,7 +53,7 @@ export default function About() {
             <p style={{
               fontSize: "1rem",
               lineHeight: 1.9,
-              color: "#8B8578",
+              color: "#6B6356",
               fontWeight: 400,
               marginBottom: "48px",
             }}>
@@ -84,7 +84,7 @@ export default function About() {
                     fontWeight: 600,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "#8B8578",
+                    color: "#6B6356",
                   }}>
                     {s.l}
                   </div>

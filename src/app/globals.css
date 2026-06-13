@@ -15,11 +15,20 @@
   --color-gold:          #B8944D;
   --color-gold-on-dark:  #C9A961;
 
+  /* AA-safe text variants (WCAG 1.4.3) for use on light backgrounds.
+   * Signature gold #B8944D (2.53:1 on paper) and stone #8B8578 (3.27:1)
+   * fail AA as text; these darker tokens pass (≥5.2:1). Signature gold
+   * stays for dark-bg text and decorative marks. See ai-brain brand ADR
+   * (contrast resolution, 2026-06-13) + docs/superpowers/specs/2026-06-13-*. */
+  --color-gold-text:     #7A6029;
+  --color-stone-text:    #6B6356;
+
   /* Alpine pillar palette */
   --color-pillar-stone:  #D6CDBE;
   --color-pillar-sky:    #8FA8C5;
   --color-pillar-lake:   #254268;
-  --color-pillar-pine:   #5E8263;
+  --color-pillar-pine:   #5E8263; /* canonical Alpine pine — decorative use (pillar swatches, stamps) portfolio-wide */
+  --color-pillar-pine-deep: #4A6A4E; /* text-bearing variant: Services pillar cell where white body text overlays pine; meets AA (WCAG 1.4.3). Decorative pine stays #5E8263. See brand ADR contrast resolution 2026-06-13 */
 
   /* Legacy alias kept for the shipping site
    * (reuses --color-paper for backward-compatible classes); blush + moss

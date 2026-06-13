@@ -6,10 +6,10 @@ import { useLanguage } from "../context/LanguageContext";
 // (websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md, lines 185-188)
 // Order matches the 2×2 grid: TL=Stone, TR=Sky, BL=Lake, BR=Pine.
 const PILLARS = [
-  { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.72)" },
-  { bg: "var(--color-pillar-sky)",   text: "#1A1812", muted: "rgba(26,24,18,0.70)" },
-  { bg: "var(--color-pillar-lake)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.78)" },
-  { bg: "var(--color-pillar-pine)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.78)" },
+  { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
+  { bg: "var(--color-pillar-sky)",   text: "#1A1812", muted: "rgba(26,24,18,0.92)" },
+  { bg: "var(--color-pillar-lake)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
+  { bg: "var(--color-pillar-pine-deep)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
 ];
 
 export default function Services() {
@@ -91,7 +91,7 @@ export default function Services() {
                   textTransform: "uppercase",
                   fontWeight: 600,
                   marginBottom: "20px",
-                  opacity: 0.7,
+                  opacity: 0.9,
                 }}>
                   0{i + 1}
                 </div>

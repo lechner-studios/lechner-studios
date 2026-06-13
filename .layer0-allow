@@ -1,0 +1,14 @@
+# Layer-0 PII-scan exemptions (pathspec patterns), consumed by .git/hooks/pre-commit.
+#
+# These are PUBLIC-BY-LAW legal-disclosure pages. An Austrian Impressum must
+# show the GISA-Zahl (8-digit, trips the phone-like check) and a business
+# contact email (trips the email check) per §5 ECG / §63 GewO / §25 MedienG.
+# The personal phone number is deliberately omitted (see ai-brain 00g). The
+# Layer-0 guard stays active across the rest of the repo.
+src/components/LegalImpressumDE.tsx
+src/components/LegalImpressumEN.tsx
+src/components/LegalPrivacyDE.tsx
+src/components/LegalPrivacyEN.tsx
+
+# Go-live spec references the GISA number.
+docs/superpowers/specs/2026-06-13-go-live-legal-brand-a11y-design.md

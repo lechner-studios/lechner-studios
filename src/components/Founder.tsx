@@ -25,90 +25,49 @@ export default function Founder() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#B8944D",
+          color: "#7A6029",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
         </p>
 
-        {/* Photo row — Sonja + Jason side by side, captioned */}
-        <div className="lc-stack-2col" style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "32px",
-          marginBottom: "72px",
-        }}>
-          <figure style={{ margin: 0 }}>
-            <Image
-              src="/founder/sonja-lechner.jpg"
-              alt={d.photoAlt}
-              width={1078}
-              height={1456}
-              priority
-              sizes="(max-width: 900px) 90vw, 520px"
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-            <figcaption style={{ marginTop: "16px" }}>
-              <div style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1.25rem",
-                fontWeight: 400,
-                letterSpacing: "-0.005em",
-                color: "#1A1812",
-                lineHeight: 1.2,
-              }}>
-                {d.sonjaName}
-              </div>
-              <div style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#8B8578",
-                marginTop: "6px",
-              }}>
-                {d.sonjaRole}
-              </div>
-            </figcaption>
-          </figure>
+        {/* Founder portrait */}
+        <figure style={{ margin: "0 0 72px", maxWidth: "480px" }}>
+          <Image
+            src="/founder/sonja-lechner.jpg"
+            alt={d.photoAlt}
+            width={1078}
+            height={1456}
+            priority
+            sizes="(max-width: 900px) 90vw, 480px"
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
+          <figcaption style={{ marginTop: "16px" }}>
+            <div style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "1.25rem",
+              fontWeight: 400,
+              letterSpacing: "-0.005em",
+              color: "#1A1812",
+              lineHeight: 1.2,
+            }}>
+              {d.sonjaName}
+            </div>
+            <div style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.6rem",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#6B6356",
+              marginTop: "6px",
+            }}>
+              {d.sonjaRole}
+            </div>
+          </figcaption>
+        </figure>
 
-          <figure style={{ margin: 0 }}>
-            <Image
-              src="/founder/jason-lechner.jpg"
-              alt={d.jasonPhotoAlt}
-              width={1080}
-              height={1440}
-              sizes="(max-width: 900px) 90vw, 520px"
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-            <figcaption style={{ marginTop: "16px" }}>
-              <div style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1.25rem",
-                fontWeight: 400,
-                letterSpacing: "-0.005em",
-                color: "#1A1812",
-                lineHeight: 1.2,
-              }}>
-                {d.jasonName}
-              </div>
-              <div style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#8B8578",
-                marginTop: "6px",
-              }}>
-                {d.jasonRole}
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-
-        {/* Text block — full-width below the photo row */}
+        {/* Text block — full-width below the portrait */}
         <div style={{ maxWidth: "780px" }}>
           <h2
             id="founder-heading"
