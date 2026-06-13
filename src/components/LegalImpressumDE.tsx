@@ -1,10 +1,8 @@
 // src/components/LegalImpressumDE.tsx
 //
 // DE-only Impressum body. Rendered at /de/impressum.
-// Legal copy is preserved verbatim from the prior bilingual Impressum.
-// Sonja Lechner, Einzelunternehmerin remains the registered legal entity.
-// The Lechner-Studios FlexKapG is in formation but not yet operative;
-// legal pages update in lockstep when the Firmenbuch entry lands.
+// Legal copy ported from ai-brain 00g (finalized 2026-06-13, GISA 39801708).
+// Sonja Lechner, Einzelunternehmerin — Etablissementbezeichnung "Lechner Studios".
 
 import Link from "next/link";
 import {
@@ -26,15 +24,20 @@ export default function LegalImpressumDE() {
         <p style={overlineStyle}>Rechtliche Information</p>
         <h1 style={headlineStyle}>Impressum</h1>
         <p style={subStyle}>
-          Offenlegung gem. § 5 ECG und § 25 MedienG.
+          Offenlegung gemäß § 5 E-Commerce-Gesetz (ECG), § 63 Gewerbeordnung
+          1994 (GewO) und § 25 Mediengesetz (MedienG).
         </p>
 
         <section>
-          <div style={sectionLabelStyle}>Medieninhaber & Diensteanbieter</div>
+          <div style={sectionLabelStyle}>
+            Medieninhaberin & für den Inhalt verantwortlich
+          </div>
           <div style={sectionValueStyle}>
             Sonja Lechner
             <br />
             Einzelunternehmerin
+            <br />
+            Unternehmensbezeichnung (Etablissementbezeichnung): Lechner Studios
             <br />
             Wattenbachgasse 29
             <br />
@@ -53,32 +56,35 @@ export default function LegalImpressumDE() {
 
           <div style={sectionLabelStyle}>Unternehmensgegenstand</div>
           <div style={sectionValueStyle}>
-            Design-orientiertes, familiengeführtes Digitalstudio. Web &
-            Design, Apps & Automation, SEO & Growth, sowie Marke &
-            Identität.
+            Dienstleistungen in der automatischen Datenverarbeitung und
+            Informationstechnik (u.&nbsp;a. Software- und Webentwicklung,
+            Webdesign, Automatisierung, Hosting/Konfiguration, IT-Beratung und
+            -Schulung).
           </div>
 
-          <div style={sectionLabelStyle}>Umsatzsteuer</div>
+          <div style={sectionLabelStyle}>Gewerbe</div>
           <div style={sectionValueStyle}>
-            Kleinunternehmerin gem. § 6 Abs. 1 Z 27 UStG. Aus diesem Grund wird
-            keine UID-Nummer geführt; ausgewiesene Beträge enthalten keine
-            Umsatzsteuer.
+            Dienstleistungen in der automatischen Datenverarbeitung und
+            Informationstechnik (freies Gewerbe)
+            <br />
+            GISA-Zahl: 39801708
           </div>
 
-          <div style={sectionLabelStyle}>Firmenbuch</div>
+          <div style={sectionLabelStyle}>Gewerbebehörde</div>
           <div style={sectionValueStyle}>
-            Keine Eintragung im Firmenbuch (Einzelunternehmen, nicht
-            eintragungspflichtig).
+            Bezirkshauptmannschaft Innsbruck (Bezirksverwaltungsbehörde)
           </div>
 
-          <div style={sectionLabelStyle}>Aufsichtsbehörde / Gewerbebehörde</div>
+          <div style={sectionLabelStyle}>Mitgliedschaft</div>
           <div style={sectionValueStyle}>
-            Bezirkshauptmannschaft Innsbruck
+            Wirtschaftskammer Tirol — Fachgruppe Unternehmensberatung,
+            Buchhaltung und Informationstechnologie (UBIT), Sparte Information &
+            Consulting.
           </div>
 
           <div style={sectionLabelStyle}>Berufsrechtliche Vorschriften</div>
           <div style={sectionValueStyle}>
-            Gewerbeordnung (GewO), abrufbar unter{" "}
+            Gewerbeordnung 1994 (GewO), abrufbar unter{" "}
             <a
               href="https://www.ris.bka.gv.at"
               target="_blank"
@@ -90,39 +96,48 @@ export default function LegalImpressumDE() {
             .
           </div>
 
-          <div style={sectionLabelStyle}>
-            EU-Streitbeilegung (ODR-Plattform)
-          </div>
+          <div style={sectionLabelStyle}>Umsatzsteuer</div>
           <div style={sectionValueStyle}>
-            Die Europäische Kommission stellt eine Plattform zur
-            Online-Streitbeilegung (OS) bereit (VO 524/2013, Art. 14 Abs. 1):{" "}
-            <a
-              href="https://ec.europa.eu/consumers/odr"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyle}
-            >
-              https://ec.europa.eu/consumers/odr
-            </a>
-            . Wir sind weder verpflichtet noch bereit, an
-            Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-            teilzunehmen.
+            Kleinunternehmerin gemäß § 6 Abs 1 Z 27 UStG — umsatzsteuerbefreit;
+            es wird keine UID-Nummer geführt, ausgewiesene Beträge enthalten
+            keine Umsatzsteuer.
           </div>
 
-          <div style={sectionLabelStyle}>Haftung für Inhalte & Links</div>
+          <div style={sectionLabelStyle}>Verbraucherstreitbeilegung</div>
           <div style={sectionValueStyle}>
-            Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die
-            Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird
-            keine Gewähr übernommen. Für externe verlinkte Inhalte ist
-            ausschließlich der jeweilige Anbieter verantwortlich.
+            Wir sind nicht verpflichtet und nicht bereit, an einem
+            Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+            teilzunehmen. (Hinweis: Die EU-Online-Streitbeilegungs-Plattform
+            [OS] wurde mit 20.07.2025 eingestellt — daher kein OS-Link mehr.)
+          </div>
+
+          <div style={sectionLabelStyle}>
+            Grundlegende Richtung (§ 25 MedienG)
+          </div>
+          <div style={sectionValueStyle}>
+            Unternehmenswebsite der Lechner Studios — Information über das
+            Dienstleistungsangebot von Sonja Lechner in den Bereichen Web- und
+            Softwareentwicklung, digitale Produkte und Content.
           </div>
 
           <div style={sectionLabelStyle}>Urheberrecht</div>
           <div style={sectionValueStyle}>
-            Sämtliche Inhalte (Texte, Bilder, Code, Gestaltung) sind
-            urheberrechtlich geschützt. Verwendung nur mit ausdrücklicher
-            schriftlicher Zustimmung.
+            Inhalte und Werke auf dieser Website unterliegen dem
+            österreichischen Urheberrecht. Jede Verwertung außerhalb der Grenzen
+            des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung der
+            Medieninhaberin.
           </div>
+
+          <div style={sectionLabelStyle}>Haftung für Inhalte und Links</div>
+          <div style={sectionValueStyle}>
+            Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt; für
+            Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr
+            übernommen. Für Inhalte externer Links sind ausschließlich deren
+            Betreiber verantwortlich.
+          </div>
+
+          <div style={sectionLabelStyle}>Stand</div>
+          <div style={sectionValueStyle}>Juni 2026</div>
         </section>
 
         <Link href="/de" style={backLinkStyle}>

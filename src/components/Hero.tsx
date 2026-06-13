@@ -98,7 +98,7 @@ export default function Hero() {
             fontWeight: 500,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(246,241,235,0.35)",
+            color: "rgba(246,241,235,0.62)",
           }}
         >
           {dict.hero.location}
@@ -124,7 +124,7 @@ export default function Hero() {
           fontSize: "0.55rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "rgba(246,241,235,0.3)",
+          color: "rgba(246,241,235,0.62)",
           writingMode: "vertical-rl",
         }}>
           {dict.hero.scroll}

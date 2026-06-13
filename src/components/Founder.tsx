@@ -25,7 +25,7 @@ export default function Founder() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#B8944D",
+          color: "#7A6029",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
@@ -65,7 +65,7 @@ export default function Founder() {
                 fontWeight: 600,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#8B8578",
+                color: "#6B6356",
                 marginTop: "6px",
               }}>
                 {d.sonjaRole}
@@ -99,7 +99,7 @@ export default function Founder() {
                 fontWeight: 600,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#8B8578",
+                color: "#6B6356",
                 marginTop: "6px",
               }}>
                 {d.jasonRole}

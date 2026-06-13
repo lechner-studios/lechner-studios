@@ -28,10 +28,14 @@ const italiana = localFont({
   variable: "--font-display-italiana",
 });
 
+// Display weights 300/400 are what the section headlines actually request
+// (LegalStyles headlineStyle 300, h3Style 400; Hero/Services h2 300; About/Founder
+// h2 400). Loading 500/600 only forced the browser to substitute the nearest
+// face — so load the full 300–600 range the UI uses.
 const cormorant = Cormorant({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });

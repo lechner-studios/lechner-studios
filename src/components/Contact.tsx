@@ -58,7 +58,7 @@ export default function Contact() {
     fontWeight: 600,
     textTransform: "uppercase",
     letterSpacing: "0.18em",
-    color: "#8B8578",
+    color: "#6B6356",
     marginBottom: "8px",
   };
 
@@ -112,7 +112,7 @@ export default function Contact() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#B8944D",
+              color: "#7A6029",
               marginBottom: "2rem",
             }}>
               {d.overline}
@@ -131,7 +131,7 @@ export default function Contact() {
             </h2>
             <p style={{
               fontSize: "0.95rem",
-              color: "#8B8578",
+              color: "#6B6356",
               lineHeight: 1.8,
               maxWidth: "420px",
             }}>
@@ -181,7 +181,7 @@ export default function Contact() {
                     minLength={2}
                     maxLength={200}
                     style={inputStyle}
-                    onFocus={() => { if (nameRef.current) nameRef.current.style.borderBottom = "1px solid #B8944D"; }}
+                    onFocus={() => { if (nameRef.current) nameRef.current.style.borderBottom = "1px solid #7A6029"; }}
                     onBlur={() => { if (nameRef.current) nameRef.current.style.borderBottom = "1px solid rgba(26,24,18,0.15)"; }}
                   />
                 </div>
@@ -196,7 +196,7 @@ export default function Contact() {
                     name="email"
                     required
                     style={inputStyle}
-                    onFocus={() => { if (emailRef.current) emailRef.current.style.borderBottom = "1px solid #B8944D"; }}
+                    onFocus={() => { if (emailRef.current) emailRef.current.style.borderBottom = "1px solid #7A6029"; }}
                     onBlur={() => { if (emailRef.current) emailRef.current.style.borderBottom = "1px solid rgba(26,24,18,0.15)"; }}
                   />
                 </div>
@@ -213,7 +213,7 @@ export default function Contact() {
                     maxLength={5000}
                     rows={5}
                     style={{ ...inputStyle, resize: "vertical" }}
-                    onFocus={() => { if (messageRef.current) messageRef.current.style.borderBottom = "1px solid #B8944D"; }}
+                    onFocus={() => { if (messageRef.current) messageRef.current.style.borderBottom = "1px solid #7A6029"; }}
                     onBlur={() => { if (messageRef.current) messageRef.current.style.borderBottom = "1px solid rgba(26,24,18,0.15)"; }}
                   />
                 </div>
@@ -270,7 +270,7 @@ export default function Contact() {
                   }}
                   onMouseEnter={e => {
                     if (consentChecked && formState !== "submitting") {
-                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #B8944D";
+                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #7A6029";
                     }
                   }}
                   onMouseLeave={e => {
@@ -278,7 +278,7 @@ export default function Contact() {
                   }}
                   onFocus={e => {
                     if (consentChecked && formState !== "submitting") {
-                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #B8944D";
+                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #7A6029";
                     }
                   }}
                   onBlur={e => {
@@ -295,7 +295,7 @@ export default function Contact() {
               <p style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.65rem",
-                color: "#8B8578",
+                color: "#6B6356",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 marginTop: "32px",
@@ -304,9 +304,9 @@ export default function Contact() {
                 {f.mailtoFallback}{" "}
                 <a
                   href={`mailto:${d.email}`}
-                  style={{ color: "#8B8578", textDecoration: "underline" }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "#B8944D")}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "#8B8578")}
+                  style={{ color: "#6B6356", textDecoration: "underline" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "#7A6029")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "#6B6356")}
                 >
                   {d.email}
                 </a>
@@ -316,7 +316,7 @@ export default function Contact() {
             <p style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.65rem",
-              color: "#8B8578",
+              color: "#6B6356",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               marginBottom: "40px",
@@ -328,28 +328,28 @@ export default function Contact() {
               <Link href={`/${locale}/impressum`} style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.6rem",
-                color: "#B0A898",
+                color: "#6B6356",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
                 onMouseEnter={e => ((e.target as HTMLElement).style.color = "#1A1812")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#B0A898")}
+                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#6B6356")}
               >
                 {d.impressum}
               </Link>
               <Link href={`/${locale}/privacy`} style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.6rem",
-                color: "#B0A898",
+                color: "#6B6356",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
                 onMouseEnter={e => ((e.target as HTMLElement).style.color = "#1A1812")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#B0A898")}
+                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#6B6356")}
               >
                 {d.privacy}
               </Link>

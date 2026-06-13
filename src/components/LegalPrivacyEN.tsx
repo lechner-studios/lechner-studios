@@ -181,8 +181,8 @@ export default function LegalPrivacyEN() {
 
           <h3 style={h3Style}>10. Last updated</h3>
           <p style={bodyStyle}>
-            April 2026. Updated whenever processing changes (e.g. if a
-            contact form or analytics is added).
+            June 2026. Updated whenever processing changes (e.g. if analytics
+            or new processors are added).
           </p>
         </section>
 

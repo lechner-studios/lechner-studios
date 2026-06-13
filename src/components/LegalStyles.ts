@@ -25,7 +25,7 @@ export const overlineStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.28em",
   textTransform: "uppercase",
-  color: "#B8944D",
+  color: "#7A6029",
   marginBottom: "2rem",
 };
 
@@ -43,7 +43,7 @@ export const headlineStyle: CSSProperties = {
 export const subStyle: CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontSize: "0.95rem",
-  color: "#8B8578",
+  color: "#6B6356",
   lineHeight: 1.7,
   marginBottom: "64px",
   maxWidth: "620px",
@@ -55,7 +55,7 @@ export const sectionLabelStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "#8B8578",
+  color: "#6B6356",
   marginBottom: "8px",
 };
 
@@ -82,7 +82,7 @@ export const backLinkStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "#8B8578",
+  color: "#6B6356",
   textDecoration: "none",
 };
 
