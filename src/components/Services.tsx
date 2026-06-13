@@ -9,7 +9,7 @@ const PILLARS = [
   { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
   { bg: "var(--color-pillar-sky)",   text: "#1A1812", muted: "rgba(26,24,18,0.92)" },
   { bg: "var(--color-pillar-lake)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
-  { bg: "var(--color-pillar-pine)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
+  { bg: "var(--color-pillar-pine-deep)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
 ];
 
 export default function Services() {
