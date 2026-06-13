@@ -175,13 +175,6 @@ function buildJsonLd(locale: Locale) {
         jobTitle: locale === "de" ? "Gründerin" : "Founder",
         worksFor: { "@id": "https://lechner-studios.at#organization" },
       },
-      {
-        "@type": "Person",
-        "@id": "https://lechner-studios.at#jason",
-        name: "Jason Lechner",
-        jobTitle: locale === "de" ? "Geschäftsführer" : "Managing Director",
-        worksFor: { "@id": "https://lechner-studios.at#organization" },
-      },
     ],
   };
 }
