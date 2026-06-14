@@ -16,7 +16,7 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        padding: "0 48px 80px",
+        padding: "120px 48px 80px",
         overflow: "hidden",
       }}
     >

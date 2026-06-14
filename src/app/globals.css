@@ -170,7 +170,7 @@ body {
  * class-based rules. */
 @media (max-width: 768px) {
   .lc-pad-section { padding: 72px 24px !important; }
-  .lc-pad-hero    { padding: 0 24px 64px !important; }
+  .lc-pad-hero    { padding: 96px 24px 64px !important; }
   .lc-pad-footer  { padding: 28px 24px !important; }
   .lc-pad-nav     { padding-left: 24px !important; padding-right: 24px !important; }
 
