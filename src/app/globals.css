@@ -286,11 +286,20 @@ section, footer, nav, .theme-surface {
   margin: 2.4em 0;
 }
 
+/* Nav responsive — desktop link group vs. mobile hamburger.
+ * Base: desktop group shows, burger hidden; the @media block below flips them.
+ * The burger button carries NO inline `display` so this class governs it. */
+.lc-nav-desktop { display: flex; }
+.lc-nav-burger  { display: none; }
+
 /* Mobile breakpoint — stack two-column grids and tighten section padding.
  * !important is used because the components set padding and
  * grid-template-columns inline; inline styles otherwise win against
  * class-based rules. */
 @media (max-width: 768px) {
+  .lc-nav-desktop { display: none !important; }
+  .lc-nav-burger  { display: inline-flex !important; }
+
   .lc-pad-section { padding: 72px 24px !important; }
   .lc-pad-hero    { padding: 96px 24px 64px !important; }
   .lc-pad-footer  { padding: 28px 24px !important; }

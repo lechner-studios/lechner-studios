@@ -241,8 +241,8 @@ export default function Contact() {
                     style={{ flexShrink: 0, marginTop: "3px", cursor: "pointer" }}
                   />
                   <label htmlFor="contact-consent" style={{
-                    fontSize: "0.78rem",
-                    lineHeight: 1.6,
+                    fontSize: "0.72rem",
+                    lineHeight: 1.75,
                     color: "var(--text-muted)",
                   }}>
                     {f.consent}
@@ -298,6 +298,18 @@ export default function Contact() {
                 >
                   {formState === "submitting" ? f.submitting : f.submit}
                 </button>
+
+                {/* Response-time reassurance — shown in the form (non-success) states. */}
+                <p style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--text-muted)",
+                  marginTop: "16px",
+                }}>
+                  {f.responseTime}
+                </p>
               </form>
             )}
 

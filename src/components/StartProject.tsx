@@ -392,7 +392,7 @@ export default function StartProject() {
           />
           <label
             htmlFor="start-consent"
-            style={{ fontSize: "0.78rem", lineHeight: 1.6, color: "var(--text-muted)" }}
+            style={{ fontSize: "0.72rem", lineHeight: 1.75, color: "var(--text-muted)" }}
           >
             {f.consent}
           </label>

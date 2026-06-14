@@ -13,6 +13,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hash, setHash] = useState("");
   const [isDark, setIsDark] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -41,6 +42,20 @@ export default function Nav() {
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
+
+  // Mobile drawer: lock body scroll + close on Escape while open.
+  // Effect is keyed on menuOpen so listeners/styles attach only when needed
+  // and tear down cleanly (overflow restored to "") on close/unmount.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const alt = alternateLocale(locale);
   const localeRe = new RegExp(`^/(${LOCALES.join("|")})(?=/|$)`);
@@ -106,7 +121,7 @@ export default function Nav() {
       <Link href={homeHref} style={logoLinkStyle} aria-label="Lechner Studios">
         <Wordmark variant="inline" size={22} onDark={isDark} />
       </Link>
-      <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+      <div className="lc-nav-desktop" style={{ alignItems: "center", gap: "32px" }}>
         <Link
           href={`/${locale}/work`}
           style={linkStyle}
@@ -138,6 +153,132 @@ export default function Nav() {
           {dict.nav.toggle}
         </Link>
       </div>
+
+      {/* Hamburger — visible only ≤768px (governed by .lc-nav-burger). No inline
+          `display`, so the class controls show/hide. Themed via the same solid/hero logic. */}
+      <button
+        type="button"
+        className="lc-nav-burger"
+        aria-label={dict.nav.menu}
+        aria-expanded={menuOpen}
+        aria-controls="lc-mobile-menu"
+        onClick={() => setMenuOpen(true)}
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          background: "none",
+          border: "none",
+          padding: 0,
+          cursor: "pointer",
+          color: solid ? "var(--text)" : "var(--hero-text)",
+          lineHeight: 0,
+        }}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+
+      {/* Full-screen themed drawer */}
+      {menuOpen && (
+        <div
+          id="lc-mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label={dict.nav.menu}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 200,
+            background: "var(--bg)",
+            display: "flex",
+            flexDirection: "column",
+            padding: "24px",
+          }}
+        >
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              type="button"
+              aria-label={dict.nav.close}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                color: "var(--text)",
+                lineHeight: 0,
+              }}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+
+          <nav
+            aria-label={dict.nav.menu}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "32px",
+              marginTop: "auto",
+              marginBottom: "auto",
+              alignItems: "flex-start",
+            }}
+          >
+            {[
+              { href: `/${locale}/work`, label: dict.nav.work },
+              { href: `/${locale}/about`, label: dict.nav.about },
+              { href: `/${locale}/blog`, label: dict.nav.journal },
+              { href: `/${locale}/contact`, label: dict.nav.contact },
+            ].map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontStyle: "italic",
+                  fontSize: "clamp(2.2rem, 9vw, 3.2rem)",
+                  fontWeight: 300,
+                  letterSpacing: "-0.02em",
+                  color: "var(--text)",
+                  textDecoration: "none",
+                  lineHeight: 1.1,
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "24px", paddingTop: "16px" }}>
+            <span style={{ display: "inline-flex", color: "var(--text)" }}>
+              <ThemeToggle />
+            </span>
+            <Link
+              href={altHref}
+              hrefLang={HREFLANG[alt]}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.8rem",
+                fontWeight: 700,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--text)",
+                textDecoration: "none",
+              }}
+            >
+              {dict.nav.toggle}
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
