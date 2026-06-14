@@ -53,23 +53,34 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 
-  const transport = nodemailer.createTransport({
-    host: "smtp.zoho.eu",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.ZOHO_SMTP_USER!,
-      pass: process.env.ZOHO_SMTP_PASSWORD!,
-    },
-  });
+  const smtpUser = process.env.ZOHO_SMTP_USER;
+  const smtpPass = process.env.ZOHO_SMTP_PASSWORD;
+  if (!smtpUser || !smtpPass) {
+    console.error("[contact] SMTP credentials missing — set ZOHO_SMTP_USER / ZOHO_SMTP_PASSWORD");
+    return NextResponse.json({ ok: false, error: "server_misconfigured" }, { status: 500 });
+  }
 
-  await transport.sendMail({
-    from: `Lechner Studios Contact <${process.env.ZOHO_SMTP_USER}>`,
-    to: "hallo@lechner-studios.at",
-    replyTo: `${name} <${email}>`,
-    subject: `Kontaktanfrage: ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-  });
+  try {
+    const transport = nodemailer.createTransport({
+      host: "smtp.zoho.eu",
+      port: 465,
+      secure: true,
+      auth: { user: smtpUser, pass: smtpPass },
+    });
+
+    await transport.sendMail({
+      from: `Lechner Studios Contact <${smtpUser}>`,
+      to: "hallo@lechner-studios.at",
+      replyTo: `${name} <${email}>`,
+      subject: `Kontaktanfrage: ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+    });
+  } catch (err) {
+    // SMTP/network failure — log for diagnosis, return a clear error so the
+    // client surfaces the "try again or email us directly" fallback.
+    console.error("[contact] sendMail failed:", err);
+    return NextResponse.json({ ok: false, error: "mail_failed" }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }
