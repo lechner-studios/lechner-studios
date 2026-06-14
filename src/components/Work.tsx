@@ -4,10 +4,10 @@ import { useLanguage } from "../context/LanguageContext";
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   live:    { bg: "rgba(61,74,58,0.12)", color: "#3D4A3A" },
-  service: { bg: "rgba(184,148,77,0.15)", color: "#7A6029" },
-  dev:     { bg: "rgba(26,24,18,0.07)", color: "#6B6356" },
-  paused:  { bg: "rgba(139,133,120,0.1)", color: "#6B6356" },
-  planned: { bg: "rgba(139,133,120,0.07)", color: "#6B6356" },
+  service: { bg: "rgba(154,160,166,0.15)", color: "#5B6168" },
+  dev:     { bg: "rgba(21,23,26,0.07)", color: "#5B6168" },
+  paused:  { bg: "rgba(138,144,152,0.1)", color: "#5B6168" },
+  planned: { bg: "rgba(138,144,152,0.07)", color: "#5B6168" },
 };
 
 const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dict"]["work"]> = {
@@ -28,9 +28,9 @@ export default function Work() {
       id="work"
       className="lc-pad-section"
       style={{
-        background: "#FDFBF8",
+        background: "#FBFCFC",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(26,24,18,0.06)",
+        borderTop: "1px solid rgba(21,23,26,0.06)",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -41,7 +41,7 @@ export default function Work() {
           alignItems: "flex-end",
           marginBottom: "64px",
           paddingBottom: "32px",
-          borderBottom: "1px solid rgba(26,24,18,0.1)",
+          borderBottom: "1px solid rgba(21,23,26,0.1)",
         }}>
           <div>
             <p style={{
@@ -50,7 +50,7 @@ export default function Work() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#7A6029",
+              color: "#254268",
               marginBottom: "12px",
             }}>
               {d.overline}
@@ -60,7 +60,7 @@ export default function Work() {
               fontSize: "clamp(2rem, 3vw, 2.8rem)",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#1A1812",
+              color: "#15171A",
             }}>
               {d.headline}
             </h2>
@@ -68,7 +68,7 @@ export default function Work() {
           <span style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.6rem",
-            color: "#6B6356",
+            color: "#254268",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
           }}>
@@ -79,7 +79,7 @@ export default function Work() {
         {/* Lead — products-as-proof framing */}
         <p style={{
           fontSize: "1.05rem",
-          color: "#6B6356",
+          color: "#5B6168",
           lineHeight: 1.75,
           maxWidth: "62ch",
           marginTop: "-32px",
@@ -111,11 +111,11 @@ export default function Work() {
                   gap: "32px",
                   alignItems: "start",
                   padding: "32px 0",
-                  borderBottom: "1px solid rgba(26,24,18,0.06)",
+                  borderBottom: "1px solid rgba(21,23,26,0.06)",
                   textDecoration: "none",
                   cursor: isClickable ? "pointer" : "default",
                   transition: "background 0.2s",
-                  background: isHovered && isClickable ? "rgba(26,24,18,0.02)" : "transparent",
+                  background: isHovered && isClickable ? "rgba(21,23,26,0.02)" : "transparent",
                   margin: "0 -24px",
                   paddingLeft: "24px",
                   paddingRight: "24px",
@@ -126,7 +126,7 @@ export default function Work() {
                 <span style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.65rem",
-                  color: "#6B6356",
+                  color: "#254268",
                   fontWeight: 400,
                   paddingTop: "4px",
                 }}>
@@ -141,7 +141,7 @@ export default function Work() {
                       fontSize: "1.7rem",
                       fontWeight: 400,
                       letterSpacing: "-0.01em",
-                      color: isHovered && isClickable ? "#1A1812" : "#252219",
+                      color: isHovered && isClickable ? "#15171A" : "#1B1E22",
                       transition: "color 0.2s",
                     }}>
                       {item.title}
@@ -161,7 +161,7 @@ export default function Work() {
                   </div>
                   <p style={{
                     fontSize: "0.9rem",
-                    color: "#6B6356",
+                    color: "#5B6168",
                     lineHeight: 1.7,
                     maxWidth: "600px",
                   }}>
@@ -174,7 +174,7 @@ export default function Work() {
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#6B6356",
+                    color: "#5B6168",
                     letterSpacing: "0.15em",
                     marginBottom: "8px",
                     textTransform: "uppercase",
@@ -184,7 +184,7 @@ export default function Work() {
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#6B6356",
+                    color: "#5B6168",
                     letterSpacing: "0.1em",
                     marginBottom: "12px",
                   }}>
@@ -195,7 +195,7 @@ export default function Work() {
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.65rem",
                       fontWeight: 600,
-                      color: "#7A6029",
+                      color: "#254268",
                       letterSpacing: "0.08em",
                       opacity: isHovered ? 1 : 0,
                       transition: "opacity 0.2s",

@@ -25,8 +25,8 @@ export const dictionaries = {
     },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
-      tagline: "Design-led digital studio\nfrom Tirol.",
-      subline: "Websites, apps, and automation, made to measure for independent businesses across the DACH region — modern, precise, and built to perform.",
+      tagline: "Websites, apps & automation,\nbuilt to measure.",
+      subline: "A design-led digital studio from Tirol, building for independent businesses across the DACH region.",
       ctaPrimary: "Start a project",
       ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
@@ -130,8 +130,6 @@ export const dictionaries = {
       body: "Tell us what you're building. You'll get a straight answer — what's possible, what it would take, and what it costs — within two business days. No pitch, no obligation.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
-      impressum: "Impressum",
-      privacy: "Privacy",
       form: {
         nameLabel: "Name",
         emailLabel: "Email",
@@ -151,6 +149,8 @@ export const dictionaries = {
       rights: "All rights reserved.",
       tagline: "Built with precision. Tirol, Österreich.",
       endorsement: "A LECHNER STUDIOS PRODUCT",
+      impressum: "Impressum",
+      privacy: "Privacy",
     },
   },
 
@@ -180,8 +180,8 @@ export const dictionaries = {
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
-      tagline: "Design-orientiertes Digitalstudio\naus Tirol.",
-      subline: "Websites, Apps und Automatisierung, maßgeschneidert für unabhängige Unternehmen im DACH-Raum — modern, präzise und auf Wirkung gebaut.",
+      tagline: "Websites, Apps & Automatisierung,\nmaßgeschneidert.",
+      subline: "Ein design-orientiertes Digitalstudio aus Tirol — für unabhängige Unternehmen im DACH-Raum.",
       ctaPrimary: "Projekt starten",
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
@@ -285,8 +285,6 @@ export const dictionaries = {
       body: "Erzählen Sie uns, was Sie vorhaben. Sie bekommen eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
-      impressum: "Impressum",
-      privacy: "Datenschutz",
       form: {
         nameLabel: "Name",
         emailLabel: "E-Mail",
@@ -306,6 +304,8 @@ export const dictionaries = {
       rights: "Alle Rechte vorbehalten.",
       tagline: "Mit Präzision gebaut. Tirol, Österreich.",
       endorsement: "EIN LECHNER STUDIOS PRODUKT",
+      impressum: "Impressum",
+      privacy: "Datenschutz",
     },
   },
 };

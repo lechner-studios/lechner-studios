@@ -28,7 +28,7 @@ export default function EndorsementStamp({
   style,
 }: EndorsementStampProps) {
   const v = VARIANTS[variant];
-  const ink = onDark ? "#FDFBF8" : "#1A1812";
+  const ink = onDark ? "#FBFCFC" : "#15171A";
 
   return (
     <div

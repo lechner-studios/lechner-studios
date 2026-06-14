@@ -13,8 +13,8 @@ interface MarkProps {
  * (footer signatures, document corners, email headers, app icons).
  */
 export default function Mark({ size = 48, onDark = false, style }: MarkProps) {
-  const ink = onDark ? "#FDFBF8" : "#1A1812";
-  const gold = onDark ? "#C9A961" : "#B8944D";
+  const ink = onDark ? "#FBFCFC" : "#15171A";
+  const gold = onDark ? "#9AA0A6" : "#B8944D";
 
   return (
     <svg

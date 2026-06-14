@@ -8,10 +8,10 @@
 import type { CSSProperties } from "react";
 
 export const pageStyle: CSSProperties = {
-  background: "#F6F1EB",
+  background: "#F7F8F8",
   minHeight: "100vh",
   padding: "120px 48px",
-  color: "#1A1812",
+  color: "#15171A",
 };
 
 export const containerStyle: CSSProperties = {
@@ -25,7 +25,7 @@ export const overlineStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.28em",
   textTransform: "uppercase",
-  color: "#7A6029",
+  color: "#254268",
   marginBottom: "2rem",
 };
 
@@ -35,7 +35,7 @@ export const headlineStyle: CSSProperties = {
   fontWeight: 300,
   lineHeight: 0.98,
   letterSpacing: "-0.03em",
-  color: "#1A1812",
+  color: "#15171A",
   marginBottom: "16px",
   fontStyle: "italic",
 };
@@ -43,7 +43,7 @@ export const headlineStyle: CSSProperties = {
 export const subStyle: CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontSize: "0.95rem",
-  color: "#6B6356",
+  color: "#5B6168",
   lineHeight: 1.7,
   marginBottom: "64px",
   maxWidth: "620px",
@@ -55,23 +55,23 @@ export const sectionLabelStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "#6B6356",
+  color: "#5B6168",
   marginBottom: "8px",
 };
 
 export const sectionValueStyle: CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontSize: "1rem",
-  color: "#1A1812",
+  color: "#15171A",
   lineHeight: 1.8,
   marginBottom: "32px",
 };
 
 export const linkStyle: CSSProperties = {
-  color: "#1A1812",
+  color: "#15171A",
   textDecoration: "underline",
   textUnderlineOffset: "3px",
-  textDecorationColor: "rgba(26,24,18,0.25)",
+  textDecorationColor: "rgba(21,23,26,0.25)",
 };
 
 export const backLinkStyle: CSSProperties = {
@@ -82,7 +82,7 @@ export const backLinkStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "#6B6356",
+  color: "#5B6168",
   textDecoration: "none",
 };
 
@@ -93,7 +93,7 @@ export const h3Style: CSSProperties = {
   fontWeight: 400,
   lineHeight: 1.2,
   letterSpacing: "-0.01em",
-  color: "#1A1812",
+  color: "#15171A",
   marginTop: "40px",
   marginBottom: "12px",
 };
@@ -101,20 +101,20 @@ export const h3Style: CSSProperties = {
 export const bodyStyle: CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontSize: "1rem",
-  color: "#1A1812",
+  color: "#15171A",
   lineHeight: 1.8,
   marginBottom: "16px",
 };
 
 export const mutedStyle: CSSProperties = {
   ...bodyStyle,
-  color: "#5C594F",
+  color: "#5B6168",
 };
 
 export const listStyle: CSSProperties = {
   fontFamily: "var(--font-sans)",
   fontSize: "1rem",
-  color: "#1A1812",
+  color: "#15171A",
   lineHeight: 1.8,
   paddingLeft: "1.25rem",
   marginBottom: "16px",

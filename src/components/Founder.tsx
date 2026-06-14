@@ -13,9 +13,9 @@ export default function Founder() {
       aria-labelledby="founder-heading"
       className="lc-pad-section"
       style={{
-        background: "#FDFBF8",
+        background: "#FBFCFC",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(26,24,18,0.08)",
+        borderTop: "1px solid rgba(21,23,26,0.08)",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -25,7 +25,7 @@ export default function Founder() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#7A6029",
+          color: "#4A6A4E",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
@@ -48,7 +48,7 @@ export default function Founder() {
               fontSize: "1.25rem",
               fontWeight: 400,
               letterSpacing: "-0.005em",
-              color: "#1A1812",
+              color: "#15171A",
               lineHeight: 1.2,
             }}>
               {d.sonjaName}
@@ -59,7 +59,7 @@ export default function Founder() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#6B6356",
+              color: "#5B6168",
               marginTop: "6px",
             }}>
               {d.sonjaRole}
@@ -77,7 +77,7 @@ export default function Founder() {
               fontWeight: 400,
               lineHeight: 1.15,
               letterSpacing: "-0.02em",
-              color: "#1A1812",
+              color: "#15171A",
               marginBottom: "32px",
             }}
           >
@@ -87,7 +87,7 @@ export default function Founder() {
           <div style={{
             fontSize: "1rem",
             lineHeight: 1.9,
-            color: "#1A1812",
+            color: "#15171A",
             fontWeight: 400,
             marginBottom: "32px",
             whiteSpace: "pre-line",
