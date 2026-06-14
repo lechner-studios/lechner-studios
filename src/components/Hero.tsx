@@ -3,7 +3,7 @@ import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const lines = dict.hero.tagline.split("\n");
 
   return (
@@ -124,7 +124,7 @@ export default function Hero() {
           }}
         >
           <a
-            href="#contact"
+            href={`/${locale}/contact`}
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.7rem",
@@ -154,7 +154,7 @@ export default function Hero() {
             {dict.hero.ctaPrimary} →
           </a>
           <a
-            href="#work"
+            href={`/${locale}/work`}
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.7rem",

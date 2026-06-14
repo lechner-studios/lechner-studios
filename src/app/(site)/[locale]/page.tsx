@@ -5,12 +5,9 @@ import { isLocale, type Locale } from "../../../i18n/config";
 import { dictionaries } from "../../../i18n/dictionaries";
 import Nav from "../../../components/Nav";
 import Hero from "../../../components/Hero";
-import About from "../../../components/About";
-import Founder from "../../../components/Founder";
-import HowWeWork from "../../../components/HowWeWork";
 import Work from "../../../components/Work";
 import Services from "../../../components/Services";
-import Contact from "../../../components/Contact";
+import ContactCta from "../../../components/ContactCta";
 import Footer from "../../../components/Footer";
 
 export default async function Home({
@@ -30,12 +27,9 @@ export default async function Home({
       <Nav />
       <main id="main" style={{ minHeight: "100vh" }}>
         <Hero />
-        <About />
-        <Founder />
-        <HowWeWork />
-        <Work />
         <Services />
-        <Contact />
+        <Work limit={3} moreHref={`/${locale}/work`} />
+        <ContactCta />
         <Footer />
       </main>
     </LanguageProvider>

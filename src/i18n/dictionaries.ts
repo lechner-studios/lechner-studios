@@ -22,6 +22,15 @@ export const dictionaries = {
       privacyTitle: "Privacy",
       privacyDescription:
         "Privacy notice under GDPR for lechner-studios.at.",
+      workTitle: "Work — Products & Projects",
+      workDescription:
+        "Selected products and projects from Lechner Studios — our own platforms and client work, built with editorial precision.",
+      aboutTitle: "About the Studio",
+      aboutDescription:
+        "Lechner Studios is a family-run, AI-native digital studio in Wattens, Tirol, founded by Sonja Lechner.",
+      contactTitle: "Contact",
+      contactDescription:
+        "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
     },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
@@ -63,6 +72,7 @@ export const dictionaries = {
       statusPlanned: "Planned",
       statusService: "Active Service",
       visit: "Visit →",
+      viewAll: "All work →",
       items: [
         {
           id: "codeflash",
@@ -128,6 +138,7 @@ export const dictionaries = {
       overline: "CONTACT",
       headline: "Let's talk.",
       body: "Tell us what you're building. You'll get a straight answer — what's possible, what it would take, and what it costs — within two business days. No pitch, no obligation.",
+      ctaLine: "Tell us what you're building — a straight answer within two business days.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {
@@ -177,6 +188,15 @@ export const dictionaries = {
       privacyTitle: "Datenschutz",
       privacyDescription:
         "Datenschutzerklärung gem. DSGVO für lechner-studios.at.",
+      workTitle: "Arbeiten — Produkte & Projekte",
+      workDescription:
+        "Ausgewählte Produkte und Projekte von Lechner Studios — eigene Plattformen und Kundenarbeit, mit editorischer Präzision gebaut.",
+      aboutTitle: "Über das Studio",
+      aboutDescription:
+        "Lechner Studios ist ein familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol, gegründet von Sonja Lechner.",
+      contactTitle: "Kontakt",
+      contactDescription:
+        "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
@@ -218,6 +238,7 @@ export const dictionaries = {
       statusPlanned: "Geplant",
       statusService: "Aktiver Service",
       visit: "Besuchen →",
+      viewAll: "Alle Arbeiten →",
       items: [
         {
           id: "codeflash",
@@ -283,6 +304,7 @@ export const dictionaries = {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
       body: "Erzählen Sie uns, was Sie vorhaben. Sie bekommen eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
+      ctaLine: "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {

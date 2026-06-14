@@ -34,6 +34,11 @@ export default function Nav() {
   const altHref = `/${alt}${restOfPath}${hash}`;
   const homeHref = `/${locale}`;
 
+  // The transparent-until-scroll treatment assumes a dark hero behind the nav,
+  // which only holds on the home page. On sub-pages the nav must be solid.
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const solid = scrolled || !isHome;
+
   const navStyle: React.CSSProperties = {
     position: "fixed",
     top: 0,
@@ -43,11 +48,11 @@ export default function Nav() {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: scrolled ? "16px 48px" : "24px 48px",
-    background: scrolled ? "rgba(247,248,248,0.96)" : "transparent",
-    backdropFilter: scrolled ? "blur(20px)" : "none",
-    boxShadow: scrolled ? "0 1px 0 rgba(21,23,26,0.08)" : "none",
-    mixBlendMode: scrolled ? "normal" : "difference",
+    padding: solid ? "16px 48px" : "24px 48px",
+    background: solid ? "rgba(247,248,248,0.96)" : "transparent",
+    backdropFilter: solid ? "blur(20px)" : "none",
+    boxShadow: solid ? "0 1px 0 rgba(21,23,26,0.08)" : "none",
+    mixBlendMode: solid ? "normal" : "difference",
     transition: "all 0.5s cubic-bezier(0.22,1,0.36,1)",
   };
 
@@ -63,7 +68,7 @@ export default function Nav() {
     fontWeight: 600,
     letterSpacing: "0.18em",
     textTransform: "uppercase",
-    color: scrolled ? "#5B6168" : "#F7F8F8",
+    color: solid ? "#5B6168" : "#F7F8F8",
     textDecoration: "none",
     transition: "color 0.3s",
     cursor: "pointer",
@@ -76,36 +81,36 @@ export default function Nav() {
   const toggleStyle: React.CSSProperties = {
     ...linkStyle,
     paddingLeft: "16px",
-    borderLeft: `1px solid ${scrolled ? "rgba(21,23,26,0.2)" : "rgba(247,248,248,0.3)"}`,
+    borderLeft: `1px solid ${solid ? "rgba(21,23,26,0.2)" : "rgba(247,248,248,0.3)"}`,
     marginLeft: "8px",
-    color: scrolled ? "#15171A" : "#F7F8F8",
+    color: solid ? "#15171A" : "#F7F8F8",
     fontWeight: 700,
   };
 
   return (
     <nav className="lc-pad-nav" style={navStyle}>
       <Link href={homeHref} style={logoLinkStyle} aria-label="Lechner Studios">
-        <Wordmark variant="inline" size={22} onDark={!scrolled} />
+        <Wordmark variant="inline" size={22} onDark={!solid} />
       </Link>
       <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-        <a
-          href="#work"
+        <Link
+          href={`/${locale}/work`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
-        >{dict.nav.work}</a>
-        <a
-          href="#about"
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.work}</Link>
+        <Link
+          href={`/${locale}/about`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
-        >{dict.nav.about}</a>
-        <a
-          href="#contact"
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.about}</Link>
+        <Link
+          href={`/${locale}/contact`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
-        >{dict.nav.contact}</a>
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.contact}</Link>
         <Link href={altHref} hrefLang={HREFLANG[alt]} style={toggleStyle}>
           {dict.nav.toggle}
         </Link>
