@@ -12,10 +12,10 @@ export const dictionaries = {
     meta: {
       homeTitle: "Lechner Studios — Design-Led Digital Studio, Tirol",
       homeDescription:
-        "Family-run, AI-native digital studio in Wattens, Tirol. Web & Design, Apps & Automation, SEO & Growth, Brand & Identity for SMB clients across DACH.",
+        "Family-run, AI-native digital studio in Wattens, Tirol. Web & design, apps & automation, and SEO for SMB clients across DACH — brand & identity built into every build.",
       ogLocale: "en_US",
       orgDescription:
-        "Family-run, AI-native digital studio. Web & Design, Apps & Automation, SEO & Growth, Brand & Identity for SMB clients across DACH.",
+        "Family-run, AI-native digital studio. Web & design, apps & automation, and SEO for SMB clients across DACH, with brand & identity built into every build.",
       impressumTitle: "Impressum",
       impressumDescription:
         "Legal disclosure (Impressum) for Lechner Studios per § 5 ECG and § 25 MedienG.",
@@ -164,10 +164,10 @@ export const dictionaries = {
     meta: {
       homeTitle: "Lechner Studios — Design-orientiertes Digitalstudio, Tirol",
       homeDescription:
-        "Familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol. Web & Design, Apps & Automation, SEO & Growth, Marke & Identität für KMU im DACH-Raum.",
+        "Familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol. Web & Design, Apps & Automation und SEO für KMU im DACH-Raum — Marke & Identität in jedes Projekt integriert.",
       ogLocale: "de_AT",
       orgDescription:
-        "Familiengeführtes, KI-natives Digitalstudio. Web & Design, Apps & Automation, SEO & Growth, Marke & Identität für KMU im DACH-Raum.",
+        "Familiengeführtes, KI-natives Digitalstudio. Web & Design, Apps & Automation und SEO für KMU im DACH-Raum, mit Marke & Identität in jedes Projekt integriert.",
       impressumTitle: "Impressum",
       impressumDescription:
         "Offenlegung gem. § 5 ECG und § 25 MedienG für Lechner Studios.",
