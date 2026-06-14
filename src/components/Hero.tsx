@@ -50,7 +50,7 @@ export default function Hero() {
             fontWeight: 500,
             letterSpacing: "0.32em",
             textTransform: "uppercase",
-            color: "#9AA0A6",
+            color: "#8FA8C5",
             marginBottom: "2rem",
           }}
         >
@@ -87,7 +87,7 @@ export default function Hero() {
           style={{
             width: "56px",
             height: "1px",
-            background: "#9AA0A6",
+            background: "#8FA8C5",
             marginBottom: "2.5rem",
             animationDelay: "0.62s",
           }}
@@ -131,8 +131,8 @@ export default function Hero() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#9AA0A6",
-              border: "1px solid rgba(154,160,166,0.5)",
+              color: "#8FA8C5",
+              border: "1px solid rgba(143,168,197,0.5)",
               borderRadius: "2px",
               padding: "14px 26px",
               textDecoration: "none",
@@ -140,15 +140,15 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.background = "#9AA0A6";
+              t.style.background = "#8FA8C5";
               t.style.color = "#101216";
-              t.style.borderColor = "#9AA0A6";
+              t.style.borderColor = "#8FA8C5";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
               t.style.background = "transparent";
-              t.style.color = "#9AA0A6";
-              t.style.borderColor = "rgba(154,160,166,0.5)";
+              t.style.color = "#8FA8C5";
+              t.style.borderColor = "rgba(143,168,197,0.5)";
             }}
           >
             {dict.hero.ctaPrimary} →
@@ -170,7 +170,7 @@ export default function Hero() {
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
               t.style.color = "#F7F8F8";
-              t.style.borderColor = "#9AA0A6";
+              t.style.borderColor = "#8FA8C5";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
@@ -230,7 +230,7 @@ export default function Hero() {
           style={{
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, rgba(154,160,166,0.6), transparent)",
+            background: "linear-gradient(to bottom, rgba(143,168,197,0.6), transparent)",
             animation: "scrollPulse 2.5s ease-in-out infinite",
           }}
         />
