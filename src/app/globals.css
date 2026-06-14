@@ -53,7 +53,10 @@
   --accent:#254268; --accent-2:#4A6A4E;
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
-  --signature:#B8944D; --code-bg:#EEF1F1; color-scheme:light;
+  --signature:#B8944D; --code-bg:#EEF1F1;
+  /* Hero — a brand-colour band (Lake navy), same in both modes; light-sky accent (AA on navy). */
+  --hero-bg:#254268; --hero-accent:#B8C5D6;
+  color-scheme:light;
 }
 [data-theme="dark"] {
   --bg:#15171A; --bg-alt:#1B1E22; --text:#F7F8F8; --text-muted:rgba(247,248,248,0.72); --text-faint:rgba(247,248,248,0.50);

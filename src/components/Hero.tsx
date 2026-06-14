@@ -12,7 +12,7 @@ export default function Hero() {
       style={{
         position: "relative",
         minHeight: "100vh",
-        background: "var(--contrast-bg)",
+        background: "var(--hero-bg)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -50,7 +50,7 @@ export default function Hero() {
             fontWeight: 500,
             letterSpacing: "0.32em",
             textTransform: "uppercase",
-            color: "var(--accent-on-contrast)",
+            color: "var(--hero-accent)",
             marginBottom: "2rem",
           }}
         >
@@ -87,7 +87,7 @@ export default function Hero() {
           style={{
             width: "56px",
             height: "1px",
-            background: "var(--accent-on-contrast)",
+            background: "var(--hero-accent)",
             marginBottom: "2.5rem",
             animationDelay: "0.62s",
           }}
@@ -131,8 +131,8 @@ export default function Hero() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--accent-on-contrast)",
-              border: "1px solid color-mix(in srgb, var(--accent-on-contrast) 50%, transparent)",
+              color: "var(--hero-accent)",
+              border: "1px solid color-mix(in srgb, var(--hero-accent) 50%, transparent)",
               borderRadius: "2px",
               padding: "14px 26px",
               textDecoration: "none",
@@ -140,15 +140,15 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.background = "var(--accent-on-contrast)";
-              t.style.color = "var(--contrast-bg)";
-              t.style.borderColor = "var(--accent-on-contrast)";
+              t.style.background = "var(--hero-accent)";
+              t.style.color = "var(--hero-bg)";
+              t.style.borderColor = "var(--hero-accent)";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
               t.style.background = "transparent";
-              t.style.color = "var(--accent-on-contrast)";
-              t.style.borderColor = "color-mix(in srgb, var(--accent-on-contrast) 50%, transparent)";
+              t.style.color = "var(--hero-accent)";
+              t.style.borderColor = "color-mix(in srgb, var(--hero-accent) 50%, transparent)";
             }}
           >
             {dict.hero.ctaPrimary} →
@@ -170,7 +170,7 @@ export default function Hero() {
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
               t.style.color = "var(--on-contrast)";
-              t.style.borderColor = "var(--accent-on-contrast)";
+              t.style.borderColor = "var(--hero-accent)";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
@@ -230,7 +230,7 @@ export default function Hero() {
           style={{
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, color-mix(in srgb, var(--accent-on-contrast) 60%, transparent), transparent)",
+            background: "linear-gradient(to bottom, color-mix(in srgb, var(--hero-accent) 60%, transparent), transparent)",
             animation: "scrollPulse 2.5s ease-in-out infinite",
           }}
         />
