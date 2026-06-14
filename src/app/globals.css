@@ -78,12 +78,36 @@ body {
   50%       { opacity: 1;   transform: scaleY(1); }
 }
 
-.reveal { opacity: 0; animation: fadeUp 0.9s ease forwards; }
+.reveal { opacity: 0; animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .reveal-1 { animation-delay: 0.1s; }
 .reveal-2 { animation-delay: 0.3s; }
 .reveal-3 { animation-delay: 0.5s; }
 .reveal-4 { animation-delay: 0.7s; }
 .reveal-5 { animation-delay: 0.9s; }
+
+/* Hero — editorial masked line reveal + self-drawing rule.
+ * Each wordmark line sits in an overflow-hidden mask; the inner span
+ * rises into view. padding/margin trick gives descenders (g, y, p) room
+ * so the mask never clips them. */
+@keyframes lineRise { from { transform: translateY(115%); } to { transform: translateY(0); } }
+@keyframes drawLine { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.hero-line-inner {
+  display: block;
+  transform: translateY(115%);
+  animation: lineRise 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: drawLine 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
 /* Skip-link — visible only when focused (keyboard / screen-reader users).
  * Sits at the very top of the document; href="#main" jumps past the
@@ -124,6 +148,11 @@ body {
     opacity: 1 !important;
     animation: none !important;
     transform: none !important;
+  }
+  .hero-line-inner,
+  .hero-rule {
+    transform: none !important;
+    animation: none !important;
   }
   *,
   *::before,

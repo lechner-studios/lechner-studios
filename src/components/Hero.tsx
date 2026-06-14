@@ -4,6 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
   const { dict } = useLanguage();
+  const lines = dict.hero.tagline.split("\n");
 
   return (
     <section
@@ -11,7 +12,7 @@ export default function Hero() {
       style={{
         position: "relative",
         minHeight: "100vh",
-        background: "linear-gradient(160deg, #1A1812 0%, #252219 55%, #1A1812 100%)",
+        background: "#161410",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -19,19 +20,27 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Subtle radial glow */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse 60% 50% at 30% 60%, rgba(184,148,77,0.06) 0%, transparent 70%)",
-      }} />
+      {/* Editorial column grid — faint vertical hairlines for structure
+          (replaces the old radial-glow gradient). */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+        }}
+      >
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            style={{ borderRight: i < 3 ? "1px solid rgba(246,241,235,0.045)" : "none" }}
+          />
+        ))}
+      </div>
 
-      {/* Vertical rule */}
-      <div style={{
-        position: "absolute", left: "48px", top: 0, bottom: 0,
-        width: "1px", background: "rgba(246,241,235,0.06)",
-      }} />
-
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "900px" }}>
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "960px" }}>
         {/* Overline */}
         <p
           className="reveal reveal-1"
@@ -48,27 +57,40 @@ export default function Hero() {
           {dict.hero.overline}
         </p>
 
-        {/* Wordmark */}
+        {/* Wordmark — masked, line-by-line rise */}
         <h1
-          className="reveal reveal-2"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(4rem, 11vw, 9.5rem)",
             fontWeight: 300,
-            lineHeight: 0.92,
+            lineHeight: 0.95,
             letterSpacing: "-0.03em",
             color: "#F6F1EB",
             marginBottom: "2.5rem",
-            whiteSpace: "pre-line",
           }}
         >
-          {dict.hero.tagline}
+          {lines.map((ln, i) => (
+            <span key={i} className="hero-line-mask">
+              <span
+                className="hero-line-inner"
+                style={{ animationDelay: `${0.2 + i * 0.13}s` }}
+              >
+                {ln}
+              </span>
+            </span>
+          ))}
         </h1>
 
-        {/* Gold separator */}
+        {/* Gold rule — draws itself in */}
         <div
-          className="reveal reveal-3"
-          style={{ width: "48px", height: "1px", background: "#C9A961", marginBottom: "2.5rem" }}
+          className="hero-rule"
+          style={{
+            width: "56px",
+            height: "1px",
+            background: "#C9A961",
+            marginBottom: "2.5rem",
+            animationDelay: "0.62s",
+          }}
         />
 
         {/* Italiana sub-line */}
@@ -81,9 +103,9 @@ export default function Hero() {
             lineHeight: 1.4,
             letterSpacing: "0.005em",
             color: "rgba(246,241,235,0.78)",
-            marginBottom: "2.5rem",
+            marginBottom: "2.75rem",
             maxWidth: "640px",
-            animationDelay: "0.65s",
+            animationDelay: "0.78s",
           }}
         >
           {dict.hero.subline}
@@ -98,7 +120,7 @@ export default function Hero() {
             gap: "28px",
             flexWrap: "wrap",
             marginBottom: "2.75rem",
-            animationDelay: "0.8s",
+            animationDelay: "0.92s",
           }}
         >
           <a
@@ -116,13 +138,17 @@ export default function Hero() {
               textDecoration: "none",
               transition: "background 0.25s, color 0.25s, border-color 0.25s",
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.background = "#C9A961"; t.style.color = "#1A1812"; t.style.borderColor = "#C9A961";
+              t.style.background = "#C9A961";
+              t.style.color = "#161410";
+              t.style.borderColor = "#C9A961";
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.background = "transparent"; t.style.color = "#C9A961"; t.style.borderColor = "rgba(201,169,97,0.5)";
+              t.style.background = "transparent";
+              t.style.color = "#C9A961";
+              t.style.borderColor = "rgba(201,169,97,0.5)";
             }}
           >
             {dict.hero.ctaPrimary} →
@@ -141,13 +167,15 @@ export default function Hero() {
               paddingBottom: "3px",
               transition: "color 0.25s, border-color 0.25s",
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.color = "#F6F1EB"; t.style.borderColor = "#C9A961";
+              t.style.color = "#F6F1EB";
+              t.style.borderColor = "#C9A961";
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.color = "rgba(246,241,235,0.82)"; t.style.borderColor = "rgba(246,241,235,0.25)";
+              t.style.color = "rgba(246,241,235,0.82)";
+              t.style.borderColor = "rgba(246,241,235,0.25)";
             }}
           >
             {dict.hero.ctaSecondary}
@@ -156,7 +184,7 @@ export default function Hero() {
 
         {/* Location */}
         <p
-          className="reveal reveal-4"
+          className="reveal"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.62rem",
@@ -164,6 +192,7 @@ export default function Hero() {
             letterSpacing: "0.28em",
             textTransform: "uppercase",
             color: "rgba(246,241,235,0.62)",
+            animationDelay: "1.05s",
           }}
         >
           {dict.hero.location}
@@ -172,7 +201,7 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <div
-        className="reveal reveal-5"
+        className="reveal"
         style={{
           position: "absolute",
           bottom: "48px",
@@ -182,24 +211,29 @@ export default function Hero() {
           alignItems: "center",
           gap: "12px",
           zIndex: 2,
+          animationDelay: "1.2s",
         }}
       >
-        <span style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.55rem",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "rgba(246,241,235,0.62)",
-          writingMode: "vertical-rl",
-        }}>
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.55rem",
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "rgba(246,241,235,0.62)",
+            writingMode: "vertical-rl",
+          }}
+        >
           {dict.hero.scroll}
         </span>
-        <div style={{
-          width: "1px",
-          height: "60px",
-          background: "linear-gradient(to bottom, rgba(201,169,97,0.6), transparent)",
-          animation: "scrollPulse 2.5s ease-in-out infinite",
-        }} />
+        <div
+          style={{
+            width: "1px",
+            height: "60px",
+            background: "linear-gradient(to bottom, rgba(201,169,97,0.6), transparent)",
+            animation: "scrollPulse 2.5s ease-in-out infinite",
+          }}
+        />
       </div>
     </section>
   );
