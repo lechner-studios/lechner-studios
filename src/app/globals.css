@@ -48,14 +48,14 @@
  * --contrast-* = the dark editorial bands (hero + footer) that stay dark
  * in BOTH modes. --code-bg = inline/pre background for blog prose. */
 :root {
-  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#8A9098;
+  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
   --border:rgba(21,23,26,0.10); --border-strong:rgba(21,23,26,0.15);
   --accent:#254268; --accent-2:#4A6A4E;
-  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
+  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.62);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
   --signature:#B8944D; --code-bg:#EEF1F1;
   /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
-  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.55); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
+  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.66); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
   color-scheme:light;
 }
 [data-theme="dark"] {
