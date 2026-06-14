@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+
+const DRAFT_KEY = "ls-start-draft";
 
 export default function StartProject() {
   const { dict, locale } = useLanguage();
@@ -10,6 +12,46 @@ export default function StartProject() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorKey, setErrorKey] = useState<"validation" | "rate_limit" | "generic" | null>(null);
   const [consentChecked, setConsentChecked] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Restore a saved draft on mount so an accidental navigation away doesn't
+  // wipe a partly-filled form. Inputs are uncontrolled, so we set their values
+  // directly; consent is controlled, so it goes through state.
+  useEffect(() => {
+    const formEl = formRef.current;
+    if (!formEl) return;
+    let draft: Record<string, unknown> | null = null;
+    try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch { return; }
+    if (!draft) return;
+    const setVal = (name: string, val: unknown) => {
+      const el = formEl.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null;
+      if (el && typeof val === "string" && "value" in el) el.value = val;
+    };
+    setVal("name", draft.name); setVal("email", draft.email); setVal("company", draft.company);
+    setVal("goal", draft.goal); setVal("timeline", draft.timeline); setVal("budget", draft.budget);
+    setVal("currentSite", draft.currentSite); setVal("details", draft.details);
+    const pts = Array.isArray(draft.projectType) ? (draft.projectType as string[]) : [];
+    formEl.querySelectorAll('input[name="projectType"]').forEach((node) => {
+      const cb = node as HTMLInputElement;
+      cb.checked = pts.includes(cb.value);
+    });
+    if (draft.consent) setConsentChecked(true);
+  }, []);
+
+  // Persist the current form state on every change.
+  function saveDraft() {
+    const formEl = formRef.current;
+    if (!formEl) return;
+    const fd = new FormData(formEl);
+    const draft = {
+      name: fd.get("name") ?? "", email: fd.get("email") ?? "", company: fd.get("company") ?? "",
+      projectType: fd.getAll("projectType").map(String),
+      goal: fd.get("goal") ?? "", timeline: fd.get("timeline") ?? "", budget: fd.get("budget") ?? "",
+      currentSite: fd.get("currentSite") ?? "", details: fd.get("details") ?? "",
+      consent: fd.get("consent") === "on",
+    };
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch { /* ignore quota/availability */ }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -81,6 +123,7 @@ export default function StartProject() {
 
       if (response.ok) {
         setFormState("success");
+        try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       } else if (response.status === 429) {
         setFormState("error");
         setErrorKey("rate_limit");
@@ -166,7 +209,7 @@ export default function StartProject() {
 
   return (
     <div style={{ maxWidth: "640px" }}>
-      <form onSubmit={handleSubmit} noValidate>
+      <form ref={formRef} onSubmit={handleSubmit} onChange={saveDraft} noValidate>
         {/* Honeypot */}
         <div
           style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}

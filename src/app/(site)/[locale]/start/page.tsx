@@ -6,7 +6,6 @@ import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
 import Nav from "../../../../components/Nav";
 import StartProject from "../../../../components/StartProject";
-import Breadcrumb from "../../../../components/Breadcrumb";
 import Footer from "../../../../components/Footer";
 
 export async function generateMetadata({
@@ -60,7 +59,6 @@ export default async function StartPage({
           }}
         >
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            <Breadcrumb current={s.overline} />
             {/* Editorial header */}
             <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
               <p
