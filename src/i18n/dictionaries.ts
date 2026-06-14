@@ -105,19 +105,19 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "Custom websites for independent businesses. No templates, no builders — every site designed to measure for the client's market and voice.",
+          desc: "Websites and product interfaces, made to measure — from an independent business's site to the dashboards behind our own platforms. No templates, no builders.",
         },
         {
           title: "Apps & Automation",
-          desc: "Full-stack apps and AI workflows that do the actual work. Phone answering, content automation, intelligent back-office systems.",
+          desc: "Full-stack software and AI systems that do the actual work — PropTech VR, virtual-office SaaS, AI phone agents, content automation. We build the products, not just the sites.",
         },
         {
           title: "SEO & Growth",
-          desc: "Patient, measured, compounding visibility. The web work that pays back over years, not quarters.",
+          desc: "Patient, measured, compounding visibility — for client work and our own products alike. The kind that pays back over years, not quarters.",
         },
         {
           title: "Brand & Identity",
-          desc: "Names, marks, palettes, voice. The signature your business carries everywhere it goes.",
+          desc: "Names, marks, palettes, voice — the same system we rebuilt our own brand on, end to end.",
         },
       ],
     },
@@ -257,19 +257,19 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "Maßgeschneiderte Websites für unabhängige Unternehmen. Keine Vorlagen, kein Baukasten — jede Site nach Maß für Markt und Stimme des Kunden.",
+          desc: "Websites und Produkt-Interfaces nach Maß — von der Website eines unabhängigen Unternehmens bis zu den Dashboards hinter unseren eigenen Plattformen. Keine Vorlagen, kein Baukasten.",
         },
         {
           title: "Apps & Automation",
-          desc: "Apps und KI-Workflows, die die Arbeit übernehmen. Telefon-Assistenz, Content-Automatisierung, intelligentes Back-Office.",
+          desc: "Full-Stack-Software und KI-Systeme, die die Arbeit übernehmen — PropTech-VR, Virtual-Office-SaaS, KI-Telefonassistenz, Content-Automatisierung. Wir bauen die Produkte, nicht nur die Websites.",
         },
         {
           title: "SEO & Growth",
-          desc: "Geduldige, messbare, kumulierende Sichtbarkeit. Webarbeit, die sich über Jahre auszahlt — nicht über Quartale.",
+          desc: "Geduldige, messbare, kumulierende Sichtbarkeit — für Kundenprojekte wie für unsere eigenen Produkte. Die Art, die sich über Jahre auszahlt, nicht über Quartale.",
         },
         {
           title: "Marke & Identität",
-          desc: "Namen, Marken, Farben, Stimme. Die Signatur, die Ihr Unternehmen überallhin trägt.",
+          desc: "Namen, Marken, Farben, Stimme — dasselbe System, mit dem wir unsere eigene Marke neu aufgebaut haben, von Anfang bis Ende.",
         },
       ],
     },
