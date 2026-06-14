@@ -22,7 +22,7 @@ export default function Services() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "#15171A",
+        background: "var(--bg)",
         padding: "120px 48px",
         overflow: "hidden",
       }}
@@ -41,7 +41,7 @@ export default function Services() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#8FA8C5",
+          color: "var(--accent)",
           marginBottom: "2rem",
         }}>
           {d.overline}
@@ -54,7 +54,7 @@ export default function Services() {
           fontWeight: 300,
           lineHeight: 1.1,
           letterSpacing: "-0.02em",
-          color: "#F7F8F8",
+          color: "var(--text)",
           marginBottom: "80px",
           whiteSpace: "pre-line",
         }}>
@@ -66,7 +66,7 @@ export default function Services() {
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1px",
-          background: "rgba(247,248,248,0.07)",
+          background: "var(--border)",
         }}>
           {d.items.map((item, i) => {
             const p = PILLARS[i] ?? PILLARS[0];

@@ -5,17 +5,31 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { alternateLocale, LOCALES, HREFLANG } from "../i18n/config";
 import Wordmark from "./Wordmark";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const { dict, locale } = useLanguage();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hash, setHash] = useState("");
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Track the active theme so the (solid) wordmark stays legible in dark mode:
+  // its dark ink would otherwise sit invisibly on the now-dark solid nav.
+  // The ThemeToggle mutates document.documentElement.dataset.theme; observe it.
+  useEffect(() => {
+    const root = document.documentElement;
+    const sync = () => setIsDark(root.dataset.theme === "dark");
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
   }, []);
 
   // Track URL hash so the language-toggle Link preserves the user's
@@ -49,9 +63,9 @@ export default function Nav() {
     justifyContent: "space-between",
     alignItems: "center",
     padding: solid ? "16px 48px" : "24px 48px",
-    background: solid ? "rgba(247,248,248,0.96)" : "transparent",
+    background: solid ? "color-mix(in srgb, var(--bg) 96%, transparent)" : "transparent",
     backdropFilter: solid ? "blur(20px)" : "none",
-    boxShadow: solid ? "0 1px 0 rgba(21,23,26,0.08)" : "none",
+    boxShadow: solid ? "0 1px 0 var(--border)" : "none",
     mixBlendMode: solid ? "normal" : "difference",
     transition: "all 0.5s cubic-bezier(0.22,1,0.36,1)",
   };
@@ -68,7 +82,7 @@ export default function Nav() {
     fontWeight: 600,
     letterSpacing: "0.18em",
     textTransform: "uppercase",
-    color: solid ? "#5B6168" : "#F7F8F8",
+    color: solid ? "var(--text-muted)" : "var(--on-contrast)",
     textDecoration: "none",
     transition: "color 0.3s",
     cursor: "pointer",
@@ -81,42 +95,45 @@ export default function Nav() {
   const toggleStyle: React.CSSProperties = {
     ...linkStyle,
     paddingLeft: "16px",
-    borderLeft: `1px solid ${solid ? "rgba(21,23,26,0.2)" : "rgba(247,248,248,0.3)"}`,
+    borderLeft: `1px solid ${solid ? "var(--border-strong)" : "var(--contrast-border)"}`,
     marginLeft: "8px",
-    color: solid ? "#15171A" : "#F7F8F8",
+    color: solid ? "var(--text)" : "var(--on-contrast)",
     fontWeight: 700,
   };
 
   return (
     <nav className="lc-pad-nav" style={navStyle}>
       <Link href={homeHref} style={logoLinkStyle} aria-label="Lechner Studios">
-        <Wordmark variant="inline" size={22} onDark={!solid} />
+        <Wordmark variant="inline" size={22} onDark={!solid || isDark} />
       </Link>
       <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
         <Link
           href={`/${locale}/work`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--accent-on-contrast)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--on-contrast)"; }}
         >{dict.nav.work}</Link>
         <Link
           href={`/${locale}/about`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--accent-on-contrast)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--on-contrast)"; }}
         >{dict.nav.about}</Link>
         <Link
           href={`/${locale}/blog`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--accent-on-contrast)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--on-contrast)"; }}
         >{dict.nav.journal}</Link>
         <Link
           href={`/${locale}/contact`}
           style={linkStyle}
-          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--accent-on-contrast)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--on-contrast)"; }}
         >{dict.nav.contact}</Link>
+        <span style={{ display: "inline-flex", color: solid ? "var(--text)" : "var(--on-contrast)" }}>
+          <ThemeToggle />
+        </span>
         <Link href={altHref} hrefLang={HREFLANG[alt]} style={toggleStyle}>
           {dict.nav.toggle}
         </Link>
