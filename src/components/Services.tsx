@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 
@@ -13,8 +14,12 @@ const PILLARS = [
   { bg: "var(--color-pillar-pine-deep)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
 ];
 
+// The first three pillars link to their dedicated service pages.
+// Index matches the 2×2 grid order; the 4th (Brand & Identity) has no page.
+const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", "seo", null];
+
 export default function Services() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const d = dict.services;
 
   return (
@@ -70,18 +75,22 @@ export default function Services() {
         }}>
           {d.items.map((item, i) => {
             const p = PILLARS[i] ?? PILLARS[0];
-            return (
-              <div
-                key={i}
-                className="grain"
-                style={{
-                  position: "relative",
-                  padding: "56px 48px",
-                  background: p.bg,
-                  overflow: "hidden",
-                  minHeight: "260px",
-                }}
-              >
+            const slug = PILLAR_SLUGS[i];
+
+            const cellStyle: React.CSSProperties = {
+              position: "relative",
+              display: "block",
+              padding: "56px 48px",
+              background: p.bg,
+              overflow: "hidden",
+              minHeight: "260px",
+              color: "inherit",
+              textDecoration: "none",
+              transition: "opacity 0.25s",
+            };
+
+            const inner = (
+              <>
                 <div style={{
                   position: "relative",
                   zIndex: 1,
@@ -106,8 +115,14 @@ export default function Services() {
                   marginBottom: "16px",
                   lineHeight: 1.2,
                   letterSpacing: "0.005em",
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "10px",
                 }}>
                   {item.title}
+                  {slug && (
+                    <span aria-hidden="true" style={{ fontFamily: "var(--font-mono)", fontSize: "1rem", opacity: 0.7 }}>→</span>
+                  )}
                 </h3>
                 <p style={{
                   position: "relative",
@@ -120,6 +135,27 @@ export default function Services() {
                 }}>
                   {item.desc}
                 </p>
+              </>
+            );
+
+            if (slug) {
+              return (
+                <Link
+                  key={i}
+                  href={`/${locale}/${slug}`}
+                  className="grain"
+                  style={cellStyle}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.86")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+                >
+                  {inner}
+                </Link>
+              );
+            }
+
+            return (
+              <div key={i} className="grain" style={cellStyle}>
+                {inner}
               </div>
             );
           })}
