@@ -108,19 +108,19 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "Websites and product interfaces, made to measure — from an independent business's site to the dashboards behind our own platforms. No templates, no builders.",
+          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we run ourselves. No builders, no compromises.",
         },
         {
           title: "Apps & Automation",
-          desc: "Full-stack software and AI systems that do the actual work — PropTech VR, virtual-office SaaS, AI phone agents, content automation. We build the products, not just the sites.",
+          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI systems that do the actual work — PropTech VR, virtual-office SaaS, AI phone agents, content automation.",
         },
         {
           title: "SEO & Growth",
-          desc: "Patient, measured, compounding visibility — technical SEO and search optimisation that pay back over years, not quarters. For client work and our own products alike.",
+          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
         },
         {
           title: "Brand & Identity",
-          desc: "The visual system that ships with what we build — names, marks, palettes, and voice, designed as part of your web or product build.",
+          desc: "An inconsistent look undercuts good work. A coherent visual system — names, marks, palettes, voice — comes built into your web or product project, right from the start.",
         },
       ],
     },
@@ -263,26 +263,26 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "Websites und Produkt-Interfaces nach Maß — von der Website eines unabhängigen Unternehmens bis zu den Dashboards hinter unseren eigenen Plattformen. Keine Vorlagen, kein Baukasten.",
+          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst betreiben. Keine Baukästen, keine Kompromisse.",
         },
         {
           title: "Apps & Automation",
-          desc: "Full-Stack-Software und KI-Systeme, die die Arbeit übernehmen — PropTech-VR, Virtual-Office-SaaS, KI-Telefonassistenz, Content-Automatisierung. Wir bauen die Produkte, nicht nur die Websites.",
+          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Systeme, die die Arbeit wirklich erledigen — PropTech-VR, Virtual-Office-SaaS, KI-Telefonassistenz, Content-Automatisierung.",
         },
         {
           title: "SEO & Growth",
-          desc: "Geduldige, messbare, kumulierende Sichtbarkeit — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale. Für Kundenprojekte wie für unsere eigenen Produkte.",
+          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
         },
         {
           title: "Marke & Identität",
-          desc: "Das visuelle System, das mit dem entsteht, was wir bauen — Namen, Marken, Farben und Stimme, gestaltet als Teil Ihres Web- oder Produktprojekts.",
+          desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Ein stimmiges visuelles System — Namen, Marken, Farben, Stimme — entsteht direkt mit Ihrem Web- oder Produktprojekt, von Anfang an.",
         },
       ],
     },
     contact: {
       overline: "KONTAKT",
-      headline: "Lass uns reden.",
-      body: "Erzähl uns, was du vorhast. Du bekommst eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
+      headline: "Sprechen wir.",
+      body: "Erzählen Sie uns, was Sie vorhaben. Sie bekommen eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       impressum: "Impressum",
