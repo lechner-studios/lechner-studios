@@ -68,9 +68,17 @@ export async function POST(req: NextRequest) {
       auth: { user: smtpUser, pass: smtpPass },
     });
 
+    // The studio inbox is the system-of-record. An optional notify address
+    // (e.g. a personal Gmail) is added via env so it stays OUT of this PUBLIC
+    // repo and can be changed without a redeploy. Zoho free plan blocks
+    // mailbox forwarding, so delivery to a second inbox is done here instead.
+    const recipients = ["hallo@lechner-studios.at"];
+    const notify = process.env.CONTACT_NOTIFY_EMAIL?.trim();
+    if (notify) recipients.push(notify);
+
     await transport.sendMail({
       from: `Lechner Studios Contact <${smtpUser}>`,
-      to: "hallo@lechner-studios.at",
+      to: recipients,
       replyTo: `${name} <${email}>`,
       subject: `Kontaktanfrage: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
