@@ -137,8 +137,8 @@ export const dictionaries = {
     contact: {
       overline: "CONTACT",
       headline: "Let's talk.",
-      body: "Tell us what you're building. You'll get a straight answer — what's possible, what it would take, and what it costs — within two business days. No pitch, no obligation.",
-      ctaLine: "Tell us what you're building — a straight answer within two business days.",
+      body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call — in person or online — and figure out what's possible together. No pitch, no obligation.",
+      ctaLine: "Tell us what you're building — we'll set up a first call within two business days.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {
@@ -303,8 +303,8 @@ export const dictionaries = {
     contact: {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
-      body: "Erzählen Sie uns, was Sie vorhaben. Sie bekommen eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
-      ctaLine: "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen.",
+      body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch — vor Ort oder online — und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
+      ctaLine: "Erzählen Sie uns, was Sie vorhaben — wir vereinbaren innerhalb von zwei Werktagen ein erstes Gespräch.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {
