@@ -113,11 +113,11 @@ export const dictionaries = {
         },
         {
           title: "SEO & Growth",
-          desc: "Patient, measured, compounding visibility — for client work and our own products alike. The kind that pays back over years, not quarters.",
+          desc: "Patient, measured, compounding visibility — technical SEO and search optimisation that pay back over years, not quarters. For client work and our own products alike.",
         },
         {
           title: "Brand & Identity",
-          desc: "Names, marks, palettes, voice — the same system we rebuilt our own brand on, end to end.",
+          desc: "The visual system that ships with what we build — names, marks, palettes, and voice, designed as part of your web or product build.",
         },
       ],
     },
@@ -265,11 +265,11 @@ export const dictionaries = {
         },
         {
           title: "SEO & Growth",
-          desc: "Geduldige, messbare, kumulierende Sichtbarkeit — für Kundenprojekte wie für unsere eigenen Produkte. Die Art, die sich über Jahre auszahlt, nicht über Quartale.",
+          desc: "Geduldige, messbare, kumulierende Sichtbarkeit — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale. Für Kundenprojekte wie für unsere eigenen Produkte.",
         },
         {
           title: "Marke & Identität",
-          desc: "Namen, Marken, Farben, Stimme — dasselbe System, mit dem wir unsere eigene Marke neu aufgebaut haben, von Anfang bis Ende.",
+          desc: "Das visuelle System, das mit dem entsteht, was wir bauen — Namen, Marken, Farben und Stimme, gestaltet als Teil Ihres Web- oder Produktprojekts.",
         },
       ],
     },
