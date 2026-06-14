@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
@@ -18,10 +19,11 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
   service: "statusService",
 };
 
-export default function Work() {
+export default function Work({ limit, moreHref }: { limit?: number; moreHref?: string }) {
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
+  const items = typeof limit === "number" ? d.items.slice(0, limit) : d.items;
 
   return (
     <section
@@ -90,7 +92,7 @@ export default function Work() {
 
         {/* Project list */}
         <div>
-          {d.items.map((item, i) => {
+          {items.map((item, i) => {
             const isHovered = hovered === item.id;
             const statusStyle = STATUS_STYLES[item.status] || STATUS_STYLES.planned;
             const statusLabel = d[STATUS_LABEL_MAP[item.status] as keyof typeof d] as string;
@@ -208,6 +210,28 @@ export default function Work() {
             );
           })}
         </div>
+
+        {moreHref && (
+          <Link
+            href={moreHref}
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.7rem",
+              fontWeight: 600,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "#254268",
+              textDecoration: "none",
+              display: "inline-block",
+              marginTop: "48px",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#1B3252")}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#254268")}
+          >
+            {d.viewAll}
+          </Link>
+        )}
       </div>
     </section>
   );
