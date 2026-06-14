@@ -68,7 +68,7 @@ export default function Work() {
           <span style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.6rem",
-            color: "#5B6168",
+            color: "#254268",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
           }}>
@@ -126,7 +126,7 @@ export default function Work() {
                 <span style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.65rem",
-                  color: "#5B6168",
+                  color: "#254268",
                   fontWeight: 400,
                   paddingTop: "4px",
                 }}>
@@ -195,7 +195,7 @@ export default function Work() {
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.65rem",
                       fontWeight: 600,
-                      color: "#5B6168",
+                      color: "#254268",
                       letterSpacing: "0.08em",
                       opacity: isHovered ? 1 : 0,
                       transition: "opacity 0.2s",

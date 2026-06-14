@@ -25,7 +25,7 @@ export default function Founder() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#254268",
+          color: "#4A6A4E",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
