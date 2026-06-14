@@ -25,8 +25,8 @@ export const dictionaries = {
     },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
-      tagline: "Design-led digital studio\nfrom Tirol.",
-      subline: "Websites, apps, and automation, made to measure for independent businesses across the DACH region — modern, precise, and built to perform.",
+      tagline: "Websites, apps & automation,\nbuilt to measure.",
+      subline: "A design-led digital studio from Tirol, building for independent businesses across the DACH region.",
       ctaPrimary: "Start a project",
       ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
@@ -180,8 +180,8 @@ export const dictionaries = {
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
-      tagline: "Design-orientiertes Digitalstudio\naus Tirol.",
-      subline: "Websites, Apps und Automatisierung, maßgeschneidert für unabhängige Unternehmen im DACH-Raum — modern, präzise und auf Wirkung gebaut.",
+      tagline: "Websites, Apps & Automatisierung,\nmaßgeschneidert.",
+      subline: "Ein design-orientiertes Digitalstudio aus Tirol — für unabhängige Unternehmen im DACH-Raum.",
       ctaPrimary: "Projekt starten",
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
