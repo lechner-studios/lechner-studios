@@ -3,6 +3,7 @@ export const dictionaries = {
     nav: {
       work: "Work",
       about: "About",
+      journal: "Journal",
       contact: "Contact",
       toggle: "DE",
     },
@@ -31,6 +32,19 @@ export const dictionaries = {
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
+      blogTitle: "Journal",
+      blogDescription:
+        "Practical notes on web design, apps, automation and SEO for independent businesses.",
+    },
+    blog: {
+      overline: "JOURNAL",
+      headline: "Notes on craft, code & the web.",
+      intro:
+        "Occasional, practical writing on web design, apps, automation and SEO — what we've learned building digital products for independent businesses.",
+      readMore: "Read →",
+      backToBlog: "← All articles",
+      empty: "Articles coming soon.",
+      published: "Published",
     },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
@@ -169,6 +183,7 @@ export const dictionaries = {
     nav: {
       work: "Arbeiten",
       about: "Über uns",
+      journal: "Journal",
       contact: "Kontakt",
       toggle: "EN",
     },
@@ -197,6 +212,19 @@ export const dictionaries = {
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
+      blogTitle: "Journal",
+      blogDescription:
+        "Praktische Notizen zu Webdesign, Apps, Automatisierung und SEO für unabhängige Unternehmen.",
+    },
+    blog: {
+      overline: "JOURNAL",
+      headline: "Notizen zu Handwerk, Code & Web.",
+      intro:
+        "Gelegentliche, praxisnahe Texte zu Webdesign, Apps, Automatisierung und SEO — was wir beim Bauen digitaler Produkte für unabhängige Unternehmen gelernt haben.",
+      readMore: "Lesen →",
+      backToBlog: "← Alle Beiträge",
+      empty: "Beiträge folgen in Kürze.",
+      published: "Veröffentlicht",
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
