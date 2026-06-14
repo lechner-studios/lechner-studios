@@ -161,6 +161,101 @@ export const dictionaries = {
         },
       ],
     },
+    serviceDetail: {
+      web: {
+        slug: "webdesign",
+        metaTitle: "Web Design Tirol — custom websites for SMBs",
+        metaDescription:
+          "Web design studio in Tirol. Custom, hand-built websites for SMBs across DACH — no templates, no builders. Designed to measure, built to last.",
+        overline: "WEB & DESIGN",
+        headline: "Custom websites for independent businesses.",
+        intro:
+          "A template makes you look like everyone else, and a builder boxes you in the moment you grow. As a web design studio in Tirol, we design and build every website to measure — for SMBs across the DACH region who want a site that fits their market, their voice, and the way they actually work.",
+        sections: [
+          {
+            h: "Designed to measure, not assembled",
+            p: "No templates, no page builders. Every layout, typeface and interaction is decided for your business — so the site reads as yours, not as another instance of the same theme.",
+          },
+          {
+            h: "Built on a fast, durable foundation",
+            p: "We build on a modern stack with clean, semantic markup and quick load times. The result is a website that stays maintainable and ages well, rather than one you have to rebuild in two years.",
+          },
+          {
+            h: "Bilingual and ready for Tirol & DACH",
+            p: "German and English from the same source, with the structure search engines and local visitors expect — proper headings, accessible markup, and a clear path to contact you.",
+          },
+          {
+            h: "Brand consistency built in",
+            p: "A coherent visual system — marks, palette, type and voice — is part of the build from the start, so your site looks of a piece rather than stitched together.",
+          },
+        ],
+        proof:
+          "We don't only build for clients — Werk is our own custom-website service, and every platform we run (Vistera, Virtual Office Tirol, CodeFlash) is hand-built to the same standard. The work is the proof.",
+        ctaLabel: "Discuss your project",
+      },
+      apps: {
+        slug: "apps-automation",
+        metaTitle: "App Development & Automation Tirol — for SMBs",
+        metaDescription:
+          "App development and process automation in Tirol. We build full-stack apps and AI automation that take repetitive work off SMB teams across DACH.",
+        overline: "APPS & AUTOMATION",
+        headline: "Apps and automation that do the actual work.",
+        intro:
+          "The repetitive work that eats your week — re-keying data, chasing forms, answering the same questions — is work software can take off your hands. We build full-stack apps and AI automation for SMBs in Tirol and across DACH, aimed squarely at the tasks that drain time today.",
+        sections: [
+          {
+            h: "Start from the bottleneck",
+            p: "We look at where time actually goes and automate the specific, repeatable steps — not a vague \"digital transformation,\" but the concrete process that's costing you hours each week.",
+          },
+          {
+            h: "Full-stack apps, built to fit",
+            p: "Custom web applications and internal tools designed around your workflow, integrated with the systems you already use, rather than forcing your business into off-the-shelf software.",
+          },
+          {
+            h: "AI automation, used responsibly",
+            p: "We use AI where it earns its place — phone answering, content automation, back-office routing — inside clear, reviewable scopes, so a human stays in control of anything that matters.",
+          },
+          {
+            h: "Maintainable and observable",
+            p: "Clean code, sensible logging and documentation, so what we build keeps running and can be handed over or extended without a rewrite.",
+          },
+        ],
+        proof:
+          "This is what we build for ourselves: Virtual Office Tirol runs AI phone answering and automated back-office for Innsbruck businesses, Vistera powers VR property walkthroughs, and our content pipelines automate real production work. Each was built in-house, the same way we'd build yours.",
+        ctaLabel: "Discuss your project",
+      },
+      seo: {
+        slug: "seo",
+        metaTitle: "SEO Tirol — technical search optimisation for SMBs",
+        metaDescription:
+          "Technical SEO in Tirol. On-page and technical search optimisation for SMBs — clean markup, fast load times, structured data and local findability.",
+        overline: "SEO",
+        headline: "Technical SEO that makes good businesses findable.",
+        intro:
+          "Most good businesses are effectively invisible in search — not because the work is poor, but because the site isn't built to be found. We focus strictly on technical and on-page search optimisation for SMBs in Tirol and across DACH: the structural foundations that let search engines crawl, understand and surface your pages.",
+        sections: [
+          {
+            h: "Technical audit & crawlability",
+            p: "We check what search engines actually see — indexability, crawl paths, redirects, canonical tags and sitemaps — and fix the technical issues that quietly keep pages out of results.",
+          },
+          {
+            h: "On-page optimisation",
+            p: "Clean heading structure, descriptive titles and meta descriptions, semantic HTML and internal linking, so each page clearly signals what it's about.",
+          },
+          {
+            h: "Core Web Vitals & performance",
+            p: "Load time and page experience are ranking and usability factors. We optimise performance — Core Web Vitals, image and asset handling — so pages are fast on real devices.",
+          },
+          {
+            h: "Structured data & local findability",
+            p: "Schema markup and a clean local setup (consistent business details, proper bilingual hreflang) help search engines present your pages correctly and surface them for local, regional searches.",
+          },
+        ],
+        proof:
+          "The technical foundations of search visibility — semantic markup, fast load times, structured data, bilingual hreflang — are built into every site we ship, including our own platforms. We optimise on the same fundamentals we apply to our own work; we don't promise rankings or sell business strategy.",
+        ctaLabel: "Discuss your project",
+      },
+    },
     contact: {
       overline: "CONTACT",
       headline: "Let's talk.",
@@ -388,6 +483,101 @@ export const dictionaries = {
           desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Ein stimmiges visuelles System — Namen, Marken, Farben, Stimme — entsteht direkt mit Ihrem Web- oder Produktprojekt, von Anfang an.",
         },
       ],
+    },
+    serviceDetail: {
+      web: {
+        slug: "webdesign",
+        metaTitle: "Webdesign Tirol — maßgeschneiderte Websites für KMU",
+        metaDescription:
+          "Webagentur in Tirol & Innsbruck. Maßgeschneiderte Websites für KMU im DACH-Raum — keine Vorlagen, kein Baukasten, nach Maß gebaut.",
+        overline: "WEB & DESIGN",
+        headline: "Maßgeschneiderte Websites für unabhängige Unternehmen.",
+        intro:
+          "Eine Website von der Stange lässt Sie aussehen wie alle anderen, und ein Baukasten engt Sie ein, sobald Sie wachsen. Als Webagentur aus Tirol gestalten und bauen wir jede Website nach Maß — für KMU im DACH-Raum, die eine Site wollen, die zu ihrem Markt, ihrer Stimme und ihrer tatsächlichen Arbeitsweise passt.",
+        sections: [
+          {
+            h: "Nach Maß gestaltet, nicht zusammengesteckt",
+            p: "Keine Vorlagen, kein Baukasten. Jedes Layout, jede Schrift und jede Interaktion wird für Ihr Unternehmen entschieden — damit die Site nach Ihnen aussieht und nicht nach dem nächsten Exemplar desselben Themes.",
+          },
+          {
+            h: "Auf schnellem, langlebigem Fundament gebaut",
+            p: "Wir bauen auf einem modernen Stack mit sauberem, semantischem Markup und kurzen Ladezeiten. Das Ergebnis ist eine Website, die wartbar bleibt und gut altert — statt einer, die Sie in zwei Jahren neu bauen müssen.",
+          },
+          {
+            h: "Zweisprachig und bereit für Tirol & DACH",
+            p: "Deutsch und Englisch aus einer Quelle, mit der Struktur, die Suchmaschinen und lokale Besucher erwarten — saubere Überschriften, barrierearmes Markup und ein klarer Weg zur Kontaktaufnahme.",
+          },
+          {
+            h: "Markenkonsistenz von Anfang an",
+            p: "Ein stimmiges visuelles System — Marken, Farben, Schrift und Stimme — ist von Beginn an Teil des Projekts, damit Ihre Site aus einem Guss wirkt statt zusammengeflickt.",
+          },
+        ],
+        proof:
+          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir betreiben (Vistera, Virtual Office Tirol, CodeFlash), ist nach demselben Standard von Hand gebaut. Die Arbeit ist der Beweis.",
+        ctaLabel: "Projekt besprechen",
+      },
+      apps: {
+        slug: "apps-automation",
+        metaTitle: "App-Entwicklung & Automatisierung Tirol — für KMU",
+        metaDescription:
+          "App-Entwicklung und Prozessautomatisierung in Tirol. Full-Stack-Apps und KI-Automatisierung, die wiederkehrende Arbeit von KMU-Teams im DACH-Raum übernehmen.",
+        overline: "APPS & AUTOMATION",
+        headline: "Apps und Automatisierung, die die Arbeit wirklich erledigen.",
+        intro:
+          "Die wiederkehrende Arbeit, die Ihre Woche frisst — Daten neu eintippen, Formularen hinterherlaufen, dieselben Fragen beantworten — kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung für KMU in Tirol und im DACH-Raum, gezielt für die Aufgaben, die heute Zeit kosten.",
+        sections: [
+          {
+            h: "Beim Engpass ansetzen",
+            p: "Wir schauen, wohin die Zeit tatsächlich fließt, und automatisieren die konkreten, wiederholbaren Schritte — keine vage „digitale Transformation“, sondern genau den Prozess, der Sie jede Woche Stunden kostet.",
+          },
+          {
+            h: "Full-Stack-Apps, passgenau gebaut",
+            p: "Maßgeschneiderte Web-Applikationen und interne Tools rund um Ihren Arbeitsablauf, integriert mit den Systemen, die Sie bereits nutzen — statt Ihr Unternehmen in Software von der Stange zu zwingen.",
+          },
+          {
+            h: "KI verantwortungsvoll eingesetzt",
+            p: "Wir setzen KI dort ein, wo sie ihren Platz verdient — Telefon-Assistenz, Content-Automatisierung, Back-Office-Routing — innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
+          },
+          {
+            h: "Wartbar und nachvollziehbar",
+            p: "Sauberer Code, sinnvolles Logging und Dokumentation, damit das Gebaute weiterläuft und sich übergeben oder erweitern lässt — ohne Neuschreiben.",
+          },
+        ],
+        proof:
+          "Genau das bauen wir für uns selbst: Virtual Office Tirol betreibt KI-Telefon-Assistenz und automatisiertes Back-Office für Innsbrucker Betriebe, Vistera treibt VR-Immobilienrundgänge an, und unsere Content-Pipelines automatisieren echte Produktionsarbeit. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
+        ctaLabel: "Projekt besprechen",
+      },
+      seo: {
+        slug: "seo",
+        metaTitle: "SEO Tirol — technische Suchmaschinenoptimierung für KMU",
+        metaDescription:
+          "Technisches SEO in Tirol & Innsbruck. On-Page- und technische Suchmaschinenoptimierung für KMU — sauberes Markup, schnelle Ladezeiten, lokale Sichtbarkeit.",
+        overline: "SEO",
+        headline: "Technisches SEO, das gute Unternehmen auffindbar macht.",
+        intro:
+          "Die meisten guten Unternehmen sind in der Suche praktisch unsichtbar — nicht, weil die Arbeit schlecht wäre, sondern weil die Site nicht aufs Gefundenwerden gebaut ist. Wir konzentrieren uns strikt auf technische und On-Page-Suchmaschinenoptimierung für KMU in Tirol und im DACH-Raum: die strukturellen Grundlagen, die Suchmaschinen erlauben, Ihre Seiten zu crawlen, zu verstehen und anzuzeigen.",
+        sections: [
+          {
+            h: "Technisches Audit & Crawlbarkeit",
+            p: "Wir prüfen, was Suchmaschinen tatsächlich sehen — Indexierbarkeit, Crawl-Pfade, Weiterleitungen, Canonical-Tags und Sitemaps — und beheben die technischen Probleme, die Seiten still aus den Ergebnissen halten.",
+          },
+          {
+            h: "On-Page-Optimierung",
+            p: "Saubere Überschriftenstruktur, aussagekräftige Titel und Meta-Beschreibungen, semantisches HTML und interne Verlinkung, damit jede Seite klar signalisiert, worum es geht.",
+          },
+          {
+            h: "Core Web Vitals & Performance",
+            p: "Ladezeit und Seitenerlebnis sind Ranking- und Usability-Faktoren. Wir optimieren die Performance — Core Web Vitals, Bild- und Asset-Handling — damit Seiten auf echten Geräten schnell sind.",
+          },
+          {
+            h: "Strukturierte Daten & lokale Auffindbarkeit",
+            p: "Schema-Markup und ein sauberes lokales Setup (konsistente Unternehmensangaben, korrektes zweisprachiges hreflang) helfen Suchmaschinen, Ihre Seiten korrekt darzustellen und für lokale, regionale Suchanfragen anzuzeigen.",
+          },
+        ],
+        proof:
+          "Die technischen Grundlagen der Sichtbarkeit — semantisches Markup, kurze Ladezeiten, strukturierte Daten, zweisprachiges hreflang — sind in jeder Site enthalten, die wir ausliefern, auch in unseren eigenen Plattformen. Wir optimieren auf denselben Grundlagen, die wir auf unsere eigene Arbeit anwenden; wir versprechen keine Rankings und verkaufen keine Unternehmensberatung.",
+        ctaLabel: "Projekt besprechen",
+      },
     },
     contact: {
       overline: "KONTAKT",
