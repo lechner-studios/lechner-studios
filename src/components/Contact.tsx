@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   const { dict } = useLanguage();
@@ -96,7 +97,7 @@ export default function Contact() {
         borderTop: "1px solid rgba(21,23,26,0.08)",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <Reveal style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div className="lc-stack-2col" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -335,7 +336,7 @@ export default function Contact() {
             </p>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

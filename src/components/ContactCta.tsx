@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 export default function ContactCta() {
   const { dict, locale } = useLanguage();
@@ -16,7 +17,7 @@ export default function ContactCta() {
         textAlign: "center",
       }}
     >
-      <div style={{ maxWidth: "760px", margin: "0 auto" }}>
+      <Reveal style={{ maxWidth: "760px", margin: "0 auto" }}>
         <p
           style={{
             fontFamily: "var(--font-mono)",
@@ -84,7 +85,7 @@ export default function ContactCta() {
         >
           {dict.hero.ctaPrimary} →
         </Link>
-      </div>
+      </Reveal>
     </section>
   );
 }

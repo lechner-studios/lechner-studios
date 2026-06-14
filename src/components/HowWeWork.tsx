@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 export default function HowWeWork() {
   const { dict } = useLanguage();
@@ -30,7 +31,7 @@ export default function HowWeWork() {
         }}
       />
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <Reveal style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: "760px" }}>
           <p
             style={{
@@ -65,7 +66,7 @@ export default function HowWeWork() {
             style={{
               width: "48px",
               height: "1px",
-              background: "#9AA0A6",
+              background: "#8FA8C5",
               marginBottom: "2.5rem",
             }}
           />
@@ -82,7 +83,7 @@ export default function HowWeWork() {
             {d.statement}
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

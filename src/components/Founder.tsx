@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 export default function Founder() {
   const { dict } = useLanguage();
@@ -18,7 +19,7 @@ export default function Founder() {
         borderTop: "1px solid rgba(21,23,26,0.08)",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <Reveal style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.62rem",
@@ -95,7 +96,7 @@ export default function Founder() {
             {d.body}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

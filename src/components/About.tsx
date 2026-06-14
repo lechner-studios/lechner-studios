@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 export default function About() {
   const { dict } = useLanguage();
@@ -16,7 +17,7 @@ export default function About() {
         borderTop: "1px solid rgba(21,23,26,0.08)",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <Reveal style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Overline */}
         <p style={{
           fontFamily: "var(--font-mono)",
@@ -93,7 +94,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
