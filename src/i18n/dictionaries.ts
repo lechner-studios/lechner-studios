@@ -26,7 +26,9 @@ export const dictionaries = {
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Design-led digital studio\nfrom Tirol.",
-      subline: "Modern. Precise. European. Family-run. AI-native.",
+      subline: "Websites, apps, and automation, made to measure for independent businesses across the DACH region — modern, precise, and built to perform.",
+      ctaPrimary: "Start a project",
+      ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLL",
     },
@@ -54,6 +56,7 @@ export const dictionaries = {
     work: {
       overline: "SELECTED WORK",
       headline: "Products & Projects",
+      lead: "We don't only build for clients — we build and run our own products. The same craft goes into every project.",
       statusLive: "Live",
       statusDev: "In Development",
       statusPaused: "Paused",
@@ -124,7 +127,7 @@ export const dictionaries = {
     contact: {
       overline: "CONTACT",
       headline: "Let's talk.",
-      body: "New projects, collaborations, or just curious about the work — reach out directly.",
+      body: "Tell us what you're building. You'll get a straight answer — what's possible, what it would take, and what it costs — within two business days. No pitch, no obligation.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       impressum: "Impressum",
@@ -178,7 +181,9 @@ export const dictionaries = {
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
       tagline: "Design-orientiertes Digitalstudio\naus Tirol.",
-      subline: "Modern. Präzise. Europäisch. Familiengeführt. KI-nativ.",
+      subline: "Websites, Apps und Automatisierung, maßgeschneidert für unabhängige Unternehmen im DACH-Raum — modern, präzise und auf Wirkung gebaut.",
+      ctaPrimary: "Projekt starten",
+      ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLLEN",
     },
@@ -206,6 +211,7 @@ export const dictionaries = {
     work: {
       overline: "AUSGEWÄHLTE ARBEITEN",
       headline: "Produkte & Projekte",
+      lead: "Wir bauen nicht nur für Kunden — wir entwickeln und betreiben eigene Produkte. Dieselbe Sorgfalt steckt in jedem Projekt.",
       statusLive: "Live",
       statusDev: "In Entwicklung",
       statusPaused: "Pausiert",
@@ -276,7 +282,7 @@ export const dictionaries = {
     contact: {
       overline: "KONTAKT",
       headline: "Lass uns reden.",
-      body: "Neue Projekte, Kooperationen oder einfach neugierig auf die Arbeit — meld dich direkt.",
+      body: "Erzähl uns, was du vorhast. Du bekommst eine klare Antwort — was möglich ist, was es braucht und was es kostet — innerhalb von zwei Werktagen. Kein Verkaufsgespräch, keine Verpflichtung.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       impressum: "Impressum",

@@ -76,6 +76,18 @@ export default function Work() {
           </span>
         </div>
 
+        {/* Lead — products-as-proof framing */}
+        <p style={{
+          fontSize: "1.05rem",
+          color: "#6B6356",
+          lineHeight: 1.75,
+          maxWidth: "62ch",
+          marginTop: "-32px",
+          marginBottom: "56px",
+        }}>
+          {d.lead}
+        </p>
+
         {/* Project list */}
         <div>
           {d.items.map((item, i) => {
