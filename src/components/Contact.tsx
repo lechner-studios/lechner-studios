@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
-  const { dict, locale } = useLanguage();
+  const { dict } = useLanguage();
   const d = dict.contact;
   const f = d.form;
 
@@ -334,37 +333,6 @@ export default function Contact() {
             }}>
               {d.location}
             </p>
-
-            <div style={{ display: "flex", gap: "24px" }}>
-              <Link href={`/${locale}/impressum`} style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
-                color: "#6B6356",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = "#1A1812")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#6B6356")}
-              >
-                {d.impressum}
-              </Link>
-              <Link href={`/${locale}/privacy`} style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
-                color: "#6B6356",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.color = "#1A1812")}
-                onMouseLeave={e => ((e.target as HTMLElement).style.color = "#6B6356")}
-              >
-                {d.privacy}
-              </Link>
-            </div>
           </div>
         </div>
       </div>

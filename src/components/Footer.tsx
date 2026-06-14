@@ -1,12 +1,23 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import EndorsementStamp from "./EndorsementStamp";
 
 export default function Footer() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const d = dict.footer;
   const year = new Date().getFullYear();
+
+  const legalLinkStyle: React.CSSProperties = {
+    fontFamily: "var(--font-mono)",
+    fontSize: "0.6rem",
+    color: "rgba(246,241,235,0.6)",
+    letterSpacing: "0.15em",
+    textTransform: "uppercase",
+    textDecoration: "none",
+    transition: "color 0.2s",
+  };
 
   return (
     <footer className="lc-pad-footer" style={{
@@ -48,6 +59,34 @@ export default function Footer() {
         }}>
           © {year} · {d.rights}
         </span>
+      </div>
+
+      {/* Legal disclosure links — Impressum/Datenschutz live in the footer
+          where they're expected and §5 ECG-findable. */}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "28px",
+        flexWrap: "wrap",
+        width: "100%",
+      }}>
+        <Link
+          href={`/${locale}/impressum`}
+          style={legalLinkStyle}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F6F1EB")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(246,241,235,0.6)")}
+        >
+          {d.impressum}
+        </Link>
+        <Link
+          href={`/${locale}/privacy`}
+          style={legalLinkStyle}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F6F1EB")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(246,241,235,0.6)")}
+        >
+          {d.privacy}
+        </Link>
       </div>
     </footer>
   );
