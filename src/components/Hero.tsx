@@ -124,7 +124,7 @@ export default function Hero() {
           }}
         >
           <a
-            href={`/${locale}/contact`}
+            href={`/${locale}/start`}
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.7rem",

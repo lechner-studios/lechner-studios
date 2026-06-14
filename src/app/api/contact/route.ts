@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
   }
 
-  let payload: { name?: string; email?: string; message?: string; consent?: boolean; _hp?: string };
+  let payload: { name?: string; email?: string; message?: string; consent?: boolean; _hp?: string; subject?: string };
   try {
     payload = await req.json();
   } catch {
@@ -43,6 +43,9 @@ export async function POST(req: NextRequest) {
   const name = (payload.name ?? "").trim().replace(/[\r\n]/g, "");
   const email = (payload.email ?? "").trim();
   const message = (payload.message ?? "").trim();
+  // Optional custom subject (e.g. from the project-intake form). Sanitized like
+  // name; falls back to the default subject below when absent/empty.
+  const subject = (payload.subject ?? "").trim().replace(/[\r\n]/g, "").slice(0, 150);
 
   if (
     !payload.consent ||
@@ -80,7 +83,7 @@ export async function POST(req: NextRequest) {
       from: `Lechner Studios Contact <${smtpUser}>`,
       to: recipients,
       replyTo: `${name} <${email}>`,
-      subject: `Kontaktanfrage: ${name}`,
+      subject: subject || `Kontaktanfrage: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
     });
   } catch (err) {

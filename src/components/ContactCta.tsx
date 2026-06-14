@@ -55,7 +55,7 @@ export default function ContactCta() {
           {d.ctaLine}
         </p>
         <Link
-          href={`/${locale}/contact`}
+          href={`/${locale}/start`}
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.72rem",
