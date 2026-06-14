@@ -11,9 +11,9 @@ export default function About() {
       id="about"
       className="lc-pad-section"
       style={{
-        background: "#F6F1EB",
+        background: "#F7F8F8",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(26,24,18,0.08)",
+        borderTop: "1px solid rgba(21,23,26,0.08)",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -24,7 +24,7 @@ export default function About() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#7A6029",
+          color: "#5B6168",
           marginBottom: "2.5rem",
         }}>
           {d.overline}
@@ -43,7 +43,7 @@ export default function About() {
             fontWeight: 400,
             lineHeight: 1.15,
             letterSpacing: "-0.02em",
-            color: "#1A1812",
+            color: "#15171A",
           }}>
             {d.headline}
           </h2>
@@ -53,7 +53,7 @@ export default function About() {
             <p style={{
               fontSize: "1rem",
               lineHeight: 1.9,
-              color: "#6B6356",
+              color: "#5B6168",
               fontWeight: 400,
               marginBottom: "48px",
             }}>
@@ -67,13 +67,13 @@ export default function About() {
                 { n: d.stat2n, l: d.stat2l },
                 { n: d.stat3n, l: d.stat3l },
               ].map((s, i) => (
-                <div key={i} style={{ borderTop: "1px solid rgba(26,24,18,0.12)", paddingTop: "20px" }}>
+                <div key={i} style={{ borderTop: "1px solid rgba(21,23,26,0.12)", paddingTop: "20px" }}>
                   <div style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "2.8rem",
                     fontWeight: 300,
                     lineHeight: 1,
-                    color: "#1A1812",
+                    color: "#15171A",
                     marginBottom: "6px",
                   }}>
                     {s.n}
@@ -84,7 +84,7 @@ export default function About() {
                     fontWeight: 600,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "#6B6356",
+                    color: "#5B6168",
                   }}>
                     {s.l}
                   </div>

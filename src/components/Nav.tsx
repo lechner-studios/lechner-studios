@@ -44,9 +44,9 @@ export default function Nav() {
     justifyContent: "space-between",
     alignItems: "center",
     padding: scrolled ? "16px 48px" : "24px 48px",
-    background: scrolled ? "rgba(246,241,235,0.96)" : "transparent",
+    background: scrolled ? "rgba(247,248,248,0.96)" : "transparent",
     backdropFilter: scrolled ? "blur(20px)" : "none",
-    boxShadow: scrolled ? "0 1px 0 rgba(26,24,18,0.08)" : "none",
+    boxShadow: scrolled ? "0 1px 0 rgba(21,23,26,0.08)" : "none",
     mixBlendMode: scrolled ? "normal" : "difference",
     transition: "all 0.5s cubic-bezier(0.22,1,0.36,1)",
   };
@@ -63,7 +63,7 @@ export default function Nav() {
     fontWeight: 600,
     letterSpacing: "0.18em",
     textTransform: "uppercase",
-    color: scrolled ? "#6B6356" : "#F6F1EB",
+    color: scrolled ? "#5B6168" : "#F7F8F8",
     textDecoration: "none",
     transition: "color 0.3s",
     cursor: "pointer",
@@ -76,9 +76,9 @@ export default function Nav() {
   const toggleStyle: React.CSSProperties = {
     ...linkStyle,
     paddingLeft: "16px",
-    borderLeft: `1px solid ${scrolled ? "rgba(26,24,18,0.2)" : "rgba(246,241,235,0.3)"}`,
+    borderLeft: `1px solid ${scrolled ? "rgba(21,23,26,0.2)" : "rgba(247,248,248,0.3)"}`,
     marginLeft: "8px",
-    color: scrolled ? "#1A1812" : "#F6F1EB",
+    color: scrolled ? "#15171A" : "#F7F8F8",
     fontWeight: 700,
   };
 

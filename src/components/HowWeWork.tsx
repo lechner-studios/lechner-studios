@@ -13,9 +13,9 @@ export default function HowWeWork() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "#1A1812",
+        background: "#15171A",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(246,241,235,0.06)",
+        borderTop: "1px solid rgba(247,248,248,0.06)",
         overflow: "hidden",
       }}
     >
@@ -26,7 +26,7 @@ export default function HowWeWork() {
           inset: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(ellipse 60% 50% at 30% 60%, rgba(201,169,97,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 30% 60%, rgba(154,160,166,0.05) 0%, transparent 70%)",
         }}
       />
 
@@ -39,7 +39,7 @@ export default function HowWeWork() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#C9A961",
+              color: "#9AA0A6",
               marginBottom: "2rem",
             }}
           >
@@ -54,7 +54,7 @@ export default function HowWeWork() {
               fontWeight: 300,
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
-              color: "#F6F1EB",
+              color: "#F7F8F8",
               marginBottom: "2.5rem",
             }}
           >
@@ -65,7 +65,7 @@ export default function HowWeWork() {
             style={{
               width: "48px",
               height: "1px",
-              background: "#C9A961",
+              background: "#9AA0A6",
               marginBottom: "2.5rem",
             }}
           />
@@ -76,7 +76,7 @@ export default function HowWeWork() {
               fontSize: "clamp(1.15rem, 1.6vw, 1.4rem)",
               fontWeight: 400,
               lineHeight: 1.6,
-              color: "rgba(246,241,235,0.88)",
+              color: "rgba(247,248,248,0.88)",
             }}
           >
             {d.statement}

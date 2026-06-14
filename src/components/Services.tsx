@@ -7,9 +7,9 @@ import { useLanguage } from "../context/LanguageContext";
 // Order matches the 2×2 grid: TL=Stone, TR=Sky, BL=Lake, BR=Pine.
 const PILLARS = [
   { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
-  { bg: "var(--color-pillar-sky)",   text: "#1A1812", muted: "rgba(26,24,18,0.92)" },
-  { bg: "var(--color-pillar-lake)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
-  { bg: "var(--color-pillar-pine-deep)",  text: "#FDFBF8", muted: "rgba(253,251,248,0.92)" },
+  { bg: "var(--color-pillar-sky)",   text: "#15171A", muted: "rgba(21,23,26,0.92)" },
+  { bg: "var(--color-pillar-lake)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
+  { bg: "var(--color-pillar-pine-deep)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
 ];
 
 export default function Services() {
@@ -21,7 +21,7 @@ export default function Services() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "#1A1812",
+        background: "#15171A",
         padding: "120px 48px",
         overflow: "hidden",
       }}
@@ -29,7 +29,7 @@ export default function Services() {
       {/* Subtle radial */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,169,97,0.04) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse 70% 60% at 80% 50%, rgba(154,160,166,0.04) 0%, transparent 70%)",
       }} />
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -40,7 +40,7 @@ export default function Services() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#C9A961",
+          color: "#9AA0A6",
           marginBottom: "2rem",
         }}>
           {d.overline}
@@ -53,7 +53,7 @@ export default function Services() {
           fontWeight: 300,
           lineHeight: 1.1,
           letterSpacing: "-0.02em",
-          color: "#F6F1EB",
+          color: "#F7F8F8",
           marginBottom: "80px",
           whiteSpace: "pre-line",
         }}>
@@ -65,7 +65,7 @@ export default function Services() {
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "1px",
-          background: "rgba(246,241,235,0.07)",
+          background: "rgba(247,248,248,0.07)",
         }}>
           {d.items.map((item, i) => {
             const p = PILLARS[i] ?? PILLARS[0];

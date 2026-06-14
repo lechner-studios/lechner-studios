@@ -10,7 +10,7 @@ export default function MaintenancePage() {
   return (
     <main style={{
       fontFamily: "'Cormorant', Georgia, serif",
-      background: "#F6F1EB", color: "#1A1812",
+      background: "#F7F8F8", color: "#15171A",
       display: "flex", alignItems: "center", justifyContent: "center",
       minHeight: "100vh", padding: 24, margin: 0, textAlign: "center",
     }}>
@@ -27,15 +27,15 @@ export default function MaintenancePage() {
         <h1 style={{ fontWeight: 700, fontSize: 48, letterSpacing: "-0.02em", marginBottom: 24 }}>
           Kurz offline
         </h1>
-        <p style={{ fontSize: 19, lineHeight: 1.55, color: "#6B665C", marginBottom: 16 }}>
+        <p style={{ fontSize: 19, lineHeight: 1.55, color: "#5B6168", marginBottom: 16 }}>
           Wir aktualisieren gerade Inhalte und kommen in Kürze zurück.
         </p>
-        <p style={{ fontSize: 19, lineHeight: 1.55, color: "#6B665C", marginBottom: 16 }}>
+        <p style={{ fontSize: 19, lineHeight: 1.55, color: "#5B6168", marginBottom: 16 }}>
           We&apos;re updating our content and will be back shortly.
         </p>
         <div style={{
           marginTop: 56, fontFamily: "'Cormorant', serif", fontWeight: 700, fontSize: 16,
-          letterSpacing: "-0.025em", color: "#1A1812",
+          letterSpacing: "-0.025em", color: "#15171A",
         }}>
           lechner
           <span style={{ color: "#B8944D", fontFamily: "'Italiana', serif", fontWeight: 400 }}>.</span>

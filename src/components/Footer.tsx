@@ -12,7 +12,7 @@ export default function Footer() {
   const legalLinkStyle: React.CSSProperties = {
     fontFamily: "var(--font-mono)",
     fontSize: "0.6rem",
-    color: "rgba(246,241,235,0.6)",
+    color: "rgba(247,248,248,0.6)",
     letterSpacing: "0.15em",
     textTransform: "uppercase",
     textDecoration: "none",
@@ -21,13 +21,13 @@ export default function Footer() {
 
   return (
     <footer className="lc-pad-footer" style={{
-      background: "#1A1812",
+      background: "#15171A",
       padding: "48px 48px 32px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       gap: "32px",
-      borderTop: "1px solid rgba(246,241,235,0.06)",
+      borderTop: "1px solid rgba(247,248,248,0.06)",
     }}>
       <EndorsementStamp variant="small" onDark text={d.endorsement} />
 
@@ -42,7 +42,7 @@ export default function Footer() {
         <span style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.6rem",
-          color: "rgba(246,241,235,0.6)",
+          color: "rgba(247,248,248,0.6)",
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           textAlign: "center",
@@ -53,7 +53,7 @@ export default function Footer() {
         <span style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.6rem",
-          color: "rgba(246,241,235,0.6)",
+          color: "rgba(247,248,248,0.6)",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
         }}>
@@ -74,16 +74,16 @@ export default function Footer() {
         <Link
           href={`/${locale}/impressum`}
           style={legalLinkStyle}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F6F1EB")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(246,241,235,0.6)")}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F7F8F8")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(247,248,248,0.6)")}
         >
           {d.impressum}
         </Link>
         <Link
           href={`/${locale}/privacy`}
           style={legalLinkStyle}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F6F1EB")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(246,241,235,0.6)")}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F7F8F8")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(247,248,248,0.6)")}
         >
           {d.privacy}
         </Link>

@@ -6,12 +6,12 @@
    * Companion to ai-brain ADR-0020 (typography); ADR-0019 (palette/marks) still authoritative
    * websites/docs/superpowers/specs/2026-05-01-brand-v4.2-typography-design.md
    * websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md */
-  --color-ink:           #1A1812;
-  --color-ink-mute:      #6B665C;
-  --color-paper:         #F6F1EB;
-  --color-paper-warm:    #EFEDE7;
-  --color-warm-white:    #FDFBF8;
-  --color-stone:         #8B8578;
+  --color-ink:           #15171A;
+  --color-ink-mute:      #5B6168;
+  --color-paper:         #F7F8F8;
+  --color-paper-warm:    #EEF1F1;
+  --color-warm-white:    #FBFCFC;
+  --color-stone:         #8A9098;
   --color-gold:          #B8944D;
   --color-gold-on-dark:  #C9A961;
 
@@ -20,8 +20,8 @@
    * fail AA as text; these darker tokens pass (≥5.2:1). Signature gold
    * stays for dark-bg text and decorative marks. See ai-brain brand ADR
    * (contrast resolution, 2026-06-13) + docs/superpowers/specs/2026-06-13-*. */
-  --color-gold-text:     #7A6029;
-  --color-stone-text:    #6B6356;
+  --color-gold-text:     #5B6168;
+  --color-stone-text:    #5B6168;
 
   /* Alpine pillar palette */
   --color-pillar-stone:  #D6CDBE;
@@ -33,7 +33,7 @@
   /* Legacy alias kept for the shipping site
    * (reuses --color-paper for backward-compatible classes); blush + moss
    * tokens are removed per v4.1 — no class consumers found in repo. */
-  --color-cream:         #F6F1EB;
+  --color-cream:         #F7F8F8;
 
   --font-display:         'Cormorant', Georgia, serif;
   --font-display-bold:    'Cormorant', Georgia, serif;
@@ -118,8 +118,8 @@ body {
   left: 0;
   z-index: 200;
   padding: 12px 20px;
-  background: #1A1812;
-  color: #FDFBF8;
+  background: #15171A;
+  color: #FBFCFC;
   font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
