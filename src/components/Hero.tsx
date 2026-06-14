@@ -11,12 +11,10 @@ export default function Hero() {
       className="grain lc-pad-hero"
       style={{
         position: "relative",
-        minHeight: "100vh",
         background: "var(--hero-bg)",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        padding: "120px 48px 80px",
+        padding: "150px 48px 110px",
         overflow: "hidden",
       }}
     >
@@ -203,43 +201,6 @@ export default function Hero() {
           {dict.hero.location}
         </p>
         </div>
-      </div>
-
-      {/* Scroll cue */}
-      <div
-        className="reveal"
-        style={{
-          position: "absolute",
-          bottom: "48px",
-          right: "48px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "12px",
-          zIndex: 2,
-          animationDelay: "1.2s",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.55rem",
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "var(--hero-text-faint)",
-            writingMode: "vertical-rl",
-          }}
-        >
-          {dict.hero.scroll}
-        </span>
-        <div
-          style={{
-            width: "1px",
-            height: "60px",
-            background: "linear-gradient(to bottom, color-mix(in srgb, var(--hero-accent) 60%, transparent), transparent)",
-            animation: "scrollPulse 2.5s ease-in-out infinite",
-          }}
-        />
       </div>
     </section>
   );
