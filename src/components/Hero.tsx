@@ -89,6 +89,71 @@ export default function Hero() {
           {dict.hero.subline}
         </p>
 
+        {/* CTAs */}
+        <div
+          className="reveal"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "28px",
+            flexWrap: "wrap",
+            marginBottom: "2.75rem",
+            animationDelay: "0.8s",
+          }}
+        >
+          <a
+            href="#contact"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.7rem",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#C9A961",
+              border: "1px solid rgba(201,169,97,0.5)",
+              borderRadius: "2px",
+              padding: "14px 26px",
+              textDecoration: "none",
+              transition: "background 0.25s, color 0.25s, border-color 0.25s",
+            }}
+            onMouseEnter={e => {
+              const t = e.currentTarget as HTMLElement;
+              t.style.background = "#C9A961"; t.style.color = "#1A1812"; t.style.borderColor = "#C9A961";
+            }}
+            onMouseLeave={e => {
+              const t = e.currentTarget as HTMLElement;
+              t.style.background = "transparent"; t.style.color = "#C9A961"; t.style.borderColor = "rgba(201,169,97,0.5)";
+            }}
+          >
+            {dict.hero.ctaPrimary} →
+          </a>
+          <a
+            href="#work"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.7rem",
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "rgba(246,241,235,0.82)",
+              textDecoration: "none",
+              borderBottom: "1px solid rgba(246,241,235,0.25)",
+              paddingBottom: "3px",
+              transition: "color 0.25s, border-color 0.25s",
+            }}
+            onMouseEnter={e => {
+              const t = e.currentTarget as HTMLElement;
+              t.style.color = "#F6F1EB"; t.style.borderColor = "#C9A961";
+            }}
+            onMouseLeave={e => {
+              const t = e.currentTarget as HTMLElement;
+              t.style.color = "rgba(246,241,235,0.82)"; t.style.borderColor = "rgba(246,241,235,0.25)";
+            }}
+          >
+            {dict.hero.ctaSecondary}
+          </a>
+        </div>
+
         {/* Location */}
         <p
           className="reveal reveal-4"
