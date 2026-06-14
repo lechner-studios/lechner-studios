@@ -67,13 +67,13 @@ export default function About() {
                 { n: d.stat2n, l: d.stat2l },
                 { n: d.stat3n, l: d.stat3l },
               ].map((s, i) => (
-                <div key={i} style={{ borderTop: "1px solid rgba(21,23,26,0.12)", paddingTop: "20px" }}>
+                <div key={i} style={{ borderTop: "2px solid rgba(37,66,104,0.5)", paddingTop: "20px" }}>
                   <div style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "2.8rem",
                     fontWeight: 300,
                     lineHeight: 1,
-                    color: "#15171A",
+                    color: "#254268",
                     marginBottom: "6px",
                   }}>
                     {s.n}
