@@ -10,6 +10,7 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   dev:     { bg: "rgba(21,23,26,0.07)", color: "#5B6168" },
   paused:  { bg: "rgba(138,144,152,0.1)", color: "#5B6168" },
   planned: { bg: "rgba(138,144,152,0.07)", color: "#5B6168" },
+  maintenance: { bg: "rgba(143,168,197,0.14)", color: "#5B6168" },
 };
 
 const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dict"]["work"]> = {
@@ -18,13 +19,21 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
   paused:  "statusPaused",
   planned: "statusPlanned",
   service: "statusService",
+  maintenance: "statusMaintenance",
 };
 
-export default function Work({ limit, moreHref }: { limit?: number; moreHref?: string }) {
+export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
-  const items = typeof limit === "number" ? d.items.slice(0, limit) : d.items;
+  const items =
+    featured && featured.length > 0
+      ? featured
+          .map((id) => d.items.find((it) => it.id === id))
+          .filter((it): it is (typeof d.items)[number] => Boolean(it))
+      : typeof limit === "number"
+        ? d.items.slice(0, limit)
+        : d.items;
 
   return (
     <section
