@@ -6,6 +6,7 @@ import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
 import Nav from "../../../../components/Nav";
 import StartProject from "../../../../components/StartProject";
+import Breadcrumb from "../../../../components/Breadcrumb";
 import Footer from "../../../../components/Footer";
 
 export async function generateMetadata({
@@ -53,12 +54,13 @@ export default async function StartPage({
         <section
           className="lc-pad-section"
           style={{
-            background: "#F7F8F8",
+            background: "var(--bg)",
             padding: "120px 48px",
-            borderTop: "1px solid rgba(21,23,26,0.08)",
+            borderTop: "1px solid var(--border)",
           }}
         >
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <Breadcrumb current={s.overline} />
             {/* Editorial header */}
             <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
               <p
@@ -68,7 +70,7 @@ export default async function StartPage({
                   fontWeight: 600,
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
-                  color: "#254268",
+                  color: "var(--accent)",
                   marginBottom: "2rem",
                 }}
               >
@@ -81,7 +83,7 @@ export default async function StartPage({
                   fontWeight: 300,
                   lineHeight: 0.95,
                   letterSpacing: "-0.03em",
-                  color: "#15171A",
+                  color: "var(--text)",
                   marginBottom: "32px",
                   fontStyle: "italic",
                 }}
@@ -91,7 +93,7 @@ export default async function StartPage({
               <p
                 style={{
                   fontSize: "0.95rem",
-                  color: "#5B6168",
+                  color: "var(--text-muted)",
                   lineHeight: 1.8,
                   maxWidth: "480px",
                 }}

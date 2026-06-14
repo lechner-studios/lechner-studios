@@ -42,15 +42,47 @@
   --font-mono:            'IBM Plex Mono', 'Söhne Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
+/* Semantic theme tokens — light (default) + dark override.
+ * Surface/text/border/accent colours flip by theme; the @theme brand
+ * tokens above (palette, pillars, signature gold, fonts) stay fixed.
+ * --contrast-* = the dark editorial bands (hero + footer) that stay dark
+ * in BOTH modes. --code-bg = inline/pre background for blog prose. */
+:root {
+  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#8A9098;
+  --border:rgba(21,23,26,0.10); --border-strong:rgba(21,23,26,0.15);
+  --accent:#254268; --accent-2:#4A6A4E;
+  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
+  --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
+  --signature:#B8944D; --code-bg:#EEF1F1;
+  /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
+  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.55); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
+  color-scheme:light;
+}
+[data-theme="dark"] {
+  --bg:#15171A; --bg-alt:#1B1E22; --text:#F7F8F8; --text-muted:rgba(247,248,248,0.72); --text-faint:rgba(247,248,248,0.50);
+  --border:rgba(247,248,248,0.10); --border-strong:rgba(247,248,248,0.16);
+  --accent:#8FA8C5; --accent-2:#8FB89A;
+  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
+  --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
+  --signature:#B8944D; --code-bg:#23272D;
+  --hero-bg:#101216; --hero-text:#F7F8F8; --hero-text-muted:rgba(247,248,248,0.72); --hero-text-faint:rgba(247,248,248,0.55); --hero-accent:#8FA8C5; --hero-accent-text:#101216; --hero-border:rgba(247,248,248,0.10);
+  color-scheme:dark;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth theme cross-fade on themed surfaces. */
+section, footer, nav, .theme-surface {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Grain overlay on dark sections */
@@ -159,6 +191,7 @@ body {
     animation: none !important;
   }
   .sr { opacity: 1 !important; transform: none !important; transition: none !important; }
+  section, footer, nav, .theme-surface { transition: none !important; }
   *,
   *::before,
   *::after {
@@ -175,7 +208,7 @@ body {
 .blog-prose {
   max-width: 68ch;
   font-family: var(--font-sans);
-  color: #15171A;
+  color: var(--text);
   line-height: 1.8;
   font-size: 1.05rem;
 }
@@ -187,7 +220,7 @@ body {
   font-size: clamp(1.5rem, 2.4vw, 1.9rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #15171A;
+  color: var(--text);
   margin: 2.4em 0 0.7em;
 }
 .blog-prose h3 {
@@ -195,17 +228,17 @@ body {
   font-weight: 500;
   font-size: 1.3rem;
   line-height: 1.25;
-  color: #15171A;
+  color: var(--text);
   margin: 2em 0 0.6em;
 }
 .blog-prose a {
-  color: #254268;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
-.blog-prose a:hover { color: #1B3252; }
-.blog-prose strong { font-weight: 600; color: #15171A; }
+.blog-prose a:hover { color: var(--accent); opacity: 0.78; }
+.blog-prose strong { font-weight: 600; color: var(--text); }
 .blog-prose ul,
 .blog-prose ol {
   margin: 0 0 1.4em;
@@ -215,15 +248,15 @@ body {
 .blog-prose code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: #EEF1F1;
+  background: var(--code-bg);
   padding: 0.15em 0.4em;
   border-radius: 3px;
 }
 .blog-prose pre {
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  background: #EEF1F1;
-  color: #15171A;
+  background: var(--code-bg);
+  color: var(--text);
   padding: 1.1em 1.3em;
   border-radius: 6px;
   overflow-x: auto;
@@ -235,10 +268,10 @@ body {
   border-radius: 0;
 }
 .blog-prose blockquote {
-  border-left: 3px solid #254268;
+  border-left: 3px solid var(--accent);
   margin: 0 0 1.4em;
   padding: 0.2em 0 0.2em 1.2em;
-  color: #5B6168;
+  color: var(--text-muted);
   font-style: italic;
 }
 .blog-prose img {
@@ -249,7 +282,7 @@ body {
 }
 .blog-prose hr {
   border: none;
-  border-top: 1px solid rgba(21,23,26,0.12);
+  border-top: 1px solid var(--border);
   margin: 2.4em 0;
 }
 

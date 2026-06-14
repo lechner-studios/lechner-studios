@@ -12,7 +12,7 @@ export default function ContactCta() {
     <section
       className="lc-pad-section"
       style={{
-        background: "#15171A",
+        background: "var(--bg)",
         padding: "120px 48px",
         textAlign: "center",
       }}
@@ -25,7 +25,7 @@ export default function ContactCta() {
             fontWeight: 600,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "#8FA8C5",
+            color: "var(--accent)",
             marginBottom: "1.5rem",
           }}
         >
@@ -37,7 +37,7 @@ export default function ContactCta() {
             fontStyle: "italic",
             fontSize: "clamp(2.5rem, 5vw, 4rem)",
             fontWeight: 300,
-            color: "#F7F8F8",
+            color: "var(--text)",
             marginBottom: "1.5rem",
           }}
         >
@@ -46,7 +46,7 @@ export default function ContactCta() {
         <p
           style={{
             fontSize: "1rem",
-            color: "rgba(247,248,248,0.7)",
+            color: "var(--text-muted)",
             lineHeight: 1.7,
             maxWidth: "520px",
             margin: "0 auto 2.5rem",
@@ -62,8 +62,8 @@ export default function ContactCta() {
             fontWeight: 600,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#8FA8C5",
-            border: "1px solid rgba(143,168,197,0.5)",
+            color: "var(--accent)",
+            border: "1px solid color-mix(in srgb, var(--accent) 50%, transparent)",
             borderRadius: "2px",
             padding: "15px 30px",
             textDecoration: "none",
@@ -72,15 +72,15 @@ export default function ContactCta() {
           }}
           onMouseEnter={(e) => {
             const t = e.currentTarget as HTMLElement;
-            t.style.background = "#8FA8C5";
-            t.style.color = "#15171A";
-            t.style.borderColor = "#8FA8C5";
+            t.style.background = "var(--accent)";
+            t.style.color = "var(--bg)";
+            t.style.borderColor = "var(--accent)";
           }}
           onMouseLeave={(e) => {
             const t = e.currentTarget as HTMLElement;
             t.style.background = "transparent";
-            t.style.color = "#8FA8C5";
-            t.style.borderColor = "rgba(143,168,197,0.5)";
+            t.style.color = "var(--accent)";
+            t.style.borderColor = "color-mix(in srgb, var(--accent) 50%, transparent)";
           }}
         >
           {dict.hero.ctaPrimary} →

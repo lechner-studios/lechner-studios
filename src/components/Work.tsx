@@ -10,6 +10,7 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   dev:     { bg: "rgba(21,23,26,0.07)", color: "#5B6168" },
   paused:  { bg: "rgba(138,144,152,0.1)", color: "#5B6168" },
   planned: { bg: "rgba(138,144,152,0.07)", color: "#5B6168" },
+  maintenance: { bg: "rgba(143,168,197,0.14)", color: "#5B6168" },
 };
 
 const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dict"]["work"]> = {
@@ -18,22 +19,30 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
   paused:  "statusPaused",
   planned: "statusPlanned",
   service: "statusService",
+  maintenance: "statusMaintenance",
 };
 
-export default function Work({ limit, moreHref }: { limit?: number; moreHref?: string }) {
+export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
-  const items = typeof limit === "number" ? d.items.slice(0, limit) : d.items;
+  const items =
+    featured && featured.length > 0
+      ? featured
+          .map((id) => d.items.find((it) => it.id === id))
+          .filter((it): it is (typeof d.items)[number] => Boolean(it))
+      : typeof limit === "number"
+        ? d.items.slice(0, limit)
+        : d.items;
 
   return (
     <section
       id="work"
       className="lc-pad-section"
       style={{
-        background: "#FBFCFC",
+        background: "var(--bg-alt)",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(21,23,26,0.06)",
+        borderTop: "1px solid var(--border)",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -45,7 +54,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
           alignItems: "flex-end",
           marginBottom: "64px",
           paddingBottom: "32px",
-          borderBottom: "1px solid rgba(21,23,26,0.1)",
+          borderBottom: "1px solid var(--border)",
         }}>
           <div>
             <p style={{
@@ -54,7 +63,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#254268",
+              color: "var(--accent)",
               marginBottom: "12px",
             }}>
               {d.overline}
@@ -64,7 +73,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
               fontSize: "clamp(2rem, 3vw, 2.8rem)",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#15171A",
+              color: "var(--text)",
             }}>
               {d.headline}
             </h2>
@@ -72,7 +81,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
           <span style={{
             fontFamily: "var(--font-mono)",
             fontSize: "0.6rem",
-            color: "#254268",
+            color: "var(--accent)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
           }}>
@@ -85,7 +94,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
         <Reveal delay={80}>
         <p style={{
           fontSize: "1.05rem",
-          color: "#5B6168",
+          color: "var(--text-muted)",
           lineHeight: 1.75,
           maxWidth: "62ch",
           marginTop: "-32px",
@@ -118,11 +127,11 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   gap: "32px",
                   alignItems: "start",
                   padding: "32px 0",
-                  borderBottom: "1px solid rgba(21,23,26,0.06)",
+                  borderBottom: "1px solid var(--border)",
                   textDecoration: "none",
                   cursor: isClickable ? "pointer" : "default",
                   transition: "background 0.2s, transform 0.2s",
-                  background: isHovered && isClickable ? "rgba(21,23,26,0.02)" : "transparent",
+                  background: isHovered && isClickable ? "color-mix(in srgb, var(--text) 4%, transparent)" : "transparent",
                   transform: isHovered && isClickable ? "translateX(6px)" : "translateX(0)",
                   margin: "0 -24px",
                   paddingLeft: "24px",
@@ -134,7 +143,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                 <span style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.65rem",
-                  color: "#254268",
+                  color: "var(--accent)",
                   fontWeight: 400,
                   paddingTop: "4px",
                 }}>
@@ -149,7 +158,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                       fontSize: "1.7rem",
                       fontWeight: 400,
                       letterSpacing: "-0.01em",
-                      color: isHovered && isClickable ? "#15171A" : "#1B1E22",
+                      color: "var(--text)",
                       transition: "color 0.2s",
                     }}>
                       {item.title}
@@ -169,7 +178,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   </div>
                   <p style={{
                     fontSize: "0.9rem",
-                    color: "#5B6168",
+                    color: "var(--text-muted)",
                     lineHeight: 1.7,
                     maxWidth: "600px",
                   }}>
@@ -182,7 +191,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#5B6168",
+                    color: "var(--text-muted)",
                     letterSpacing: "0.15em",
                     marginBottom: "8px",
                     textTransform: "uppercase",
@@ -192,7 +201,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   <div style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.6rem",
-                    color: "#5B6168",
+                    color: "var(--text-muted)",
                     letterSpacing: "0.1em",
                     marginBottom: "12px",
                   }}>
@@ -203,7 +212,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.65rem",
                       fontWeight: 600,
-                      color: "#254268",
+                      color: "var(--accent)",
                       letterSpacing: "0.08em",
                       opacity: isHovered ? 1 : 0,
                       transition: "opacity 0.2s",
@@ -227,14 +236,14 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
               fontWeight: 600,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: "#254268",
+              color: "var(--accent)",
               textDecoration: "none",
               display: "inline-block",
               marginTop: "48px",
-              transition: "color 0.2s",
+              transition: "color 0.2s, opacity 0.2s",
             }}
-            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#1B3252")}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#254268")}
+            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.opacity = "0.7")}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.opacity = "1")}
           >
             {d.viewAll}
           </Link>

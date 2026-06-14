@@ -64,7 +64,7 @@ export default async function BlogIndexPage({
         <section
           className="lc-pad-section"
           style={{
-            background: "#F7F8F8",
+            background: "var(--bg)",
             padding: "160px 48px 120px",
             minHeight: "100vh",
           }}
@@ -78,7 +78,7 @@ export default async function BlogIndexPage({
                 fontWeight: 600,
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: "#254268",
+                color: "var(--accent)",
                 marginBottom: "1.5rem",
               }}
             >
@@ -91,7 +91,7 @@ export default async function BlogIndexPage({
                 fontWeight: 300,
                 lineHeight: 1.1,
                 letterSpacing: "-0.02em",
-                color: "#15171A",
+                color: "var(--text)",
                 marginBottom: "1.5rem",
               }}
             >
@@ -101,7 +101,7 @@ export default async function BlogIndexPage({
               style={{
                 fontSize: "1.05rem",
                 lineHeight: 1.7,
-                color: "#5B6168",
+                color: "var(--text-muted)",
                 maxWidth: "56ch",
                 marginBottom: "80px",
               }}
@@ -116,15 +116,15 @@ export default async function BlogIndexPage({
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.85rem",
                   letterSpacing: "0.05em",
-                  color: "#8A9098",
+                  color: "var(--text-faint)",
                 }}
               >
                 {dict.blog.empty}
               </p>
             ) : (
-              <ul style={{ listStyle: "none", display: "grid", gap: "1px", background: "rgba(21,23,26,0.08)" }}>
+              <ul style={{ listStyle: "none", display: "grid", gap: "1px", background: "var(--border)" }}>
                 {posts.map((post) => (
-                  <li key={post.slug} style={{ background: "#F7F8F8" }}>
+                  <li key={post.slug} style={{ background: "var(--bg)" }}>
                     <Link
                       href={`/${locale}/blog/${post.slug}`}
                       style={{
@@ -141,7 +141,7 @@ export default async function BlogIndexPage({
                           fontWeight: 600,
                           letterSpacing: "0.18em",
                           textTransform: "uppercase",
-                          color: "#254268",
+                          color: "var(--accent)",
                           marginBottom: "16px",
                           display: "flex",
                           gap: "16px",
@@ -149,7 +149,7 @@ export default async function BlogIndexPage({
                         }}
                       >
                         <span>{post.category}</span>
-                        <span style={{ color: "#8A9098" }}>{formatDate(post.date, locale)}</span>
+                        <span style={{ color: "var(--text-faint)" }}>{formatDate(post.date, locale)}</span>
                       </div>
                       <h2
                         style={{
@@ -158,7 +158,7 @@ export default async function BlogIndexPage({
                           fontWeight: 400,
                           lineHeight: 1.2,
                           letterSpacing: "-0.01em",
-                          color: "#15171A",
+                          color: "var(--text)",
                           marginBottom: "12px",
                         }}
                       >
@@ -168,7 +168,7 @@ export default async function BlogIndexPage({
                         style={{
                           fontSize: "1rem",
                           lineHeight: 1.7,
-                          color: "#5B6168",
+                          color: "var(--text-muted)",
                           maxWidth: "60ch",
                           marginBottom: "16px",
                         }}
@@ -182,7 +182,7 @@ export default async function BlogIndexPage({
                           fontWeight: 600,
                           letterSpacing: "0.12em",
                           textTransform: "uppercase",
-                          color: "#254268",
+                          color: "var(--accent)",
                         }}
                       >
                         {dict.blog.readMore}

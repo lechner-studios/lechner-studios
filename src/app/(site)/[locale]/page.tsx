@@ -28,7 +28,7 @@ export default async function Home({
       <main id="main" style={{ minHeight: "100vh" }}>
         <Hero />
         <Services />
-        <Work limit={3} moreHref={`/${locale}/work`} />
+        <Work featured={["websites", "vistera"]} moreHref={`/${locale}/work`} />
         <ContactCta />
         <Footer />
       </main>

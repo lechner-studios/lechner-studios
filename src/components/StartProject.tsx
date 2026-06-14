@@ -104,7 +104,7 @@ export default function StartProject() {
     fontWeight: 600,
     textTransform: "uppercase",
     letterSpacing: "0.18em",
-    color: "#5B6168",
+    color: "var(--text-muted)",
     marginBottom: "8px",
   };
 
@@ -113,10 +113,10 @@ export default function StartProject() {
     width: "100%",
     background: "transparent",
     border: "none",
-    borderBottom: "1px solid rgba(21,23,26,0.15)",
+    borderBottom: "1px solid var(--border-strong)",
     padding: "12px 0",
     fontSize: "1rem",
-    color: "#15171A",
+    color: "var(--text)",
     outline: "none",
     marginBottom: "24px",
   };
@@ -131,10 +131,10 @@ export default function StartProject() {
   };
 
   const focusOn = (el: HTMLElement | null) => {
-    if (el) el.style.borderBottom = "1px solid #5B6168";
+    if (el) el.style.borderBottom = "1px solid var(--text-muted)";
   };
   const focusOff = (el: HTMLElement | null) => {
-    if (el) el.style.borderBottom = "1px solid rgba(21,23,26,0.15)";
+    if (el) el.style.borderBottom = "1px solid var(--border-strong)";
   };
 
   const errorMessage = errorKey
@@ -154,7 +154,7 @@ export default function StartProject() {
           fontFamily: "var(--font-display)",
           fontStyle: "italic",
           fontSize: "1.1rem",
-          color: "#15171A",
+          color: "var(--text)",
           lineHeight: 1.7,
           maxWidth: "560px",
         }}
@@ -234,7 +234,7 @@ export default function StartProject() {
                 />
                 <label
                   htmlFor={`start-pt-${key}`}
-                  style={{ fontSize: "0.92rem", lineHeight: 1.5, color: "#15171A", cursor: "pointer" }}
+                  style={{ fontSize: "0.92rem", lineHeight: 1.5, color: "var(--text)", cursor: "pointer" }}
                 >
                   {s.projectType[key]}
                 </label>
@@ -263,7 +263,7 @@ export default function StartProject() {
               fontSize: "0.58rem",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "#5B6168",
+              color: "var(--text-muted)",
               marginTop: "-16px",
               marginBottom: "24px",
             }}
@@ -349,7 +349,7 @@ export default function StartProject() {
           />
           <label
             htmlFor="start-consent"
-            style={{ fontSize: "0.78rem", lineHeight: 1.6, color: "#5B6168" }}
+            style={{ fontSize: "0.78rem", lineHeight: 1.6, color: "var(--text-muted)" }}
           >
             {f.consent}
           </label>
@@ -373,8 +373,8 @@ export default function StartProject() {
             fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
             background: "transparent",
             border: "none",
-            borderBottom: "1px solid rgba(21,23,26,0.15)",
-            color: "#15171A",
+            borderBottom: "1px solid var(--border-strong)",
+            color: "var(--text)",
             padding: "12px 0",
             cursor: (!consentChecked || formState === "submitting") ? "not-allowed" : "pointer",
             opacity: (!consentChecked || formState === "submitting") ? 0.45 : 1,
@@ -383,19 +383,19 @@ export default function StartProject() {
           }}
           onMouseEnter={(e) => {
             if (consentChecked && formState !== "submitting") {
-              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #254268";
+              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--accent)";
             }
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid rgba(21,23,26,0.15)";
+            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--border-strong)";
           }}
           onFocus={(e) => {
             if (consentChecked && formState !== "submitting") {
-              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #5B6168";
+              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--text-muted)";
             }
           }}
           onBlur={(e) => {
-            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid rgba(21,23,26,0.15)";
+            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--border-strong)";
           }}
         >
           {formState === "submitting" ? f.submitting : s.submit}
@@ -407,7 +407,7 @@ export default function StartProject() {
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.65rem",
-          color: "#5B6168",
+          color: "var(--text-muted)",
           letterSpacing: "0.18em",
           textTransform: "uppercase",
           marginTop: "32px",
@@ -416,9 +416,9 @@ export default function StartProject() {
         {f.mailtoFallback}{" "}
         <a
           href={`mailto:${dict.contact.email}`}
-          style={{ color: "#254268", textDecoration: "underline" }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#1A2F4A")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#254268")}
+          style={{ color: "var(--accent)", textDecoration: "underline" }}
+          onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = "0.7")}
+          onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "1")}
         >
           {dict.contact.email}
         </a>

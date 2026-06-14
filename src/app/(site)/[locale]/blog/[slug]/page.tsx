@@ -111,7 +111,7 @@ export default async function BlogArticlePage({
         <section
           className="lc-pad-section"
           style={{
-            background: "#F7F8F8",
+            background: "var(--bg)",
             padding: "160px 48px 120px",
             minHeight: "100vh",
           }}
@@ -125,7 +125,7 @@ export default async function BlogArticlePage({
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "#254268",
+                color: "var(--accent)",
                 textDecoration: "none",
                 display: "inline-block",
                 marginBottom: "48px",
@@ -141,7 +141,7 @@ export default async function BlogArticlePage({
                 fontWeight: 600,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#254268",
+                color: "var(--accent)",
                 marginBottom: "20px",
                 display: "flex",
                 gap: "16px",
@@ -159,7 +159,7 @@ export default async function BlogArticlePage({
                 fontWeight: 300,
                 lineHeight: 1.08,
                 letterSpacing: "-0.02em",
-                color: "#15171A",
+                color: "var(--text)",
                 marginBottom: "56px",
               }}
             >

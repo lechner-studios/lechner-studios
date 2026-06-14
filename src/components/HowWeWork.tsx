@@ -14,9 +14,9 @@ export default function HowWeWork() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "#15171A",
+        background: "var(--bg)",
         padding: "120px 48px",
-        borderTop: "1px solid rgba(247,248,248,0.06)",
+        borderTop: "1px solid var(--border)",
         overflow: "hidden",
       }}
     >
@@ -40,7 +40,7 @@ export default function HowWeWork() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#8FA8C5",
+              color: "var(--accent)",
               marginBottom: "2rem",
             }}
           >
@@ -55,7 +55,7 @@ export default function HowWeWork() {
               fontWeight: 300,
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
-              color: "#F7F8F8",
+              color: "var(--text)",
               marginBottom: "2.5rem",
             }}
           >
@@ -66,7 +66,7 @@ export default function HowWeWork() {
             style={{
               width: "48px",
               height: "1px",
-              background: "#8FA8C5",
+              background: "var(--accent)",
               marginBottom: "2.5rem",
             }}
           />
@@ -77,7 +77,7 @@ export default function HowWeWork() {
               fontSize: "clamp(1.15rem, 1.6vw, 1.4rem)",
               fontWeight: 400,
               lineHeight: 1.6,
-              color: "rgba(247,248,248,0.88)",
+              color: "var(--text-muted)",
             }}
           >
             {d.statement}

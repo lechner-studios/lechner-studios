@@ -12,7 +12,7 @@ export default function Hero() {
       style={{
         position: "relative",
         minHeight: "100vh",
-        background: "#101216",
+        background: "var(--hero-bg)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -35,7 +35,7 @@ export default function Hero() {
         {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            style={{ borderRight: i < 3 ? "1px solid rgba(247,248,248,0.045)" : "none" }}
+            style={{ borderRight: i < 3 ? "1px solid var(--hero-border)" : "none" }}
           />
         ))}
       </div>
@@ -50,7 +50,7 @@ export default function Hero() {
             fontWeight: 500,
             letterSpacing: "0.32em",
             textTransform: "uppercase",
-            color: "#8FA8C5",
+            color: "var(--hero-accent)",
             marginBottom: "2rem",
           }}
         >
@@ -65,7 +65,7 @@ export default function Hero() {
             fontWeight: 300,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
-            color: "#F7F8F8",
+            color: "var(--hero-text)",
             marginBottom: "2.5rem",
           }}
         >
@@ -87,7 +87,7 @@ export default function Hero() {
           style={{
             width: "56px",
             height: "1px",
-            background: "#8FA8C5",
+            background: "var(--hero-accent)",
             marginBottom: "2.5rem",
             animationDelay: "0.62s",
           }}
@@ -102,7 +102,7 @@ export default function Hero() {
             fontWeight: 400,
             lineHeight: 1.4,
             letterSpacing: "0.005em",
-            color: "rgba(247,248,248,0.78)",
+            color: "var(--hero-text-muted)",
             marginBottom: "2.75rem",
             maxWidth: "640px",
             animationDelay: "0.78s",
@@ -131,8 +131,8 @@ export default function Hero() {
               fontWeight: 600,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#8FA8C5",
-              border: "1px solid rgba(143,168,197,0.5)",
+              color: "var(--hero-accent)",
+              border: "1px solid color-mix(in srgb, var(--hero-accent) 50%, transparent)",
               borderRadius: "2px",
               padding: "14px 26px",
               textDecoration: "none",
@@ -140,15 +140,15 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.background = "#8FA8C5";
-              t.style.color = "#101216";
-              t.style.borderColor = "#8FA8C5";
+              t.style.background = "var(--hero-accent)";
+              t.style.color = "var(--hero-accent-text)";
+              t.style.borderColor = "var(--hero-accent)";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
               t.style.background = "transparent";
-              t.style.color = "#8FA8C5";
-              t.style.borderColor = "rgba(143,168,197,0.5)";
+              t.style.color = "var(--hero-accent)";
+              t.style.borderColor = "color-mix(in srgb, var(--hero-accent) 50%, transparent)";
             }}
           >
             {dict.hero.ctaPrimary} →
@@ -161,21 +161,21 @@ export default function Hero() {
               fontWeight: 500,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "rgba(247,248,248,0.82)",
+              color: "var(--hero-text-muted)",
               textDecoration: "none",
-              borderBottom: "1px solid rgba(247,248,248,0.25)",
+              borderBottom: "1px solid var(--hero-border)",
               paddingBottom: "3px",
               transition: "color 0.25s, border-color 0.25s",
             }}
             onMouseEnter={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.color = "#F7F8F8";
-              t.style.borderColor = "#8FA8C5";
+              t.style.color = "var(--hero-text)";
+              t.style.borderColor = "var(--hero-accent)";
             }}
             onMouseLeave={(e) => {
               const t = e.currentTarget as HTMLElement;
-              t.style.color = "rgba(247,248,248,0.82)";
-              t.style.borderColor = "rgba(247,248,248,0.25)";
+              t.style.color = "var(--hero-text-muted)";
+              t.style.borderColor = "var(--hero-border)";
             }}
           >
             {dict.hero.ctaSecondary}
@@ -191,7 +191,7 @@ export default function Hero() {
             fontWeight: 500,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(247,248,248,0.62)",
+            color: "var(--hero-text-faint)",
             animationDelay: "1.05s",
           }}
         >
@@ -220,7 +220,7 @@ export default function Hero() {
             fontSize: "0.55rem",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(247,248,248,0.62)",
+            color: "var(--hero-text-faint)",
             writingMode: "vertical-rl",
           }}
         >
@@ -230,7 +230,7 @@ export default function Hero() {
           style={{
             width: "1px",
             height: "60px",
-            background: "linear-gradient(to bottom, rgba(143,168,197,0.6), transparent)",
+            background: "linear-gradient(to bottom, color-mix(in srgb, var(--hero-accent) 60%, transparent), transparent)",
             animation: "scrollPulse 2.5s ease-in-out infinite",
           }}
         />
