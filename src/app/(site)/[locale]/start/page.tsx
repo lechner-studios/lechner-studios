@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "../../../../context/LanguageContext";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import StartProject from "../../../../components/StartProject";
-import Breadcrumb from "../../../../components/Breadcrumb";
 import Footer from "../../../../components/Footer";
 
 export async function generateMetadata({
@@ -18,19 +18,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.startTitle,
-    description: dict.meta.startDescription,
-    alternates: {
-      canonical: `/${locale}/start`,
-      languages: {
-        "de-AT": "/de/start",
-        en: "/en/start",
-        "x-default": "/de/start",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/start", dict.meta.startTitle, dict.meta.startDescription);
 }
 
 export default async function StartPage({
@@ -60,7 +48,6 @@ export default async function StartPage({
           }}
         >
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            <Breadcrumb current={s.overline} />
             {/* Editorial header */}
             <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
               <p

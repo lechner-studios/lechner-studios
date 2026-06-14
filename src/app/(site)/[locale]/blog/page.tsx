@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "../../../../context/LanguageContext";
 import { isLocale, HREFLANG, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Footer from "../../../../components/Footer";
 import { getAllPosts } from "../../../../lib/blog";
@@ -18,19 +19,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.blogTitle,
-    description: dict.meta.blogDescription,
-    alternates: {
-      canonical: `/${locale}/blog`,
-      languages: {
-        "de-AT": "/de/blog",
-        en: "/en/blog",
-        "x-default": "/de/blog",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/blog", dict.meta.blogTitle, dict.meta.blogDescription);
 }
 
 function formatDate(date: string, locale: Locale): string {

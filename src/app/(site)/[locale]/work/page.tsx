@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "../../../../context/LanguageContext";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Work from "../../../../components/Work";
 import Footer from "../../../../components/Footer";
@@ -17,19 +18,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.workTitle,
-    description: dict.meta.workDescription,
-    alternates: {
-      canonical: `/${locale}/work`,
-      languages: {
-        "de-AT": "/de/work",
-        en: "/en/work",
-        "x-default": "/de/work",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/work", dict.meta.workTitle, dict.meta.workDescription);
 }
 
 export default async function WorkPage({

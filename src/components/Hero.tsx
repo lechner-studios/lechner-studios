@@ -11,12 +11,10 @@ export default function Hero() {
       className="grain lc-pad-hero"
       style={{
         position: "relative",
-        minHeight: "100vh",
         background: "var(--hero-bg)",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        padding: "120px 48px 80px",
+        padding: "150px 48px 110px",
         overflow: "hidden",
       }}
     >
@@ -40,77 +38,83 @@ export default function Hero() {
         ))}
       </div>
 
-      <div style={{ position: "relative", zIndex: 2, maxWidth: "960px" }}>
-        {/* Overline */}
-        <p
-          className="reveal reveal-1"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.65rem",
-            fontWeight: 500,
-            letterSpacing: "0.32em",
-            textTransform: "uppercase",
-            color: "var(--hero-accent)",
-            marginBottom: "2rem",
-          }}
-        >
-          {dict.hero.overline}
-        </p>
+      <div
+        className="lc-stack-2col"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          width: "100%",
+          maxWidth: "1200px",
+          display: "grid",
+          gridTemplateColumns: "1.5fr 1fr",
+          gap: "56px",
+          alignItems: "end",
+        }}
+      >
+        {/* LEFT: overline + headline + rule */}
+        <div>
+          {/* Overline */}
+          <p
+            className="reveal reveal-1"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.65rem",
+              fontWeight: 500,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: "var(--hero-accent)",
+              marginBottom: "2rem",
+            }}
+          >
+            {dict.hero.overline}
+          </p>
 
-        {/* Wordmark — masked, line-by-line rise */}
-        <h1
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(2.6rem, 6vw, 5.25rem)",
-            fontWeight: 300,
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            color: "var(--hero-text)",
-            marginBottom: "2.5rem",
-          }}
-        >
-          {lines.map((ln, i) => (
-            <span key={i} className="hero-line-mask">
-              <span
-                className="hero-line-inner"
-                style={{ animationDelay: `${0.2 + i * 0.13}s` }}
-              >
-                {ln}
+          {/* Wordmark — masked, line-by-line rise */}
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2.6rem, 6vw, 5.25rem)",
+              fontWeight: 300,
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "var(--hero-text)",
+              marginBottom: "2.5rem",
+            }}
+          >
+            {lines.map((ln, i) => (
+              <span key={i} className="hero-line-mask">
+                <span
+                  className="hero-line-inner"
+                  style={{ animationDelay: `${0.2 + i * 0.13}s` }}
+                >
+                  {ln}
+                </span>
               </span>
-            </span>
-          ))}
-        </h1>
+            ))}
+          </h1>
 
-        {/* Gold rule — draws itself in */}
+          {/* Accent rule — draws itself in */}
+          <div
+            className="hero-rule"
+            style={{
+              width: "56px",
+              height: "1px",
+              background: "var(--hero-accent)",
+              animationDelay: "0.62s",
+            }}
+          />
+        </div>
+
+        {/* RIGHT: CTAs + location, bottom-aligned to the headline baseline */}
         <div
-          className="hero-rule"
           style={{
-            width: "56px",
-            height: "1px",
-            background: "var(--hero-accent)",
-            marginBottom: "2.5rem",
-            animationDelay: "0.62s",
-          }}
-        />
-
-        {/* Italiana sub-line */}
-        <p
-          className="reveal"
-          style={{
-            fontFamily: "var(--font-display-italiana)",
-            fontSize: "clamp(1.1rem, 1.7vw, 1.5rem)",
-            fontWeight: 400,
-            lineHeight: 1.4,
-            letterSpacing: "0.005em",
-            color: "var(--hero-text-muted)",
-            marginBottom: "2.75rem",
-            maxWidth: "640px",
-            animationDelay: "0.78s",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "2rem",
+            paddingBottom: "4px",
           }}
         >
-          {dict.hero.subline}
-        </p>
-
         {/* CTAs */}
         <div
           className="reveal"
@@ -119,7 +123,6 @@ export default function Hero() {
             alignItems: "center",
             gap: "28px",
             flexWrap: "wrap",
-            marginBottom: "2.75rem",
             animationDelay: "0.92s",
           }}
         >
@@ -197,43 +200,7 @@ export default function Hero() {
         >
           {dict.hero.location}
         </p>
-      </div>
-
-      {/* Scroll cue */}
-      <div
-        className="reveal"
-        style={{
-          position: "absolute",
-          bottom: "48px",
-          right: "48px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "12px",
-          zIndex: 2,
-          animationDelay: "1.2s",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.55rem",
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "var(--hero-text-faint)",
-            writingMode: "vertical-rl",
-          }}
-        >
-          {dict.hero.scroll}
-        </span>
-        <div
-          style={{
-            width: "1px",
-            height: "60px",
-            background: "linear-gradient(to bottom, color-mix(in srgb, var(--hero-accent) 60%, transparent), transparent)",
-            animation: "scrollPulse 2.5s ease-in-out infinite",
-          }}
-        />
+        </div>
       </div>
     </section>
   );

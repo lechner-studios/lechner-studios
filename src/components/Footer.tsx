@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
-import EndorsementStamp from "./EndorsementStamp";
 
 export default function Footer() {
   const { dict, locale } = useLanguage();
@@ -29,8 +28,6 @@ export default function Footer() {
       gap: "32px",
       borderTop: "1px solid var(--contrast-border)",
     }}>
-      <EndorsementStamp variant="small" onDark text={d.endorsement} />
-
       <div style={{
         display: "flex",
         justifyContent: "center",

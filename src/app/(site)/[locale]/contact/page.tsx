@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "../../../../context/LanguageContext";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Contact from "../../../../components/Contact";
 import Footer from "../../../../components/Footer";
@@ -17,19 +18,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.contactTitle,
-    description: dict.meta.contactDescription,
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: {
-        "de-AT": "/de/contact",
-        en: "/en/contact",
-        "x-default": "/de/contact",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/contact", dict.meta.contactTitle, dict.meta.contactDescription);
 }
 
 export default async function ContactPage({

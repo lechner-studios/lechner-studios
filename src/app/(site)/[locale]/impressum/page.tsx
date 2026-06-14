@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import LegalImpressumDE from "../../../../components/LegalImpressumDE";
 import LegalImpressumEN from "../../../../components/LegalImpressumEN";
 
@@ -14,19 +15,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.impressumTitle,
-    description: dict.meta.impressumDescription,
-    alternates: {
-      canonical: `/${locale}/impressum`,
-      languages: {
-        "de-AT": "/de/impressum",
-        en: "/en/impressum",
-        "x-default": "/de/impressum",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/impressum", dict.meta.impressumTitle, dict.meta.impressumDescription);
 }
 
 export default async function ImpressumPage({

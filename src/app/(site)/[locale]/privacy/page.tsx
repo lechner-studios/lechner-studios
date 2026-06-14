@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import LegalPrivacyDE from "../../../../components/LegalPrivacyDE";
 import LegalPrivacyEN from "../../../../components/LegalPrivacyEN";
 
@@ -14,19 +15,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.privacyTitle,
-    description: dict.meta.privacyDescription,
-    alternates: {
-      canonical: `/${locale}/privacy`,
-      languages: {
-        "de-AT": "/de/privacy",
-        en: "/en/privacy",
-        "x-default": "/de/privacy",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/privacy", dict.meta.privacyTitle, dict.meta.privacyDescription);
 }
 
 export default async function PrivacyPage({
