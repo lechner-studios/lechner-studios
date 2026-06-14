@@ -54,8 +54,8 @@
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
   --signature:#B8944D; --code-bg:#EEF1F1;
-  /* Hero — a brand-colour band (Lake navy), same in both modes; light-sky accent (AA on navy). */
-  --hero-bg:#254268; --hero-accent:#B8C5D6;
+  /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
+  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.55); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
   color-scheme:light;
 }
 [data-theme="dark"] {
@@ -64,7 +64,9 @@
   --accent:#8FA8C5; --accent-2:#8FB89A;
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
-  --signature:#B8944D; --code-bg:#23272D; color-scheme:dark;
+  --signature:#B8944D; --code-bg:#23272D;
+  --hero-bg:#101216; --hero-text:#F7F8F8; --hero-text-muted:rgba(247,248,248,0.72); --hero-text-faint:rgba(247,248,248,0.55); --hero-accent:#8FA8C5; --hero-accent-text:#101216; --hero-border:rgba(247,248,248,0.10);
+  color-scheme:dark;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
