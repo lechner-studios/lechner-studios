@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   live:    { bg: "rgba(61,74,58,0.12)", color: "#3D4A3A" },
@@ -37,6 +38,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Header */}
+        <Reveal>
         <div className="lc-work-header" style={{
           display: "flex",
           justifyContent: "space-between",
@@ -77,8 +79,10 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
             {d.items.length} projects
           </span>
         </div>
+        </Reveal>
 
         {/* Lead — products-as-proof framing */}
+        <Reveal delay={80}>
         <p style={{
           fontSize: "1.05rem",
           color: "#5B6168",
@@ -89,6 +93,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
         }}>
           {d.lead}
         </p>
+        </Reveal>
 
         {/* Project list */}
         <div>
@@ -99,8 +104,8 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
             const isClickable = item.url !== "#";
 
             return (
+              <Reveal key={item.id} delay={i * 70}>
               <a
-                key={item.id}
                 href={isClickable ? item.url : undefined}
                 target={isClickable ? "_blank" : undefined}
                 rel="noopener noreferrer"
@@ -116,8 +121,9 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   borderBottom: "1px solid rgba(21,23,26,0.06)",
                   textDecoration: "none",
                   cursor: isClickable ? "pointer" : "default",
-                  transition: "background 0.2s",
+                  transition: "background 0.2s, transform 0.2s",
                   background: isHovered && isClickable ? "rgba(21,23,26,0.02)" : "transparent",
+                  transform: isHovered && isClickable ? "translateX(6px)" : "translateX(0)",
                   margin: "0 -24px",
                   paddingLeft: "24px",
                   paddingRight: "24px",
@@ -207,6 +213,7 @@ export default function Work({ limit, moreHref }: { limit?: number; moreHref?: s
                   )}
                 </div>
               </a>
+              </Reveal>
             );
           })}
         </div>

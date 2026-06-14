@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Reveal from "./Reveal";
 
 // Canonical pillar palette per brand spec §3.3
 // (websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md, lines 185-188)
@@ -32,7 +33,7 @@ export default function Services() {
         background: "radial-gradient(ellipse 70% 60% at 80% 50%, rgba(154,160,166,0.04) 0%, transparent 70%)",
       }} />
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <Reveal style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Overline */}
         <p style={{
           fontFamily: "var(--font-mono)",
@@ -123,7 +124,7 @@ export default function Services() {
             );
           })}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
