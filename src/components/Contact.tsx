@@ -216,6 +216,17 @@ export default function Contact() {
                     onFocus={() => { if (messageRef.current) messageRef.current.style.borderBottom = "1px solid #7A6029"; }}
                     onBlur={() => { if (messageRef.current) messageRef.current.style.borderBottom = "1px solid rgba(26,24,18,0.15)"; }}
                   />
+                  <p style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.58rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "#6B6356",
+                    marginTop: "-16px",
+                    marginBottom: "24px",
+                  }}>
+                    {f.messageHint}
+                  </p>
                 </div>
 
                 {/* Consent */}

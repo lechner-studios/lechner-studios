@@ -12,3 +12,8 @@ src/components/LegalPrivacyEN.tsx
 
 # Go-live spec references the GISA number.
 docs/superpowers/specs/2026-06-13-go-live-legal-brand-a11y-design.md
+
+# Contact API route hardcodes the studio's own PUBLIC recipient address
+# (the same hallo@ business inbox published on the Impressum) as the
+# sendMail destination — not third-party PII.
+src/app/api/contact/route.ts
