@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import { LanguageProvider } from "../../../../../context/LanguageContext";
 import { LOCALES, isLocale, HREFLANG, type Locale } from "../../../../../i18n/config";
 import { dictionaries } from "../../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
@@ -28,27 +29,14 @@ export async function generateMetadata({
   const post = getPost(locale, slug);
   if (!post) return {};
   const { meta } = post;
+  const base = pageMetadata(locale, `/blog/${slug}`, meta.title, meta.description, { type: "article" });
   return {
-    title: meta.title,
-    description: meta.description,
+    ...base,
     keywords: meta.keywords,
-    alternates: {
-      canonical: `/${locale}/blog/${slug}`,
-      languages: {
-        "de-AT": `/de/blog/${slug}`,
-        en: `/en/blog/${slug}`,
-        "x-default": `/de/blog/${slug}`,
-      },
-    },
-    robots: { index: true, follow: true },
     openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `https://lechner-studios.at/${locale}/blog/${slug}`,
-      siteName: "Lechner Studios",
+      ...base.openGraph,
       type: "article",
       publishedTime: meta.date,
-      locale: dictionaries[locale].meta.ogLocale,
     },
   };
 }

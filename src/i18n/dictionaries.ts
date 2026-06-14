@@ -62,8 +62,8 @@ export const dictionaries = {
       overline: "ABOUT THE STUDIO",
       headline: "A family-run studio building digital products with editorial precision.",
       body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH — built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
-      stat1n: "4", stat1l: "Products built",
-      stat2n: "3", stat2l: "Live now",
+      stat1n: "5", stat1l: "Products built",
+      stat2n: "2", stat2l: "Live now",
       stat3n: "4", stat3l: "Pillars",
     },
     founder: {
@@ -290,8 +290,8 @@ export const dictionaries = {
       overline: "ÜBER DAS STUDIO",
       headline: "Ein familiengeführtes Studio, das digitale Produkte mit editorischer Präzision baut.",
       body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum — gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
-      stat1n: "4", stat1l: "Projekte gebaut",
-      stat2n: "3", stat2l: "Live im Einsatz",
+      stat1n: "5", stat1l: "Projekte gebaut",
+      stat2n: "2", stat2l: "Live im Einsatz",
       stat3n: "4", stat3l: "Säulen",
     },
     founder: {

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "../../../../context/LanguageContext";
 import { isLocale, type Locale } from "../../../../i18n/config";
 import { dictionaries } from "../../../../i18n/dictionaries";
+import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import About from "../../../../components/About";
 import Founder from "../../../../components/Founder";
@@ -19,19 +20,7 @@ export async function generateMetadata({
   if (!isLocale(raw)) return {};
   const locale: Locale = raw;
   const dict = dictionaries[locale];
-  return {
-    title: dict.meta.aboutTitle,
-    description: dict.meta.aboutDescription,
-    alternates: {
-      canonical: `/${locale}/about`,
-      languages: {
-        "de-AT": "/de/about",
-        en: "/en/about",
-        "x-default": "/de/about",
-      },
-    },
-    robots: { index: true, follow: true },
-  };
+  return pageMetadata(locale, "/about", dict.meta.aboutTitle, dict.meta.aboutDescription);
 }
 
 export default async function AboutPage({
