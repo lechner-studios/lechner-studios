@@ -276,7 +276,13 @@ export const dictionaries = {
         errorGeneric: "Something went wrong. Please try again, or email us directly.",
         consent: "By submitting this enquiry you consent to the processing of the data you provide (name, email address, message) for the purpose of handling your contact request. Legal basis: Art. 6(1)(b) GDPR (pre-contractual steps) and/or Art. 6(1)(a) GDPR (consent). You can withdraw this consent at any time for future processing. The lawfulness of processing carried out before withdrawal remains unaffected. Withdrawal is informal — an email to hallo@lechner-studios.at is sufficient. See Privacy for details.",
         mailtoFallback: "Or email directly:",
+        bookCall: "Or book a 20-min call →",
       },
+    },
+    foundation: {
+      overline: "FOUNDATION PARTNERS",
+      headline: "A young studio — which is exactly the point.",
+      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it's already proven in the products we've built and run ourselves: Werk, Vistera, CodeFlash and Virtual Office Tirol. The same hands that built those will build yours.",
     },
     start: {
       overline: "START A PROJECT",
@@ -599,7 +605,13 @@ export const dictionaries = {
         errorGeneric: "Etwas ist schiefgelaufen. Bitte erneut versuchen oder uns direkt per E-Mail kontaktieren.",
         consent: "Mit dem Absenden Ihrer Anfrage stimmen Sie zu, dass Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Kontaktaufnahme verarbeitet werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Diese Einwilligung können Sie jederzeit für die Zukunft widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt vom Widerruf unberührt. Ein Widerruf ist formlos per E-Mail an hallo@lechner-studios.at möglich. Details siehe Datenschutz.",
         mailtoFallback: "Oder direkt per E-Mail:",
+        bookCall: "Oder ein 20-Min-Gespräch buchen →",
       },
+    },
+    foundation: {
+      overline: "FRÜHPHASEN-PARTNER",
+      headline: "Ein junges Studio — und genau der richtige Moment.",
+      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich bereits in den Produkten, die wir selbst gebaut haben und betreiben: Werk, Vistera, CodeFlash und Virtual Office Tirol. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
     },
     start: {
       overline: "PROJEKT STARTEN",

@@ -324,6 +324,30 @@ export default function Contact() {
               </p>
             )}
 
+            {/* Booking link — only when a Cal.com (or similar) URL is configured */}
+            {process.env.NEXT_PUBLIC_BOOKING_URL && formState !== "success" && (
+              <p style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.65rem",
+                color: "var(--text-muted)",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                marginTop: "-16px",
+                marginBottom: "32px",
+              }}>
+                <a
+                  href={process.env.NEXT_PUBLIC_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--accent-2)", textDecoration: "underline" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.opacity = "0.7")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.opacity = "1")}
+                >
+                  {f.bookCall}
+                </a>
+              </p>
+            )}
+
             <p style={{
               fontFamily: "var(--font-mono)",
               fontSize: "0.65rem",

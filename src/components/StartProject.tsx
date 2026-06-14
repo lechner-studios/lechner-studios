@@ -466,6 +466,31 @@ export default function StartProject() {
           {dict.contact.email}
         </a>
       </p>
+
+      {/* Booking link — only when a Cal.com (or similar) URL is configured */}
+      {process.env.NEXT_PUBLIC_BOOKING_URL && (
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.65rem",
+            color: "var(--text-muted)",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            marginTop: "12px",
+          }}
+        >
+          <a
+            href={process.env.NEXT_PUBLIC_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--accent)", textDecoration: "underline" }}
+            onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = "0.7")}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "1")}
+          >
+            {f.bookCall}
+          </a>
+        </p>
+      )}
     </div>
   );
 }
