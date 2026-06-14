@@ -50,7 +50,7 @@ export default function Work() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#5B6168",
+              color: "#254268",
               marginBottom: "12px",
             }}>
               {d.overline}

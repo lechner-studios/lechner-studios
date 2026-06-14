@@ -88,9 +88,24 @@ export default function Nav() {
         <Wordmark variant="inline" size={22} onDark={!scrolled} />
       </Link>
       <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-        <a href="#work"    style={linkStyle}>{dict.nav.work}</a>
-        <a href="#about"   style={linkStyle}>{dict.nav.about}</a>
-        <a href="#contact" style={linkStyle}>{dict.nav.contact}</a>
+        <a
+          href="#work"
+          style={linkStyle}
+          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.work}</a>
+        <a
+          href="#about"
+          style={linkStyle}
+          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.about}</a>
+        <a
+          href="#contact"
+          style={linkStyle}
+          onMouseEnter={e => { e.currentTarget.style.color = scrolled ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = scrolled ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.contact}</a>
         <Link href={altHref} hrefLang={HREFLANG[alt]} style={toggleStyle}>
           {dict.nav.toggle}
         </Link>

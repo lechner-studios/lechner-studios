@@ -25,7 +25,7 @@ export const overlineStyle: CSSProperties = {
   fontWeight: 600,
   letterSpacing: "0.28em",
   textTransform: "uppercase",
-  color: "#5B6168",
+  color: "#254268",
   marginBottom: "2rem",
 };
 

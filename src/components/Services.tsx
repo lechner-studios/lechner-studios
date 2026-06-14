@@ -40,7 +40,7 @@ export default function Services() {
           fontWeight: 600,
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#9AA0A6",
+          color: "#8FA8C5",
           marginBottom: "2rem",
         }}>
           {d.overline}

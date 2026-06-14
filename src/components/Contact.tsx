@@ -111,7 +111,7 @@ export default function Contact() {
               fontWeight: 600,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#5B6168",
+              color: "#254268",
               marginBottom: "2rem",
             }}>
               {d.overline}
@@ -280,7 +280,7 @@ export default function Contact() {
                   }}
                   onMouseEnter={e => {
                     if (consentChecked && formState !== "submitting") {
-                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #5B6168";
+                      (e.currentTarget as HTMLElement).style.borderBottom = "1px solid #254268";
                     }
                   }}
                   onMouseLeave={e => {
@@ -314,9 +314,9 @@ export default function Contact() {
                 {f.mailtoFallback}{" "}
                 <a
                   href={`mailto:${d.email}`}
-                  style={{ color: "#5B6168", textDecoration: "underline" }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "#5B6168")}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "#5B6168")}
+                  style={{ color: "#254268", textDecoration: "underline" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = "#1B3252")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = "#254268")}
                 >
                   {d.email}
                 </a>
