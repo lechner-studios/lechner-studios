@@ -106,6 +106,12 @@ export default function Nav() {
           onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
         >{dict.nav.about}</Link>
         <Link
+          href={`/${locale}/blog`}
+          style={linkStyle}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "#5B6168" : "#F7F8F8"; }}
+        >{dict.nav.journal}</Link>
+        <Link
           href={`/${locale}/contact`}
           style={linkStyle}
           onMouseEnter={e => { e.currentTarget.style.color = solid ? "#254268" : "#8FA8C5"; }}

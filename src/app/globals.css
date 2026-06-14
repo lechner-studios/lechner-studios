@@ -169,6 +169,90 @@ body {
   html { scroll-behavior: auto; }
 }
 
+/* Blog prose — rendered markdown on a light background.
+ * Restrained, editorial: General Sans body, Cormorant headings, Lake-navy links.
+ * Scoped to .blog-prose so it never touches the inline-styled section components. */
+.blog-prose {
+  max-width: 68ch;
+  font-family: var(--font-sans);
+  color: #15171A;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+.blog-prose > *:first-child { margin-top: 0; }
+.blog-prose p { margin: 0 0 1.4em; }
+.blog-prose h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #15171A;
+  margin: 2.4em 0 0.7em;
+}
+.blog-prose h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: #15171A;
+  margin: 2em 0 0.6em;
+}
+.blog-prose a {
+  color: #254268;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.blog-prose a:hover { color: #1B3252; }
+.blog-prose strong { font-weight: 600; color: #15171A; }
+.blog-prose ul,
+.blog-prose ol {
+  margin: 0 0 1.4em;
+  padding-left: 1.5em;
+}
+.blog-prose li { margin: 0.4em 0; }
+.blog-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: #EEF1F1;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+.blog-prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  background: #EEF1F1;
+  color: #15171A;
+  padding: 1.1em 1.3em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 0 0 1.4em;
+}
+.blog-prose pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+.blog-prose blockquote {
+  border-left: 3px solid #254268;
+  margin: 0 0 1.4em;
+  padding: 0.2em 0 0.2em 1.2em;
+  color: #5B6168;
+  font-style: italic;
+}
+.blog-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.4em 0;
+}
+.blog-prose hr {
+  border: none;
+  border-top: 1px solid rgba(21,23,26,0.12);
+  margin: 2.4em 0;
+}
+
 /* Mobile breakpoint — stack two-column grids and tighten section padding.
  * !important is used because the components set padding and
  * grid-template-columns inline; inline styles otherwise win against
