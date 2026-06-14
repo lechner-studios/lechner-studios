@@ -32,6 +32,9 @@ export const dictionaries = {
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
+      startTitle: "Start a Project",
+      startDescription:
+        "Tell us about your project — web, apps, automation or SEO. The more you share, the sharper our first call. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
       blogDescription:
         "Practical notes on web design, apps, automation and SEO for independent businesses.",
@@ -170,6 +173,41 @@ export const dictionaries = {
         mailtoFallback: "Or email directly:",
       },
     },
+    start: {
+      overline: "START A PROJECT",
+      headline: "Let's build the right thing.",
+      intro:
+        "Tell us about your project. The more you share, the sharper our first call — we'll come prepared with a clear sense of what's possible and what it takes.",
+      nameLabel: "Name",
+      emailLabel: "Email",
+      companyLabel: "Company (optional)",
+      projectTypeLabel: "What do you need? (select all that apply)",
+      projectType: {
+        web: "Website",
+        apps: "App / automation",
+        seo: "SEO",
+        brand: "Brand & identity (with a build)",
+        unsure: "Not sure yet",
+      },
+      goalLabel: "What are you trying to achieve?",
+      timelineLabel: "Timeline (optional)",
+      timeline: {
+        asap: "ASAP",
+        q1_3: "1–3 months",
+        q3_6: "3–6 months",
+        flexible: "Flexible",
+      },
+      budgetLabel: "Budget (Euro, optional)",
+      budget: {
+        unsure: "Not sure yet",
+        low: "Under 5,000",
+        mid: "5,000–15,000",
+        high: "Over 15,000",
+      },
+      currentSiteLabel: "Current website or references (optional)",
+      detailsLabel: "Anything else? (optional)",
+      submit: "Send enquiry",
+    },
     footer: {
       rights: "All rights reserved.",
       tagline: "Built with precision. Tirol, Österreich.",
@@ -212,6 +250,9 @@ export const dictionaries = {
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
+      startTitle: "Projekt starten",
+      startDescription:
+        "Erzählen Sie uns von Ihrem Projekt — Web, Apps, Automatisierung oder SEO. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
       blogDescription:
         "Praktische Notizen zu Webdesign, Apps, Automatisierung und SEO für unabhängige Unternehmen.",
@@ -349,6 +390,41 @@ export const dictionaries = {
         consent: "Mit dem Absenden Ihrer Anfrage stimmen Sie zu, dass Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Kontaktaufnahme verarbeitet werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Diese Einwilligung können Sie jederzeit für die Zukunft widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt vom Widerruf unberührt. Ein Widerruf ist formlos per E-Mail an hallo@lechner-studios.at möglich. Details siehe Datenschutz.",
         mailtoFallback: "Oder direkt per E-Mail:",
       },
+    },
+    start: {
+      overline: "PROJEKT STARTEN",
+      headline: "Bauen wir das Richtige.",
+      intro:
+        "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch — wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",
+      nameLabel: "Name",
+      emailLabel: "E-Mail",
+      companyLabel: "Unternehmen (optional)",
+      projectTypeLabel: "Was brauchen Sie? (Mehrfachauswahl möglich)",
+      projectType: {
+        web: "Website",
+        apps: "App / Automatisierung",
+        seo: "SEO",
+        brand: "Marke & Identität (mit Projekt)",
+        unsure: "Noch unklar",
+      },
+      goalLabel: "Was möchten Sie erreichen?",
+      timelineLabel: "Zeitrahmen (optional)",
+      timeline: {
+        asap: "So bald wie möglich",
+        q1_3: "1–3 Monate",
+        q3_6: "3–6 Monate",
+        flexible: "Flexibel",
+      },
+      budgetLabel: "Budget (Euro, optional)",
+      budget: {
+        unsure: "Noch unklar",
+        low: "Unter 5.000",
+        mid: "5.000–15.000",
+        high: "Über 15.000",
+      },
+      currentSiteLabel: "Aktuelle Website oder Referenzen (optional)",
+      detailsLabel: "Sonst noch etwas? (optional)",
+      submit: "Anfrage senden",
     },
     footer: {
       rights: "Alle Rechte vorbehalten.",
