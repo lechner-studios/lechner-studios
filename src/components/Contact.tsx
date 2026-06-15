@@ -241,8 +241,8 @@ export default function Contact() {
                     style={{ flexShrink: 0, marginTop: "3px", cursor: "pointer" }}
                   />
                   <label htmlFor="contact-consent" style={{
-                    fontSize: "0.78rem",
-                    lineHeight: 1.6,
+                    fontSize: "0.72rem",
+                    lineHeight: 1.75,
                     color: "var(--text-muted)",
                   }}>
                     {f.consent}
@@ -298,6 +298,18 @@ export default function Contact() {
                 >
                   {formState === "submitting" ? f.submitting : f.submit}
                 </button>
+
+                {/* Response-time reassurance — shown in the form (non-success) states. */}
+                <p style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--text-muted)",
+                  marginTop: "16px",
+                }}>
+                  {f.responseTime}
+                </p>
               </form>
             )}
 
@@ -320,6 +332,30 @@ export default function Contact() {
                   onMouseLeave={e => ((e.target as HTMLElement).style.opacity = "1")}
                 >
                   {d.email}
+                </a>
+              </p>
+            )}
+
+            {/* Booking link — only when a Cal.com (or similar) URL is configured */}
+            {process.env.NEXT_PUBLIC_BOOKING_URL && formState !== "success" && (
+              <p style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.65rem",
+                color: "var(--text-muted)",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                marginTop: "-16px",
+                marginBottom: "32px",
+              }}>
+                <a
+                  href={process.env.NEXT_PUBLIC_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--accent-2)", textDecoration: "underline" }}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.opacity = "0.7")}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.opacity = "1")}
+                >
+                  {f.bookCall}
                 </a>
               </p>
             )}

@@ -7,6 +7,7 @@ import Nav from "../../../components/Nav";
 import Hero from "../../../components/Hero";
 import Work from "../../../components/Work";
 import Services from "../../../components/Services";
+import FoundationPartner from "../../../components/FoundationPartner";
 import ContactCta from "../../../components/ContactCta";
 import Footer from "../../../components/Footer";
 
@@ -29,6 +30,7 @@ export default async function Home({
         <Hero />
         <Services />
         <Work featured={["websites", "vistera"]} moreHref={`/${locale}/work`} />
+        <FoundationPartner />
         <ContactCta />
         <Footer />
       </main>

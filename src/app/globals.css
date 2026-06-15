@@ -48,14 +48,14 @@
  * --contrast-* = the dark editorial bands (hero + footer) that stay dark
  * in BOTH modes. --code-bg = inline/pre background for blog prose. */
 :root {
-  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#8A9098;
+  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
   --border:rgba(21,23,26,0.10); --border-strong:rgba(21,23,26,0.15);
   --accent:#254268; --accent-2:#4A6A4E;
-  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
+  --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.62);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
   --signature:#B8944D; --code-bg:#EEF1F1;
   /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
-  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.55); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
+  --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.66); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
   color-scheme:light;
 }
 [data-theme="dark"] {
@@ -286,11 +286,20 @@ section, footer, nav, .theme-surface {
   margin: 2.4em 0;
 }
 
+/* Nav responsive — desktop link group vs. mobile hamburger.
+ * Base: desktop group shows, burger hidden; the @media block below flips them.
+ * The burger button carries NO inline `display` so this class governs it. */
+.lc-nav-desktop { display: flex; }
+.lc-nav-burger  { display: none; }
+
 /* Mobile breakpoint — stack two-column grids and tighten section padding.
  * !important is used because the components set padding and
  * grid-template-columns inline; inline styles otherwise win against
  * class-based rules. */
 @media (max-width: 768px) {
+  .lc-nav-desktop { display: none !important; }
+  .lc-nav-burger  { display: inline-flex !important; }
+
   .lc-pad-section { padding: 72px 24px !important; }
   .lc-pad-hero    { padding: 96px 24px 64px !important; }
   .lc-pad-footer  { padding: 28px 24px !important; }
