@@ -106,20 +106,11 @@ export async function generateMetadata({
       locale: dict.meta.ogLocale,
       alternateLocale: dictionaries[alternateLocale(locale)].meta.ogLocale,
       type: "website",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: dict.meta.homeTitle,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.homeTitle,
       description: dict.meta.homeDescription,
-      images: ["/og-image.png"],
     },
   };
 }
