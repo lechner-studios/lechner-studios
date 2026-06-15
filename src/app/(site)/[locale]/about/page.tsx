@@ -41,7 +41,15 @@ export default async function AboutPage({
       <main id="main" style={{ minHeight: "100vh" }}>
         <About />
         <Founder />
-        <HowWeWork />
+        {/*
+          "Wie wir arbeiten / KI-Zwilling" doctrine — STAGED OFF until the AI-twin
+          autonomy system is actually implemented. Publishing it before then is a
+          premature public claim (A2 honesty, ADR-0038). The component + DE/EN copy
+          (dict.howWeWork) are kept ready to flip on.
+          REVISIT ON IMPLEMENTATION: set NEXT_PUBLIC_SHOW_HOW_WE_WORK=1 in the
+          umbrella's Vercel env once the declared, revocable autonomy scopes are real.
+        */}
+        {process.env.NEXT_PUBLIC_SHOW_HOW_WE_WORK === "1" && <HowWeWork />}
         <Footer />
       </main>
     </LanguageProvider>
