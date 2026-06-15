@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
+import BrandMark from "./BrandMark";
 
 export default function Footer() {
   const { dict, locale } = useLanguage();
@@ -28,6 +29,14 @@ export default function Footer() {
       gap: "32px",
       borderTop: "1px solid var(--contrast-border)",
     }}>
+      {/* Parent-brand signature mark — the Alpine-pillar tiles + gold dot
+          (favicon mark). NOT the "A Lechner Studios product" endorsement
+          stamp: this is the umbrella/parent site, so it carries the mark
+          alone, no product wording. */}
+      <Link href={`/${locale}`} aria-label="Lechner Studios" style={{ display: "inline-flex", lineHeight: 0 }}>
+        <BrandMark size={30} />
+      </Link>
+
       <div style={{
         display: "flex",
         justifyContent: "center",
