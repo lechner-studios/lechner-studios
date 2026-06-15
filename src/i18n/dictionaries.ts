@@ -117,7 +117,7 @@ export const dictionaries = {
           year: "2026",
           status: "dev",
           desc: "AI-powered phone answering, legally usable business address, and automated back-office for Innsbruck-based businesses.",
-          url: "https://virtual-office.lechner-studios.at",
+          url: "#",
         },
         {
           id: "codeflash",
@@ -440,7 +440,7 @@ export const dictionaries = {
           year: "2026",
           status: "dev",
           desc: "KI-gestützte Telefon-Assistenz, ladungsfähige Geschäftsadresse und automatisiertes Back-Office für Innsbrucker Betriebe.",
-          url: "https://virtual-office.lechner-studios.at",
+          url: "#",
         },
         {
           id: "codeflash",
