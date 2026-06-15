@@ -11,6 +11,7 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   paused:  { bg: "rgba(138,144,152,0.1)", color: "#5B6168" },
   planned: { bg: "rgba(138,144,152,0.07)", color: "#5B6168" },
   maintenance: { bg: "rgba(143,168,197,0.14)", color: "#5B6168" },
+  comingSoon: { bg: "rgba(143,168,197,0.12)", color: "#5B6168" },
 };
 
 const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dict"]["work"]> = {
@@ -20,6 +21,7 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
   planned: "statusPlanned",
   service: "statusService",
   maintenance: "statusMaintenance",
+  comingSoon: "statusComingSoon",
 };
 
 export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {

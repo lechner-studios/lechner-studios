@@ -84,13 +84,14 @@ export const dictionaries = {
     work: {
       overline: "SELECTED WORK",
       headline: "Products & Projects",
-      lead: "We don't only build for clients — we build and run our own products. The same craft goes into every project.",
+      lead: "We don't only build for clients — we build our own products, too. The same craft goes into every project.",
       statusLive: "Live",
       statusDev: "In Development",
       statusPaused: "Paused",
       statusPlanned: "Planned",
       statusService: "Active Service",
       statusMaintenance: "Maintenance",
+      statusComingSoon: "Coming Soon",
       visit: "Visit →",
       viewAll: "All work →",
       items: [
@@ -108,16 +109,16 @@ export const dictionaries = {
           title: "Vistera",
           category: "PropTech · VR",
           year: "2025",
-          status: "live",
+          status: "comingSoon",
           desc: "4K cinema and VR property walkthroughs for real estate. A global platform built for the Austrian market — the DUO Standard.",
-          url: "https://vistera.io",
+          url: "#",
         },
         {
           id: "virtual-office",
           title: "Virtual Office Tirol",
           category: "SaaS · AI Systems",
           year: "2026",
-          status: "dev",
+          status: "comingSoon",
           desc: "AI-powered phone answering, legally usable business address, and automated back-office for Innsbruck-based businesses.",
           url: "#",
         },
@@ -147,7 +148,7 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we run ourselves. No builders, no compromises.",
+          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
         },
         {
           title: "Apps & Automation",
@@ -192,7 +193,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "We don't only build for clients — Werk is our own custom-website service, and every platform we run (Vistera, Virtual Office Tirol, CodeFlash) is hand-built to the same standard. The work is the proof.",
+          "We don't only build for clients — Werk is our own custom-website service, and every platform we've built (Vistera, Virtual Office Tirol, CodeFlash) is held to the same standard. The work is the proof.",
         ctaLabel: "Discuss your project",
       },
       apps: {
@@ -223,7 +224,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "This is what we build for ourselves: Virtual Office Tirol runs AI phone answering and automated back-office for Innsbruck businesses, Vistera powers VR property walkthroughs, and our content pipelines automate real production work. Each was built in-house, the same way we'd build yours.",
+          "This is what we make for ourselves: Virtual Office Tirol for AI phone answering and automated back-office for Innsbruck businesses, Vistera for VR property walkthroughs, and content pipelines that automate real production work. Each built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
       },
       seo: {
@@ -285,7 +286,7 @@ export const dictionaries = {
     foundation: {
       overline: "FOUNDATION PARTNERS",
       headline: "A young studio — which is exactly the point.",
-      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it's already proven in the products we've built and run ourselves: Werk, Vistera, CodeFlash and Virtual Office Tirol. The same hands that built those will build yours.",
+      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it's already proven in the products we've built ourselves: Werk, Vistera, CodeFlash and Virtual Office Tirol. The same hands that built those will build yours.",
     },
     start: {
       overline: "START A PROJECT",
@@ -416,13 +417,14 @@ export const dictionaries = {
     work: {
       overline: "AUSGEWÄHLTE ARBEITEN",
       headline: "Produkte & Projekte",
-      lead: "Wir bauen nicht nur für Kunden — wir entwickeln und betreiben eigene Produkte. Dieselbe Sorgfalt steckt in jedem Projekt.",
+      lead: "Wir bauen nicht nur für Kunden — wir entwickeln auch eigene Produkte. Dieselbe Sorgfalt steckt in jedem Projekt.",
       statusLive: "Live",
       statusDev: "In Entwicklung",
       statusPaused: "Pausiert",
       statusPlanned: "Geplant",
       statusService: "Aktiver Service",
       statusMaintenance: "In Wartung",
+      statusComingSoon: "Demnächst",
       visit: "Besuchen →",
       viewAll: "Alle Arbeiten →",
       items: [
@@ -440,16 +442,16 @@ export const dictionaries = {
           title: "Vistera",
           category: "PropTech · VR",
           year: "2025",
-          status: "live",
+          status: "comingSoon",
           desc: "4K-Kino und VR-Rundgänge für Immobilien. Eine globale Plattform für den österreichischen Markt — der DUO Standard.",
-          url: "https://vistera.io",
+          url: "#",
         },
         {
           id: "virtual-office",
           title: "Virtual Office Tirol",
           category: "SaaS · KI-Systeme",
           year: "2026",
-          status: "dev",
+          status: "comingSoon",
           desc: "KI-gestützte Telefon-Assistenz, ladungsfähige Geschäftsadresse und automatisiertes Back-Office für Innsbrucker Betriebe.",
           url: "#",
         },
@@ -479,7 +481,7 @@ export const dictionaries = {
       items: [
         {
           title: "Web & Design",
-          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst betreiben. Keine Baukästen, keine Kompromisse.",
+          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
         },
         {
           title: "Apps & Automation",
@@ -524,7 +526,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir betreiben (Vistera, Virtual Office Tirol, CodeFlash), ist nach demselben Standard von Hand gebaut. Die Arbeit ist der Beweis.",
+          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir gebaut haben (Vistera, Virtual Office Tirol, CodeFlash), entstand nach demselben Standard. Die Arbeit ist der Beweis.",
         ctaLabel: "Projekt besprechen",
       },
       apps: {
@@ -555,7 +557,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "Genau das bauen wir für uns selbst: Virtual Office Tirol betreibt KI-Telefon-Assistenz und automatisiertes Back-Office für Innsbrucker Betriebe, Vistera treibt VR-Immobilienrundgänge an, und unsere Content-Pipelines automatisieren echte Produktionsarbeit. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
+          "Genau das bauen wir für uns selbst: Virtual Office Tirol für KI-Telefon-Assistenz und automatisiertes Back-Office für Innsbrucker Betriebe, Vistera für VR-Immobilienrundgänge, und Content-Pipelines, die echte Produktionsarbeit automatisieren. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",
       },
       seo: {
@@ -617,7 +619,7 @@ export const dictionaries = {
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Ein junges Studio — und genau der richtige Moment.",
-      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich bereits in den Produkten, die wir selbst gebaut haben und betreiben: Werk, Vistera, CodeFlash und Virtual Office Tirol. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich bereits in den Produkten, die wir selbst gebaut haben: Werk, Vistera, CodeFlash und Virtual Office Tirol. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
     },
     start: {
       overline: "PROJEKT STARTEN",
