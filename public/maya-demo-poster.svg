@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Maya demo video">
+  <rect width="1600" height="900" fill="#15171a"/>
+  <circle cx="800" cy="430" r="64" fill="none" stroke="#8FA8C5" stroke-width="3"/>
+  <path d="M780 400 l44 30 -44 30 z" fill="#8FA8C5"/>
+  <text x="800" y="560" fill="#C9CDD2" font-family="monospace" font-size="34" letter-spacing="6" text-anchor="middle">MAYA — VOICE AI DEMO</text>
+</svg>
