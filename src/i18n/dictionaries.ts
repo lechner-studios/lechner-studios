@@ -119,7 +119,7 @@ export const dictionaries = {
           category: "SaaS · AI Systems",
           year: "2026",
           status: "comingSoon",
-          desc: "AI-powered phone answering, legally usable business address, and automated back-office for Innsbruck-based businesses.",
+          desc: "A platform in development for Innsbruck businesses — a legally usable business address, with AI phone answering and back-office automation on the roadmap.",
           url: "#",
         },
         {
@@ -168,7 +168,7 @@ export const dictionaries = {
         },
         {
           title: "Apps & Automation",
-          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI systems that do the actual work — PropTech VR, virtual-office SaaS, AI phone agents, content automation.",
+          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
         },
         {
           title: "SEO & Growth",
@@ -232,7 +232,7 @@ export const dictionaries = {
           },
           {
             h: "AI automation, used responsibly",
-            p: "We use AI where it earns its place — phone answering, content automation, back-office routing — inside clear, reviewable scopes, so a human stays in control of anything that matters.",
+            p: "We use AI where it earns its place — content automation today, with phone answering and back-office routing in development — always inside clear, reviewable scopes, so a human stays in control of anything that matters.",
           },
           {
             h: "Maintainable and observable",
@@ -240,7 +240,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "This is what we make for ourselves: Virtual Office Tirol for AI phone answering and automated back-office for Innsbruck businesses, Vistera for VR property walkthroughs, and content pipelines that automate real production work. Each built in-house, the same way we'd build yours.",
+          "This is what we build for ourselves: Maya, an in-house voice AI assistant running in production; content pipelines that automate real production work today; and platforms in development — Virtual Office Tirol for phone answering and back-office automation, Vistera for VR property walkthroughs. Each built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
       },
       seo: {
@@ -468,7 +468,7 @@ export const dictionaries = {
           category: "SaaS · KI-Systeme",
           year: "2026",
           status: "comingSoon",
-          desc: "KI-gestützte Telefon-Assistenz, ladungsfähige Geschäftsadresse und automatisiertes Back-Office für Innsbrucker Betriebe.",
+          desc: "Eine Plattform in Entwicklung für Innsbrucker Betriebe — eine ladungsfähige Geschäftsadresse, mit KI-Telefon-Assistenz und Back-Office-Automatisierung auf der Roadmap.",
           url: "#",
         },
         {
@@ -517,7 +517,7 @@ export const dictionaries = {
         },
         {
           title: "Apps & Automation",
-          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Systeme, die die Arbeit wirklich erledigen — PropTech-VR, Virtual-Office-SaaS, KI-Telefonassistenz, Content-Automatisierung.",
+          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
         },
         {
           title: "SEO & Growth",
@@ -581,7 +581,7 @@ export const dictionaries = {
           },
           {
             h: "KI verantwortungsvoll eingesetzt",
-            p: "Wir setzen KI dort ein, wo sie ihren Platz verdient — Telefon-Assistenz, Content-Automatisierung, Back-Office-Routing — innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
+            p: "Wir setzen KI dort ein, wo sie ihren Platz verdient — Content-Automatisierung heute, Telefon-Assistenz und Back-Office-Routing in Entwicklung — immer innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
           },
           {
             h: "Wartbar und nachvollziehbar",
@@ -589,7 +589,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "Genau das bauen wir für uns selbst: Virtual Office Tirol für KI-Telefon-Assistenz und automatisiertes Back-Office für Innsbrucker Betriebe, Vistera für VR-Immobilienrundgänge, und Content-Pipelines, die echte Produktionsarbeit automatisieren. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
+          "Genau das bauen wir für uns selbst: Maya, einen hauseigenen Sprach-KI-Assistenten, der in Produktion läuft; Content-Pipelines, die heute echte Produktionsarbeit automatisieren; und Plattformen in Entwicklung — Virtual Office Tirol für Telefon-Assistenz und Back-Office-Automatisierung, Vistera für VR-Immobilienrundgänge. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",
       },
       seo: {

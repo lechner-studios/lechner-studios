@@ -83,6 +83,9 @@ export default function MayaCaseStudy() {
               }}
             >
               <source src="/maya-demo.mp4" type="video/mp4" />
+              {/* OWNER GATE: supply /maya-demo.vtt (captions) alongside /maya-demo.mp4 before this goes live — WCAG 2.1 AA 1.2.2 (captions for prerecorded audio). */}
+              <track kind="captions" src="/maya-demo.vtt" srcLang="en" label="English" default />
+              {d.videoCaption}
             </video>
           </div>
           <p
