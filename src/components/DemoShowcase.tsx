@@ -5,10 +5,10 @@ import Reveal from "./Reveal";
 import Overline from "./Overline";
 
 const DEMOS_BASE = "https://demos.lechner-studios.at";
-// Gate: the demos are owner-deployed to demos.lechner-studios.at out-of-band.
-// Until they're live, this section renders nothing so no dead links ship.
-// Flip by setting NEXT_PUBLIC_DEMOS_LIVE=true after the Vercel deploy + DNS.
-const DEMOS_LIVE = process.env.NEXT_PUBLIC_DEMOS_LIVE === "true";
+// The demos are live at demos.lechner-studios.at (all four niches verified 200).
+// Grid is on by default; set NEXT_PUBLIC_DEMOS_LIVE=false to hide it (e.g. if
+// the demos subdomain ever goes down) without a code change.
+const DEMOS_LIVE = process.env.NEXT_PUBLIC_DEMOS_LIVE !== "false";
 
 export default function DemoShowcase() {
   const { dict } = useLanguage();
