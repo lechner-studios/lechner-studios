@@ -8,6 +8,7 @@ import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import StartProject from "../../../../components/StartProject";
 import Footer from "../../../../components/Footer";
+import Overline from "../../../../components/Overline";
 
 export async function generateMetadata({
   params,
@@ -50,19 +51,9 @@ export default async function StartPage({
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
             {/* Editorial header */}
             <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.62rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  color: "var(--accent)",
-                  marginBottom: "2rem",
-                }}
-              >
+              <Overline marginBottom="2rem">
                 {s.overline}
-              </p>
+              </Overline>
               <h1
                 style={{
                   fontFamily: "var(--font-display)",

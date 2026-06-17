@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 export default function Contact() {
   const { dict } = useLanguage();
@@ -106,17 +107,9 @@ export default function Contact() {
         }}>
           {/* Left */}
           <div>
-            <p style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              fontWeight: 600,
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "var(--accent-2)",
-              marginBottom: "2rem",
-            }}>
+            <Overline color="var(--accent-2)" marginBottom="2rem">
               {d.overline}
-            </p>
+            </Overline>
             <h2 style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(3rem, 6vw, 5.5rem)",

@@ -8,6 +8,7 @@ import { dictionaries } from "../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Footer from "../../../../components/Footer";
+import Overline from "../../../../components/Overline";
 import { getAllPosts } from "../../../../lib/blog";
 
 export async function generateMetadata({
@@ -60,19 +61,9 @@ export default async function BlogIndexPage({
         >
           <div style={{ maxWidth: "880px", margin: "0 auto" }}>
             {/* Editorial header */}
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.62rem",
-                fontWeight: 600,
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "var(--accent)",
-                marginBottom: "1.5rem",
-              }}
-            >
+            <Overline marginBottom="1.5rem">
               {dict.blog.overline}
-            </p>
+            </Overline>
             <h1
               style={{
                 fontFamily: "var(--font-display)",
