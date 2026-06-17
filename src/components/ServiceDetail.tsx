@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 type ServiceKey = "web" | "apps" | "seo";
 
@@ -27,19 +28,9 @@ export default function ServiceDetail({ serviceKey }: { serviceKey: ServiceKey }
     >
       <Reveal style={{ maxWidth: "820px", margin: "0 auto" }}>
         {/* Overline */}
-        <p
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.62rem",
-            fontWeight: 600,
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "var(--accent)",
-            marginBottom: "2rem",
-          }}
-        >
+        <Overline marginBottom="2rem">
           {sd.overline}
-        </p>
+        </Overline>
 
         {/* Headline */}
         <h1

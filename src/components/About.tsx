@@ -2,6 +2,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 export default function About() {
   const { dict } = useLanguage();
@@ -19,17 +20,9 @@ export default function About() {
     >
       <Reveal style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {/* Overline */}
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.62rem",
-          fontWeight: 600,
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent)",
-          marginBottom: "2.5rem",
-        }}>
+        <Overline marginBottom="2.5rem">
           {d.overline}
-        </p>
+        </Overline>
 
         <div className="lc-stack-2col" style={{
           display: "grid",

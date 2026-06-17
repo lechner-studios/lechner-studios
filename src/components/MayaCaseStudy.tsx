@@ -2,6 +2,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 export default function MayaCaseStudy() {
   const { dict } = useLanguage();
@@ -19,19 +20,7 @@ export default function MayaCaseStudy() {
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              fontWeight: 600,
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "var(--accent)",
-              marginBottom: "12px",
-            }}
-          >
-            {d.overline}
-          </p>
+          <Overline marginBottom="12px">{d.overline}</Overline>
           <h2
             style={{
               fontFamily: "var(--font-display)",

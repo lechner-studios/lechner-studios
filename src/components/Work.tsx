@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   live:    { bg: "rgba(61,74,58,0.12)", color: "#3D4A3A" },
@@ -59,17 +60,9 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
           borderBottom: "1px solid var(--border)",
         }}>
           <div>
-            <p style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              fontWeight: 600,
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "var(--accent)",
-              marginBottom: "12px",
-            }}>
+            <Overline marginBottom="12px">
               {d.overline}
-            </p>
+            </Overline>
             <h2 style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2rem, 3vw, 2.8rem)",

@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 // Canonical pillar palette per brand spec §3.3
 // (websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md, lines 185-188)
@@ -40,17 +41,9 @@ export default function Services() {
 
       <Reveal style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Overline */}
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.62rem",
-          fontWeight: 600,
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent)",
-          marginBottom: "2rem",
-        }}>
+        <Overline marginBottom="2rem">
           {d.overline}
-        </p>
+        </Overline>
 
         {/* Headline */}
         <h2 style={{

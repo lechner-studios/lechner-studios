@@ -10,6 +10,10 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const current = document.documentElement.dataset.theme;
+    // Sync React state to the theme the no-flash script set before paint.
+    // Can't lazy-init (server renders "light", client may be "dark" →
+    // hydration mismatch); the one-shot setState here can't cascade (empty deps).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(current === "dark" ? "dark" : "light");
   }, []);
 

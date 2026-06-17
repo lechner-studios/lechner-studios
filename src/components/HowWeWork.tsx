@@ -2,6 +2,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 export default function HowWeWork() {
   const { dict } = useLanguage();
@@ -33,19 +34,9 @@ export default function HowWeWork() {
 
       <Reveal style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: "760px" }}>
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              fontWeight: 600,
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "var(--accent)",
-              marginBottom: "2rem",
-            }}
-          >
+          <Overline marginBottom="2rem">
             {d.overline}
-          </p>
+          </Overline>
 
           <h2
             id="how-we-work-heading"

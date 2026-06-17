@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
+import Overline from "./Overline";
 
 export default function Founder() {
   const { dict } = useLanguage();
@@ -20,17 +21,9 @@ export default function Founder() {
       }}
     >
       <Reveal style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.62rem",
-          fontWeight: 600,
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent-2)",
-          marginBottom: "2.5rem",
-        }}>
+        <Overline color="var(--accent-2)" marginBottom="2.5rem">
           {d.overline}
-        </p>
+        </Overline>
 
         {/* Founder portrait */}
         <figure style={{ margin: "0 0 72px", maxWidth: "480px" }}>

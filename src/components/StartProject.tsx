@@ -35,6 +35,12 @@ export default function StartProject() {
       const cb = node as HTMLInputElement;
       cb.checked = pts.includes(cb.value);
     });
+    // Deliberate mount-time hydration from localStorage. A lazy useState
+    // initializer can't read localStorage (unavailable during SSR → hydration
+    // mismatch), and `consent` must stay controlled because the submit button's
+    // disabled state derives from it. This is exactly the external-store sync an
+    // effect is for — the one-shot setState here can't cascade (empty deps).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (draft.consent) setConsentChecked(true);
   }, []);
 
