@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Lechner Studios";
 export const size = { width: 1200, height: 630 };
@@ -9,9 +11,6 @@ const TAGLINES: Record<string, string> = {
   de: "Design-orientiertes Digitalstudio aus Tirol.",
   en: "Design-led digital studio from Tirol.",
 };
-
-const CORMORANT_TTF =
-  "https://cdn.jsdelivr.net/fontsource/fonts/cormorant@latest/latin-600-normal.ttf";
 
 // Brand colours
 const INK = "#101216";
@@ -28,14 +27,14 @@ export default async function Image({
   const { locale } = await params;
   const tagline = TAGLINES[locale] ?? TAGLINES.de;
 
-  // Satori cannot parse woff2; fetch a TTF at runtime. Fall back to rendering
-  // without a custom font if the fetch fails so the route never hard-crashes.
-  let fontData: ArrayBuffer | null = null;
+  // Satori needs a TTF (can't parse woff2). Self-hosted font read from the repo
+  // at request time — NO third-party / runtime network request (was a jsdelivr
+  // fetch). Falls back to the default font if the read fails so it never crashes.
+  let fontData: Buffer | null = null;
   try {
-    const res = await fetch(CORMORANT_TTF);
-    if (res.ok) {
-      fontData = await res.arrayBuffer();
-    }
+    fontData = await readFile(
+      join(process.cwd(), "public/fonts/cormorant-700.ttf"),
+    );
   } catch {
     fontData = null;
   }
@@ -102,7 +101,7 @@ export default async function Image({
             {
               name: "Cormorant",
               data: fontData,
-              weight: 600,
+              weight: 700,
               style: "normal",
             },
           ],
