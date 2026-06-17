@@ -394,6 +394,20 @@ export const dictionaries = {
       detailsLabel: "Anything else? (optional)",
       submit: "Send enquiry",
     },
+    studioDirector: {
+      launchLabel: "Chat with The Studio Director",
+      title: "The Studio Director",
+      subtitle: "AI twin · Lechner Studios",
+      greeting:
+        "Hi — I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll loop in a human when the stakes need one.",
+      placeholder: "Ask about services, pricing, the Pension website…",
+      send: "Send",
+      close: "Close",
+      privacyNote: "AI assistant (Claude). Messages aren't stored. Please don't enter sensitive data.",
+      errorRate: "One moment — that was a lot of messages. Please try again shortly.",
+      errorGlobal: "I'm taking a short break. Please reach us via the contact form.",
+      errorGeneric: "Something went wrong. Please try again or use the contact form.",
+    },
     footer: {
       rights: "All rights reserved.",
       tagline: "Built with precision. Tirol, Österreich.",
@@ -797,6 +811,20 @@ export const dictionaries = {
       currentSiteLabel: "Aktuelle Website oder Referenzen (optional)",
       detailsLabel: "Sonst noch etwas? (optional)",
       submit: "Anfrage senden",
+    },
+    studioDirector: {
+      launchLabel: "Mit The Studio Director chatten",
+      title: "The Studio Director",
+      subtitle: "KI-Zwilling · Lechner Studios",
+      greeting:
+        "Hallo — ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich einen Menschen dazu.",
+      placeholder: "Fragen Sie zu Leistungen, Preisen, der Pensions-Website…",
+      send: "Senden",
+      close: "Schließen",
+      privacyNote: "KI-Assistent (Claude). Nachrichten werden nicht gespeichert. Bitte keine sensiblen Daten eingeben.",
+      errorRate: "Einen Moment — das waren viele Nachrichten. Bitte versuchen Sie es gleich erneut.",
+      errorGlobal: "Ich mache eine kurze Pause. Bitte erreichen Sie uns über das Kontaktformular.",
+      errorGeneric: "Etwas ist schiefgelaufen. Bitte erneut versuchen oder das Kontaktformular nutzen.",
     },
     footer: {
       rights: "Alle Rechte vorbehalten.",
