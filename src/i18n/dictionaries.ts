@@ -60,6 +60,11 @@ export const dictionaries = {
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLL",
     },
+    stance: {
+      overline: "OUR STANCE",
+      headline: "No builders. No templates.",
+      body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+    },
     about: {
       overline: "ABOUT THE STUDIO",
       headline: "A family-run studio building digital products with editorial precision.",
@@ -140,6 +145,19 @@ export const dictionaries = {
           desc: "Spaced-repetition packs for the AI/ML engineering stack — LLMs, prompt engineering, RAG, MLOps.",
           url: "#",
         },
+      ],
+    },
+    demos: {
+      overline: "DEMO PORTFOLIO",
+      headline: "What a custom site looks like.",
+      lead: "Four working demos, each hand-coded from scratch — no builders, no templates. They're concept designs for fictional businesses, built to show exactly how a bespoke site looks, loads and behaves.",
+      conceptLabel: "Concept",
+      visit: "Open demo →",
+      items: [
+        { slug: "pension", title: "Pension Musterhof", category: "Concept · Hospitality", desc: "A small-hotel site with a direct-booking calendar and a commission-savings calculator — built to keep guests off the booking portals." },
+        { slug: "gasthof", title: "Gasthof Musterwirt", category: "Concept · Restaurant", desc: "A guesthouse site with a seasonal menu and an interactive table-reservation flow." },
+        { slug: "skischule", title: "Skischule Musteralm", category: "Concept · Ski school", desc: "A ski-school site with clear course tiers and a season-aware course configurator." },
+        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Concept · Carpentry", desc: "A carpentry site with a material-led portfolio and a project-scoping intake — no pricing implied." },
       ],
     },
     maya: {
@@ -252,7 +270,7 @@ export const dictionaries = {
           },
           {
             h: "Built on a fast, durable foundation",
-            p: "We build on a modern stack with clean, semantic markup and quick load times. The result is a website that stays maintainable and ages well, rather than one you have to rebuild in two years.",
+            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted with zero third-party requests, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
           },
           {
             h: "Bilingual and ready for Tirol & DACH",
@@ -478,6 +496,11 @@ export const dictionaries = {
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLLEN",
     },
+    stance: {
+      overline: "UNSERE HALTUNG",
+      headline: "Kein Baukasten. Keine Vorlage.",
+      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+    },
     about: {
       overline: "ÜBER DAS STUDIO",
       headline: "Ein familiengeführtes Studio, das digitale Produkte mit editorischer Präzision baut.",
@@ -558,6 +581,19 @@ export const dictionaries = {
           desc: "Lernkarten-Packs für den AI/ML-Stack — LLMs, Prompt Engineering, RAG, MLOps.",
           url: "#",
         },
+      ],
+    },
+    demos: {
+      overline: "DEMO-PORTFOLIO",
+      headline: "Wie eine maßgeschneiderte Seite aussieht.",
+      lead: "Vier funktionierende Demos, jede von Hand programmiert — kein Baukasten, keine Vorlage. Es sind Konzept-Entwürfe für fiktive Betriebe, gebaut um zu zeigen, wie sich eine maßgeschneiderte Seite anfühlt, lädt und verhält.",
+      conceptLabel: "Konzept",
+      visit: "Demo öffnen →",
+      items: [
+        { slug: "pension", title: "Pension Musterhof", category: "Konzept · Hotellerie", desc: "Eine Pensions-Seite mit Direktbuchungs-Kalender und Provisions-Rechner — gebaut, um Gäste von den Buchungsportalen fernzuhalten." },
+        { slug: "gasthof", title: "Gasthof Musterwirt", category: "Konzept · Gastronomie", desc: "Eine Gasthof-Seite mit saisonaler Karte und interaktiver Tisch-Reservierung." },
+        { slug: "skischule", title: "Skischule Musteralm", category: "Konzept · Skischule", desc: "Eine Skischul-Seite mit klaren Kursstufen und einem saisonabhängigen Kurs-Konfigurator." },
+        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Konzept · Tischlerei", desc: "Eine Tischlerei-Seite mit material-geführtem Portfolio und Projekt-Scoping — ganz ohne Preisangabe." },
       ],
     },
     maya: {
@@ -670,7 +706,7 @@ export const dictionaries = {
           },
           {
             h: "Auf schnellem, langlebigem Fundament gebaut",
-            p: "Wir bauen auf einem modernen Stack mit sauberem, semantischem Markup und kurzen Ladezeiten. Das Ergebnis ist eine Website, die wartbar bleibt und gut altert — statt einer, die Sie in zwei Jahren neu bauen müssen.",
+            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet, ganz ohne Drittanbieter-Anfragen: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
           },
           {
             h: "Zweisprachig und bereit für Tirol & DACH",
