@@ -1,9 +1,10 @@
 // src/components/LegalPrivacyEN.tsx
 //
 // EN-only Privacy notice. Rendered at /en/privacy.
-// Legal copy is preserved verbatim from the prior bilingual Privacy page.
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
-// only), no analytics, no cookies. Vercel + Zoho are processors.
+// only) and an AI chat assistant (Claude API via Anthropic, rate-limiting
+// via Upstash/Vercel KV). No analytics, no cookies.
+// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV.
 
 import Link from "next/link";
 import {
@@ -27,7 +28,7 @@ export default function LegalPrivacyEN() {
         <p style={overlineStyle}>Privacy</p>
         <h1 style={headlineStyle}>Privacy</h1>
         <p style={subStyle}>
-          This site has a contact form (forwarded by a Vercel Function to our email provider Zoho, stored only as an email). No tracking, no analytics, no cookies.
+          This site has a contact form (forwarded by a Vercel Function to our email provider Zoho, stored only as an email) and an AI chat assistant (Anthropic Claude API; messages are not stored by us or by Anthropic). No tracking, no analytics, no cookies.
         </p>
 
         <section>
@@ -74,7 +75,8 @@ export default function LegalPrivacyEN() {
             <li>
               <strong>Art. 6(1)(f)</strong> (legitimate interest) — technical
               provision of the website incl. server logs to ensure operation
-              and IT security.
+              and IT security; operation of the AI chat assistant for visitor
+              support and abuse prevention.
             </li>
             <li>
               <strong>Art. 6(1)(b)</strong> (contract / pre-contractual
@@ -108,12 +110,71 @@ export default function LegalPrivacyEN() {
             in place with Vercel.
           </p>
           <p style={mutedStyle}>
-            In addition, <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Netherlands) is used as an email provider (Zoho Mail); EU data center, DPA in place (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). No further processors are used on this site — in particular, no
+            In addition, <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Netherlands) is used as an email provider (Zoho Mail); EU data center, DPA in place (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>).
+          </p>
+          <p style={mutedStyle}>
+            For the AI chat assistant, chat messages are transmitted to{" "}
+            <strong>Anthropic PBC</strong> (548 Market St, San Francisco, CA 94104, USA) to generate replies (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). Anthropic processes these data solely to deliver the API service; messages are not stored by Anthropic and Anthropic does not train AI models on commercial API data. Transfer to the US is based on the EU-US Data Privacy Framework (DPF) and EU Standard Contractual Clauses pursuant to Art. 46 GDPR.
+          </p>
+          <p style={mutedStyle}>
+            For rate-limiting of the AI chat, a pseudonymised (one-way SHA-256 hashed) IP counter with a short expiry is stored in{" "}
+            <strong>Upstash, Inc.</strong> (Vercel KV; USA) (<a href="https://upstash.com/trust/privacy.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). The counter expires automatically after a short TTL; no further personal data is stored at Upstash. Transfer to the US is based on EU Standard Contractual Clauses pursuant to Art. 46 GDPR.
+          </p>
+          <p style={mutedStyle}>
+            No further processors are used on this site — in particular, no
             third-party analytics, tracking, advertising or embedded
             services.
           </p>
 
-          <h3 style={h3Style}>6. Retention</h3>
+          <h3 style={h3Style}>6. AI chat assistant</h3>
+          <p style={bodyStyle}>
+            This site operates a disclosed AI chat assistant (&ldquo;The Studio
+            Director&rdquo;) that informs and routes visitors about services,
+            projects and contact options.
+          </p>
+          <ul style={listStyle}>
+            <li>
+              <strong>Purpose:</strong> visitor support and detection and
+              prevention of abusive use.
+            </li>
+            <li>
+              <strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate
+              interest of the controller).
+            </li>
+            <li>
+              <strong>Processing:</strong> Chat messages are transmitted in
+              real time to the Anthropic Claude API to generate a reply.
+              Neither we nor Anthropic store chat content; Anthropic does not
+              train AI models on commercial API data. The conversation is held
+              exclusively in the visitor&apos;s browser and sent with each
+              request (stateless operation).
+            </li>
+            <li>
+              <strong>Rate-limiting:</strong> To limit the rate of use, a
+              pseudonymised (one-way hashed, non-reversible) IP counter with a
+              short expiry is stored in Upstash/Vercel KV. This constitutes
+              pseudonymisation within the meaning of Art. 4(5) GDPR, not
+              anonymisation. No further personal data is stored in the KV
+              store.
+            </li>
+            <li>
+              <strong>Third-country transfer:</strong> Anthropic and Upstash
+              are US providers. Transfers are based on the EU-US Data Privacy
+              Framework (DPF) and EU Standard Contractual Clauses pursuant to
+              Art. 46 GDPR.
+            </li>
+            <li>
+              <strong>Objection:</strong> You may refrain from using the AI
+              chat at any time. To object to processing based on legitimate
+              interest, please contact{" "}
+              <a href="mailto:hallo@lechner-studios.at" style={linkStyle}>
+                hallo@lechner-studios.at
+              </a>
+              .
+            </li>
+          </ul>
+
+          <h3 style={h3Style}>7. Retention</h3>
           <ul style={listStyle}>
             <li>
               <strong>Server logs (Vercel):</strong> per the hosting
@@ -125,10 +186,19 @@ export default function LegalPrivacyEN() {
               request is fulfilled, at most within statutory retention periods
               (e.g. § 132 BAO for business correspondence — up to 7 years).
             </li>
+            <li>
+              <strong>AI chat rate-limiting (Upstash/Vercel KV):</strong>{" "}
+              pseudonymised IP counter; short TTL (automatic expiry); no
+              persistent storage.
+            </li>
+            <li>
+              <strong>Chat content:</strong> not stored by us or by Anthropic;
+              held client-side (browser) only for the duration of the session.
+            </li>
           </ul>
 
           <h3 style={h3Style}>
-            7. Your rights (Art. 15–21 GDPR)
+            8. Your rights (Art. 15–21 GDPR)
           </h3>
           <p style={bodyStyle}>
             You have the right at any time to:
@@ -151,7 +221,7 @@ export default function LegalPrivacyEN() {
             .
           </p>
 
-          <h3 style={h3Style}>8. Right to lodge a complaint</h3>
+          <h3 style={h3Style}>9. Right to lodge a complaint</h3>
           <p style={bodyStyle}>
             You have the right to lodge a complaint with the Austrian
             supervisory authority:
@@ -171,7 +241,7 @@ export default function LegalPrivacyEN() {
             </a>
           </p>
 
-          <h3 style={h3Style}>9. Third-country transfer</h3>
+          <h3 style={h3Style}>10. Third-country transfer</h3>
           <p style={bodyStyle}>
             Vercel is a US provider with EU edge delivery. Where a transfer
             to the US occurs, it is based on the EU Standard Contractual
@@ -179,7 +249,7 @@ export default function LegalPrivacyEN() {
             operator may also process data when receiving inbound mail.
           </p>
 
-          <h3 style={h3Style}>10. Last updated</h3>
+          <h3 style={h3Style}>11. Last updated</h3>
           <p style={bodyStyle}>
             June 2026. Updated whenever processing changes (e.g. if analytics
             or new processors are added).

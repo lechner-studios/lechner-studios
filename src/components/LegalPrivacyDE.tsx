@@ -1,9 +1,10 @@
 // src/components/LegalPrivacyDE.tsx
 //
 // DE-only Datenschutzerklärung. Rendered at /de/privacy.
-// Legal copy is preserved verbatim from the prior bilingual Privacy page.
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
-// only), no analytics, no cookies. Vercel + Zoho are processors.
+// only) and a KI-Chat-Assistent (Claude API via Anthropic, rate-limiting
+// via Upstash/Vercel KV). No analytics, no cookies.
+// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV.
 
 import Link from "next/link";
 import {
@@ -27,7 +28,7 @@ export default function LegalPrivacyDE() {
         <p style={overlineStyle}>Datenschutz</p>
         <h1 style={headlineStyle}>Datenschutz</h1>
         <p style={subStyle}>
-          Diese Website hat ein Kontaktformular (über eine Vercel-Funktion an unseren E-Mail-Provider Zoho weitergeleitet, ausschließlich als E-Mail gespeichert). Kein Tracking, keine Analytics, keine Cookies.
+          Diese Website hat ein Kontaktformular (über eine Vercel-Funktion an unseren E-Mail-Provider Zoho weitergeleitet, ausschließlich als E-Mail gespeichert) und einen KI-Chat-Assistenten (Anthropic Claude API; Nachrichten werden weder von uns noch von Anthropic gespeichert). Kein Tracking, keine Analytics, keine Cookies.
         </p>
 
         <section>
@@ -74,7 +75,9 @@ export default function LegalPrivacyDE() {
             <li>
               <strong>Art. 6 Abs. 1 lit. f</strong> (berechtigtes Interesse) —
               technische Bereitstellung der Website inkl. Server-Logs zur
-              Sicherstellung von Betrieb und IT-Sicherheit.
+              Sicherstellung von Betrieb und IT-Sicherheit; Betrieb des
+              KI-Chat-Assistenten zur Besucherunterstützung und
+              Missbrauchsprävention.
             </li>
             <li>
               <strong>Art. 6 Abs. 1 lit. b</strong> (Vertrag /
@@ -110,12 +113,74 @@ export default function LegalPrivacyDE() {
             Auftragsverarbeitungsvertrag mit Vercel.
           </p>
           <p style={mutedStyle}>
-            Darüber hinaus wird <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Niederlande) als E-Mail-Provider (Zoho Mail) eingesetzt; EU-Rechenzentrum, AVV vorhanden (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Weitere Auftragsverarbeiter werden auf dieser Website nicht
+            Darüber hinaus wird <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Niederlande) als E-Mail-Provider (Zoho Mail) eingesetzt; EU-Rechenzentrum, AVV vorhanden (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>).
+          </p>
+          <p style={mutedStyle}>
+            Für den KI-Chat-Assistenten werden Chat-Nachrichten zur Antworterzeugung an{" "}
+            <strong>Anthropic PBC</strong> (548 Market St, San Francisco, CA 94104, USA) übermittelt (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Anthropic verarbeitet diese Daten ausschließlich zur Erbringung der API-Leistung; eine Speicherung durch Anthropic oder ein Training von KI-Modellen auf kommerziellen API-Daten erfolgt nicht. Drittlandtransfer in die USA auf Basis des EU-US Data Privacy Framework (TADPF) sowie EU-Standardvertragsklauseln gem. Art. 46 DSGVO.
+          </p>
+          <p style={mutedStyle}>
+            Für das Rate-Limiting des KI-Chats wird ein pseudonymisierter (einweg-gehashter SHA-256) IP-Zähler mit kurzer Ablaufzeit in{" "}
+            <strong>Upstash, Inc.</strong> (Vercel KV; USA) gespeichert (<a href="https://upstash.com/trust/privacy.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Der Zähler verfällt automatisch nach kurzer TTL; es werden keine weiteren Daten bei Upstash gespeichert. Drittlandtransfer in die USA auf Basis der EU-Standardvertragsklauseln gem. Art. 46 DSGVO.
+          </p>
+          <p style={mutedStyle}>
+            Weitere Auftragsverarbeiter werden auf dieser Website nicht
             eingesetzt — insbesondere keine Analytics-, Tracking-, Werbe-
             oder Embed-Dienste Dritter.
           </p>
 
-          <h3 style={h3Style}>6. Speicherdauer</h3>
+          <h3 style={h3Style}>6. KI-Chat-Assistent</h3>
+          <p style={bodyStyle}>
+            Diese Website betreibt einen offengelegten KI-Chat-Assistenten
+            (&#8222;The Studio Director&#8220;), der Besucher zu Leistungen, Projekten und
+            Kontaktmöglichkeiten informiert und weiterleitet.
+          </p>
+          <ul style={listStyle}>
+            <li>
+              <strong>Zweck:</strong> Besucherunterstützung sowie Erkennung
+              und Abwehr missbräuchlicher Nutzung (Missbrauchsprävention).
+            </li>
+            <li>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+              (berechtigtes Interesse des Verantwortlichen).
+            </li>
+            <li>
+              <strong>Verarbeitung:</strong> Chat-Nachrichten werden zur
+              Erzeugung einer Antwort in Echtzeit an die Anthropic Claude API
+              übertragen. Weder wir noch Anthropic speichern Chat-Inhalte;
+              Anthropic trainiert keine KI-Modelle auf kommerziellen
+              API-Daten. Die Konversation wird ausschließlich im Browser der
+              Besucherin / des Besuchers gehalten und mit jeder Anfrage
+              mitgesendet (zustandsloser Betrieb).
+            </li>
+            <li>
+              <strong>Rate-Limiting:</strong> Zur Begrenzung der Nutzungsrate
+              wird ein pseudonymisierter (einweg-gehashter, nicht
+              rückrechenbarer) IP-Zähler mit kurzer Ablaufzeit in
+              Upstash/Vercel KV gespeichert. Es handelt sich um eine
+              Pseudonymisierung gem. Art. 4 Nr. 5 DSGVO, keine
+              Anonymisierung. Außer diesem Zähler werden keine weiteren
+              personenbezogenen Daten im KV-Speicher abgelegt.
+            </li>
+            <li>
+              <strong>Drittlandtransfer:</strong> Anthropic und Upstash sind
+              US-Anbieter. Transfers erfolgen auf Basis des EU-US Data
+              Privacy Framework (TADPF) sowie der EU-Standardvertragsklauseln
+              gem. Art. 46 DSGVO.
+            </li>
+            <li>
+              <strong>Widerspruch:</strong> Sie können die Nutzung des
+              KI-Chats jederzeit unterlassen. Sofern Sie Widerspruch gegen
+              die Verarbeitung im Rahmen des berechtigten Interesses einlegen
+              möchten, wenden Sie sich an{" "}
+              <a href="mailto:hallo@lechner-studios.at" style={linkStyle}>
+                hallo@lechner-studios.at
+              </a>
+              .
+            </li>
+          </ul>
+
+          <h3 style={h3Style}>7. Speicherdauer</h3>
           <ul style={listStyle}>
             <li>
               <strong>Server-Logs (Vercel):</strong> gemäß Default-Retention
@@ -128,10 +193,20 @@ export default function LegalPrivacyDE() {
               Aufbewahrungsfristen (z. B. § 132 BAO bei geschäftlichem
               Schriftverkehr — bis zu 7 Jahre).
             </li>
+            <li>
+              <strong>KI-Chat-Rate-Limiting (Upstash/Vercel KV):</strong>{" "}
+              pseudonymisierter IP-Zähler; kurze TTL (automatischer Verfall);
+              keine dauerhafte Speicherung.
+            </li>
+            <li>
+              <strong>Chat-Inhalte:</strong> werden weder von uns noch von
+              Anthropic gespeichert; ausschließlich clientseitig (Browser) für
+              die Dauer der Sitzung.
+            </li>
           </ul>
 
           <h3 style={h3Style}>
-            7. Ihre Rechte (Art. 15–21 DSGVO)
+            8. Ihre Rechte (Art. 15–21 DSGVO)
           </h3>
           <p style={bodyStyle}>
             Sie haben jederzeit das Recht auf:
@@ -155,7 +230,7 @@ export default function LegalPrivacyDE() {
             .
           </p>
 
-          <h3 style={h3Style}>8. Beschwerderecht</h3>
+          <h3 style={h3Style}>9. Beschwerderecht</h3>
           <p style={bodyStyle}>
             Sie haben das Recht, sich bei der österreichischen
             Aufsichtsbehörde zu beschweren:
@@ -175,7 +250,7 @@ export default function LegalPrivacyDE() {
             </a>
           </p>
 
-          <h3 style={h3Style}>9. Drittlandtransfer</h3>
+          <h3 style={h3Style}>10. Drittlandtransfer</h3>
           <p style={bodyStyle}>
             Vercel ist ein US-Anbieter mit EU-Edge-Auslieferung. Soweit ein
             Transfer in die USA stattfindet, erfolgt dieser auf Basis der
@@ -184,7 +259,7 @@ export default function LegalPrivacyDE() {
             E-Mail-Provider Daten verarbeiten.
           </p>
 
-          <h3 style={h3Style}>10. Aktualität</h3>
+          <h3 style={h3Style}>11. Aktualität</h3>
           <p style={bodyStyle}>
             Stand: Juni 2026. Diese Erklärung wird angepasst, sobald sich
             Verarbeitungen ändern (z. B. wenn Analytics oder neue

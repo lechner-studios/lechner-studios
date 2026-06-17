@@ -22,8 +22,8 @@ export default function StudioDirectorChat() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (open) { setMsgs((m) => (m.length ? m : [{ role: "assistant", content: d.greeting }])); inputRef.current?.focus(); }
-  }, [open, d.greeting]);
+    if (open) { inputRef.current?.focus(); }
+  }, [open]);
   useEffect(() => { listRef.current?.scrollTo(0, listRef.current.scrollHeight); }, [msgs]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
@@ -74,7 +74,7 @@ export default function StudioDirectorChat() {
         <button
           type="button"
           aria-label={d.launchLabel}
-          onClick={() => setOpen(true)}
+          onClick={() => { setMsgs((m) => (m.length ? m : [{ role: "assistant", content: d.greeting }])); setOpen(true); }}
           style={{
             position: "fixed", bottom: "24px", right: "24px", zIndex: 50,
             fontFamily: "var(--font-mono)", fontSize: "0.72rem", fontWeight: 600,
