@@ -7,6 +7,7 @@ import { dictionaries } from "../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Work from "../../../../components/Work";
+import MayaCaseStudy from "../../../../components/MayaCaseStudy";
 import Footer from "../../../../components/Footer";
 
 export async function generateMetadata({
@@ -38,6 +39,7 @@ export default async function WorkPage({
       <Nav />
       <main id="main" style={{ minHeight: "100vh" }}>
         <Work />
+        <MayaCaseStudy />
         <Footer />
       </main>
     </LanguageProvider>

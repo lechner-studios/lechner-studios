@@ -400,7 +400,7 @@ export default function StartProject() {
 
         {/* Error message */}
         {formState === "error" && errorMessage && (
-          <p style={{ fontSize: "0.85rem", color: "#8B2E2E", marginBottom: "16px" }}>
+          <p style={{ fontSize: "0.85rem", color: "var(--error)", marginBottom: "16px" }}>
             {errorMessage}
           </p>
         )}

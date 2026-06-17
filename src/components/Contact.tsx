@@ -253,7 +253,7 @@ export default function Contact() {
                 {formState === "error" && errorMessage && (
                   <p style={{
                     fontSize: "0.85rem",
-                    color: "#8B2E2E",
+                    color: "var(--error)",
                     marginBottom: "16px",
                   }}>
                     {errorMessage}

@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Lechner Studios";
 export const size = { width: 1200, height: 630 };
@@ -26,12 +27,14 @@ export default async function Image({
   const { locale } = await params;
   const tagline = TAGLINES[locale] ?? TAGLINES.de;
 
-  // Satori cannot parse woff2, so we ship a self-hosted TTF alongside this
-  // route — no third-party runtime dependency during OG generation. Fall back
-  // to a plain serif if the read ever fails so the route never hard-crashes.
+  // Satori needs a TTF (can't parse woff2). Self-hosted font read from the repo
+  // at request time — NO third-party / runtime network request (was a jsdelivr
+  // fetch). Falls back to the default font if the read fails so it never crashes.
   let fontData: Buffer | null = null;
   try {
-    fontData = await readFile(new URL("./cormorant-600.ttf", import.meta.url));
+    fontData = await readFile(
+      join(process.cwd(), "public/fonts/cormorant-700.ttf"),
+    );
   } catch {
     fontData = null;
   }
@@ -98,7 +101,7 @@ export default async function Image({
             {
               name: "Cormorant",
               data: fontData,
-              weight: 600,
+              weight: 700,
               style: "normal",
             },
           ],
