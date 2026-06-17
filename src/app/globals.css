@@ -114,6 +114,9 @@ section, footer, nav, .theme-surface {
 .sr { opacity: 0; transform: translateY(24px); transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1); }
 .sr.is-in { opacity: 1; transform: none; }
 
+.hero-proof-card { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+.hero-proof-card:hover { transform: translateY(-4px); }
+
 .reveal { opacity: 0; animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .reveal-1 { animation-delay: 0.1s; }
 .reveal-2 { animation-delay: 0.3s; }

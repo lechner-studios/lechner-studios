@@ -2,6 +2,13 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
+const PROOF = [
+  { slug: "pension", label: "Pension" },
+  { slug: "gasthof", label: "Gasthof" },
+  { slug: "skischule", label: "Skischule" },
+  { slug: "tischlerei", label: "Tischlerei" },
+];
+
 export default function Hero() {
   const { dict, locale } = useLanguage();
   const lines = dict.hero.tagline.split("\n");
@@ -200,6 +207,108 @@ export default function Hero() {
         >
           {dict.hero.location}
         </p>
+        </div>
+      </div>
+
+      {/* PROOF STRIP — live demo screenshots. The work, made visible in the
+          first viewport. Self-hosted webp, honest Konzept labels, links live. */}
+      <div
+        className="reveal hero-proof"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          width: "100%",
+          maxWidth: "1200px",
+          marginTop: "clamp(48px, 6vw, 88px)",
+          animationDelay: "1.15s",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.62rem",
+            fontWeight: 500,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "var(--hero-accent)",
+            marginBottom: "1.25rem",
+          }}
+        >
+          {dict.hero.proofOverline}
+        </p>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: "16px",
+          }}
+        >
+          {PROOF.map((d) => (
+            <a
+              key={d.slug}
+              href={`https://demos.lechner-studios.at/${d.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-proof-card"
+              style={{ display: "block", textDecoration: "none" }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  aspectRatio: "16 / 11",
+                  borderRadius: "3px",
+                  overflow: "hidden",
+                  border: "1px solid var(--hero-border)",
+                  backgroundImage: `url(/proof/${d.slug}.webp)`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "8px",
+                    left: "8px",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.5rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "#fff",
+                    background: "rgba(21,23,26,0.66)",
+                    padding: "3px 8px",
+                    borderRadius: "2px",
+                  }}
+                >
+                  {dict.demos.conceptLabel}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginTop: "10px",
+                }}
+              >
+                <span style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--hero-text)" }}>
+                  {d.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.58rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--hero-accent)",
+                  }}
+                >
+                  {dict.hero.proofCta} →
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

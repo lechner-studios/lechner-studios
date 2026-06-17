@@ -59,6 +59,8 @@ export const dictionaries = {
       ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLL",
+      proofOverline: "Live concept builds — see for yourself",
+      proofCta: "View live",
     },
     stance: {
       overline: "OUR STANCE",
@@ -495,6 +497,8 @@ export const dictionaries = {
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLLEN",
+      proofOverline: "Live-Beispielentwürfe — sehen Sie selbst",
+      proofCta: "Live ansehen",
     },
     stance: {
       overline: "UNSERE HALTUNG",
