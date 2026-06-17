@@ -180,6 +180,61 @@ export const dictionaries = {
         },
       ],
     },
+    pensionLanding: {
+      metaTitle: "Guesthouse Website Tyrol — direct bookings, not commission",
+      metaDescription:
+        "A custom website for your Tyrol guesthouse or holiday apartment — with direct booking instead of costly OTA commission. Live in 2 weeks.",
+      hero: {
+        overline: "GUESTHOUSE & HOLIDAY LET · TYROL",
+        headline: "A website for your guesthouse that books direct.",
+        sub: "Stop paying ~15% commission to booking portals. We build you a fast website with direct booking — live in 2 weeks.",
+        ctaLabel: "Request a quote",
+      },
+      value: {
+        heading: "Every portal booking costs you commission.",
+        body: "Booking portals take around 15% of every booking. On €80,000 of portal revenue that's roughly €12,000 a year. Your own direct-booking website wins those bookings — and the margin — back.",
+        note: "Work out your own commission in the demo below.",
+      },
+      demo: {
+        heading: "Here's what that looks like — a real example.",
+        body: "We built a complete guesthouse website as an example: rooms, availability, location, contact — including a commission calculator. See how yours could look.",
+        linkLabel: "View the example site →",
+        note: "Example design — not a real business.",
+      },
+      offer: {
+        heading: "Three packages — you choose.",
+        intro: "From a fast start to the full direct-booking machine. All prices net (small-business scheme, no VAT).",
+        note: "Hosting, business email and maintenance are included in the care plan. Domain first year included.",
+        ctaLabel: "Request an offer",
+        tiers: [
+          { name: "Basis", desc: "5 pages, inquiry form, commission calculator. Live in 2 weeks." },
+          { name: "Komplett", desc: "Up to 8 pages, real booking engine, DE/EN/IT, 360° tour, pro photos.", badge: "Most popular" },
+          { name: "Premium", desc: "Everything in Komplett + channel-manager sync, video, 12-month growth program." },
+        ],
+      },
+      faq: {
+        heading: "Frequently asked",
+        items: [
+          { q: "What does a professional website for a guesthouse or holiday apartment in Tyrol cost?", a: "Our productized Direktbucher packages start at €3,900 (Basis); the most popular Komplett tier is €6,900. Fixed price, no hidden consulting fees. Depending on your portal commission, the investment often pays for itself within the first few months." },
+          { q: "How exactly does your website save the ~15% commission from Booking.com or Expedia?", a: "Through your own fast website with an integrated direct-booking engine. When a guest books direct, you pay 0% portal commission. Portals like Booking.com stay useful as a discovery channel — your website turns first-time guests into recurring direct bookers." },
+          { q: "Can I apply for a subsidy (e.g. KMU.DIGITAL)?", a: "Possibly — digitalisation projects for Austrian businesses often qualify for funding like KMU.DIGITAL. You receive a clean, itemised offer/invoice from us as documentation. You submit the application yourself; we are not a registered management consultancy, and a funding approval is not part of our offer." },
+          { q: "How long until my website goes live?", a: "For Basis and Komplett we typically go from kickoff to launch in 2 weeks. We don't rely on heavy WordPress themes or page builders — just a lean, fast custom build." },
+          { q: "Can I adjust room availability, prices and seasons myself?", a: "Yes. Your website connects to your existing booking system or channel manager (e.g. Feratel) — the exact scope is agreed per project. You keep control of availability and seasonal pricing day to day, no developer needed." },
+        ],
+      },
+      qualifier: {
+        heading: "Before we talk — one quick question.",
+        question: "What do you estimate your annual commission to booking portals (Booking.com, Airbnb, etc.) to be?",
+        options: ["Under €2,500 / year", "€2,500–€7,500 / year", "Over €7,500 / year"],
+        ctaLabel: "Continue to inquiry →",
+      },
+      cta: {
+        heading: "More direct bookings, less commission.",
+        body: "Tell us briefly about your guesthouse — we'll come back with a concrete proposal.",
+        button: "Discuss your project",
+      },
+      more: { lead: "More on our", web: "custom web design", and: "and", seo: "local SEO", tail: "." },
+    },
     serviceDetail: {
       web: {
         slug: "webdesign",
@@ -528,6 +583,61 @@ export const dictionaries = {
           desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Ein stimmiges visuelles System — Namen, Marken, Farben, Stimme — entsteht direkt mit Ihrem Web- oder Produktprojekt, von Anfang an.",
         },
       ],
+    },
+    pensionLanding: {
+      metaTitle: "Pension-Website Tirol — direkt buchen statt Provision zahlen",
+      metaDescription:
+        "Maßgeschneiderte Website für Ihre Pension oder Ferienwohnung in Tirol — mit eigener Direktbuchung statt teurer Portal-Provision. Live in 2 Wochen.",
+      hero: {
+        overline: "PENSION & FERIENWOHNUNG · TIROL",
+        headline: "Eine Website für Ihre Pension, die direkt bucht.",
+        sub: "Schluss mit ~15 % Provision an Buchungsportale. Wir bauen Ihnen eine schnelle, eigene Website mit Direktbuchung — live in 2 Wochen.",
+        ctaLabel: "Unverbindlich anfragen",
+      },
+      value: {
+        heading: "Jede Portal-Buchung kostet Sie Provision.",
+        body: "Buchungsportale nehmen rund 15 % von jeder Buchung. Bei 80.000 € Portal-Umsatz sind das etwa 12.000 € pro Jahr. Eine eigene Direktbuchungs-Website holt diese Buchungen — und die Marge — zurück.",
+        note: "Im Beispiel unten rechnen Sie Ihre eigene Provision aus.",
+      },
+      demo: {
+        heading: "So sieht das aus — ein echtes Beispiel.",
+        body: "Wir haben eine vollständige Pensions-Website als Beispiel gebaut: Zimmer, Verfügbarkeit, Lage, Kontakt — inklusive Provisionsrechner. Schauen Sie sich an, wie Ihre aussehen könnte.",
+        linkLabel: "Beispiel-Website ansehen →",
+        note: "Beispielentwurf — kein echter Betrieb.",
+      },
+      offer: {
+        heading: "Drei Pakete — Sie wählen.",
+        intro: "Vom schnellen Einstieg bis zur kompletten Direktbuchungs-Maschine. Alle Preise netto (Kleinunternehmer, keine USt).",
+        note: "Hosting, Geschäfts-E-Mail und Wartung sind im Wartungspaket enthalten. Domain 1. Jahr inklusive.",
+        ctaLabel: "Angebot anfordern",
+        tiers: [
+          { name: "Basis", desc: "5 Seiten, Anfrageformular, Provisionsrechner. Live in 2 Wochen." },
+          { name: "Komplett", desc: "Bis zu 8 Seiten, echte Buchungsmaschine, DE/EN/IT, 360°-Tour, Profi-Fotos.", badge: "Beliebteste" },
+          { name: "Premium", desc: "Alles aus Komplett + Channel-Manager-Sync, Video, 12-Monats-Wachstumsprogramm." },
+        ],
+      },
+      faq: {
+        heading: "Häufige Fragen",
+        items: [
+          { q: "Was kostet eine professionelle Website für eine Pension oder Ferienwohnung in Tirol?", a: "Unsere produktisierten Direktbucher-Pakete starten bei 3.900 € (Basis); das beliebteste Komplett-Paket liegt bei 6.900 €. Festpreis statt langer Beratungsgespräche mit verstecktem Honorar. Je nach Portal-Provision amortisiert sich die Investition oft schon in den ersten Monaten." },
+          { q: "Wie genau spart Ihre Website die ~15 % Provision von Booking.com oder Expedia?", a: "Durch eine eigene, schnelle Website mit integrierter Direktbuchung. Bucht ein Gast direkt bei Ihnen, zahlen Sie 0 % Portal-Provision. Portale wie Booking.com bleiben als Einstiegskanal nützlich — Ihre Website macht aus Erstgästen wiederkehrende Direktbucher." },
+          { q: "Kann ich eine Förderung (z. B. KMU.DIGITAL) beantragen?", a: "Möglicherweise — Digitalisierungsprojekte österreichischer Betriebe qualifizieren sich oft für Förderungen wie KMU.DIGITAL. Sie erhalten von uns ein sauber aufgeschlüsseltes Angebot bzw. eine Rechnung als Unterlage. Den Antrag stellen Sie eigenständig; wir sind keine registrierte Unternehmensberatung, und eine Förderzusage ist nicht Teil unseres Angebots." },
+          { q: "Wie lange dauert die Umsetzung, bis meine Website live geht?", a: "Für Basis und Komplett gehen wir in der Regel in 2 Wochen von Kickoff bis Launch. Wir setzen nicht auf schwere WordPress-Themes oder Baukästen, sondern auf eine schlanke, schnelle Eigenentwicklung." },
+          { q: "Kann ich Zimmerverfügbarkeiten, Preise und Saisonen selbst anpassen?", a: "Ja. Ihre Website lässt sich mit Ihrem bestehenden Buchungssystem bzw. Channel-Manager (z. B. Feratel) verbinden — den konkreten Umfang stimmen wir pro Projekt ab. Verfügbarkeiten und Saisonpreise behalten Sie selbst in der Hand, ohne Entwickler für den Alltag." },
+        ],
+      },
+      qualifier: {
+        heading: "Bevor wir sprechen — eine kurze Frage.",
+        question: "Wie hoch schätzen Sie Ihre jährlichen Provisionszahlungen an Buchungsportale (Booking.com, Airbnb etc.)?",
+        options: ["Unter 2.500 € / Jahr", "2.500 – 7.500 € / Jahr", "Über 7.500 € / Jahr"],
+        ctaLabel: "Weiter zur Anfrage →",
+      },
+      cta: {
+        heading: "Mehr Direktbuchungen, weniger Provision.",
+        body: "Erzählen Sie uns kurz von Ihrer Pension — wir melden uns mit einem konkreten Vorschlag.",
+        button: "Projekt besprechen",
+      },
+      more: { lead: "Mehr zu unserer", web: "maßgeschneiderten Webentwicklung", and: "und", seo: "lokalem SEO", tail: "." },
     },
     serviceDetail: {
       web: {
