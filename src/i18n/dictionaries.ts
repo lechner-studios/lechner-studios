@@ -399,7 +399,7 @@ export const dictionaries = {
       title: "The Studio Director",
       subtitle: "AI twin · Lechner Studios",
       greeting:
-        "Hi — I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll loop in a human when the stakes need one.",
+        "Hi — I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll bring Sonja in when the stakes need it.",
       placeholder: "Ask about services, pricing, the Pension website…",
       send: "Send",
       close: "Close",
@@ -817,7 +817,7 @@ export const dictionaries = {
       title: "The Studio Director",
       subtitle: "KI-Zwilling · Lechner Studios",
       greeting:
-        "Hallo — ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich einen Menschen dazu.",
+        "Hallo — ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich Sonja dazu.",
       placeholder: "Fragen Sie zu Leistungen, Preisen, der Pensions-Website…",
       send: "Senden",
       close: "Schließen",
