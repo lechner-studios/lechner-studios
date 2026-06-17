@@ -10,8 +10,13 @@ src/components/LegalImpressumEN.tsx
 src/components/LegalPrivacyDE.tsx
 src/components/LegalPrivacyEN.tsx
 
-# Go-live spec references the GISA number.
-docs/superpowers/specs/2026-06-13-go-live-legal-brand-a11y-design.md
+# All documentation — specs, plans, offer/landing copy, brand notes. These
+# intentionally carry GISA/contact references, native currency amounts, and
+# date/ID digit runs by design (internal/by-design surfaces, not shipped code).
+# Exempt the whole tree so new docs (docs/superpowers/, docs/offers/, …) are
+# never missed. Trade-off: the email/phone/deny-name scan is also off under
+# docs/ — acceptable for internal docs. The Layer-0 guard stays active elsewhere.
+docs/
 
 # Contact API route hardcodes the studio's own PUBLIC recipient address
 # (the same hallo@ business inbox published on the Impressum) as the
