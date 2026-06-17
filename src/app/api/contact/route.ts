@@ -41,7 +41,9 @@ export async function POST(req: NextRequest) {
   }
 
   const name = (payload.name ?? "").trim().replace(/[\r\n]/g, "");
-  const email = (payload.email ?? "").trim();
+  // Strip CR/LF from email too (defence-in-depth vs header injection in replyTo;
+  // the regex below already rejects whitespace, this guards encoding edge-cases).
+  const email = (payload.email ?? "").trim().replace(/[\r\n]/g, "");
   const message = (payload.message ?? "").trim();
   // Optional custom subject (e.g. from the project-intake form). Sanitized like
   // name; falls back to the default subject below when absent/empty.
