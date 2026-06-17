@@ -13,6 +13,7 @@ export default function PensionLandingJsonLd({ locale }: { locale: Locale }) {
     "@graph": [
       {
         "@type": "Service",
+        "@id": `${url}#service`,
         name: d.metaTitle,
         description: d.metaDescription,
         serviceType: "Web design & automation",
