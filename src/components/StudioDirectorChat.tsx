@@ -11,6 +11,47 @@ function sessionId(): string {
   return id;
 }
 
+// Safe inline markdown for assistant replies: **bold** and [label](url).
+// XSS-safe by construction: builds React elements (text auto-escaped), validates
+// every href against an allowlist (same-site "/path" or http(s) only — rejects
+// javascript:, data:, protocol-relative //), and never uses dangerouslySetInnerHTML.
+function renderRich(text: string): React.ReactNode {
+  const out: React.ReactNode[] = [];
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let last = 0;
+  let key = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    if (m[1] !== undefined) {
+      out.push(<strong key={key++}>{renderRich(m[1])}</strong>);
+    } else {
+      const label = m[2];
+      const url = m[3];
+      const internal = /^\/(?!\/)/.test(url); // same-site path, not protocol-relative
+      const external = /^https?:\/\//i.test(url);
+      if (internal || external) {
+        out.push(
+          <a
+            key={key++}
+            href={url}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            style={{ color: "var(--accent)", textDecoration: "underline" }}
+          >
+            {label}
+          </a>,
+        );
+      } else {
+        out.push(label); // disallowed scheme → drop the link, keep the label text
+      }
+    }
+    last = re.lastIndex;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 export default function StudioDirectorChat() {
   const { dict, locale } = useLanguage();
   const d = dict.studioDirector;
@@ -115,7 +156,7 @@ export default function StudioDirectorChat() {
                 color: m.role === "user" ? "var(--bg)" : "var(--text)",
                 border: m.role === "user" ? "none" : "1px solid var(--border)",
                 borderRadius: "10px", padding: "10px 12px", fontSize: "0.9rem", lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
-                {m.content || "…"}
+                {m.content ? (m.role === "assistant" ? renderRich(m.content) : m.content) : "…"}
               </div>
             ))}
           </div>
