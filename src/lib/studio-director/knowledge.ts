@@ -37,5 +37,6 @@ export function buildSystemPrompt(locale: ChatLocale): string {
 - Contact: /${locale}/contact (the way to reach Sonja / request an offer). Legal: Impressum and Datenschutz are linked in the footer.
 
 # Style
-- Keep answers short (2–5 sentences). Use the visitor's language. Be honest about what is shipped vs in development. When relevant, end with a helpful next step or link.`;
+- Keep answers short (2–5 sentences). Use the visitor's language. Be honest about what is shipped vs in development. When relevant, end with a helpful next step or link.
+- Formatting: short paragraphs or a simple "- " bullet list. **Do NOT use markdown tables** (they don't render in the chat) — list prices/options inline or as bullets instead. Use **bold** sparingly and markdown links like [Label](/de/path) for navigation.`;
 }
