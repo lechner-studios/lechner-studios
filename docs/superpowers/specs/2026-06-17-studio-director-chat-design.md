@@ -34,7 +34,7 @@ Ship a **stateless, site-wide chat widget** on lechner-studios.at that, as **The
 - **Widget** (client, Next.js + Tailwind, brand-styled via brand-canon tokens): a floating launcher (bottom corner) + chat panel, mounted in `src/app/(site)/[locale]/layout.tsx` so it appears on **every page incl. the homepage**. Conversation state lives in React state only.
 - **API route** `src/app/api/chat/route.ts` (server, Edge or Node): holds `ANTHROPIC_API_KEY`, calls **Claude Sonnet (`claude-sonnet-4-6`)** (ADR-0026), **streams** the reply. Accepts `{ messages, locale }`; the client sends the full short history each turn (stateless server).
 - **Grounding = curated system prompt** built from a maintained `src/lib/studio-director/knowledge.ts` module: the 4 pillars, Direktbucher (3 tiers + the Pension landing), Maya, work/products, contact, about — **shipped facts only** (ADR-0038 A2), plus the **route map** for navigation and the **Tier 1/2/3 behavior**. No RAG.
-- **New dep:** `@anthropic-ai/sdk`. **Env:** `ANTHROPIC_API_KEY` (owner adds to the lechner-studios Vercel project).
+- **New deps:** `@anthropic-ai/sdk`, `@upstash/ratelimit` + `@vercel/kv`. **Env:** `ANTHROPIC_API_KEY` + the Vercel KV vars (`KV_REST_API_URL` / `KV_REST_API_TOKEN`, auto-set when the owner enables the Vercel KV integration).
 
 ## 3. Scope & autonomy (ADR-0017)
 
@@ -45,7 +45,7 @@ Ship a **stateless, site-wide chat widget** on lechner-studios.at that, as **The
 
 ## 4. Cost / abuse / compliance
 
-- **Rate limiting** on the API route (reuse the contact-route limiter pattern): default **~10 requests/min per IP**, **max ~25 messages/session**, **max ~1,500 chars/message**, capped history (~last 12 turns), `max_tokens` bounded. (Numbers adjustable — owner to confirm.)
+- **Rate limiting + global daily cap**, backed by **Vercel KV (Upstash Redis)** via `@upstash/ratelimit` — a shared counter store, required for a *reliable* cap (in-memory counters fail open across serverless instances exactly during an abuse burst). Limits: **~10 requests/min per IP**, **max ~25 messages/session**, **max ~1,500 chars/message**, capped history (~last 12 turns), `max_tokens` bounded, plus a **global daily cap of ~500 bot replies/day across all visitors** — a hard cost ceiling; past it the bot returns a friendly "I'm taking a short break — please use the contact form." KV stores only an **ephemeral counter keyed by a hashed IP** with short TTL — **no message content** → still no chat-data sink (DSGVO-minimal; rate-limiting is itself a security measure). Numbers adjustable.
 - **AI disclosure** on widget open + when asked (non-negotiable).
 - **DSGVO:** stateless ⇒ no transcript stored; only processing = sending messages to Anthropic (a processor; Anthropic does not train on commercial API data). Add a short **Datenschutz** clause (dsgvo-legal-pages) describing this + an in-widget note "Bitte keine sensiblen Daten eingeben." No new cookie (state is in-memory, not persisted).
 - No remote calls except the studio's own API route (which calls Anthropic server-side); self-hosted fonts unaffected (DSGVO).
@@ -55,6 +55,7 @@ Ship a **stateless, site-wide chat widget** on lechner-studios.at that, as **The
 - Create `src/components/StudioDirectorChat.tsx` — the widget (launcher + panel + streaming render). One focused unit.
 - Create `src/app/api/chat/route.ts` — the Claude-backed streaming endpoint + rate limit.
 - Create `src/lib/studio-director/knowledge.ts` — the curated facts + route map + system-prompt builder (the single place to keep grounding accurate).
+- Create `src/lib/studio-director/ratelimit.ts` — KV-backed per-IP + per-session + global-daily limiter (`@upstash/ratelimit`).
 - Modify `src/i18n/dictionaries.ts` — `studioDirector` block (DE+EN): disclosure, on-demand doctrine, UI labels (launcher, placeholder, send, escalation line, privacy note).
 - Modify `src/app/(site)/[locale]/layout.tsx` — mount the widget.
 - Modify the Datenschutz component (`LegalPrivacyDE/EN`) — the chat/Anthropic clause.
@@ -63,7 +64,9 @@ Ship a **stateless, site-wide chat widget** on lechner-studios.at that, as **The
 ## 6. Owner gates (not blocking the build, blocking go-live)
 
 - **`ANTHROPIC_API_KEY`** added to the lechner-studios Vercel project (the one human step to make it answer in prod).
-- Confirm the rate-limit defaults (§4).
+- **Enable Vercel KV** (Upstash) on the project — one-click, auto-sets the KV env vars; required for the rate limits + daily cap.
+- **Recommended backstop:** set an **Anthropic spend limit** in the Anthropic console (zero-code hard-dollar ceiling, independent of the app cap).
+- Rate-limit defaults confirmed (§4), incl. the ~500/day global cap.
 - ADR-0017 wants a private **Autonomy Scope Document** for Solara; the system prompt operationalizes Tier 1/2/3, the formal doc stays in the owner's private store.
 
 ## 7. Testing / verification
@@ -71,7 +74,7 @@ Ship a **stateless, site-wide chat widget** on lechner-studios.at that, as **The
 - `next build` + `tsc` + lint clean; widget renders on `/de` and `/en` (every page).
 - API route: returns a streamed Claude reply for a normal question; **refuses/escalates** on a pricing/contract/legal prompt (routes to contact, commits nothing); **stays in scope** (declines unrelated questions); identifies as AI when asked.
 - Grounding accuracy: spot-check answers about Direktbucher tiers + Pension landing match the SSOT (no hallucinated prices).
-- Rate limit returns 429 past the cap; oversized input rejected.
+- Rate limit returns 429 past the per-IP/session cap; the **global daily cap** past its limit returns the friendly "short break" message (test by setting the cap low); oversized input rejected.
 - DSGVO: no transcript persisted anywhere server-side (stateless); Datenschutz clause present; disclosure shown on open.
 - AA contrast on the widget (launcher, panel, bubbles) light + dark; keyboard-accessible (focus, Esc to close); no remote font/CDN calls.
 
