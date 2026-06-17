@@ -22,17 +22,27 @@ export async function POST(req: NextRequest) {
   const locale: ChatLocale = body.locale === "en" ? "en" : "de";
   const sessionId = (typeof body.sessionId === "string" ? body.sessionId : "").slice(0, 64) || "anon";
   const messages = (body.messages ?? []).filter(
-    (m): m is Msg => !!m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string",
+    (m): m is Msg =>
+      !!m && (m.role === "user" || m.role === "assistant") &&
+      typeof m.content === "string" && m.content.length <= MAX_MESSAGE_CHARS,
   );
   const last = messages[messages.length - 1];
   if (!last || last.role !== "user" || !last.content.trim()) return NextResponse.json({ error: "empty" }, { status: 400 });
   if (last.content.length > MAX_MESSAGE_CHARS) return NextResponse.json({ error: "too_long" }, { status: 413 });
 
+  // Limits: per-IP (10/min) → per-session (25/day, soft — sessionId is client-held,
+  // so the global 500/day is the real cost backstop) → global (500/day).
+  // Fail OPEN on KV error: a brand-site assistant shouldn't go dark on a KV hiccup;
+  // the global cap + the Anthropic spend limit are the hard cost ceilings.
   if (isConfigured()) {
     const ipHash = hashIp(req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown");
-    const res = await checkLimits(ipHash, sessionId);
-    if (!res.ok) {
-      return NextResponse.json({ error: res.reason }, { status: res.reason === "global" ? 503 : 429 });
+    try {
+      const res = await checkLimits(ipHash, sessionId);
+      if (!res.ok) {
+        return NextResponse.json({ error: res.reason }, { status: res.reason === "global" ? 503 : 429 });
+      }
+    } catch (e) {
+      console.error("[chat] rate-limit KV unreachable, proceeding (fail-open):", e);
     }
   }
 
