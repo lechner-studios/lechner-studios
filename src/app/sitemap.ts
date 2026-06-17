@@ -3,7 +3,7 @@ import { getAllSlugs } from "../lib/blog";
 
 const BASE = "https://lechner-studios.at";
 
-const routes = ["", "/work", "/about", "/blog", "/contact", "/start", "/webdesign", "/apps-automation", "/seo", "/impressum", "/privacy"] as const;
+const routes = ["", "/work", "/about", "/blog", "/contact", "/start", "/webdesign", "/apps-automation", "/seo", "/pension-website-tirol", "/impressum", "/privacy"] as const;
 
 function priorityFor(route: string): number {
   if (route === "") return 1.0;
