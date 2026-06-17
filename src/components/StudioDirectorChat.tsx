@@ -36,7 +36,9 @@ export default function StudioDirectorChat() {
     if (!text || busy) return;
     if (text.length > 1500) return;
     setInput("");
-    const history = msgs.filter((m) => m.content !== d.greeting);
+    // Drop the opener (always the index-0 assistant greeting) by position/role,
+    // not by content — robust if the locale (and thus the greeting string) changed.
+    const history = msgs.filter((m, i) => !(i === 0 && m.role === "assistant"));
     const next: Msg[] = [...msgs, { role: "user", content: text }, { role: "assistant", content: "" }];
     setMsgs(next);
     setBusy(true);
@@ -89,6 +91,7 @@ export default function StudioDirectorChat() {
       {open && (
         <div
           role="dialog"
+          aria-modal="true"
           aria-label={d.title}
           style={{
             position: "fixed", bottom: "24px", right: "24px", zIndex: 50,
@@ -127,7 +130,7 @@ export default function StudioDirectorChat() {
                 {d.send}
               </button>
             </form>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", color: "var(--text-muted)", marginTop: "8px", lineHeight: 1.4 }}>{d.privacyNote}</p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", marginTop: "8px", lineHeight: 1.45 }}>{d.privacyNote}</p>
           </div>
         </div>
       )}
