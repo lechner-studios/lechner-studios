@@ -328,8 +328,15 @@ export const dictionaries = {
             p: "Clean code, sensible logging and documentation, so what we build keeps running and can be handed over or extended without a rewrite.",
           },
         ],
+        steps: [
+          { n: "01", label: "Map the workflow that eats your time" },
+          { n: "02", label: "Build the tool around it" },
+          { n: "03", label: "It runs; you review" },
+        ],
+        includedLabel: "What we build",
+        included: ["Custom web apps", "Workflow automation", "Content pipelines", "Internal tools"],
         proof:
-          "This is what we build for ourselves: Maya, an in-house voice AI assistant running in production; content pipelines that automate real production work today; and platforms in development — Virtual Office Tirol for phone answering and back-office automation, Vistera for VR property walkthroughs. Each built in-house, the same way we'd build yours.",
+          "The automation we describe here we run in our own studio first — built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
       },
       seo: {
@@ -359,6 +366,17 @@ export const dictionaries = {
             p: "Schema markup and a clean local setup (consistent business details, proper bilingual hreflang) help search engines present your pages correctly and surface them for local, regional searches.",
           },
         ],
+        schemaArtifact: {
+          lines: [
+            '<span class="k">"@type"</span>: <span class="v">"Service"</span>,',
+            '<span class="k">"areaServed"</span>: <span class="v">"Tirol"</span>,',
+            '<span class="k">"@type"</span>: <span class="v">"FAQPage"</span>,',
+            '<span class="k">"@type"</span>: <span class="v">"BreadcrumbList"</span>',
+          ],
+          note: "Rich-result eligible · live on our own pages",
+        },
+        includedLabel: "What we implement",
+        included: ["Semantic HTML", "JSON-LD schema", "Sitemap / robots", "Internal linking"],
         proof:
           "The technical foundations of search visibility — semantic markup, fast load times, structured data, bilingual hreflang — are built into every site we ship, including our own platforms. We optimise on the same fundamentals we apply to our own work; we don't promise rankings or sell business strategy.",
         ctaLabel: "Discuss your project",
@@ -780,8 +798,15 @@ export const dictionaries = {
             p: "Sauberer Code, sinnvolles Logging und Dokumentation, damit das Gebaute weiterläuft und sich übergeben oder erweitern lässt — ohne Neuschreiben.",
           },
         ],
+        steps: [
+          { n: "01", label: "Den Arbeitsablauf erfassen, der Ihre Zeit frisst" },
+          { n: "02", label: "Das Werkzeug darum herum bauen" },
+          { n: "03", label: "Es läuft; Sie prüfen" },
+        ],
+        includedLabel: "Was wir bauen",
+        included: ["Individuelle Web-Apps", "Workflow-Automatisierung", "Content-Pipelines", "Interne Tools"],
         proof:
-          "Genau das bauen wir für uns selbst: Maya, einen hauseigenen Sprach-KI-Assistenten, der in Produktion läuft; Content-Pipelines, die heute echte Produktionsarbeit automatisieren; und Plattformen in Entwicklung — Virtual Office Tirol für Telefon-Assistenz und Back-Office-Automatisierung, Vistera für VR-Immobilienrundgänge. Alles im Haus gebaut — so, wie wir auch Ihres bauen würden.",
+          "Die Automatisierung, von der hier die Rede ist, setzen wir zuerst im eigenen Studio ein — im Haus gebaut, so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",
       },
       seo: {
@@ -811,6 +836,17 @@ export const dictionaries = {
             p: "Schema-Markup und ein sauberes lokales Setup (konsistente Unternehmensangaben, korrektes zweisprachiges hreflang) helfen Suchmaschinen, Ihre Seiten korrekt darzustellen und für lokale, regionale Suchanfragen anzuzeigen.",
           },
         ],
+        schemaArtifact: {
+          lines: [
+            '<span class="k">"@type"</span>: <span class="v">"Service"</span>,',
+            '<span class="k">"areaServed"</span>: <span class="v">"Tirol"</span>,',
+            '<span class="k">"@type"</span>: <span class="v">"FAQPage"</span>,',
+            '<span class="k">"@type"</span>: <span class="v">"BreadcrumbList"</span>',
+          ],
+          note: "Rich-Snippet-fähig · live auf unseren eigenen Seiten",
+        },
+        includedLabel: "Was wir umsetzen",
+        included: ["Semantisches HTML", "JSON-LD-Schema", "Sitemap / robots", "Interne Verlinkung"],
         proof:
           "Die technischen Grundlagen der Sichtbarkeit — semantisches Markup, kurze Ladezeiten, strukturierte Daten, zweisprachiges hreflang — sind in jeder Site enthalten, die wir ausliefern, auch in unseren eigenen Plattformen. Wir optimieren auf denselben Grundlagen, die wir auf unsere eigene Arbeit anwenden; wir versprechen keine Rankings und verkaufen keine Unternehmensberatung.",
         ctaLabel: "Projekt besprechen",
