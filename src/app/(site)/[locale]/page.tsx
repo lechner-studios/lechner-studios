@@ -5,6 +5,7 @@ import { isLocale, type Locale } from "../../../i18n/config";
 import { dictionaries } from "../../../i18n/dictionaries";
 import Nav from "../../../components/Nav";
 import Hero from "../../../components/Hero";
+import Stance from "../../../components/Stance";
 import Work from "../../../components/Work";
 import Services from "../../../components/Services";
 import FoundationPartner from "../../../components/FoundationPartner";
@@ -28,6 +29,7 @@ export default async function Home({
       <Nav />
       <main id="main" style={{ minHeight: "100vh" }}>
         <Hero />
+        <Stance />
         <Services />
         <Work featured={["websites", "vistera"]} moreHref={`/${locale}/work`} />
         <FoundationPartner />
