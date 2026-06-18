@@ -9,12 +9,17 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // No IntersectionObserver support → show immediately (never leave content hidden).
+    if (typeof IntersectionObserver === "undefined") { setShown(true); return; }
     const io = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setShown(true); io.disconnect(); } },
       { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety net: if the observer never fires (fast/programmatic scroll, bfcache
+    // restore, odd viewport), reveal anyway so a section can't stay blank.
+    const fallback = window.setTimeout(() => setShown(true), 1200);
+    return () => { io.disconnect(); window.clearTimeout(fallback); };
   }, []);
   return (
     <div
