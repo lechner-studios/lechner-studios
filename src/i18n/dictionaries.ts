@@ -877,4 +877,33 @@ export const dictionaries = {
 };
 
 export type Dictionary = typeof dictionaries.en;
+
+export type ServiceDetailEntry = {
+  // base fields — match the current serviceDetail entry shape exactly
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  overline: string;
+  headline: string;
+  intro: string;
+  sections: { h: string; p: string; artifact?: { src: string; alt: string; caption?: string } }[];
+  proof: string;
+  ctaLabel: string;
+  // hybrid-showcase additions — optional, populated per service in later tasks
+  heroArtifact?: { src: string; alt: string; caption?: string };
+  steps?: { n: string; label: string }[];
+  included?: string[];
+  includedLabel?: string;
+  schemaArtifact?: { lines: string[]; note: string };
+  proofArtifact?: { images: { src: string; alt: string }[]; workLabel: string };
+};
+
+// Compile-time guard: every serviceDetail entry must satisfy the renderer's typed shape.
+const _serviceDetailEntryGuard: ServiceDetailEntry[] = [
+  dictionaries.en.serviceDetail.web,
+  dictionaries.en.serviceDetail.apps,
+  dictionaries.en.serviceDetail.seo,
+];
+void _serviceDetailEntryGuard;
+
 export type { Locale } from "./config";
