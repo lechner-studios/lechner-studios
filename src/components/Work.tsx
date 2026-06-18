@@ -29,14 +29,19 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
+  // Only surface genuinely live/active work — no dead "coming soon / in maintenance"
+  // rows linking to "#". Hidden items stay in the dict and reappear once their
+  // status flips to live/service and they get a real URL.
+  const ACTIVE_STATUSES = new Set(["live", "service"]);
+  const activeItems = d.items.filter((it) => ACTIVE_STATUSES.has(it.status));
   const items =
     featured && featured.length > 0
       ? featured
-          .map((id) => d.items.find((it) => it.id === id))
+          .map((id) => activeItems.find((it) => it.id === id))
           .filter((it): it is (typeof d.items)[number] => Boolean(it))
       : typeof limit === "number"
-        ? d.items.slice(0, limit)
-        : d.items;
+        ? activeItems.slice(0, limit)
+        : activeItems;
 
   return (
     <section
@@ -73,15 +78,6 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
               {d.headline}
             </h2>
           </div>
-          <span style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.6rem",
-            color: "var(--accent)",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-          }}>
-            {d.items.length} projects
-          </span>
         </div>
         </Reveal>
 

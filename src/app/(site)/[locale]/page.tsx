@@ -29,7 +29,7 @@ export default async function Home({
       <main id="main" style={{ minHeight: "100vh" }}>
         <Hero />
         <Services />
-        <Work featured={["websites", "vistera"]} moreHref={`/${locale}/work`} />
+        <Work featured={["websites"]} moreHref={`/${locale}/work`} />
         <FoundationPartner />
         <ContactCta />
         <Footer />
