@@ -304,6 +304,10 @@ section, footer, nav, .theme-surface {
   .lc-nav-burger  { display: inline-flex !important; }
 
   .lc-pad-section { padding: 72px 24px !important; }
+  /* The first section sits under the fixed (transparent-at-top) nav and must
+     clear it — the generic 72px above is for mid-page sections and clips the
+     first heading. The home hero (.lc-pad-hero) is exempt by design. */
+  main > section.lc-pad-section:first-of-type { padding-top: 108px !important; }
   .lc-pad-hero    { padding: 96px 24px 64px !important; }
   .lc-pad-footer  { padding: 28px 24px !important; }
   .lc-pad-nav     { padding-left: 24px !important; padding-right: 24px !important; }
