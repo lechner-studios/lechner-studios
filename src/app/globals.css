@@ -334,3 +334,47 @@ section, footer, nav, .theme-surface {
     padding-top: 0 !important;
   }
 }
+
+/* ── Service-detail hybrid showcase ─────────────────────────────────────────
+   Per-service pillar accent (Säulenfarbe), AA-legible in both modes — raw
+   pillar colours are too light on cream (stone/sky) or invisible on dark (lake),
+   so each service maps to a darker/lighter variant of its pillar hue. */
+.svc-web  { --svc-accent: #7A6A4E; }   /* Stone family */
+.svc-apps { --svc-accent: #3E5F86; }   /* Sky family */
+.svc-seo  { --svc-accent: #254268; }   /* Lake */
+[data-theme="dark"] .svc-web  { --svc-accent: #D6CDBE; }
+[data-theme="dark"] .svc-apps { --svc-accent: #8FA8C5; }
+[data-theme="dark"] .svc-seo  { --svc-accent: #8FA8C5; }
+
+/* Image-forward hero (web): text + artifact side by side. */
+.svc-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+/* Alternating method blocks. */
+.svc-method { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+.svc-method:last-child { margin-bottom: 0; }
+.svc-method.reverse > .svc-method-art { order: -1; }   /* image on the left on alternating rows */
+/* A self-hosted screenshot frame (no tilt/3D — plain editorial frame). */
+.svc-shot { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: var(--bg-alt); display: block; width: 100%; }
+.svc-shot img { display: block; width: 100%; height: auto; }
+.svc-shot-cap { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-top: 8px; }
+/* How-it-works steps. */
+.svc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.svc-step { border: 1px solid var(--border); border-radius: 3px; padding: 18px; }
+.svc-step-n { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; color: var(--svc-accent); margin-bottom: 8px; }
+.svc-step-l { font-size: 0.95rem; color: var(--text); line-height: 1.4; }
+/* What's included — borderless check + label (NOT a checkbox box). */
+.svc-incl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+.svc-incl-item { display: flex; align-items: center; gap: 12px; font-size: 0.98rem; color: var(--text); }
+/* SEO real-schema artifact. */
+.svc-code { background: var(--contrast-bg); color: var(--on-contrast-muted); border-radius: 4px; padding: 18px 20px; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.7; overflow-x: auto; }
+.svc-code .k { color: var(--accent-on-contrast); }
+.svc-code .v { color: var(--signature); }
+.svc-code-note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); margin-top: 10px; }
+/* Web proof row. */
+.svc-proofrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+@media (max-width: 768px) {
+  .svc-hero, .svc-method { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .svc-method.reverse > .svc-method-art { order: 0; }
+  .svc-steps { grid-template-columns: 1fr !important; }
+  .svc-incl { grid-template-columns: 1fr !important; }
+  .svc-proofrow { grid-template-columns: 1fr 1fr !important; }
+}
