@@ -269,10 +269,12 @@ export const dictionaries = {
           {
             h: "Designed to measure, not assembled",
             p: "No templates, no page builders. Every layout, typeface and interaction is decided for your business — so the site reads as yours, not as another instance of the same theme.",
+            artifact: { src: "/proof/gasthof.webp", alt: "Gasthof — built to measure" },
           },
           {
             h: "Built on a fast, durable foundation",
             p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted with zero third-party requests, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
+            artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — hand-coded, self-hosted" },
           },
           {
             h: "Bilingual and ready for Tirol & DACH",
@@ -286,6 +288,18 @@ export const dictionaries = {
         proof:
           "We don't only build for clients — Werk is our own custom-website service, and every platform we've built (Vistera, Virtual Office Tirol, CodeFlash) is held to the same standard. The work is the proof.",
         ctaLabel: "Discuss your project",
+        heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — a website we designed and built", caption: "Live demo · pension" },
+        includedLabel: "What's included",
+        included: ["Hand-coded", "Self-hosted", "DSGVO by construction", "WCAG AA accessible", "Responsive", "Brand built in"],
+        proofArtifact: {
+          images: [
+            { src: "/proof/pension.webp", alt: "Pension demo" },
+            { src: "/proof/gasthof.webp", alt: "Gasthof demo" },
+            { src: "/proof/skischule.webp", alt: "Skischule demo" },
+            { src: "/proof/tischlerei.webp", alt: "Tischlerei demo" },
+          ],
+          workLabel: "See the work",
+        },
       },
       apps: {
         slug: "apps-automation",
@@ -707,10 +721,12 @@ export const dictionaries = {
           {
             h: "Nach Maß gestaltet, nicht zusammengesteckt",
             p: "Keine Vorlagen, kein Baukasten. Jedes Layout, jede Schrift und jede Interaktion wird für Ihr Unternehmen entschieden — damit die Site nach Ihnen aussieht und nicht nach dem nächsten Exemplar desselben Themes.",
+            artifact: { src: "/proof/gasthof.webp", alt: "Gasthof — maßgeschneidert gebaut" },
           },
           {
             h: "Auf schnellem, langlebigem Fundament gebaut",
             p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet, ganz ohne Drittanbieter-Anfragen: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
+            artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — handgeschrieben, selbst gehostet" },
           },
           {
             h: "Zweisprachig und bereit für Tirol & DACH",
@@ -724,6 +740,18 @@ export const dictionaries = {
         proof:
           "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir gebaut haben (Vistera, Virtual Office Tirol, CodeFlash), entstand nach demselben Standard. Die Arbeit ist der Beweis.",
         ctaLabel: "Projekt besprechen",
+        heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — eine von uns gestaltete und gebaute Website", caption: "Live-Demo · Pension" },
+        includedLabel: "Enthalten",
+        included: ["Handgeschrieben", "Selbst gehostet", "DSGVO-konform by construction", "WCAG-AA-barrierefrei", "Responsiv", "Marke integriert"],
+        proofArtifact: {
+          images: [
+            { src: "/proof/pension.webp", alt: "Pension-Demo" },
+            { src: "/proof/gasthof.webp", alt: "Gasthof-Demo" },
+            { src: "/proof/skischule.webp", alt: "Skischule-Demo" },
+            { src: "/proof/tischlerei.webp", alt: "Tischlerei-Demo" },
+          ],
+          workLabel: "Arbeiten ansehen",
+        },
       },
       apps: {
         slug: "apps-automation",
