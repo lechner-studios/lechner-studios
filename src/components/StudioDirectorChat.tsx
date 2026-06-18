@@ -117,16 +117,20 @@ export default function StudioDirectorChat() {
         <button
           type="button"
           aria-label={d.launchLabel}
+          title={d.title}
           onClick={() => { setMsgs((m) => (m.length ? m : [{ role: "assistant", content: d.greeting }])); setOpen(true); }}
           style={{
             position: "fixed", bottom: "24px", right: "24px", zIndex: 50,
-            fontFamily: "var(--font-mono)", fontSize: "0.72rem", fontWeight: 600,
-            letterSpacing: "0.08em", color: "var(--bg)", background: "var(--text)",
-            border: "none", borderRadius: "999px", padding: "14px 20px", cursor: "pointer",
+            width: "52px", height: "52px", display: "flex", alignItems: "center", justifyContent: "center",
+            color: "var(--bg)", background: "var(--text)",
+            border: "none", borderRadius: "999px", cursor: "pointer",
             boxShadow: "0 6px 24px rgba(0,0,0,0.18)",
           }}
         >
-          {d.title}
+          {/* Compact icon (was a wide text pill that overlapped content); label via aria-label/title. */}
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z" />
+          </svg>
         </button>
       )}
       {open && (

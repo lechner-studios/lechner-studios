@@ -48,7 +48,7 @@ export default async function StartPage({
             borderTop: "1px solid var(--border)",
           }}
         >
-          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ maxWidth: "680px", margin: "0 auto" }}>
             {/* Editorial header */}
             <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
               <Overline marginBottom="2rem">

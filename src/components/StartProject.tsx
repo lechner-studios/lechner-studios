@@ -416,35 +416,34 @@ export default function StartProject() {
           type="submit"
           disabled={!consentChecked || formState === "submitting"}
           style={{
-            display: "block",
-            fontFamily: "var(--font-display)",
-            fontStyle: "italic",
-            fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)",
+            display: "inline-block",
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.72rem",
+            fontWeight: 600,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
             background: "transparent",
-            border: "none",
-            borderBottom: "1px solid var(--border-strong)",
-            color: "var(--text)",
-            padding: "12px 0",
+            color: "var(--accent)",
+            border: "1px solid color-mix(in srgb, var(--accent) 50%, transparent)",
+            borderRadius: "2px",
+            padding: "15px 30px",
             cursor: (!consentChecked || formState === "submitting") ? "not-allowed" : "pointer",
             opacity: (!consentChecked || formState === "submitting") ? 0.45 : 1,
-            width: "100%",
-            textAlign: "left",
+            transition: "background 0.25s, color 0.25s, border-color 0.25s",
           }}
           onMouseEnter={(e) => {
             if (consentChecked && formState !== "submitting") {
-              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--accent)";
+              const t = e.currentTarget as HTMLElement;
+              t.style.background = "var(--accent)";
+              t.style.color = "var(--bg)";
+              t.style.borderColor = "var(--accent)";
             }
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--border-strong)";
-          }}
-          onFocus={(e) => {
-            if (consentChecked && formState !== "submitting") {
-              (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--text-muted)";
-            }
-          }}
-          onBlur={(e) => {
-            (e.currentTarget as HTMLElement).style.borderBottom = "1px solid var(--border-strong)";
+            const t = e.currentTarget as HTMLElement;
+            t.style.background = "transparent";
+            t.style.color = "var(--accent)";
+            t.style.borderColor = "color-mix(in srgb, var(--accent) 50%, transparent)";
           }}
         >
           {formState === "submitting" ? f.submitting : s.submit}
