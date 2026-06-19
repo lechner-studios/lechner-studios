@@ -59,7 +59,8 @@ export default function LegalImpressumDE() {
             Dienstleistungen in der automatischen Datenverarbeitung und
             Informationstechnik (u.&nbsp;a. Software- und Webentwicklung,
             Webdesign, Automatisierung, Hosting/Konfiguration, IT-Beratung und
-            -Schulung).
+            -Schulung) sowie Werbung und Marktkommunikation (Markengestaltung,
+            Markenidentität und Content-/Marketingkommunikation).
           </div>
 
           <div style={sectionLabelStyle}>Gewerbe</div>
@@ -68,6 +69,11 @@ export default function LegalImpressumDE() {
             Informationstechnik (freies Gewerbe)
             <br />
             GISA-Zahl: 39801708
+            <br />
+            <br />
+            Werbeagentur (freies Gewerbe)
+            <br />
+            GISA-Zahl: 39826466
           </div>
 
           <div style={sectionLabelStyle}>Gewerbebehörde</div>
@@ -78,8 +84,8 @@ export default function LegalImpressumDE() {
           <div style={sectionLabelStyle}>Mitgliedschaft</div>
           <div style={sectionValueStyle}>
             Wirtschaftskammer Tirol — Fachgruppe Unternehmensberatung,
-            Buchhaltung und Informationstechnologie (UBIT), Sparte Information &
-            Consulting.
+            Buchhaltung und Informationstechnologie (UBIT) sowie Fachgruppe
+            Werbung und Marktkommunikation, Sparte Information & Consulting.
           </div>
 
           <div style={sectionLabelStyle}>Berufsrechtliche Vorschriften</div>

@@ -60,7 +60,9 @@ export default function LegalImpressumEN() {
           <div style={sectionValueStyle}>
             Services in automatic data processing and information technology
             (incl. software and web development, web design, automation,
-            hosting/configuration, IT consulting and training).
+            hosting/configuration, IT consulting and training), as well as
+            advertising and marketing communication (brand design, brand
+            identity and content/marketing communication).
           </div>
 
           <div style={sectionLabelStyle}>Trade (Gewerbe)</div>
@@ -69,6 +71,11 @@ export default function LegalImpressumEN() {
             Informationstechnik (free trade)
             <br />
             GISA no.: 39801708
+            <br />
+            <br />
+            Werbeagentur (free trade)
+            <br />
+            GISA no.: 39826466
           </div>
 
           <div style={sectionLabelStyle}>Trade authority</div>
@@ -80,7 +87,8 @@ export default function LegalImpressumEN() {
           <div style={sectionLabelStyle}>Chamber membership</div>
           <div style={sectionValueStyle}>
             Wirtschaftskammer Tirol (Tyrol Economic Chamber) — Professional
-            Group UBIT (Management Consulting, Accounting & IT).
+            Group UBIT (Management Consulting, Accounting & IT) and Professional
+            Group Advertising & Market Communication.
           </div>
 
           <div style={sectionLabelStyle}>Applicable professional law</div>
