@@ -34,7 +34,7 @@ export const dictionaries = {
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
-      startTitle: "Start a Project",
+      startTitle: "Discuss a Project",
       startDescription:
         "Tell us about your project — web, apps, automation or SEO. The more you share, the sharper our first call. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
@@ -55,7 +55,7 @@ export const dictionaries = {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Websites, apps & automation,\nbuilt to measure.",
       subline: "A design-led digital studio from Tirol, building for independent businesses across the DACH region.",
-      ctaPrimary: "Start a project",
+      ctaPrimary: "Discuss a project",
       ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLL",
@@ -370,6 +370,7 @@ export const dictionaries = {
       overline: "CONTACT",
       headline: "Let's talk.",
       body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call — in person or online — and figure out what's possible together. No pitch, no obligation.",
+      startNudge: "Bigger project with more detail? Discuss a project →",
       ctaLine: "Tell us what you're building — we'll set up a first call within two business days.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
@@ -396,7 +397,7 @@ export const dictionaries = {
       body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
     },
     start: {
-      overline: "START A PROJECT",
+      overline: "DISCUSS A PROJECT",
       headline: "Let's build the right thing.",
       intro:
         "Tell us about your project. The more you share, the sharper our first call — we'll come prepared with a clear sense of what's possible and what it takes.",
@@ -488,7 +489,7 @@ export const dictionaries = {
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
-      startTitle: "Projekt starten",
+      startTitle: "Projekt besprechen",
       startDescription:
         "Erzählen Sie uns von Ihrem Projekt — Web, Apps, Automatisierung oder SEO. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
@@ -509,7 +510,7 @@ export const dictionaries = {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
       tagline: "Websites, Apps & Automatisierung,\nmaßgeschneidert.",
       subline: "Ein design-orientiertes Digitalstudio aus Tirol — für unabhängige Unternehmen im DACH-Raum.",
-      ctaPrimary: "Projekt starten",
+      ctaPrimary: "Projekt besprechen",
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLLEN",
@@ -824,6 +825,7 @@ export const dictionaries = {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
       body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch — vor Ort oder online — und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
+      startNudge: "Größeres Projekt mit mehr Details? Projekt besprechen →",
       ctaLine: "Erzählen Sie uns, was Sie vorhaben — wir vereinbaren innerhalb von zwei Werktagen ein erstes Gespräch.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
@@ -850,7 +852,7 @@ export const dictionaries = {
       body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
     },
     start: {
-      overline: "PROJEKT STARTEN",
+      overline: "PROJEKT BESPRECHEN",
       headline: "Bauen wir das Richtige.",
       intro:
         "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch — wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",

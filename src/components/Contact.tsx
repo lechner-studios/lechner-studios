@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
 export default function Contact() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const d = dict.contact;
   const f = d.form;
 
@@ -130,6 +131,23 @@ export default function Contact() {
             }}>
               {d.body}
             </p>
+            <Link
+              href={`/${locale}/start`}
+              style={{
+                display: "inline-block",
+                marginTop: "24px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.72rem",
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                color: "var(--accent)",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.7")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+            >
+              {d.startNudge}
+            </Link>
           </div>
 
           {/* Right */}
