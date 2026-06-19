@@ -12,6 +12,24 @@ webdesign:
   - slug: website-relaunch-when-worth-it
     keyword: "Website Relaunch"
     intent: "signs it's time to rebuild vs patch an existing site"
+  - slug: accessible-website-eaa
+    keyword: "barrierefreie Website"
+    intent: "accessibility as a build standard (WCAG) and the EAA deadline — what it means in practice"
+  - slug: edit-your-website-yourself
+    keyword: "Website selbst bearbeiten"
+    intent: "keeping content editable without a developer, without a bloated page-builder"
+  - slug: onepage-or-multipage
+    keyword: "Onepager oder mehrere Seiten"
+    intent: "when a single-page site fits a small business and when it doesn't"
+  - slug: dsgvo-website-self-hosted
+    keyword: "DSGVO-konforme Website"
+    intent: "privacy by construction — self-hosted fonts/assets, no third-party trackers"
+  - slug: website-for-tradespeople
+    keyword: "Website für Handwerker"
+    intent: "what a trades/craft business actually needs from a site (Tirol)"
+  - slug: direct-booking-website-pension
+    keyword: "Direktbuchung Website Pension"
+    intent: "a guesthouse site that wins direct bookings instead of paying portal commission — technically"
 apps-automation:
   - slug: automate-appointment-reminders
     keyword: "Terminerinnerungen automatisieren"
@@ -19,6 +37,24 @@ apps-automation:
   - slug: connect-your-business-tools
     keyword: "Tools verbinden Automatisierung"
     intent: "stitching existing tools together instead of new software"
+  - slug: automate-quotes-offers
+    keyword: "Angebote automatisieren"
+    intent: "turning a request into a drafted offer document automatically (the workflow, no pricing claims)"
+  - slug: automate-invoicing
+    keyword: "Rechnungen automatisieren"
+    intent: "removing the manual steps around recurring invoicing — the plumbing, not financial advice"
+  - slug: contact-form-to-crm
+    keyword: "Kontaktformular automatisieren"
+    intent: "an enquiry that files itself into your contacts/calendar with no retyping"
+  - slug: online-booking-system
+    keyword: "Online-Terminbuchung Website"
+    intent: "letting clients pick a slot themselves, synced to your calendar"
+  - slug: custom-internal-tool
+    keyword: "internes Tool bauen lassen"
+    intent: "when a small custom internal tool beats forcing your work into off-the-shelf software"
+  - slug: ai-for-small-business-sensibly
+    keyword: "KI im Kleinunternehmen"
+    intent: "where AI genuinely earns its place in a small business — honest, no hype, human-in-control"
 seo:
   - slug: technical-seo-checklist
     keyword: "technisches SEO"
@@ -26,3 +62,27 @@ seo:
   - slug: structured-data-local-business
     keyword: "strukturierte Daten lokale Unternehmen"
     intent: "what schema.org markup does for a local business listing"
+  - slug: core-web-vitals-explained
+    keyword: "Core Web Vitals verbessern"
+    intent: "what Google's performance signals are and the technical levers that move them"
+  - slug: google-business-profile-setup
+    keyword: "Google Unternehmensprofil optimieren"
+    intent: "the technical setup of a local business profile so it shows up in maps/search"
+  - slug: not-showing-up-on-google
+    keyword: "Website wird bei Google nicht gefunden"
+    intent: "crawlability/indexing reasons a site is invisible — and the technical fixes"
+  - slug: meta-title-and-description
+    keyword: "Meta-Titel und Beschreibung"
+    intent: "writing the title/description tags that earn the click, per page"
+  - slug: sitemap-and-robots
+    keyword: "Sitemap und robots.txt"
+    intent: "how sitemaps and robots.txt help search engines crawl a site correctly"
+  - slug: internal-linking-structure
+    keyword: "interne Verlinkung"
+    intent: "how internal links spread ranking signal and help users navigate"
+  - slug: multilingual-website-hreflang
+    keyword: "mehrsprachige Website SEO"
+    intent: "hreflang and the technical foundations of a clean de/en bilingual site"
+  - slug: image-seo-alt-text
+    keyword: "Bilder SEO Alt-Text"
+    intent: "image optimization + alt text for accessibility and image search"
