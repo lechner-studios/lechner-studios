@@ -36,6 +36,48 @@ webdesign:
   - slug: ai-website-builders-vs-handcoded
     keyword: "KI-Website-Baukasten"
     intent: "the new AI site-builders vs a hand-built site — what you gain and what you quietly lose"
+  - slug: restaurant-website
+    keyword: "Website für Restaurant"
+    intent: "what a restaurant or Gasthof site actually needs — menu, hours, reservations — links to the live gasthof demo"
+  - slug: skischule-website
+    keyword: "Website für Skischule"
+    intent: "a ski-school site with clear courses and season-aware booking — links to the live skischule demo"
+  - slug: ferienwohnung-website
+    keyword: "Website für Ferienwohnung"
+    intent: "a holiday-let site built for direct bookings — links to the live pension demo"
+  - slug: club-association-website
+    keyword: "Website für Verein"
+    intent: "what a club/association site needs — members, events, news — kept simple and self-editable"
+  - slug: save-booking-commission
+    keyword: "Booking.com Provision sparen"
+    intent: "how a direct-booking website keeps the portal commission in your pocket — honest, no fabricated numbers"
+  - slug: channel-manager-vs-own-website
+    keyword: "Channel Manager eigene Website"
+    intent: "how a channel manager and your own direct-booking site work together, not against each other"
+  - slug: rent-holiday-let-directly
+    keyword: "Ferienwohnung direkt vermieten"
+    intent: "renting a holiday flat more directly instead of relying only on portals — what the website needs"
+  - slug: how-a-website-project-works
+    keyword: "Website-Projekt Ablauf"
+    intent: "what actually happens from first call to launch — the steps, honestly, no surprises"
+  - slug: website-maintenance-care
+    keyword: "Website-Pflege"
+    intent: "why a site needs ongoing care — updates, backups, security — and what that involves"
+  - slug: domain-email-hosting-setup
+    keyword: "Domain und E-Mail einrichten"
+    intent: "getting domain, business email and hosting set up cleanly — the technical basics"
+  - slug: ssl-certificate-https
+    keyword: "SSL-Zertifikat Website"
+    intent: "what SSL/HTTPS is, why every site needs it, and what happens without it"
+  - slug: website-backups
+    keyword: "Website-Backup"
+    intent: "why backups matter and what a sensible backup looks like for a small business site"
+  - slug: website-hacked-what-to-do
+    keyword: "Website gehackt"
+    intent: "the technical signs a site is compromised and the calm steps to recover and prevent it"
+  - slug: avoid-dsgvo-warnings
+    keyword: "DSGVO Abmahnung Website vermeiden"
+    intent: "the common technical DSGVO pitfalls on a website (trackers, fonts, Impressum) and how a clean build avoids them — not legal advice"
 apps-automation:
   - slug: automate-appointment-reminders
     keyword: "Terminerinnerungen automatisieren"
@@ -116,3 +158,15 @@ seo:
   - slug: optimize-for-ai-answers
     keyword: "für KI-Suche optimieren"
     intent: "getting surfaced and cited by AI assistants — structured data and clear answers, the technical way"
+  - slug: google-reviews-and-seo
+    keyword: "Google-Bewertungen"
+    intent: "why reviews matter for local visibility and the technical side of surfacing them"
+  - slug: local-business-citations
+    keyword: "lokale Branchenverzeichnisse"
+    intent: "consistent local listings/citations and why NAP consistency helps local search"
+  - slug: how-long-does-seo-take
+    keyword: "Wie lange dauert SEO"
+    intent: "honest expectations on SEO timelines — why it compounds over months, not days"
+  - slug: seo-yourself-or-agency
+    keyword: "SEO selbst machen oder Agentur"
+    intent: "what an SMB can do themselves vs where help pays off — the technical foundations either way"
