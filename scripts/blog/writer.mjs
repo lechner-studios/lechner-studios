@@ -55,7 +55,7 @@ export async function writePost({ pillar, category, keyword, intent, slug, date,
   for (let attempt = 0; attempt < 2; attempt++) {
     const res = await client.messages.create({
       model: MODEL,
-      max_tokens: 4096,
+      max_tokens: 8192, // two ~800-word bilingual posts + JSON — 4096 risks truncation
       system: sys,
       messages: [{ role: "user", content: `Write the post for "${keyword}". Return only the JSON object.` }],
     });
