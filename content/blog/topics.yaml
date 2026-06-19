@@ -30,6 +30,12 @@ webdesign:
   - slug: direct-booking-website-pension
     keyword: "Direktbuchung Website Pension"
     intent: "a guesthouse site that wins direct bookings instead of paying portal commission — technically"
+  - slug: ai-in-web-development
+    keyword: "KI in der Webentwicklung"
+    intent: "what AI does and doesn't do when building a real website — a tool that speeds the craft, not a replacement for it"
+  - slug: ai-website-builders-vs-handcoded
+    keyword: "KI-Website-Baukasten"
+    intent: "the new AI site-builders vs a hand-built site — what you gain and what you quietly lose"
 apps-automation:
   - slug: automate-appointment-reminders
     keyword: "Terminerinnerungen automatisieren"
@@ -55,6 +61,24 @@ apps-automation:
   - slug: ai-for-small-business-sensibly
     keyword: "KI im Kleinunternehmen"
     intent: "where AI genuinely earns its place in a small business — honest, no hype, human-in-control"
+  - slug: ai-benefits-for-business
+    keyword: "Vorteile KI für Unternehmen"
+    intent: "the concrete, honest benefits of AI for an SMB — time back on real repetitive tasks, not magic"
+  - slug: ai-risks-and-dangers
+    keyword: "Risiken von KI im Unternehmen"
+    intent: "the real dangers — hallucinated output, data leakage, over-reliance — and how to use AI safely anyway"
+  - slug: ai-and-data-privacy
+    keyword: "KI und Datenschutz"
+    intent: "DSGVO with AI tools — data residency, no-training settings, what to check before feeding business data in"
+  - slug: ai-chatbot-for-website
+    keyword: "KI-Chatbot für Website"
+    intent: "when a website AI assistant genuinely helps customers and when it just annoys — honestly"
+  - slug: ai-content-without-losing-voice
+    keyword: "KI-Texte authentisch"
+    intent: "using AI for content without sounding generic — keeping a real voice and human judgement"
+  - slug: ai-trends-for-business
+    keyword: "aktuelle KI-Trends"
+    intent: "where AI for small business actually stands today and where it's heading — signal over hype"
 seo:
   - slug: technical-seo-checklist
     keyword: "technisches SEO"
@@ -86,3 +110,9 @@ seo:
   - slug: image-seo-alt-text
     keyword: "Bilder SEO Alt-Text"
     intent: "image optimization + alt text for accessibility and image search"
+  - slug: ai-in-google-search
+    keyword: "KI in der Google-Suche"
+    intent: "how AI Overviews / AI answers change how customers find you — and what still matters technically"
+  - slug: optimize-for-ai-answers
+    keyword: "für KI-Suche optimieren"
+    intent: "getting surfaced and cited by AI assistants — structured data and clear answers, the technical way"
