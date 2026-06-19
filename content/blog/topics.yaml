@@ -1,0 +1,28 @@
+# Seed keyword universe for auto-generated blog posts. Owner-steerable:
+# add entries to keep the generator fed; each becomes one bilingual post.
+# pillar keys map to the service pages: webdesign / apps-automation / seo.
+# slug = the canonical URL slug (kebab-case, unique); keyword = primary SEO target.
+webdesign:
+  - slug: website-without-page-builder
+    keyword: "Website ohne Baukasten"
+    intent: "why a hand-coded site beats a builder for an independent business"
+  - slug: responsive-website-tirol
+    keyword: "responsive Website"
+    intent: "what responsive really means and why it's non-negotiable"
+  - slug: website-relaunch-when-worth-it
+    keyword: "Website Relaunch"
+    intent: "signs it's time to rebuild vs patch an existing site"
+apps-automation:
+  - slug: automate-appointment-reminders
+    keyword: "Terminerinnerungen automatisieren"
+    intent: "cutting no-shows with automated reminders, honestly scoped"
+  - slug: connect-your-business-tools
+    keyword: "Tools verbinden Automatisierung"
+    intent: "stitching existing tools together instead of new software"
+seo:
+  - slug: technical-seo-checklist
+    keyword: "technisches SEO"
+    intent: "the technical foundations that let search engines understand a site"
+  - slug: structured-data-local-business
+    keyword: "strukturierte Daten lokale Unternehmen"
+    intent: "what schema.org markup does for a local business listing"
