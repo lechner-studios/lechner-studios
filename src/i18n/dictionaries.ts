@@ -72,7 +72,7 @@ export const dictionaries = {
       headline: "A family-run studio building digital products with editorial precision.",
       body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH — built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
       stat1n: "5", stat1l: "Products built",
-      stat2n: "2", stat2l: "Live now",
+      stat2n: "2026", stat2l: "Founded",
       stat3n: "4", stat3l: "Pillars",
     },
     founder: {
@@ -81,7 +81,7 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Founder, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Founder",
-      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera — a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern shows up in Virtual Office Tirol, CodeFlash, Werk, and The AI Shortcut — each a missing thing, built.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
+      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera — a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern runs through a growing set of products she's built — each a missing thing, made real, several launching publicly soon.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
     },
     howWeWork: {
       overline: "HOW WE WORK",
@@ -270,7 +270,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "We don't only build for clients — Werk is our own custom-website service, and every platform we've built (Vistera, Virtual Office Tirol, CodeFlash) is held to the same standard. The work is the proof.",
+          "We don't only build for clients — Werk is our own custom-website service, and every product we build for ourselves is held to the same standard. The work is the proof.",
         ctaLabel: "Discuss your project",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — a website we designed and built", caption: "Live demo · pension" },
         includedLabel: "What's included",
@@ -393,7 +393,7 @@ export const dictionaries = {
     foundation: {
       overline: "FOUNDATION PARTNERS",
       headline: "A young studio — which is exactly the point.",
-      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it's already proven in the products we've built ourselves: Werk, Vistera, CodeFlash and Virtual Office Tirol. The same hands that built those will build yours.",
+      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
     },
     start: {
       overline: "START A PROJECT",
@@ -526,7 +526,7 @@ export const dictionaries = {
       headline: "Ein familiengeführtes Studio, das digitale Produkte mit editorischer Präzision baut.",
       body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum — gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
       stat1n: "5", stat1l: "Projekte gebaut",
-      stat2n: "2", stat2l: "Live im Einsatz",
+      stat2n: "2026", stat2l: "Gegründet",
       stat3n: "4", stat3l: "Säulen",
     },
     founder: {
@@ -535,7 +535,7 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Gründerin, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Gründerin",
-      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem — und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera — eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team — parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster bei Virtual Office Tirol, CodeFlash, Werk und The AI Shortcut — jedes Mal eine fehlende Lösung, gebaut.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten — und um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei — bewusst ohne öffentliche Rolle.",
+      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem — und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera — eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team — parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster zieht sich durch eine wachsende Reihe von Produkten, die sie gebaut hat — jedes eine fehlende Lösung, umgesetzt, einige davon bald öffentlich.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten — und um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei — bewusst ohne öffentliche Rolle.",
     },
     howWeWork: {
       overline: "WIE WIR ARBEITEN",
@@ -724,7 +724,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir gebaut haben (Vistera, Virtual Office Tirol, CodeFlash), entstand nach demselben Standard. Die Arbeit ist der Beweis.",
+          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jedes Produkt, das wir für uns selbst bauen, entsteht nach demselben Standard. Die Arbeit ist der Beweis.",
         ctaLabel: "Projekt besprechen",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — eine von uns gestaltete und gebaute Website", caption: "Live-Demo · Pension" },
         includedLabel: "Enthalten",
@@ -847,7 +847,7 @@ export const dictionaries = {
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Ein junges Studio — und genau der richtige Moment.",
-      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich bereits in den Produkten, die wir selbst gebaut haben: Werk, Vistera, CodeFlash und Virtual Office Tirol. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
     },
     start: {
       overline: "PROJEKT STARTEN",
