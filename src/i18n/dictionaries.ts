@@ -34,7 +34,7 @@ export const dictionaries = {
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
-      startTitle: "Start a Project",
+      startTitle: "Discuss a Project",
       startDescription:
         "Tell us about your project — web, apps, automation or SEO. The more you share, the sharper our first call. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
@@ -55,7 +55,7 @@ export const dictionaries = {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Websites, apps & automation,\nbuilt to measure.",
       subline: "A design-led digital studio from Tirol, building for independent businesses across the DACH region.",
-      ctaPrimary: "Start a project",
+      ctaPrimary: "Discuss a project",
       ctaSecondary: "See the work",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLL",
@@ -72,7 +72,7 @@ export const dictionaries = {
       headline: "A family-run studio building digital products with editorial precision.",
       body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH — built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
       stat1n: "5", stat1l: "Products built",
-      stat2n: "2", stat2l: "Live now",
+      stat2n: "2026", stat2l: "Founded",
       stat3n: "4", stat3l: "Pillars",
     },
     founder: {
@@ -81,7 +81,7 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Founder, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Founder",
-      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera — a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern shows up in Virtual Office Tirol, CodeFlash, Werk, and The AI Shortcut — each a missing thing, built.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
+      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera — a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern runs through a growing set of products she's built — each a missing thing, made real, several launching publicly soon.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
     },
     howWeWork: {
       overline: "HOW WE WORK",
@@ -161,22 +161,6 @@ export const dictionaries = {
         { slug: "skischule", title: "Skischule Musteralm", category: "Concept · Ski school", desc: "A ski-school site with clear course tiers and a season-aware course configurator." },
         { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Concept · Carpentry", desc: "A carpentry site with a material-led portfolio and a project-scoping intake — no pricing implied." },
       ],
-    },
-    maya: {
-      overline: "BUILT IN-HOUSE",
-      headline: "Maya — a voice AI we built and run.",
-      body: "Maya is a production voice assistant we built in-house: you speak, she answers in natural speech, and she remembers across conversations. It's the kind of AI capability we bring to client work — real, shipped, and running on our own infrastructure.",
-      stackLabel: "What it does",
-      stack: [
-        "Understands natural speech in real time",
-        "Replies in a natural, human voice",
-        "Remembers context across conversations",
-        "Runs entirely on our own infrastructure — no third-party data sharing",
-        "About two seconds end-to-end, live in production",
-      ],
-      videoCaption: "A real 30-second voice exchange with Maya.",
-      videoAlt: "Screen recording of a spoken conversation with Maya, our in-house voice AI assistant.",
-      note: "An internal tool, shown here as a capability demo — not a product for sale.",
     },
     services: {
       overline: "WHAT WE DO",
@@ -286,7 +270,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "We don't only build for clients — Werk is our own custom-website service, and every platform we've built (Vistera, Virtual Office Tirol, CodeFlash) is held to the same standard. The work is the proof.",
+          "We don't only build for clients — Werk is our own custom-website service, and every product we build for ourselves is held to the same standard. The work is the proof.",
         ctaLabel: "Discuss your project",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — a website we designed and built", caption: "Live demo · pension" },
         includedLabel: "What's included",
@@ -386,6 +370,7 @@ export const dictionaries = {
       overline: "CONTACT",
       headline: "Let's talk.",
       body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call — in person or online — and figure out what's possible together. No pitch, no obligation.",
+      startNudge: "Bigger project with more detail? Discuss a project →",
       ctaLine: "Tell us what you're building — we'll set up a first call within two business days.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
@@ -409,10 +394,10 @@ export const dictionaries = {
     foundation: {
       overline: "FOUNDATION PARTNERS",
       headline: "A young studio — which is exactly the point.",
-      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it's already proven in the products we've built ourselves: Werk, Vistera, CodeFlash and Virtual Office Tirol. The same hands that built those will build yours.",
+      body: "We're early, and we're deliberately taking on only a small number of foundation clients. That's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. The craft isn't a promise — it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
     },
     start: {
-      overline: "START A PROJECT",
+      overline: "DISCUSS A PROJECT",
       headline: "Let's build the right thing.",
       intro:
         "Tell us about your project. The more you share, the sharper our first call — we'll come prepared with a clear sense of what's possible and what it takes.",
@@ -504,7 +489,7 @@ export const dictionaries = {
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
-      startTitle: "Projekt starten",
+      startTitle: "Projekt besprechen",
       startDescription:
         "Erzählen Sie uns von Ihrem Projekt — Web, Apps, Automatisierung oder SEO. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
@@ -525,7 +510,7 @@ export const dictionaries = {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
       tagline: "Websites, Apps & Automatisierung,\nmaßgeschneidert.",
       subline: "Ein design-orientiertes Digitalstudio aus Tirol — für unabhängige Unternehmen im DACH-Raum.",
-      ctaPrimary: "Projekt starten",
+      ctaPrimary: "Projekt besprechen",
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
       scroll: "SCROLLEN",
@@ -542,7 +527,7 @@ export const dictionaries = {
       headline: "Ein familiengeführtes Studio, das digitale Produkte mit editorischer Präzision baut.",
       body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum — gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
       stat1n: "5", stat1l: "Projekte gebaut",
-      stat2n: "2", stat2l: "Live im Einsatz",
+      stat2n: "2026", stat2l: "Gegründet",
       stat3n: "4", stat3l: "Säulen",
     },
     founder: {
@@ -551,7 +536,7 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Gründerin, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Gründerin",
-      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem — und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera — eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team — parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster bei Virtual Office Tirol, CodeFlash, Werk und The AI Shortcut — jedes Mal eine fehlende Lösung, gebaut.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten — und um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei — bewusst ohne öffentliche Rolle.",
+      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem — und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera — eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team — parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster zieht sich durch eine wachsende Reihe von Produkten, die sie gebaut hat — jedes eine fehlende Lösung, umgesetzt, einige davon bald öffentlich.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten — und um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei — bewusst ohne öffentliche Rolle.",
     },
     howWeWork: {
       overline: "WIE WIR ARBEITEN",
@@ -631,22 +616,6 @@ export const dictionaries = {
         { slug: "skischule", title: "Skischule Musteralm", category: "Konzept · Skischule", desc: "Eine Skischul-Seite mit klaren Kursstufen und einem saisonabhängigen Kurs-Konfigurator." },
         { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Konzept · Tischlerei", desc: "Eine Tischlerei-Seite mit material-geführtem Portfolio und Projekt-Scoping — ganz ohne Preisangabe." },
       ],
-    },
-    maya: {
-      overline: "IM HAUS GEBAUT",
-      headline: "Maya — eine Sprach-KI, die wir gebaut haben und betreiben.",
-      body: "Maya ist ein hauseigener Sprach-Assistent in Produktion: Sie sprechen, Maya antwortet mit natürlicher Stimme und erinnert sich über Gespräche hinweg. Genau diese Art von KI-Fähigkeit bringen wir in die Kundenarbeit ein — real, ausgeliefert und auf unserer eigenen Infrastruktur.",
-      stackLabel: "Was sie kann",
-      stack: [
-        "Versteht natürliche Sprache in Echtzeit",
-        "Antwortet mit natürlicher, menschlicher Stimme",
-        "Erinnert sich über Gespräche hinweg",
-        "Läuft vollständig auf unserer eigenen Infrastruktur — keine Datenweitergabe an Dritte",
-        "Rund zwei Sekunden Ende-zu-Ende, live in Produktion",
-      ],
-      videoCaption: "Ein echter 30-sekündiger Sprachdialog mit Maya.",
-      videoAlt: "Bildschirmaufnahme eines gesprochenen Gesprächs mit Maya, unserem hauseigenen Sprach-KI-Assistenten.",
-      note: "Ein internes Werkzeug, hier als Fähigkeits-Demo gezeigt — kein Produkt zum Verkauf.",
     },
     services: {
       overline: "LEISTUNGEN",
@@ -756,7 +725,7 @@ export const dictionaries = {
           },
         ],
         proof:
-          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jede Plattform, die wir gebaut haben (Vistera, Virtual Office Tirol, CodeFlash), entstand nach demselben Standard. Die Arbeit ist der Beweis.",
+          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jedes Produkt, das wir für uns selbst bauen, entsteht nach demselben Standard. Die Arbeit ist der Beweis.",
         ctaLabel: "Projekt besprechen",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — eine von uns gestaltete und gebaute Website", caption: "Live-Demo · Pension" },
         includedLabel: "Enthalten",
@@ -856,6 +825,7 @@ export const dictionaries = {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
       body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch — vor Ort oder online — und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
+      startNudge: "Größeres Projekt mit mehr Details? Projekt besprechen →",
       ctaLine: "Erzählen Sie uns, was Sie vorhaben — wir vereinbaren innerhalb von zwei Werktagen ein erstes Gespräch.",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
@@ -879,10 +849,10 @@ export const dictionaries = {
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Ein junges Studio — und genau der richtige Moment.",
-      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich bereits in den Produkten, die wir selbst gebaut haben: Werk, Vistera, CodeFlash und Virtual Office Tirol. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      body: "Wir sind am Anfang — und nehmen bewusst nur eine kleine Zahl an Frühphasen-Kunden an. Das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Das Handwerk ist kein Versprechen — es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
     },
     start: {
-      overline: "PROJEKT STARTEN",
+      overline: "PROJEKT BESPRECHEN",
       headline: "Bauen wir das Richtige.",
       intro:
         "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch — wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",

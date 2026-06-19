@@ -8,7 +8,6 @@ import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Work from "../../../../components/Work";
 import DemoShowcase from "../../../../components/DemoShowcase";
-import MayaCaseStudy from "../../../../components/MayaCaseStudy";
 import Footer from "../../../../components/Footer";
 
 export async function generateMetadata({
@@ -41,7 +40,6 @@ export default async function WorkPage({
       <main id="main" style={{ minHeight: "100vh" }}>
         <Work />
         <DemoShowcase />
-        <MayaCaseStudy />
         <Footer />
       </main>
     </LanguageProvider>
