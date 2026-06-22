@@ -58,19 +58,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 
-  const smtpUser = process.env.ZOHO_SMTP_USER;
-  const smtpPass = process.env.ZOHO_SMTP_PASSWORD;
-  if (!smtpUser || !smtpPass) {
-    console.error("[contact] SMTP credentials missing — set ZOHO_SMTP_USER / ZOHO_SMTP_PASSWORD");
+  // Zoho ZeptoMail (EU) transactional SMTP. The SMTP username is the fixed
+  // literal "emailapikey"; the password is the ZeptoMail Send-Mail token. The
+  // sender must be on the verified ZeptoMail domain (mail.lechner-studios.at) —
+  // NOT the SMTP user — so `from` is ZEPTOMAIL_FROM, not the auth user.
+  const smtpPass = process.env.ZEPTOMAIL_TOKEN?.trim().replace(/^Zoho-enczapikey\s+/i, "");
+  if (!smtpPass) {
+    console.error("[contact] ZEPTOMAIL_TOKEN missing — set it to the ZeptoMail Send-Mail token");
     return NextResponse.json({ ok: false, error: "server_misconfigured" }, { status: 500 });
   }
+  const fromAddress = process.env.ZEPTOMAIL_FROM?.trim() || "noreply@mail.lechner-studios.at";
 
   try {
     const transport = nodemailer.createTransport({
-      host: "smtp.zoho.eu",
+      host: "smtp.zeptomail.eu",
       port: 465,
       secure: true,
-      auth: { user: smtpUser, pass: smtpPass },
+      auth: { user: "emailapikey", pass: smtpPass },
     });
 
     // The studio inbox is the system-of-record. An optional notify address
@@ -82,7 +86,7 @@ export async function POST(req: NextRequest) {
     if (notify) recipients.push(notify);
 
     await transport.sendMail({
-      from: `Lechner Studios Contact <${smtpUser}>`,
+      from: `Lechner Studios Kontakt <${fromAddress}>`,
       to: recipients,
       replyTo: `${name} <${email}>`,
       subject: subject || `Kontaktanfrage: ${name}`,
