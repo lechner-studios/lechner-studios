@@ -261,9 +261,7 @@ export default function LegalPrivacyDE() {
 
           <h3 style={h3Style}>11. Aktualität</h3>
           <p style={bodyStyle}>
-            Stand: Juni 2026. Diese Erklärung wird angepasst, sobald sich
-            Verarbeitungen ändern (z. B. wenn Analytics oder neue
-            Auftragsverarbeiter ergänzt werden).
+            Stand: Juni 2026.
           </p>
         </section>
 
