@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   generate:
@@ -16,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - run: npm ci
       - name: Generate post
         id: gen
@@ -24,8 +25,13 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/blog/generate.mjs
       - name: Open PR
+        # The enterprise forbids the default GITHUB_TOKEN from creating PRs, so
+        # authenticate as a user via BLOG_BOT_TOKEN (a fine-grained PAT with
+        # Contents + Pull requests: write on this repo). Falls back to the default
+        # token if the secret is absent — the push still works; only PR creation
+        # needs the PAT, and the Report-failure step will flag it if it's missing.
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BLOG_BOT_TOKEN || github.token }}
         run: |
           set -e
           SLUG="${{ steps.gen.outputs.slug }}"
@@ -41,3 +47,20 @@ jobs:
           gh pr create --base main --head "$BRANCH" \
             --title "blog: ${{ steps.gen.outputs.keyword }} (${{ steps.gen.outputs.pillar }})" \
             --body "Auto-generated post. Pillar: ${{ steps.gen.outputs.pillar }} · keyword: \`${{ steps.gen.outputs.keyword }}\` · slug: \`${SLUG}\`. Review both locales (de/en) on the Vercel preview, then merge."
+
+      # Surfaces any failure (missing secret, exhausted topics, lint/build error, PR
+      # creation) as a GitHub issue so a broken pipeline is never silent again.
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          TITLE="blog-generate pipeline failed"
+          # Reuse one open tracking issue instead of spamming a new one every run.
+          EXISTING=$(gh issue list --state open --search "${TITLE} in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "Failed again — ${RUN_URL}"
+          else
+            gh issue create --title "$TITLE" --body $'The scheduled blog pipeline failed.\n\nRun log: '"${RUN_URL}"$'\n\nLikely causes: missing `ANTHROPIC_API_KEY` secret, no uncovered topics left in `content/blog/topics.yaml`, or a lint/build failure. Open the failing step in the run log. Close this issue once a run succeeds.'
+          fi
