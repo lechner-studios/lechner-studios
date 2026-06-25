@@ -1,0 +1,95 @@
+name: indexnow-ping
+# When an auto-generated blog post is merged to main (and Vercel deploys it),
+# notify IndexNow (Bing, Yandex, et al.) so the new URLs get crawled fast
+# instead of waiting for the next scheduled recrawl. Google does not use
+# IndexNow — it picks the posts up via sitemap.xml.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/blog/*.md"
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Optional: a single blog slug to (re)submit. Leave blank to submit the blog index only."
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  HOST: lechner-studios.at
+  # IndexNow key is public by design — it is also served at /<key>.txt to prove
+  # domain ownership, so there is no secret to hide here.
+  INDEXNOW_KEY: 0423c0c686d88ce2d679364eb7684485
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # need the previous commit to diff the merge
+
+      - name: Collect changed post URLs
+        id: collect
+        run: |
+          set -euo pipefail
+          BASE="https://${HOST}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SLUGS="${{ github.event.inputs.slug }}"
+          else
+            # Slugs whose .md changed in this push (strip locale + extension), unique.
+            SLUGS=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'content/blog/*.md' \
+              | sed -nE 's#content/blog/(.+)\.(de|en)\.md#\1#p' | sort -u)
+          fi
+
+          # Always include the blog index (a new post changes the listing).
+          URLS="${BASE}/de/blog\n${BASE}/en/blog"
+          for s in $SLUGS; do
+            [ -n "$s" ] || continue
+            URLS="${URLS}\n${BASE}/de/blog/${s}\n${BASE}/en/blog/${s}"
+          done
+
+          # Build the IndexNow JSON payload (dedup, drop blanks).
+          URLLIST=$(printf '%b' "$URLS" | sort -u | sed '/^$/d' | jq -R . | jq -s .)
+          jq -n \
+            --arg host "$HOST" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "${BASE}/${INDEXNOW_KEY}.txt" \
+            --argjson urlList "$URLLIST" \
+            '{host:$host, key:$key, keyLocation:$keyLocation, urlList:$urlList}' > payload.json
+          echo "Payload:"; cat payload.json
+          echo "count=$(jq '.urlList | length' payload.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for Vercel to deploy, then submit
+        run: |
+          set -euo pipefail
+          # Give the production deploy time to go live so crawlers don't hit a 404.
+          sleep 120
+          CODE=$(curl -sS -o resp.txt -w '%{http_code}' -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data @payload.json)
+          echo "IndexNow responded HTTP ${CODE}"
+          cat resp.txt || true
+          # IndexNow returns 200 (accepted) or 202 (accepted, key validation pending).
+          case "$CODE" in
+            200|202) echo "Submitted ${{ steps.collect.outputs.count }} URL(s) successfully." ;;
+            *) echo "::error::IndexNow rejected the submission (HTTP ${CODE})"; exit 1 ;;
+          esac
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          TITLE="indexnow-ping failed"
+          EXISTING=$(gh issue list --state open --search "${TITLE} in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "Failed again — ${RUN_URL}"
+          else
+            gh issue create --title "$TITLE" --body $'IndexNow submission failed (new blog posts won'"'"'t get fast-crawled by Bing/Yandex until this is fixed; Google is unaffected — it uses the sitemap).\n\nRun log: '"${RUN_URL}"$'\n\nLikely causes: the key file at /'"${INDEXNOW_KEY}"$'.txt is missing/not yet deployed, or the IndexNow API is down. Re-run once the key file is reachable.'
+          fi
