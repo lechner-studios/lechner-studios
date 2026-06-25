@@ -5,7 +5,7 @@
 webdesign:
   - slug: website-without-page-builder
     keyword: "Website ohne Baukasten"
-    intent: "why a hand-coded site beats a builder for an independent business"
+    intent: "why a custom-built site beats a builder for an independent business"
   - slug: responsive-website-tirol
     keyword: "responsive Website"
     intent: "what responsive really means and why it's non-negotiable"
@@ -33,9 +33,9 @@ webdesign:
   - slug: ai-in-web-development
     keyword: "KI in der Webentwicklung"
     intent: "what AI does and doesn't do when building a real website — a tool that speeds the craft, not a replacement for it"
-  - slug: ai-website-builders-vs-handcoded
+  - slug: ai-website-builders-vs-custom-built
     keyword: "KI-Website-Baukasten"
-    intent: "the new AI site-builders vs a hand-built site — what you gain and what you quietly lose"
+    intent: "the new AI site-builders vs a custom-built site — what you gain and what you quietly lose"
   - slug: restaurant-website
     keyword: "Website für Restaurant"
     intent: "what a restaurant or Gasthof site actually needs — menu, hours, reservations — links to the live gasthof demo"
