@@ -31,3 +31,9 @@ src/app/api/contact/route.ts
 # Layer-0 currency/PII scan stays active over all other site copy.
 src/components/WebsiteCheck.tsx
 src/components/WebsiteCheckJsonLd.tsx
+
+# Homepage offer band surfaces the two productized entry offers with their
+# public fixed prices (Website-Check + Direktbucher). Same rationale as above:
+# prices are intentional public marketing figures, isolated to this one
+# component (not the shared copy dictionary).
+src/components/HomeOffers.tsx

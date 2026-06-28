@@ -443,6 +443,15 @@ export const dictionaries = {
         bookCall: "Or book a 20-min call →",
       },
     },
+    homeOffers: {
+      overline: "START HERE",
+      headline: "A clear entry point, at a fixed price.",
+      lead: "Not ready for a full project? Start small. Two productized, fixed-price ways to work with us — no open-ended quotes, no guesswork.",
+      items: [
+        { label: "Fixed-price audit", desc: "A focused audit of your existing site — technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.", cta: "Book a Website-Check" },
+        { label: "Productized package", desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol — live in two weeks, with the portal commission back in your pocket.", cta: "See Direktbucher" },
+      ],
+    },
     foundation: {
       overline: "FOUNDATION PARTNERS",
       headline: "A young studio — which is exactly the point.",
@@ -949,6 +958,15 @@ export const dictionaries = {
         mailtoFallback: "Oder direkt per E-Mail:",
         bookCall: "Oder ein 20-Min-Gespräch buchen →",
       },
+    },
+    homeOffers: {
+      overline: "EINSTIEG",
+      headline: "Ein klarer Einstieg — zum Festpreis.",
+      lead: "Noch nicht bereit für ein ganzes Projekt? Fangen Sie klein an. Zwei produktisierte Festpreis-Wege, mit uns zu arbeiten — keine offenen Angebote, kein Rätselraten.",
+      items: [
+        { label: "Festpreis-Analyse", desc: "Eine fokussierte Analyse Ihrer bestehenden Website — technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.", cta: "Website-Check buchen" },
+        { label: "Produktisiertes Paket", desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol — live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.", cta: "Direktbucher ansehen" },
+      ],
     },
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",
