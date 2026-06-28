@@ -2,12 +2,10 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-const PROOF = [
-  { slug: "pension", label: "Pension" },
-  { slug: "gasthof", label: "Gasthof" },
-  { slug: "skischule", label: "Skischule" },
-  { slug: "tischlerei", label: "Tischlerei" },
-];
+// One featured proof in the first viewport. The full demo set lives in the
+// Werk entry under Products & Projects — so the hero hooks, Werk proves, and
+// the four demos aren't duplicated across both.
+const FEATURED = { slug: "pension", label: "Pension Musterhof" };
 
 export default function Hero() {
   const { dict, locale } = useLanguage();
@@ -210,8 +208,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* PROOF STRIP — live demo screenshots. The work, made visible in the
-          first viewport. Self-hosted webp, honest Konzept labels, links live. */}
+      {/* FEATURED PROOF — one live demo in the first viewport. The full set
+          lives in the Werk entry under Products & Projects, so the work shows
+          once (here as a hook, there as the portfolio). Self-hosted webp,
+          honest Konzept label, link live. */}
       <div
         className="reveal hero-proof"
         style={{
@@ -236,80 +236,69 @@ export default function Hero() {
         >
           {dict.hero.proofOverline}
         </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: "16px",
-          }}
+        <a
+          href={`https://demos.lechner-studios.at/${FEATURED.slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hero-proof-card"
+          style={{ display: "block", maxWidth: "560px", textDecoration: "none" }}
         >
-          {PROOF.map((d) => (
-            <a
-              key={d.slug}
-              href={`https://demos.lechner-studios.at/${d.slug}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-proof-card"
-              style={{ display: "block", textDecoration: "none" }}
+          <div
+            style={{
+              position: "relative",
+              aspectRatio: "16 / 10",
+              borderRadius: "3px",
+              overflow: "hidden",
+              border: "1px solid var(--hero-border)",
+              backgroundImage: `url(/proof/${FEATURED.slug}.webp)`,
+              backgroundSize: "cover",
+              backgroundPosition: "top center",
+            }}
+          >
+            <span
+              style={{
+                position: "absolute",
+                top: "10px",
+                left: "10px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.55rem",
+                fontWeight: 600,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#fff",
+                background: "rgba(21,23,26,0.66)",
+                padding: "3px 9px",
+                borderRadius: "2px",
+              }}
             >
-              <div
-                style={{
-                  position: "relative",
-                  aspectRatio: "16 / 11",
-                  borderRadius: "3px",
-                  overflow: "hidden",
-                  border: "1px solid var(--hero-border)",
-                  backgroundImage: `url(/proof/${d.slug}.webp)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "8px",
-                    left: "8px",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.5rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "#fff",
-                    background: "rgba(21,23,26,0.66)",
-                    padding: "3px 8px",
-                    borderRadius: "2px",
-                  }}
-                >
-                  {dict.demos.conceptLabel}
-                </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginTop: "10px",
-                }}
-              >
-                <span style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--hero-text)" }}>
-                  {d.label}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.58rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--hero-accent)",
-                  }}
-                >
-                  {dict.hero.proofCta} →
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
+              {dict.demos.conceptLabel}
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: "12px",
+            }}
+          >
+            <span style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--hero-text)" }}>
+              {FEATURED.label}
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.6rem",
+                fontWeight: 600,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--hero-accent)",
+              }}
+            >
+              {dict.hero.proofCta} →
+            </span>
+          </div>
+        </a>
       </div>
     </section>
   );
