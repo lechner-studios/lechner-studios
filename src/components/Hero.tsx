@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import HeroComposition from "./HeroComposition";
+import HeroSourceSurface from "./HeroSourceSurface";
 
 export default function Hero() {
   const { dict, locale } = useLanguage();
@@ -116,9 +116,6 @@ export default function Hero() {
             paddingBottom: "4px",
           }}
         >
-        {/* Brand-tile composition — identity as hero art */}
-        <HeroComposition />
-
         {/* CTAs */}
         <div
           className="reveal"
@@ -206,6 +203,9 @@ export default function Hero() {
         </p>
         </div>
       </div>
+
+      {/* Source → Surface — code dissolving into its rendered result */}
+      <HeroSourceSurface />
     </section>
   );
 }
