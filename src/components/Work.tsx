@@ -25,6 +25,15 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
   comingSoon: "statusComingSoon",
 };
 
+// Werk's live demos — rendered inline under the Werk entry as its portfolio,
+// so the website work has one home (here) instead of a duplicate hero strip.
+const WERK_DEMOS = [
+  { slug: "pension", label: "Pension" },
+  { slug: "gasthof", label: "Gasthof" },
+  { slug: "skischule", label: "Skischule" },
+  { slug: "tischlerei", label: "Tischlerei" },
+];
+
 export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
   const { dict } = useLanguage();
   const d = dict.work;
@@ -102,9 +111,9 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
             const statusStyle = STATUS_STYLES[item.status] || STATUS_STYLES.planned;
             const statusLabel = d[STATUS_LABEL_MAP[item.status] as keyof typeof d] as string;
             const isClickable = item.url !== "#";
+            const demos = item.id === "websites" ? WERK_DEMOS : null;
 
-            return (
-              <Reveal key={item.id} delay={i * 70}>
+            const card = (
               <a
                 href={isClickable ? item.url : undefined}
                 target={isClickable ? "_blank" : undefined}
@@ -118,7 +127,7 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
                   gap: "32px",
                   alignItems: "start",
                   padding: "32px 0",
-                  borderBottom: "1px solid var(--border)",
+                  borderBottom: demos ? "none" : "1px solid var(--border)",
                   textDecoration: "none",
                   cursor: isClickable ? "pointer" : "default",
                   transition: "background 0.2s, transform 0.2s",
@@ -213,6 +222,45 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
                   )}
                 </div>
               </a>
+            );
+
+            return (
+              <Reveal key={item.id} delay={i * 70}>
+                {demos ? (
+                  <div style={{ borderBottom: "1px solid var(--border)" }}>
+                    {card}
+                    {/* Werk's live demos — its portfolio, shown in place */}
+                    <div style={{ display: "grid", gridTemplateColumns: "48px 1fr", gap: "32px", paddingBottom: "32px" }}>
+                      <span aria-hidden="true" />
+                      <div>
+                        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-faint)", marginBottom: "14px" }}>
+                          {dict.demos.overline}
+                        </p>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
+                          {demos.map((dm) => (
+                            <a
+                              key={dm.slug}
+                              href={`https://demos.lechner-studios.at/${dm.slug}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hero-proof-card"
+                              style={{ display: "block", textDecoration: "none" }}
+                            >
+                              <div style={{ position: "relative", aspectRatio: "16 / 11", borderRadius: "3px", overflow: "hidden", border: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
+                                <span style={{ position: "absolute", top: "7px", left: "7px", fontFamily: "var(--font-mono)", fontSize: "0.48rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "2px 7px", borderRadius: "2px" }}>
+                                  {dict.demos.conceptLabel}
+                                </span>
+                              </div>
+                              <span style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "0.95rem", color: "var(--text)", marginTop: "8px" }}>
+                                {dm.label}
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : card}
               </Reveal>
             );
           })}
