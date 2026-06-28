@@ -23,6 +23,11 @@ docs/
 # sendMail destination — not third-party PII.
 src/app/api/contact/route.ts
 
+# Footer renders the studio's own PUBLIC business address as a visible mailto
+# (the same hallo@ inbox on the Impressum and in the Organization schema) — a
+# low-friction contact point, not third-party PII.
+src/components/Footer.tsx
+
 # Website-Check offer surface carries the productized fixed price (a native
 # Euro amount) and its schema.org Offer markup (which requires the ISO
 # priceCurrency code) as intentional public marketing content — the same kind

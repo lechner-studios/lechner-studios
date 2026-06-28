@@ -4,6 +4,12 @@ import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import BrandMark from "./BrandMark";
 
+// The studio's own PUBLIC business address — the same hallo@ inbox published on
+// the Impressum and in the Organization schema. Kept here (not in the shared
+// dictionary) so the Layer-0 PII guard stays active over all site copy; this
+// component is exempted in .layer0-allow.
+const EMAIL = "hallo@lechner-studios.at";
+
 export default function Footer() {
   const { dict, locale } = useLanguage();
   const d = dict.footer;
@@ -66,6 +72,27 @@ export default function Footer() {
           © {year} · {d.rights}
         </span>
       </div>
+
+      {/* Direct contact — a low-friction mailto for visitors who'd rather not
+          use the form. Text stays var(--on-contrast) (AA on the dark footer);
+          only the underline shifts on hover. */}
+      <a
+        href={`mailto:${EMAIL}`}
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.7rem",
+          color: "var(--on-contrast)",
+          letterSpacing: "0.08em",
+          textDecoration: "none",
+          borderBottom: "1px solid var(--contrast-border)",
+          paddingBottom: "2px",
+          transition: "border-color 0.2s",
+        }}
+        onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--on-contrast)")}
+        onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--contrast-border)")}
+      >
+        {EMAIL}
+      </a>
 
       {/* Legal disclosure links — Impressum/Datenschutz live in the footer
           where they're expected and §5 ECG-findable. */}
