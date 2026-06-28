@@ -117,6 +117,11 @@ section, footer, nav, .theme-surface {
 .hero-proof-card { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
 .hero-proof-card:hover { transform: translateY(-4px); }
 
+/* Brand-tile hero composition — staggered scale/fade reveal per tile + dot. */
+@keyframes lc-tile-in { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
+.hero-tile { opacity: 0; animation: lc-tile-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+@media (prefers-reduced-motion: reduce) { .hero-tile { animation: none; opacity: 1; } }
+
 .reveal { opacity: 0; animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .reveal-1 { animation-delay: 0.1s; }
 .reveal-2 { animation-delay: 0.3s; }
