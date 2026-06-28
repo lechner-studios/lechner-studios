@@ -22,3 +22,23 @@ docs/
 # (the same hallo@ business inbox published on the Impressum) as the
 # sendMail destination — not third-party PII.
 src/app/api/contact/route.ts
+
+# Footer renders the studio's own PUBLIC business address as a visible mailto
+# (the same hallo@ inbox on the Impressum and in the Organization schema) — a
+# low-friction contact point, not third-party PII.
+src/components/Footer.tsx
+
+# Website-Check offer surface carries the productized fixed price (a native
+# Euro amount) and its schema.org Offer markup (which requires the ISO
+# priceCurrency code) as intentional public marketing content — the same kind
+# of public price already shown on the Pension/Direktbucher landing. The price
+# is isolated to these two offer files (not the shared copy dictionary), so the
+# Layer-0 currency/PII scan stays active over all other site copy.
+src/components/WebsiteCheck.tsx
+src/components/WebsiteCheckJsonLd.tsx
+
+# Homepage offer band surfaces the two productized entry offers with their
+# public fixed prices (Website-Check + Direktbucher). Same rationale as above:
+# prices are intentional public marketing figures, isolated to this one
+# component (not the shared copy dictionary).
+src/components/HomeOffers.tsx

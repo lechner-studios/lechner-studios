@@ -239,6 +239,58 @@ export const dictionaries = {
       },
       more: { lead: "More on our", web: "custom web design", and: "and", seo: "local SEO", tail: "." },
     },
+    websiteCheck: {
+      metaTitle: "Website-Check — fixed-price technical audit for Tirol SMBs",
+      metaDescription:
+        "A fixed-price Website-Check for your existing site: technical SEO, performance, accessibility and DSGVO. Written report plus a 30-minute call. The fee is credited toward a project.",
+      hero: {
+        overline: "WEBSITE-CHECK · FIXED PRICE",
+        headline: "Find out exactly where your website stands.",
+        sub: "A focused, fixed-price audit of your existing site — technical SEO, speed, accessibility and DSGVO. You get a written report and a 30-minute call. No rebuild required to start.",
+        ctaLabel: "Book a Website-Check",
+      },
+      value: {
+        heading: "Before you rebuild, find out what's actually wrong.",
+        body: "Most sites lose customers to a handful of fixable problems — slow load, missing structured data, a broken mobile layout, a privacy setup that isn't compliant. The Website-Check pinpoints them on your current site, in plain language, with a prioritised fix-list. No guesswork, no obligation to build with us.",
+        note: "Fixed price. One site. Clear answers.",
+      },
+      scope: {
+        heading: "What we check.",
+        intro: "Four dimensions, on your existing live site — the same fundamentals we build into every site we ship.",
+        items: [
+          { h: "Technical SEO & crawlability", p: "Indexability, meta and heading structure, structured data, sitemap and redirects — what search engines actually see, and why pages stay hidden." },
+          { h: "Performance & Core Web Vitals", p: "Real-device load speed, image and asset handling, and the page-experience signals that affect both ranking and whether visitors stay." },
+          { h: "Accessibility (WCAG basics)", p: "Contrast, semantic structure, keyboard and screen-reader basics — where the site excludes users and exposes you to accessibility risk." },
+          { h: "DSGVO & privacy surface", p: "Cookies and tracking, consent, and whether Impressum and Datenschutz are present and plausible. We flag risks; we don't give legal advice." },
+        ],
+      },
+      deliverable: {
+        heading: "What you get.",
+        body: "A written report (PDF) with findings across all four areas and a prioritised, plain-language fix-list — what to fix first, and why. Then a 30-minute call to walk through it together. Delivered within 5 business days.",
+      },
+      offer: {
+        heading: "One fixed price.",
+        priceNote: "net (small-business scheme, no VAT)",
+        creditNote: "Booking a Werk or Direktbucher project within 30 days? The full fee is credited toward it — so the check costs you nothing if we build together.",
+        turnaround: "Report within 5 business days · 30-minute walkthrough call included",
+        ctaLabel: "Book a Website-Check",
+      },
+      faq: {
+        heading: "Frequently asked",
+        items: [
+          { q: "What do I need to provide?", a: "Just your website address. If you'd like the check to cover specific pages or concerns, tell us in the inquiry — otherwise we audit the public site as a visitor and a search engine see it." },
+          { q: "Is the fee really credited if I build with you?", a: "Yes. If you book a Werk or Direktbucher project within 30 days of the check, the full fee is deducted from that project. The check is designed to be risk-free." },
+          { q: "Will you just tell me to rebuild everything?", a: "No. The report is an honest read of your current site, with a prioritised fix-list. Some sites need a handful of fixes, not a rebuild — and we'll say so plainly. We don't promise rankings or sell you work you don't need." },
+          { q: "How fast is it?", a: "You get the written report within 5 business days, followed by a 30-minute call to walk through the findings." },
+        ],
+      },
+      cta: {
+        heading: "Know exactly where you stand.",
+        body: "Send us your website address and what's on your mind — we'll confirm the check and get started.",
+        button: "Book a Website-Check",
+      },
+      more: { lead: "More on our", web: "custom web design", and: "and", seo: "technical SEO", tail: "." },
+    },
     serviceDetail: {
       web: {
         slug: "webdesign",
@@ -390,6 +442,15 @@ export const dictionaries = {
         mailtoFallback: "Or email directly:",
         bookCall: "Or book a 20-min call →",
       },
+    },
+    homeOffers: {
+      overline: "START HERE",
+      headline: "A clear entry point, at a fixed price.",
+      lead: "Not ready for a full project? Start small. Two productized, fixed-price ways to work with us — no open-ended quotes, no guesswork.",
+      items: [
+        { label: "Fixed-price audit", desc: "A focused audit of your existing site — technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.", cta: "Book a Website-Check" },
+        { label: "Productized package", desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol — live in two weeks, with the portal commission back in your pocket.", cta: "See Direktbucher" },
+      ],
     },
     foundation: {
       overline: "FOUNDATION PARTNERS",
@@ -694,6 +755,58 @@ export const dictionaries = {
       },
       more: { lead: "Mehr zu unserer", web: "maßgeschneiderten Webentwicklung", and: "und", seo: "lokalem SEO", tail: "." },
     },
+    websiteCheck: {
+      metaTitle: "Website-Check — Festpreis-Analyse für KMU in Tirol",
+      metaDescription:
+        "Ein Website-Check zum Festpreis für Ihre bestehende Website: technisches SEO, Performance, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus 30-minütiges Gespräch. Die Gebühr wird auf ein Projekt angerechnet.",
+      hero: {
+        overline: "WEBSITE-CHECK · FESTPREIS",
+        headline: "Erfahren Sie genau, wo Ihre Website steht.",
+        sub: "Eine fokussierte Festpreis-Analyse Ihrer bestehenden Website — technisches SEO, Tempo, Barrierefreiheit und DSGVO. Sie erhalten einen schriftlichen Bericht und ein 30-minütiges Gespräch. Kein Neubau nötig, um zu starten.",
+        ctaLabel: "Website-Check buchen",
+      },
+      value: {
+        heading: "Bevor Sie neu bauen — finden Sie heraus, was wirklich klemmt.",
+        body: "Die meisten Websites verlieren Kunden an eine Handvoll behebbarer Probleme — langsames Laden, fehlende strukturierte Daten, ein kaputtes Mobil-Layout, ein nicht konformes Datenschutz-Setup. Der Website-Check findet sie auf Ihrer aktuellen Seite, in klarer Sprache, mit priorisierter Maßnahmenliste. Kein Rätselraten, keine Verpflichtung, mit uns zu bauen.",
+        note: "Festpreis. Eine Website. Klare Antworten.",
+      },
+      scope: {
+        heading: "Was wir prüfen.",
+        intro: "Vier Dimensionen, auf Ihrer bestehenden Live-Website — dieselben Grundlagen, die wir in jede Website einbauen, die wir ausliefern.",
+        items: [
+          { h: "Technisches SEO & Crawlbarkeit", p: "Indexierbarkeit, Meta- und Überschriftenstruktur, strukturierte Daten, Sitemap und Weiterleitungen — was Suchmaschinen tatsächlich sehen und warum Seiten unsichtbar bleiben." },
+          { h: "Performance & Core Web Vitals", p: "Ladegeschwindigkeit auf echten Geräten, Bild- und Asset-Handling und die Page-Experience-Signale, die Ranking und Verbleib der Besucher beeinflussen." },
+          { h: "Barrierefreiheit (WCAG-Grundlagen)", p: "Kontrast, semantische Struktur, Tastatur- und Screenreader-Grundlagen — wo die Seite Nutzer ausschließt und Sie einem Barrierefreiheits-Risiko aussetzt." },
+          { h: "DSGVO & Datenschutz-Oberfläche", p: "Cookies und Tracking, Einwilligung, und ob Impressum und Datenschutz vorhanden und plausibel sind. Wir weisen auf Risiken hin; eine Rechtsberatung ist das nicht." },
+        ],
+      },
+      deliverable: {
+        heading: "Was Sie bekommen.",
+        body: "Einen schriftlichen Bericht (PDF) mit Befunden zu allen vier Bereichen und einer priorisierten, verständlichen Maßnahmenliste — was zuerst zu beheben ist und warum. Dazu ein 30-minütiges Gespräch, um alles gemeinsam durchzugehen. Lieferung innerhalb von 5 Werktagen.",
+      },
+      offer: {
+        heading: "Ein Festpreis.",
+        priceNote: "netto (Kleinunternehmer, keine USt)",
+        creditNote: "Buchen Sie innerhalb von 30 Tagen ein Werk- oder Direktbucher-Projekt? Der volle Betrag wird darauf angerechnet — der Check kostet Sie dann nichts, wenn wir gemeinsam bauen.",
+        turnaround: "Bericht innerhalb von 5 Werktagen · 30-minütiges Gespräch inklusive",
+        ctaLabel: "Website-Check buchen",
+      },
+      faq: {
+        heading: "Häufige Fragen",
+        items: [
+          { q: "Was muss ich bereitstellen?", a: "Nur Ihre Website-Adresse. Wenn der Check bestimmte Seiten oder Anliegen abdecken soll, sagen Sie es uns in der Anfrage — sonst prüfen wir die öffentliche Seite so, wie Besucher und Suchmaschinen sie sehen." },
+          { q: "Wird der Betrag wirklich angerechnet, wenn ich mit Ihnen baue?", a: "Ja. Buchen Sie innerhalb von 30 Tagen nach dem Check ein Werk- oder Direktbucher-Projekt, wird der volle Betrag davon abgezogen. Der Check ist bewusst risikofrei gestaltet." },
+          { q: "Sagen Sie mir einfach, ich soll alles neu bauen?", a: "Nein. Der Bericht ist eine ehrliche Einschätzung Ihrer aktuellen Seite, mit priorisierter Maßnahmenliste. Manche Seiten brauchen eine Handvoll Korrekturen, keinen Neubau — und das sagen wir Ihnen klar. Wir versprechen keine Rankings und verkaufen Ihnen keine Arbeit, die Sie nicht brauchen." },
+          { q: "Wie schnell geht das?", a: "Den schriftlichen Bericht erhalten Sie innerhalb von 5 Werktagen, gefolgt von einem 30-minütigen Gespräch, um die Befunde durchzugehen." },
+        ],
+      },
+      cta: {
+        heading: "Wissen Sie genau, wo Sie stehen.",
+        body: "Schicken Sie uns Ihre Website-Adresse und worum es geht — wir bestätigen den Check und legen los.",
+        button: "Website-Check buchen",
+      },
+      more: { lead: "Mehr zu unserer", web: "maßgeschneiderten Webentwicklung", and: "und", seo: "technischem SEO", tail: "." },
+    },
     serviceDetail: {
       web: {
         slug: "webdesign",
@@ -845,6 +958,15 @@ export const dictionaries = {
         mailtoFallback: "Oder direkt per E-Mail:",
         bookCall: "Oder ein 20-Min-Gespräch buchen →",
       },
+    },
+    homeOffers: {
+      overline: "EINSTIEG",
+      headline: "Ein klarer Einstieg — zum Festpreis.",
+      lead: "Noch nicht bereit für ein ganzes Projekt? Fangen Sie klein an. Zwei produktisierte Festpreis-Wege, mit uns zu arbeiten — keine offenen Angebote, kein Rätselraten.",
+      items: [
+        { label: "Festpreis-Analyse", desc: "Eine fokussierte Analyse Ihrer bestehenden Website — technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.", cta: "Website-Check buchen" },
+        { label: "Produktisiertes Paket", desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol — live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.", cta: "Direktbucher ansehen" },
+      ],
     },
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",

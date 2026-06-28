@@ -8,6 +8,7 @@ import Hero from "../../../components/Hero";
 import Stance from "../../../components/Stance";
 import Work from "../../../components/Work";
 import Services from "../../../components/Services";
+import HomeOffers from "../../../components/HomeOffers";
 import FoundationPartner from "../../../components/FoundationPartner";
 import ContactCta from "../../../components/ContactCta";
 import Footer from "../../../components/Footer";
@@ -32,6 +33,7 @@ export default async function Home({
         <Stance />
         <Services />
         <Work featured={["websites", "codeflash"]} moreHref={`/${locale}/work`} />
+        <HomeOffers />
         <FoundationPartner />
         <ContactCta />
         <Footer />
