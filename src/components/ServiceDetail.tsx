@@ -37,6 +37,7 @@ export default function ServiceDetail({ serviceKey }: { serviceKey: ServiceKey }
   const related = ORDER.filter((k) => k !== serviceKey);
   const relatedLabel = locale === "de" ? "Weitere Leistungen" : "More services";
   const workLabel = locale === "de" ? "Arbeiten ansehen" : "See the work";
+  const checkLabel = locale === "de" ? "Website-Check" : "Website-Check";
 
   const CTA_REST_BORDER = "color-mix(in srgb, var(--accent) 50%, transparent)";
   const ctaStyle: React.CSSProperties = {
@@ -185,6 +186,9 @@ export default function ServiceDetail({ serviceKey }: { serviceKey: ServiceKey }
           })}
           <Link href={`/${locale}/work`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", textDecoration: "none" }} onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.7")} onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}>
             {workLabel} →
+          </Link>
+          <Link href={`/${locale}/website-check`} style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", textDecoration: "none" }} onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.7")} onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}>
+            {checkLabel} →
           </Link>
         </div>
       </div>
