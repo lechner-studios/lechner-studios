@@ -14,7 +14,10 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self'",
-      "connect-src 'self'",
+      // Sentry EU data region ingest (error tracking; only used when
+      // NEXT_PUBLIC_SENTRY_DSN is set — see src/lib/monitoring). Listing the
+      // host is harmless while monitoring is off (nothing connects there).
+      "connect-src 'self' https://*.ingest.de.sentry.io",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

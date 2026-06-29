@@ -7,6 +7,7 @@ import { dictionaries } from "../../../i18n/dictionaries";
 import { LOCALES, isLocale, HREFLANG, alternateLocale, type Locale } from "../../../i18n/config";
 import { LanguageProvider } from "../../../context/LanguageContext";
 import StudioDirectorChat from "../../../components/StudioDirectorChat";
+import SentryInit from "../../../components/SentryInit";
 
 // Brand v4.2 typography — display unchanged from v4.1.
 // Body sans: General Sans (replaces Manrope). Mono: IBM Plex Mono (replaces JetBrains Mono).
@@ -201,6 +202,7 @@ export default async function LocaleRootLayout({
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <SentryInit />
         {children}
         <LanguageProvider locale={locale}>
           <StudioDirectorChat />
