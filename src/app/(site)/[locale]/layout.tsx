@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Cormorant } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../../globals.css";
 import { dictionaries } from "../../../i18n/dictionaries";
@@ -34,13 +33,19 @@ const italiana = localFont({
 // Display weights 300/400 are what the section headlines actually request
 // (LegalStyles headlineStyle 300, h3Style 400; Hero/Services h2 300; About/Founder
 // h2 400). Loading 500/600 only forced the browser to substitute the nearest
-// face — so load the full 300–600 range the UI uses.
-const cormorant = Cormorant({
+// face — so cover the full 300–600 range the UI uses.
+// Self-hosted from /public for build-time reproducibility + supply-chain parity
+// with the other three local faces (no gstatic fetch at build). Cormorant ships
+// as a latin-subset variable font (weight axis 300–700) — one upright woff2 +
+// one italic woff2 cover every weight/style the UI requests. OFL-licensed
+// (public/fonts/OFL.txt). Files are the same binaries next/font/google fetched.
+const cormorant = localFont({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
   display: "swap",
+  src: [
+    { path: "../../../../public/fonts/cormorant-variable.woff2", weight: "300 700", style: "normal" },
+    { path: "../../../../public/fonts/cormorant-italic-variable.woff2", weight: "300 700", style: "italic" },
+  ],
 });
 
 const generalSans = localFont({
