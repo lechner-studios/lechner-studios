@@ -9,8 +9,15 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    // No IntersectionObserver support → show immediately (never leave content hidden).
-    if (typeof IntersectionObserver === "undefined") { setShown(true); return; }
+    // No IntersectionObserver support → show immediately (never leave content
+    // hidden). setShown is deferred via a 0ms timer rather than called
+    // synchronously in the effect body, so it doesn't trigger a cascading
+    // render (react-hooks/set-state-in-effect) — and, being client-only, it
+    // can't cause a hydration mismatch.
+    if (typeof IntersectionObserver === "undefined") {
+      const immediate = window.setTimeout(() => setShown(true), 0);
+      return () => window.clearTimeout(immediate);
+    }
     const io = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setShown(true); io.disconnect(); } },
       { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }

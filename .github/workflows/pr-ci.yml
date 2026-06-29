@@ -1,0 +1,43 @@
+name: PR CI
+
+# Pull-request gate: lint + build + Playwright e2e.
+# Complements main-health.yml (which only builds main weekly) by giving every
+# PR a fast, full check before merge.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, build & e2e
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # The Playwright config only defines the chromium project, so install
+      # just that browser (with its OS deps) rather than the full set.
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+
+      # playwright.config.ts spins up `next start` against a fresh build on
+      # :3100 with MAINTENANCE_MODE=0, so the e2e step exercises real routes.
+      - name: E2E (Playwright)
+        run: npm run test:e2e
