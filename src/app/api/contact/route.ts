@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { captureServerError } from "../../../lib/monitoring/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -96,6 +97,8 @@ export async function POST(req: NextRequest) {
     // SMTP/network failure — log for diagnosis, return a clear error so the
     // client surfaces the "try again or email us directly" fallback.
     console.error("[contact] sendMail failed:", err);
+    // No PII: only the error itself (no name/email/message body).
+    await captureServerError(err, { route: "contact", stage: "sendMail" });
     return NextResponse.json({ ok: false, error: "mail_failed" }, { status: 502 });
   }
 

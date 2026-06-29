@@ -4,7 +4,9 @@
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
 // only) and an AI chat assistant (Claude API via Anthropic, rate-limiting
 // via Upstash/Vercel KV). No analytics, no cookies.
-// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV.
+// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV — plus Sentry
+// (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN is set; the Sentry
+// disclosure below renders on that same env gate.
 
 import Link from "next/link";
 import {
@@ -22,6 +24,11 @@ import {
 } from "./LegalStyles";
 
 export default function LegalPrivacyEN() {
+  // Error tracking (Sentry) is opt-in via env. When enabled, the processor
+  // disclosure below must be shown — gated on the same flag so the page is
+  // truthful in both states (SSG: baked at build time, so set the env in
+  // Vercel and redeploy to activate both monitoring and this disclosure).
+  const sentryEnabled = Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN);
   return (
     <main style={pageStyle}>
       <div style={containerStyle}>
@@ -120,6 +127,12 @@ export default function LegalPrivacyEN() {
             For rate-limiting of the AI chat, a pseudonymised (one-way SHA-256 hashed) IP counter with a short expiry is stored in{" "}
             <strong>Upstash, Inc.</strong> (Vercel KV; USA) (<a href="https://upstash.com/trust/privacy.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). The counter expires automatically after a short TTL; no further personal data is stored at Upstash. Transfer to the US is based on EU Standard Contractual Clauses pursuant to Art. 46 GDPR.
           </p>
+          {sentryEnabled && (
+            <p style={mutedStyle}>
+              For error and crash diagnostics of the site,{" "}
+              <strong>Sentry</strong> (Functional Software, Inc., USA) is used (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). Data is stored in Sentry&apos;s EU data region. Only technical error data is transmitted; no personal data by default (no IP address, no cookies; <code>sendDefaultPii</code> disabled). Where support access from the US occurs, it is based on EU Standard Contractual Clauses pursuant to Art. 46 GDPR; a Data Processing Agreement is in place.
+            </p>
+          )}
           <p style={mutedStyle}>
             No further processors are used on this site — in particular, no
             third-party analytics, tracking, advertising or embedded

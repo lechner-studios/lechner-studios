@@ -4,7 +4,9 @@
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
 // only) and a KI-Chat-Assistent (Claude API via Anthropic, rate-limiting
 // via Upstash/Vercel KV). No analytics, no cookies.
-// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV.
+// Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV — plus Sentry
+// (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN is set; the Sentry
+// disclosure below renders on that same env gate.
 
 import Link from "next/link";
 import {
@@ -22,6 +24,11 @@ import {
 } from "./LegalStyles";
 
 export default function LegalPrivacyDE() {
+  // Error tracking (Sentry) is opt-in via env. When enabled, the processor
+  // disclosure below must be shown — gated on the same flag so the page is
+  // truthful in both states (SSG: baked at build time, so set the env in
+  // Vercel and redeploy to activate both monitoring and this disclosure).
+  const sentryEnabled = Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN);
   return (
     <main style={pageStyle}>
       <div style={containerStyle}>
@@ -123,6 +130,12 @@ export default function LegalPrivacyDE() {
             Für das Rate-Limiting des KI-Chats wird ein pseudonymisierter (einweg-gehashter SHA-256) IP-Zähler mit kurzer Ablaufzeit in{" "}
             <strong>Upstash, Inc.</strong> (Vercel KV; USA) gespeichert (<a href="https://upstash.com/trust/privacy.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Der Zähler verfällt automatisch nach kurzer TTL; es werden keine weiteren Daten bei Upstash gespeichert. Drittlandtransfer in die USA auf Basis der EU-Standardvertragsklauseln gem. Art. 46 DSGVO.
           </p>
+          {sentryEnabled && (
+            <p style={mutedStyle}>
+              Zur Fehler- und Absturzdiagnose der Website wird{" "}
+              <strong>Sentry</strong> (Functional Software, Inc., USA) eingesetzt (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Die Daten werden in der EU-Datenregion von Sentry gespeichert. Es werden ausschließlich technische Fehlerdaten übermittelt; standardmäßig keine personenbezogenen Daten (keine IP-Adresse, keine Cookies; <code>sendDefaultPii</code> deaktiviert). Soweit im Rahmen des Supports ein Zugriff aus den USA erfolgt, geschieht dieser auf Basis der EU-Standardvertragsklauseln gem. Art. 46 DSGVO; es besteht ein Auftragsverarbeitungsvertrag.
+            </p>
+          )}
           <p style={mutedStyle}>
             Weitere Auftragsverarbeiter werden auf dieser Website nicht
             eingesetzt — insbesondere keine Analytics-, Tracking-, Werbe-

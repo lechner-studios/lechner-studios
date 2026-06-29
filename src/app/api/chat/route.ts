@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { checkLimits, isConfigured, hashIp } from "../../../lib/studio-director/ratelimit";
 import { buildSystemPrompt, type ChatLocale } from "../../../lib/studio-director/knowledge";
+import { captureServerError } from "../../../lib/monitoring/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -66,6 +67,8 @@ export async function POST(req: NextRequest) {
         }
       } catch (e) {
         console.error("[chat] stream error:", e);
+        // No PII: only the error (chat message content is not attached).
+        await captureServerError(e, { route: "chat", stage: "stream" });
       } finally {
         controller.close();
       }
