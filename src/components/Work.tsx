@@ -34,6 +34,17 @@ const WERK_DEMOS = [
   { slug: "tischlerei", label: "Tischlerei" },
 ];
 
+// CodeFlash sample cards — rendered inline under the CodeFlash entry. CodeFlash
+// IS a flashcards product, so the honest "sample" is real rendered cards (no
+// faked screenshot): a topic, the question (front) and the answer (back),
+// spanning the product's range — HTML & Git to OWASP & low-level systems.
+const CODEFLASH_CARDS = [
+  { topic: "Git", q: "merge vs. rebase?", a: "merge preserves history; rebase replays commits into one linear line." },
+  { topic: "HTML", q: "What is the box model?", a: "content → padding → border → margin." },
+  { topic: "OWASP", q: "How does a CSRF token defend?", a: "a per-session secret a forged cross-site request can’t supply." },
+  { topic: "Big-O", q: "Binary search complexity?", a: "O(log n) — it halves the search space each step." },
+];
+
 export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
   const { dict } = useLanguage();
   const d = dict.work;
@@ -111,7 +122,9 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
             const statusStyle = STATUS_STYLES[item.status] || STATUS_STYLES.planned;
             const statusLabel = d[STATUS_LABEL_MAP[item.status] as keyof typeof d] as string;
             const isClickable = item.url !== "#";
-            const demos = item.id === "websites" ? WERK_DEMOS : null;
+            const isWerk = item.id === "websites";
+            const isCodeflash = item.id === "codeflash";
+            const hasExtra = isWerk || isCodeflash;
 
             const card = (
               <a
@@ -127,7 +140,7 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
                   gap: "32px",
                   alignItems: "start",
                   padding: "32px 0",
-                  borderBottom: demos ? "none" : "1px solid var(--border)",
+                  borderBottom: hasExtra ? "none" : "1px solid var(--border)",
                   textDecoration: "none",
                   cursor: isClickable ? "pointer" : "default",
                   transition: "background 0.2s, transform 0.2s",
@@ -226,37 +239,60 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
 
             return (
               <Reveal key={item.id} delay={i * 70}>
-                {demos ? (
+                {hasExtra ? (
                   <div style={{ borderBottom: "1px solid var(--border)" }}>
                     {card}
-                    {/* Werk's live demos — its portfolio, shown in place */}
+                    {/* Inline portfolio under the entry — Werk demos or CodeFlash sample cards */}
                     <div style={{ display: "grid", gridTemplateColumns: "48px 1fr", gap: "32px", paddingBottom: "32px" }}>
                       <span aria-hidden="true" />
                       <div>
                         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-faint)", marginBottom: "14px" }}>
-                          {dict.demos.overline}
+                          {isWerk ? dict.demos.overline : d.sampleCards}
                         </p>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
-                          {demos.map((dm) => (
-                            <a
-                              key={dm.slug}
-                              href={`https://demos.lechner-studios.at/${dm.slug}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hero-proof-card"
-                              style={{ display: "block", textDecoration: "none" }}
-                            >
-                              <div style={{ position: "relative", aspectRatio: "16 / 11", borderRadius: "3px", overflow: "hidden", border: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
-                                <span style={{ position: "absolute", top: "7px", left: "7px", fontFamily: "var(--font-mono)", fontSize: "0.48rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "2px 7px", borderRadius: "2px" }}>
-                                  {dict.demos.conceptLabel}
+                        {isWerk ? (
+                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
+                            {WERK_DEMOS.map((dm) => (
+                              <a
+                                key={dm.slug}
+                                href={`https://demos.lechner-studios.at/${dm.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hero-proof-card"
+                                style={{ display: "block", textDecoration: "none" }}
+                              >
+                                <div style={{ position: "relative", aspectRatio: "16 / 11", borderRadius: "3px", overflow: "hidden", border: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
+                                  <span style={{ position: "absolute", top: "7px", left: "7px", fontFamily: "var(--font-mono)", fontSize: "0.48rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "2px 7px", borderRadius: "2px" }}>
+                                    {dict.demos.conceptLabel}
+                                  </span>
+                                </div>
+                                <span style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "0.95rem", color: "var(--text)", marginTop: "8px" }}>
+                                  {dm.label}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        ) : (
+                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "12px" }}>
+                            {CODEFLASH_CARDS.map((cf) => (
+                              <div
+                                key={cf.topic}
+                                className="hero-proof-card"
+                                style={{ display: "flex", flexDirection: "column", gap: "9px", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "4px", padding: "16px 16px 18px" }}
+                              >
+                                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--accent)" }}>
+                                  {cf.topic}
+                                </span>
+                                <span style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", lineHeight: 1.25, color: "var(--text)" }}>
+                                  {cf.q}
+                                </span>
+                                <span aria-hidden="true" style={{ width: "24px", height: "1px", background: "var(--border-strong)" }} />
+                                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", lineHeight: 1.55, color: "var(--text-muted)" }}>
+                                  {cf.a}
                                 </span>
                               </div>
-                              <span style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "0.95rem", color: "var(--text)", marginTop: "8px" }}>
-                                {dm.label}
-                              </span>
-                            </a>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

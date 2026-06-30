@@ -117,6 +117,7 @@ export const dictionaries = {
       statusComingSoon: "Coming Soon",
       visit: "Visit →",
       viewAll: "All work →",
+      sampleCards: "Sample cards",
       items: [
         {
           id: "websites",
@@ -654,6 +655,7 @@ export const dictionaries = {
       statusComingSoon: "Demnächst",
       visit: "Besuchen →",
       viewAll: "Alle Arbeiten →",
+      sampleCards: "Beispielkarten",
       items: [
         {
           id: "websites",
