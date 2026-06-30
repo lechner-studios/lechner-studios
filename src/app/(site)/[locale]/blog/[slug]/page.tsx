@@ -69,16 +69,25 @@ export default async function BlogArticlePage({
     "@type": "BlogPosting",
     headline: meta.title,
     description: meta.description,
+    // Article rich results need an image; posts have no per-post hero, so the
+    // brand OG card (1200×630) is the representative fallback.
+    image: "https://lechner-studios.at/og-image.png",
     datePublished: meta.date,
+    dateModified: meta.date,
     keywords: meta.keywords.join(", "),
     inLanguage: HREFLANG[locale],
     author: {
       "@type": "Organization",
       name: "Lechner Studios",
+      url: "https://lechner-studios.at",
     },
     publisher: {
       "@type": "Organization",
       name: "Lechner Studios",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://lechner-studios.at/android-chrome-512.png",
+      },
     },
     mainEntityOfPage: `https://lechner-studios.at/${locale}/blog/${slug}`,
   };
