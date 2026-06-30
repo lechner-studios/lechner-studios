@@ -38,7 +38,7 @@ export default async function WorkPage({
       </a>
       <Nav />
       <main id="main" style={{ minHeight: "100vh" }}>
-        <Work />
+        <Work hideWerkDemos />
         <DemoShowcase />
         <Footer />
       </main>
