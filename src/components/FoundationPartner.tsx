@@ -81,9 +81,9 @@ export default function FoundationPartner() {
               2026
             </div>
             <div style={{ width: "40px", height: "1px", background: "var(--border-strong)", marginBottom: "18px" }} />
-            <div style={{ display: "flex", gap: "8px", marginBottom: "18px" }}>
+            <div style={{ display: "flex", gap: "7px", marginBottom: "18px" }}>
               {STAMP_HUES.map((h) => (
-                <span key={h} style={{ width: "22px", height: "22px", borderRadius: "4px", background: h, border: "1px solid var(--border)", boxSizing: "border-box", boxShadow: "0 2px 6px -1px rgba(16,18,22,0.28)" }} />
+                <span key={h} style={{ width: "26px", height: "8px", borderRadius: "2px", background: h, border: "1px solid var(--border)", boxSizing: "border-box", boxShadow: "0 2px 6px -1px rgba(16,18,22,0.28)" }} />
               ))}
             </div>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--text-muted)" }}>
