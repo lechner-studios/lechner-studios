@@ -478,6 +478,8 @@ export const dictionaries = {
       overline: "FOUNDATION PARTNERS",
       headline: "Deliberately few clients. Exactly the right moment.",
       body: "We take on only a small number of clients — and that's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. Yes, we're a young studio — and that's precisely the advantage. The craft isn't a promise: it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
+      est: "Founder-stage",
+      place: "Wattens · Tirol · Österreich",
     },
     start: {
       overline: "DISCUSS A PROJECT",
@@ -1015,6 +1017,8 @@ export const dictionaries = {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Bewusst wenige Kunden. Genau der richtige Moment.",
       body: "Wir nehmen bewusst nur eine kleine Zahl an Kunden an — das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Ja, wir sind ein junges Studio — und genau das ist der Vorteil. Das Handwerk ist kein Versprechen: Es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      est: "Gründungsphase",
+      place: "Wattens · Tirol · Österreich",
     },
     start: {
       overline: "PROJEKT BESPRECHEN",
