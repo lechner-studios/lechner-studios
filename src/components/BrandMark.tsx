@@ -26,8 +26,8 @@ export default function BrandMark({ size = 28, style }: BrandMarkProps) {
       aria-label="Lechner Studios"
       style={style}
     >
-      <rect x="0" y="0" width="48" height="48" fill="#D6CDBE" />
-      <rect x="52" y="0" width="48" height="48" fill="#8FA8C5" />
+      <rect x="0" y="0" width="48" height="48" fill="#8FA8C5" />
+      <rect x="52" y="0" width="48" height="48" fill="#D6CDBE" />
       <rect x="0" y="52" width="48" height="48" fill="#254268" />
       <rect x="52" y="52" width="48" height="48" fill="#5E8263" />
     </svg>

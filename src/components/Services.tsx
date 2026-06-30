@@ -5,20 +5,19 @@ import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
-// Pillar palette per brand spec §3.3, grid positions fixed: TL=Stone, TR=Sky,
-// BL=Lake, BR=Pine. Per owner (2026-06-30) the BL/BR *labels* swap so green→
-// Growth and lake→Identity, while the colour tiles stay put — so dict.services
-// .items order is [Web, Apps, Brand & Identity (lake), SEO & Growth (pine)].
+// Grid order (TL, TR, BL, BR), per owner (2026-06-30): sky=Apps · stone=Web /
+// lake=Identity · pine=SEO. Colour→pillar meaning is fixed; only the tile
+// positions are arranged this way (blues stacked left).
 const PILLARS = [
-  { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
-  { bg: "var(--color-pillar-sky)",   text: "#15171A", muted: "rgba(21,23,26,0.92)" },
-  { bg: "var(--color-pillar-lake)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
-  { bg: "var(--color-pillar-pine-deep)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
+  { bg: "var(--color-pillar-sky)",       text: "#15171A", muted: "rgba(21,23,26,0.92)" },
+  { bg: "var(--color-pillar-stone)",     text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
+  { bg: "var(--color-pillar-lake)",      text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
+  { bg: "var(--color-pillar-pine-deep)", text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
 ];
 
-// Service-page links by grid index. SEO now rides the green (BR) cell; the lake
-// (BL) cell is Brand & Identity, which has no dedicated page.
-const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", null, "seo"];
+// Service-page links by grid index. Apps(TL)/Web(TR)/SEO(BR) have pages; the
+// lake (BL) cell is Brand & Identity, which has no dedicated page.
+const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", null, "seo"];
 
 export default function Services() {
   const { dict, locale } = useLanguage();

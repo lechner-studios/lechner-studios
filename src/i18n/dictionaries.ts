@@ -64,10 +64,10 @@ export const dictionaries = {
       pillars: {
         eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
         rest: "Four disciplines, one studio. Hover a pillar to see what each one delivers.",
-        // order matches dict.services.items: Web, Apps, Brand & Identity, SEO
+        // order matches dict.services.items: Apps, Web, Brand & Identity, SEO
         proofs: [
-          "Hand-built websites, designed to measure — no templates.",
           "Full-stack apps & AI automation, in production today.",
+          "Hand-built websites, designed to measure — no templates.",
           "Coherent visual systems — marks, palette, voice.",
           "Technical SEO that compounds over years, not quarters.",
         ],
@@ -176,14 +176,15 @@ export const dictionaries = {
     services: {
       overline: "WHAT WE DO",
       headline: "Four pillars.\nOne studio.",
+      // Order = the 2×2 grid (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(navy) · SEO(green).
       items: [
-        {
-          title: "Web & Design",
-          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
-        },
         {
           title: "Apps & Automation",
           desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
+        },
+        {
+          title: "Web & Design",
+          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
         },
         {
           title: "Brand & Identity",
@@ -591,10 +592,10 @@ export const dictionaries = {
       pillars: {
         eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
         rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Säule, um zu sehen, was sie leistet.",
-        // Reihenfolge wie dict.services.items: Web, Apps, Marke & Identität, SEO
+        // Reihenfolge wie dict.services.items: Apps, Web, Marke & Identität, SEO
         proofs: [
-          "Handgebaute Websites nach Maß — keine Vorlagen.",
           "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
+          "Handgebaute Websites nach Maß — keine Vorlagen.",
           "Stimmige visuelle Systeme — Marke, Farben, Stimme.",
           "Technisches SEO, das sich über Jahre auszahlt, nicht über Quartale.",
         ],
@@ -705,12 +706,12 @@ export const dictionaries = {
       headline: "Vier Säulen.\nEin Studio.",
       items: [
         {
-          title: "Web & Design",
-          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
-        },
-        {
           title: "Apps & Automation",
           desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
+        },
+        {
+          title: "Web & Design",
+          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
         },
         {
           title: "Marke & Identität",

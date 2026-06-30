@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 
-// Pillar hues + page slugs, indexed to match dict.services.items order:
-// [Web & Design, Apps & Automation, Brand & Identity, SEO & Growth].
-// Colour tiles stay put; labels were swapped so green→Growth, lake→Identity.
-const PILLAR_HUES = ["#D6CDBE", "#8FA8C5", "#254268", "#5E8263"]; // stone, sky, lake, pine
-const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", null, "seo"];
+// Pillar hues + page slugs, indexed to match dict.services.items grid order
+// (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(lake) · SEO(pine).
+const PILLAR_HUES = ["#8FA8C5", "#D6CDBE", "#254268", "#5E8263"]; // sky, stone, lake, pine
+const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", null, "seo"];
 
 export default function Hero() {
   const { dict, locale } = useLanguage();
