@@ -69,7 +69,7 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
       id="work"
       className="lc-pad-section"
       style={{
-        background: "var(--bg-alt)",
+        background: "var(--bg)",
         padding: "120px 48px",
         borderTop: "1px solid var(--border)",
       }}

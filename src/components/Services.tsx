@@ -28,7 +28,7 @@ export default function Services() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "var(--bg)",
+        background: "var(--bg-alt)",
         padding: "120px 48px",
         overflow: "hidden",
       }}

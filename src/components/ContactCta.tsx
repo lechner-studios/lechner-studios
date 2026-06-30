@@ -42,7 +42,7 @@ export default function ContactCta() {
   return (
     <section
       className="lc-pad-section"
-      style={{ background: "var(--bg)", padding: "120px 48px", textAlign: "center" }}
+      style={{ background: "var(--bg-alt)", padding: "120px 48px", textAlign: "center" }}
     >
       <Reveal style={{ maxWidth: "760px", margin: "0 auto" }}>
         <Overline marginBottom="1.5rem">{d.overline}</Overline>

@@ -219,7 +219,7 @@ export default function Hero() {
               width: "100%",
               maxWidth: "440px",
               minHeight: "clamp(240px, 28vw, 300px)",
-              background: "var(--bg-alt)",
+              background: "var(--card)",
               border: "1px solid var(--border)",
               borderRadius: "12px",
               padding: "34px 36px 34px 40px",

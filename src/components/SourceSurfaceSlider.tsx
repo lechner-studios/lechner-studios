@@ -94,7 +94,7 @@ export default function SourceSurfaceSlider({
       {/* BASE layer — the rendered result (full-bleed card) */}
       <div
         aria-hidden="true"
-        style={{ ...fill, background: "var(--bg-alt)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", padding: "30px 34px" }}
+        style={{ ...fill, background: "var(--card)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", padding: "30px 34px" }}
       >
         <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "var(--font-mono)", fontSize: "0.56rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
           <i style={{ width: "7px", height: "7px", borderRadius: "50%", background: "var(--signature)", display: "inline-block" }} />

@@ -18,7 +18,7 @@ export default function FoundationPartner() {
     <section
       className="lc-pad-section"
       style={{
-        background: "var(--bg-alt)",
+        background: "var(--bg)",
         padding: "120px 48px",
         borderTop: "1px solid var(--border)",
       }}
@@ -67,7 +67,7 @@ export default function FoundationPartner() {
             style={{
               width: "100%",
               maxWidth: "320px",
-              background: "var(--bg)",
+              background: "var(--card)",
               border: "1px solid var(--border)",
               borderRadius: "10px",
               padding: "32px 34px",

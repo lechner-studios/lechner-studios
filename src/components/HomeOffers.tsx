@@ -24,7 +24,7 @@ export default function HomeOffers() {
     <section
       className="lc-pad-section"
       style={{
-        background: "var(--bg)",
+        background: "var(--bg-alt)",
         padding: "120px 48px",
         borderTop: "1px solid var(--border)",
       }}
@@ -75,7 +75,7 @@ export default function HomeOffers() {
                     border: "1px solid var(--border)",
                     borderRadius: "5px",
                     padding: "32px 28px",
-                    background: "var(--bg-alt)",
+                    background: "var(--card)",
                     textDecoration: "none",
                     transition: "border-color 0.25s, transform 0.25s",
                     borderColor: isHovered ? "var(--accent)" : "var(--border)",
