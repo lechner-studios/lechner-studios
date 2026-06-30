@@ -6,8 +6,8 @@ import Reveal from "./Reveal";
 import Overline from "./Overline";
 
 // Homepage contact — low-friction first. Three easy channels (message form /
-// email / WhatsApp); the bigger "Projekt starten" brief is demoted to a quiet
-// secondary nudge for people who already know exactly what they want.
+// email / WhatsApp); the bigger "Projekt besprechen" brief (/start) is demoted
+// to a quiet secondary nudge for people who already know exactly what they want.
 export default function ContactCta() {
   const { dict, locale } = useLanguage();
   const d = dict.contact;
