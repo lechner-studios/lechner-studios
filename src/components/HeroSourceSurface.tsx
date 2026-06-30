@@ -119,7 +119,7 @@ export default function HeroSourceSurface() {
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
           Web · Tirol
         </span>
-        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.2vw, 1.45rem)", fontWeight: 400, color: "var(--text)", margin: "10px 0 12px", lineHeight: 1.1 }}>
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.2vw, 1.45rem)", fontWeight: 400, color: "var(--text)", margin: "10px 0 12px", lineHeight: 1.1, overflowWrap: "break-word" }}>
           Maßgeschneidert
         </h3>
         <div style={{ width: "32px", height: "1px", background: "var(--accent)", marginBottom: "12px" }} />

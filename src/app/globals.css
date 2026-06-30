@@ -347,10 +347,11 @@ section, footer, nav, .theme-surface {
 /* ── Source → Surface hero proof — responsive reflow ────────────────────────
    Desktop: the rendered card floats over the code panel's right edge so the
    masked code dissolves INTO it (composition lives inline in
-   HeroSourceSurface.tsx). On narrow viewports the absolute card would
-   overflow, so the panel stacks — code on top, rendered surface butted
-   directly below, dissolve band hidden. */
-@media (max-width: 760px) {
+   HeroSourceSurface.tsx). Below 1140px the proof sits in a narrow 2-col grid
+   column (.lc-stack-2col only collapses at 768px), where the fixed-52%
+   absolute card is too tight for the heading — so we stack from 1140px down:
+   code on top, rendered surface butted directly below, dissolve band hidden. */
+@media (max-width: 1140px) {
   .hero-ss      { height: auto !important; }
   .hero-ss-code { position: relative !important; width: 100% !important; height: auto !important;
                   /* gentle right-edge fade so long code lines dissolve rather than hard-clip */
