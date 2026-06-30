@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
+// Positioning / trust statement (few clients, founder-stage terms). The contact
+// CTA lives in ContactCta directly below, so this section carries no button of
+// its own — it used to duplicate the same "/start" CTA back-to-back.
 export default function FoundationPartner() {
-  const { dict, locale } = useLanguage();
+  const { dict } = useLanguage();
   const d = dict.foundation;
 
   return (
@@ -40,42 +42,11 @@ export default function FoundationPartner() {
             color: "var(--text-muted)",
             lineHeight: 1.8,
             maxWidth: "60ch",
-            marginBottom: "2.5rem",
+            margin: 0,
           }}
         >
           {d.body}
         </p>
-        <Link
-          href={`/${locale}/start`}
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.72rem",
-            fontWeight: 600,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--accent)",
-            border: "1px solid color-mix(in srgb, var(--accent) 50%, transparent)",
-            borderRadius: "2px",
-            padding: "15px 30px",
-            textDecoration: "none",
-            display: "inline-block",
-            transition: "background 0.25s, color 0.25s, border-color 0.25s",
-          }}
-          onMouseEnter={(e) => {
-            const t = e.currentTarget as HTMLElement;
-            t.style.background = "var(--accent)";
-            t.style.color = "var(--bg)";
-            t.style.borderColor = "var(--accent)";
-          }}
-          onMouseLeave={(e) => {
-            const t = e.currentTarget as HTMLElement;
-            t.style.background = "transparent";
-            t.style.color = "var(--accent)";
-            t.style.borderColor = "color-mix(in srgb, var(--accent) 50%, transparent)";
-          }}
-        >
-          {dict.hero.ctaPrimary} →
-        </Link>
       </Reveal>
     </section>
   );
