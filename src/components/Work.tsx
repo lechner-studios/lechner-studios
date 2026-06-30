@@ -39,10 +39,10 @@ const WERK_DEMOS = [
 // faked screenshot): a topic, the question (front) and the answer (back),
 // spanning the product's range — HTML & Git to OWASP & low-level systems.
 const CODEFLASH_CARDS = [
-  { topic: "Git", q: "merge vs. rebase?", a: "merge preserves history; rebase replays commits into one linear line." },
-  { topic: "HTML", q: "What is the box model?", a: "content → padding → border → margin." },
-  { topic: "OWASP", q: "How does a CSRF token defend?", a: "a per-session secret a forged cross-site request can’t supply." },
-  { topic: "Big-O", q: "Binary search complexity?", a: "O(log n) — it halves the search space each step." },
+  { topic: "Git", hue: "#254268", q: "merge vs. rebase?", a: "merge preserves history; rebase replays commits into one linear line." },
+  { topic: "HTML", hue: "#8FA8C5", q: "What is the box model?", a: "content → padding → border → margin." },
+  { topic: "OWASP", hue: "#5E8263", q: "How does a CSRF token defend?", a: "a per-session secret a forged cross-site request can’t supply." },
+  { topic: "Big-O", hue: "#D6CDBE", q: "Binary search complexity?", a: "O(log n) — it halves the search space each step." },
 ];
 
 export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
@@ -293,6 +293,7 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
                                   className="cf-flip hero-proof-card"
                                   data-flipped={isFlipped ? "true" : "false"}
                                   aria-pressed={isFlipped}
+                                  style={{ "--cf-accent": cf.hue } as React.CSSProperties}
                                   onClick={() => setFlipped((f) => ({ ...f, [cf.topic]: !f[cf.topic] }))}
                                 >
                                   <span className="cf-inner">

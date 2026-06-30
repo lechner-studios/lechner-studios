@@ -147,7 +147,7 @@ export default function Hero() {
                 <>
                   <span
                     aria-hidden="true"
-                    style={{ width: "11px", height: "11px", borderRadius: "3px", background: p.hue, flexShrink: 0, boxSizing: "border-box", border: "1px solid var(--hero-border)", boxShadow: isActive ? `0 0 0 3px color-mix(in srgb, ${p.hue} 28%, transparent)` : "none", transition: "box-shadow 0.2s" }}
+                    style={{ width: "11px", height: "11px", borderRadius: "3px", background: p.hue, flexShrink: 0, boxSizing: "border-box", border: "1px solid var(--hero-border)", boxShadow: isActive ? `0 0 0 3px color-mix(in srgb, ${p.hue} 28%, transparent), 0 2px 6px -1px rgba(16,18,22,0.3)` : "0 2px 6px -1px rgba(16,18,22,0.3)", transition: "box-shadow 0.2s" }}
                   />
                   {p.label}
                 </>
@@ -250,7 +250,7 @@ export default function Hero() {
                 {/* palette strip — the four hues at rest */}
                 <div style={{ display: "flex", gap: "7px", marginTop: "22px" }}>
                   {pillars.map((p, i) => (
-                    <span key={i} style={{ width: "26px", height: "8px", borderRadius: "2px", background: p.hue }} />
+                    <span key={i} style={{ width: "26px", height: "8px", borderRadius: "2px", background: p.hue, border: "1px solid var(--border)", boxSizing: "border-box", boxShadow: "0 2px 6px -1px rgba(16,18,22,0.28)" }} />
                   ))}
                 </div>
               </>

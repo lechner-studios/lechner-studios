@@ -71,7 +71,7 @@ export default function FoundationPartner() {
               border: "1px solid var(--border)",
               borderRadius: "10px",
               padding: "32px 34px",
-              boxShadow: "0 30px 64px -36px rgba(16,18,22,0.4)",
+              boxShadow: "inset 0 3px 0 0 var(--accent), 0 28px 60px -34px rgba(16,18,22,0.4)",
             }}
           >
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.56rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
@@ -83,7 +83,7 @@ export default function FoundationPartner() {
             <div style={{ width: "40px", height: "1px", background: "var(--border-strong)", marginBottom: "18px" }} />
             <div style={{ display: "flex", gap: "8px", marginBottom: "18px" }}>
               {STAMP_HUES.map((h) => (
-                <span key={h} style={{ width: "22px", height: "22px", borderRadius: "4px", background: h, border: "1px solid var(--border)", boxSizing: "border-box" }} />
+                <span key={h} style={{ width: "22px", height: "22px", borderRadius: "4px", background: h, border: "1px solid var(--border)", boxSizing: "border-box", boxShadow: "0 2px 6px -1px rgba(16,18,22,0.28)" }} />
               ))}
             </div>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--text-muted)" }}>

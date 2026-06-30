@@ -130,8 +130,11 @@ section, footer, nav, .theme-surface {
 .cf-flip .cf-face {
   position: absolute; inset: 0; box-sizing: border-box;
   display: flex; flex-direction: column; gap: 9px;
-  padding: 16px 16px 14px; border-radius: 4px;
-  background: var(--bg); border: 1px solid var(--border); text-align: left;
+  padding: 16px 16px 14px; border-radius: 5px;
+  background: var(--bg-alt); border: 1px solid var(--border); text-align: left;
+  /* brand-colour pop (top edge) + soft shadow so the card lifts off the page */
+  border-top: 3px solid var(--cf-accent, var(--accent));
+  box-shadow: 0 16px 34px -22px rgba(16,18,22,0.32);
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
 }
 .cf-flip .cf-back { transform: rotateY(180deg); }
