@@ -45,7 +45,7 @@ const CODEFLASH_CARDS = [
   { topic: "Big-O", hue: "#D6CDBE", q: "Binary search complexity?", a: "O(log n) — it halves the search space each step." },
 ];
 
-export default function Work({ limit, moreHref, featured }: { limit?: number; moreHref?: string; featured?: string[] }) {
+export default function Work({ limit, moreHref, featured, hideWerkDemos }: { limit?: number; moreHref?: string; featured?: string[]; hideWerkDemos?: boolean }) {
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
@@ -125,7 +125,9 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
             const isClickable = item.url !== "#";
             const isWerk = item.id === "websites";
             const isCodeflash = item.id === "codeflash";
-            const hasExtra = isWerk || isCodeflash;
+            // On /work the demos are shown richly by <DemoShowcase>, so suppress
+            // the Werk entry's inline demo thumbnails there (avoids the duplicate).
+            const hasExtra = (isWerk && !hideWerkDemos) || isCodeflash;
 
             const card = (
               <a
