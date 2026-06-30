@@ -438,7 +438,7 @@ export const dictionaries = {
         ctaLabel: "Discuss your project",
       },
       brand: {
-        slug: "marke-identitaet",
+        slug: "brand",
         metaTitle: "Brand & Identity Tirol — coherent visual systems for SMBs",
         metaDescription:
           "Brand and identity design in Tirol. Coherent visual systems — names, marks, palettes, type and voice — plus the content that carries them, built into a website or delivered as a standalone brand project.",
@@ -1012,7 +1012,7 @@ export const dictionaries = {
         ctaLabel: "Projekt besprechen",
       },
       brand: {
-        slug: "marke-identitaet",
+        slug: "brand",
         metaTitle: "Marke & Identität Tirol — stimmige visuelle Systeme für KMU",
         metaDescription:
           "Marken- und Identitätsgestaltung in Tirol. Stimmige visuelle Systeme — Namen, Marken, Farben, Typografie und Stimme — samt den Inhalten, die sie tragen. In eine Website integriert oder als eigenständiges Markenprojekt.",
