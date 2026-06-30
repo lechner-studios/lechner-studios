@@ -77,6 +77,11 @@ export const dictionaries = {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
       body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      slider: {
+        code: "Code",
+        result: "Result",
+        aria: "Before/after: source code and its rendered result — drag to reveal.",
+      },
     },
     about: {
       overline: "ABOUT THE STUDIO",
@@ -605,6 +610,11 @@ export const dictionaries = {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
       body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      slider: {
+        code: "Code",
+        result: "Ergebnis",
+        aria: "Vorher/Nachher: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken.",
+      },
     },
     about: {
       overline: "ÜBER DAS STUDIO",

@@ -1,11 +1,12 @@
 "use client";
 import React, { useCallback, useRef, useState } from "react";
 
-// Source → Surface: the hero proof for a hand-build studio, as a before/after
-// comparison slider. Left layer = the real source code; right layer = its live
-// rendered result. Both are real DOM (no images), so the slider literally shows
-// "this code → this surface". Drag the handle (or arrow-keys) to reveal more of
-// either side; starts at 50/50.
+// Source → Surface: the proof for a hand-build studio, as a before/after
+// comparison slider (lives in the Stance "Keine Vorlage" section). Left layer =
+// the real source code; right layer = its live rendered result. Both are real
+// DOM (no images), so the slider literally shows "this code → this surface".
+// Drag the handle (or arrow-keys) to reveal more of either side; starts 50/50.
+// Labels are passed in so the surrounding section can localise them.
 
 // Code-token colours, tuned to stay legible on the dark code layer in both themes.
 const C = {
@@ -29,7 +30,15 @@ const cornerLabel: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
-export default function HeroSourceSurface() {
+export default function SourceSurfaceSlider({
+  codeLabel = "Code",
+  resultLabel = "Ergebnis",
+  ariaLabel = "Vergleich: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken",
+}: {
+  codeLabel?: string;
+  resultLabel?: string;
+  ariaLabel?: string;
+} = {}) {
   const [pos, setPos] = useState(50);
   const dragging = useRef(false);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -62,7 +71,7 @@ export default function HeroSourceSurface() {
   return (
     <div
       ref={boxRef}
-      className="hero-ss reveal"
+      className="hero-ss"
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={stop}
@@ -79,7 +88,6 @@ export default function HeroSourceSurface() {
         boxShadow: "0 36px 72px -34px rgba(16,18,22,0.5)",
         cursor: "ew-resize",
         touchAction: "none",
-        animationDelay: "1.1s",
         userSelect: "none",
       }}
     >
@@ -99,7 +107,7 @@ export default function HeroSourceSurface() {
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", margin: 0 }}>
           Von Hand gebaut →
         </p>
-        <span style={{ ...cornerLabel, right: "16px", color: "var(--accent)", opacity: 0.7 }}>Ergebnis</span>
+        <span style={{ ...cornerLabel, right: "16px", color: "var(--accent)", opacity: 0.7 }}>{resultLabel}</span>
       </div>
 
       {/* TOP layer — the source code, clipped to the left of the handle */}
@@ -120,18 +128,18 @@ export default function HeroSourceSurface() {
           <div>{"  )"}</div>
           <div>{"}"}</div>
         </code>
-        <span style={{ ...cornerLabel, left: "16px", color: C.txt, opacity: 0.6 }}>Code</span>
+        <span style={{ ...cornerLabel, left: "16px", color: C.txt, opacity: 0.6 }}>{codeLabel}</span>
       </div>
 
       {/* Divider + draggable handle */}
       <div style={{ position: "absolute", top: 0, bottom: 0, left: `${pos}%`, width: "2px", background: "rgba(255,255,255,0.85)", transform: "translateX(-1px)", pointerEvents: "none", zIndex: 4 }} />
       <div
         role="slider"
-        aria-label="Vergleich: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken"
+        aria-label={ariaLabel}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(pos)}
-        aria-valuetext={`Code ${Math.round(pos)} %`}
+        aria-valuetext={`${codeLabel} ${Math.round(pos)} %`}
         tabIndex={0}
         onKeyDown={onKeyDown}
         style={{
