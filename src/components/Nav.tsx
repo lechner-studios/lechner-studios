@@ -16,7 +16,11 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    // Solidify as soon as the page scrolls at all: on narrow viewports the hero
+    // overline sits only ~40px below the nav, so a larger threshold let content
+    // scroll up behind the still-transparent bar (logo/overline overlap). A small
+    // buffer keeps the at-rest transparent-over-hero look without elastic flicker.
+    const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
