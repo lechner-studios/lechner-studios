@@ -1,15 +1,13 @@
 "use client";
-import React from "react";
+import React, { useCallback, useRef, useState } from "react";
 
-// Source → Surface: the hero proof for a hand-build studio. Real source code
-// on the left of one dark editor panel dissolves (sharp → blur) into the live-
-// rendered card that sits ON the panel's right edge — both are real DOM, no
-// image. The blur band is a second, blurred copy of the same code masked to the
-// card's left edge, so the code visibly melts into the rendered surface within a
-// single frame (no detached card, no gap). Desktop layout is inline; the narrow-
-// viewport stack/reflow lives in globals.css (.hero-ss* — see that file).
+// Source → Surface: the hero proof for a hand-build studio, as a before/after
+// comparison slider. Left layer = the real source code; right layer = its live
+// rendered result. Both are real DOM (no images), so the slider literally shows
+// "this code → this surface". Drag the handle (or arrow-keys) to reveal more of
+// either side; starts at 50/50.
 
-// Code-token colours, tuned to stay legible on the dark panel in both themes.
+// Code-token colours, tuned to stay legible on the dark code layer in both themes.
 const C = {
   kw: "#C7A45C", // keyword — warm gold
   str: "#9DBE8C", // string — sage green
@@ -20,112 +18,146 @@ const Tok = ({ c, children }: { c: string; children: React.ReactNode }) => (
   <span style={{ color: c }}>{children}</span>
 );
 
-function CodeLines() {
-  return (
-    <code style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.78rem", lineHeight: 1.85, color: C.txt, whiteSpace: "pre" }}>
-      <div><Tok c={C.kw}>export</Tok>{" "}<Tok c={C.kw}>function</Tok>{" Card({ project }) {"}</div>
-      <div>{"  "}<Tok c={C.kw}>return</Tok>{" ("}</div>
-      <div>{"    <article className="}<Tok c={C.str}>&quot;card&quot;</Tok>{">"}</div>
-      <div>{"      <span className="}<Tok c={C.str}>&quot;tag&quot;</Tok>{">Web · Tirol</span>"}</div>
-      <div>{"      <h3>{project.title}</h3>"}</div>
-      <div>{"    </article>"}</div>
-      <div>{"  )"}</div>
-      <div>{"}"}</div>
-    </code>
-  );
-}
-
-const codePanelBase: React.CSSProperties = {
+const fill: React.CSSProperties = { position: "absolute", inset: 0, overflow: "hidden" };
+const cornerLabel: React.CSSProperties = {
   position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  margin: 0,
-  boxSizing: "border-box",
-  borderRadius: "10px",
-  padding: "22px 26px",
-  overflow: "hidden",
+  top: "14px",
+  fontFamily: "var(--font-mono)",
+  fontSize: "0.5rem",
+  fontWeight: 600,
+  letterSpacing: "0.22em",
+  textTransform: "uppercase",
 };
 
-// Sharp code fades out before the card; the blurred echo peaks right at the
-// card's left edge (~45%), so the dissolve resolves into the rendered surface.
-const maskSharp = "linear-gradient(to right, #000 0%, #000 34%, transparent 58%)";
-const maskBlur = "linear-gradient(to right, transparent 24%, #000 45%, transparent 64%)";
-
 export default function HeroSourceSurface() {
+  const [pos, setPos] = useState(50);
+  const dragging = useRef(false);
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  const updateFromX = useCallback((clientX: number) => {
+    const el = boxRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = ((clientX - r.left) / r.width) * 100;
+    setPos(Math.max(0, Math.min(100, p)));
+  }, []);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    dragging.current = true;
+    try { (e.target as Element).setPointerCapture?.(e.pointerId); } catch { /* noop */ }
+    updateFromX(e.clientX);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (dragging.current) updateFromX(e.clientX);
+  };
+  const stop = () => { dragging.current = false; };
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); setPos((p) => Math.max(0, p - 4)); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); setPos((p) => Math.min(100, p + 4)); }
+    else if (e.key === "Home") { e.preventDefault(); setPos(0); }
+    else if (e.key === "End") { e.preventDefault(); setPos(100); }
+  };
+
   return (
     <div
+      ref={boxRef}
       className="hero-ss reveal"
-      aria-hidden="true"
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={stop}
+      onPointerLeave={stop}
       style={{
         position: "relative",
         zIndex: 2,
         width: "100%",
         maxWidth: "560px",
-        height: "clamp(244px, 30vw, 300px)",
+        height: "clamp(280px, 34vw, 344px)",
+        borderRadius: "12px",
+        overflow: "hidden",
+        border: "1px solid var(--code-panel-border)",
+        boxShadow: "0 36px 72px -34px rgba(16,18,22,0.5)",
+        cursor: "ew-resize",
+        touchAction: "none",
         animationDelay: "1.1s",
+        userSelect: "none",
       }}
     >
-      {/* the dark editor panel — sharp code, fading out toward the card */}
-      <pre
-        className="hero-ss-code"
-        style={{
-          ...codePanelBase,
-          background: "var(--code-panel-bg)",
-          border: "1px solid var(--code-panel-border)",
-          WebkitMaskImage: maskSharp,
-          maskImage: maskSharp,
-        }}
-      >
-        <CodeLines />
-      </pre>
-
-      {/* blurred echo in the transition band — the code dissolving */}
-      <pre
-        className="hero-ss-blur"
-        style={{
-          ...codePanelBase,
-          border: "none",
-          background: "transparent",
-          filter: "blur(5px)",
-          WebkitMaskImage: maskBlur,
-          maskImage: maskBlur,
-          pointerEvents: "none",
-        }}
-      >
-        <CodeLines />
-      </pre>
-
-      {/* the rendered surface — the live result of that code, sitting on the
-          panel's right edge so the dissolving code resolves into it */}
+      {/* BASE layer — the rendered result (full-bleed card) */}
       <div
-        className="hero-ss-card"
+        aria-hidden="true"
+        style={{ ...fill, background: "var(--bg-alt)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", padding: "30px 34px" }}
+      >
+        <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "var(--font-mono)", fontSize: "0.56rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
+          <i style={{ width: "7px", height: "7px", borderRadius: "50%", background: "var(--signature)", display: "inline-block" }} />
+          Web · Tirol
+        </span>
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 3.4vw, 2rem)", fontWeight: 400, color: "var(--text)", margin: "12px 0 14px", lineHeight: 1.05, overflowWrap: "break-word" }}>
+          Maßgeschneidert
+        </h3>
+        <div style={{ width: "36px", height: "1px", background: "var(--accent)", marginBottom: "14px" }} />
+        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", margin: 0 }}>
+          Von Hand gebaut →
+        </p>
+        <span style={{ ...cornerLabel, right: "16px", color: "var(--accent)", opacity: 0.7 }}>Ergebnis</span>
+      </div>
+
+      {/* TOP layer — the source code, clipped to the left of the handle */}
+      <div
+        aria-hidden="true"
+        style={{ ...fill, background: "var(--code-panel-bg)", padding: "26px 28px", clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+      >
+        <code style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.74rem", lineHeight: 1.8, color: C.txt, whiteSpace: "pre" }}>
+          <div><Tok c={C.kw}>export</Tok>{" "}<Tok c={C.kw}>function</Tok>{" Card() {"}</div>
+          <div>{"  "}<Tok c={C.kw}>return</Tok>{" ("}</div>
+          <div>{"    <article className="}<Tok c={C.str}>&quot;card&quot;</Tok>{">"}</div>
+          <div>{"      <span className="}<Tok c={C.str}>&quot;tag&quot;</Tok>{">"}</div>
+          <div>{"        <i className="}<Tok c={C.str}>&quot;dot&quot;</Tok>{" /> Web · Tirol"}</div>
+          <div>{"      </span>"}</div>
+          <div>{"      <h3>Maßgeschneidert</h3>"}</div>
+          <div>{"      <p>Von Hand gebaut →</p>"}</div>
+          <div>{"    </article>"}</div>
+          <div>{"  )"}</div>
+          <div>{"}"}</div>
+        </code>
+        <span style={{ ...cornerLabel, left: "16px", color: C.txt, opacity: 0.6 }}>Code</span>
+      </div>
+
+      {/* Divider + draggable handle */}
+      <div style={{ position: "absolute", top: 0, bottom: 0, left: `${pos}%`, width: "2px", background: "rgba(255,255,255,0.85)", transform: "translateX(-1px)", pointerEvents: "none", zIndex: 4 }} />
+      <div
+        role="slider"
+        aria-label="Vergleich: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(pos)}
+        aria-valuetext={`Code ${Math.round(pos)} %`}
+        tabIndex={0}
+        onKeyDown={onKeyDown}
         style={{
           position: "absolute",
           top: "50%",
-          right: "16px",
-          transform: "translateY(-50%)",
-          width: "52%",
-          boxSizing: "border-box",
-          background: "var(--bg-alt)",
-          border: "1px solid var(--border)",
-          borderRadius: "10px",
-          padding: "20px 22px",
-          boxShadow: "0 34px 70px -30px rgba(16,18,22,0.55)",
-          zIndex: 3,
+          left: `${pos}%`,
+          width: "38px",
+          height: "38px",
+          marginLeft: "-19px",
+          marginTop: "-19px",
+          borderRadius: "50%",
+          background: "#FBFCFC",
+          border: "1px solid rgba(21,23,26,0.15)",
+          boxShadow: "0 6px 18px -6px rgba(16,18,22,0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#15171A",
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.8rem",
+          lineHeight: 1,
+          cursor: "ew-resize",
+          zIndex: 5,
         }}
       >
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
-          Web · Tirol
-        </span>
-        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.2vw, 1.45rem)", fontWeight: 400, color: "var(--text)", margin: "10px 0 12px", lineHeight: 1.1, overflowWrap: "break-word" }}>
-          Maßgeschneidert
-        </h3>
-        <div style={{ width: "32px", height: "1px", background: "var(--accent)", marginBottom: "12px" }} />
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", margin: 0 }}>
-          Von Hand gebaut →
-        </p>
+        ⇆
       </div>
     </div>
   );
