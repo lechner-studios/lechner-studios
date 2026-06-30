@@ -371,12 +371,14 @@ section, footer, nav, .theme-surface {
    Per-service pillar accent (Säulenfarbe), AA-legible in both modes — raw
    pillar colours are too light on cream (stone/sky) or invisible on dark (lake),
    so each service maps to a darker/lighter variant of its pillar hue. */
-.svc-web  { --svc-accent: #7A6A4E; }   /* Stone family */
-.svc-apps { --svc-accent: #3E5F86; }   /* Sky family */
-.svc-seo  { --svc-accent: #254268; }   /* Lake */
-[data-theme="dark"] .svc-web  { --svc-accent: #D6CDBE; }
-[data-theme="dark"] .svc-apps { --svc-accent: #8FA8C5; }
-[data-theme="dark"] .svc-seo  { --svc-accent: #8FA8C5; }
+.svc-web   { --svc-accent: #7A6A4E; }   /* Stone — Web & Design */
+.svc-apps  { --svc-accent: #3E5F86; }   /* Sky — Apps & Automation */
+.svc-seo   { --svc-accent: #4A6A4E; }   /* Pine — SEO & Growth (ADR-0037 remap) */
+.svc-brand { --svc-accent: #254268; }   /* Lake-navy — Brand & Identity (ADR-0037 remap) */
+[data-theme="dark"] .svc-web   { --svc-accent: #D6CDBE; }
+[data-theme="dark"] .svc-apps  { --svc-accent: #8FA8C5; }
+[data-theme="dark"] .svc-seo   { --svc-accent: #7FA886; }
+[data-theme="dark"] .svc-brand { --svc-accent: #8FA8C5; }
 
 /* Image-forward hero (web): text + artifact side by side. */
 .svc-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }

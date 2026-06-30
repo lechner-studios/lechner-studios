@@ -437,6 +437,39 @@ export const dictionaries = {
           "The technical foundations of search visibility — semantic markup, fast load times, structured data, bilingual hreflang — are built into every site we ship, including our own platforms. We optimise on the same fundamentals we apply to our own work; we don't promise rankings or sell business strategy.",
         ctaLabel: "Discuss your project",
       },
+      brand: {
+        slug: "marke-identitaet",
+        metaTitle: "Brand & Identity Tirol — coherent visual systems for SMBs",
+        metaDescription:
+          "Brand and identity design in Tirol. Coherent visual systems — names, marks, palettes, type and voice — plus the content that carries them, built into a website or delivered as a standalone brand project.",
+        overline: "Brand & Identity",
+        headline: "A coherent identity, not a one-off logo.",
+        intro:
+          "An inconsistent look quietly undercuts good work — a logo here, a different colour there, a tone that shifts from page to post. We build coherent visual systems for SMBs in Tirol and across DACH: the marks, palettes, type and voice that make a business recognisable everywhere it appears — plus the content that carries them. Woven into a website build, or delivered as a brand project in its own right.",
+        sections: [
+          {
+            h: "A system, not a single asset",
+            p: "A logo is the start, not the brand. We design the whole system — wordmark and marks, a colour palette with accessible pairings, type, spacing and the rules that hold it together — so every surface, from the website to a business card, reads as one business.",
+          },
+          {
+            h: "Voice & content",
+            p: "How a business sounds matters as much as how it looks. We define a clear, honest tone — no hype, no buzzwords — and write the content that carries it: site copy, section text and the words that do the actual work, in German and English.",
+          },
+          {
+            h: "Built into the build",
+            p: "Brand and website are strongest designed together. When we build a site, the identity is part of it from the first screen — tokens in the code, consistent components, one visual language — rather than a logo bolted onto a template afterwards.",
+          },
+          {
+            h: "Or a brand project on its own",
+            p: "Keeping the site you have? We can deliver the identity as a standalone project — the system, the assets and a short set of guidelines — so whoever builds next has a clear, consistent foundation to work from.",
+          },
+        ],
+        includedLabel: "What you get",
+        included: ["Wordmark & marks", "Colour palette (AA)", "Type system", "Brand voice", "Usage guidelines", "Self-hosted assets"],
+        proof:
+          "We hold our own identity to the standard we'd build for you — a coherent system, accessible colour, consistent type, applied the same way on every surface and self-hosted. Brand is craft we do by hand, never a stock kit; it's the same eye we bring to every studio and product we build.",
+        ctaLabel: "Discuss your project",
+      },
     },
     contact: {
       overline: "CONTACT",
@@ -978,6 +1011,39 @@ export const dictionaries = {
           "Die technischen Grundlagen der Sichtbarkeit — semantisches Markup, kurze Ladezeiten, strukturierte Daten, zweisprachiges hreflang — sind in jeder Site enthalten, die wir ausliefern, auch in unseren eigenen Plattformen. Wir optimieren auf denselben Grundlagen, die wir auf unsere eigene Arbeit anwenden; wir versprechen keine Rankings und verkaufen keine Unternehmensberatung.",
         ctaLabel: "Projekt besprechen",
       },
+      brand: {
+        slug: "marke-identitaet",
+        metaTitle: "Marke & Identität Tirol — stimmige visuelle Systeme für KMU",
+        metaDescription:
+          "Marken- und Identitätsgestaltung in Tirol. Stimmige visuelle Systeme — Namen, Marken, Farben, Typografie und Stimme — samt den Inhalten, die sie tragen. In eine Website integriert oder als eigenständiges Markenprojekt.",
+        overline: "Marke & Identität",
+        headline: "Eine stimmige Identität, kein einzelnes Logo.",
+        intro:
+          "Ein uneinheitlicher Auftritt schwächt gute Arbeit — hier ein Logo, dort eine andere Farbe, ein Ton, der von Seite zu Beitrag wechselt. Wir gestalten stimmige visuelle Systeme für KMU in Tirol und im DACH-Raum: Marken, Farben, Typografie und Stimme, die ein Unternehmen überall wiedererkennbar machen — samt den Inhalten, die sie tragen. In einen Website-Build integriert oder als eigenständiges Markenprojekt.",
+        sections: [
+          {
+            h: "Ein System, kein Einzelstück",
+            p: "Ein Logo ist der Anfang, nicht die Marke. Wir gestalten das ganze System — Wortmarke und Zeichen, eine Farbpalette mit barrierefreien Kombinationen, Typografie, Abstände und die Regeln, die alles zusammenhalten — damit jede Fläche, von der Website bis zur Visitenkarte, als ein Unternehmen wirkt.",
+          },
+          {
+            h: "Stimme & Inhalt",
+            p: "Wie ein Unternehmen klingt, zählt so viel wie sein Aussehen. Wir definieren einen klaren, ehrlichen Ton — ohne Hype, ohne Floskeln — und schreiben die Inhalte, die ihn tragen: Website-Texte, Abschnitte und die Worte, die wirklich arbeiten, auf Deutsch und Englisch.",
+          },
+          {
+            h: "In den Build integriert",
+            p: "Marke und Website sind am stärksten, wenn sie gemeinsam entstehen. Wenn wir eine Seite bauen, ist die Identität von der ersten Ansicht an Teil davon — Tokens im Code, einheitliche Komponenten, eine visuelle Sprache — statt ein Logo, das nachträglich auf eine Vorlage gesetzt wird.",
+          },
+          {
+            h: "Oder ein Markenprojekt für sich",
+            p: "Sie behalten Ihre bestehende Seite? Wir liefern die Identität als eigenständiges Projekt — das System, die Assets und eine kurze Richtlinie — damit alle, die danach bauen, eine klare, stimmige Grundlage haben.",
+          },
+        ],
+        includedLabel: "Das bekommen Sie",
+        included: ["Wortmarke & Zeichen", "Farbpalette (AA)", "Typo-System", "Markenstimme", "Anwendungsrichtlinie", "Selbst gehostete Assets"],
+        proof:
+          "Wir halten unsere eigene Identität an dem Standard, den wir für Sie bauen würden — ein stimmiges System, barrierefreie Farben, konsistente Typografie, auf jeder Fläche gleich angewendet und selbst gehostet. Marke ist für uns Handarbeit, nie ein Baukasten-Set; es ist derselbe Blick, den wir in jedes Studio und Produkt legen, das wir bauen.",
+        ctaLabel: "Projekt besprechen",
+      },
     },
     contact: {
       overline: "KONTAKT",
@@ -1110,6 +1176,7 @@ const _serviceDetailEntryGuard: ServiceDetailEntry[] = [
   dictionaries.en.serviceDetail.web,
   dictionaries.en.serviceDetail.apps,
   dictionaries.en.serviceDetail.seo,
+  dictionaries.en.serviceDetail.brand,
 ];
 void _serviceDetailEntryGuard;
 

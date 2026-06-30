@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 // Pillar hues + page slugs, indexed to match dict.services.items grid order
 // (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(lake) · SEO(pine).
 const PILLAR_HUES = ["#8FA8C5", "#D6CDBE", "#254268", "#5E8263"]; // sky, stone, lake, pine
-const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", null, "seo"];
+const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", "marke-identitaet", "seo"];
 
 export default function Hero() {
   const { dict, locale } = useLanguage();
