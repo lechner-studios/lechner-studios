@@ -311,6 +311,30 @@ export const dictionaries = {
       },
       more: { lead: "More on our", web: "custom web design", and: "and", seo: "technical SEO", tail: "." },
     },
+    websiteCheckIntake: {
+      overline: "Request a Website-Check",
+      headline: "Tell us about your site.",
+      intro: "A few details so the review is useful from the first look — your URL, what's prompting it, and where it hurts. We reply within two business days.",
+      urlLabel: "Your website (URL)",
+      urlPlaceholder: "e.g. your-domain.at",
+      concernsLabel: "What should we look at?",
+      concerns: {
+        tooSlow: "It loads too slowly",
+        outdated: "It looks outdated",
+        notFound: "Hard to find on Google",
+        notMobile: "Doesn't work well on mobile",
+        general: "Just a general review",
+      },
+      industryLabel: "Industry / type of business",
+      urgencyLabel: "How urgent is it?",
+      urgency: {
+        exploring: "Just exploring",
+        weeks: "Within the next few weeks",
+        asap: "As soon as possible",
+      },
+      detailsLabel: "Anything specific you want us to check?",
+      submit: "Request Website-Check",
+    },
     serviceDetail: {
       web: {
         slug: "webdesign",
@@ -884,6 +908,30 @@ export const dictionaries = {
         button: "Website-Check buchen",
       },
       more: { lead: "Mehr zu unserer", web: "maßgeschneiderten Webentwicklung", and: "und", seo: "technischem SEO", tail: "." },
+    },
+    websiteCheckIntake: {
+      overline: "Website-Check anfragen",
+      headline: "Erzählen Sie uns von Ihrer Seite.",
+      intro: "Ein paar Angaben, damit der Check vom ersten Blick an etwas bringt — Ihre URL, der Anlass und wo es hakt. Wir antworten innerhalb von zwei Werktagen.",
+      urlLabel: "Ihre Website (URL)",
+      urlPlaceholder: "z. B. ihre-domain.at",
+      concernsLabel: "Was sollen wir uns ansehen?",
+      concerns: {
+        tooSlow: "Lädt zu langsam",
+        outdated: "Wirkt veraltet",
+        notFound: "Schwer über Google zu finden",
+        notMobile: "Funktioniert am Handy nicht gut",
+        general: "Einfach ein allgemeiner Überblick",
+      },
+      industryLabel: "Branche / Art des Unternehmens",
+      urgencyLabel: "Wie dringend ist es?",
+      urgency: {
+        exploring: "Nur Orientierung",
+        weeks: "In den nächsten Wochen",
+        asap: "So bald wie möglich",
+      },
+      detailsLabel: "Etwas Bestimmtes, das wir prüfen sollen?",
+      submit: "Website-Check anfragen",
     },
     serviceDetail: {
       web: {
