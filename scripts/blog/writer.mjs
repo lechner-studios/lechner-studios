@@ -3,8 +3,8 @@ import Anthropic from "@anthropic-ai/sdk";
 const MODEL = "claude-sonnet-4-6"; // matches src/app/api/chat/route.ts; swap to claude-opus-4-8 for max prose quality
 
 const LOCALES = {
-  en: { label: "English", note: "Write in clear English." },
-  de: { label: "Austrian German", note: "Write in Austrian German (de-AT, Sie-Form), spelled and phrased for an Austrian reader — a real localization, NOT a literal translation of any English version." },
+  en: { label: "English", lang: "English", note: "Write the post in clear, natural English." },
+  de: { label: "Austrian German", lang: "Austrian German (de-AT)", note: "Write the post in Austrian German (de-AT, Sie-Form), spelled and phrased for an Austrian reader — a real localization, NOT a literal translation of any English version." },
 };
 
 // One locale, generated in its own focused call (cramming both into one response
@@ -16,6 +16,7 @@ function systemPrompt({ category, keyword, intent, slug, date, pillarPath, local
 TOPIC: pillar="${category}", primary keyword="${keyword}", angle="${intent}", canonical slug="${slug}".
 
 REQUIRED — a post missing any of these is rejected:
+- LANGUAGE: write EVERY field — title, description, excerpt, keywords AND body — in ${L.lang}. The primary keyword above may be in another language; translate/adapt it. NEVER copy a foreign-language keyword or phrase verbatim as the ${L.lang} title (e.g. an English post must have an English title, not the German keyword).
 - ~600–900 words. Voice: written, professional-but-warm, honest, NO hype/buzzwords.
 - Start with a short intro paragraph (no heading), then **at least three "## " H2 sections** (one with a concrete example), then a closing paragraph.
 - The closing paragraph MUST end with exactly TWO markdown internal links, using these FULL paths:
