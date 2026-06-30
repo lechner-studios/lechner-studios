@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 
-// Source → Surface: the hero proof for a hand-build studio. Real source code on
-// the left dissolves (sharp → blur) into its live-rendered result on the right —
-// both are real DOM, no image. The blur band is a second, blurred copy of the
-// same code masked to the transition zone, so the code literally melts into the
-// rendered card. Replaces the brand-tile composition.
+// Source → Surface: the hero proof for a hand-build studio. Real source code
+// on the left of one dark editor panel dissolves (sharp → blur) into the live-
+// rendered card that sits ON the panel's right edge — both are real DOM, no
+// image. The blur band is a second, blurred copy of the same code masked to the
+// card's left edge, so the code visibly melts into the rendered surface within a
+// single frame (no detached card, no gap). Desktop layout is inline; the narrow-
+// viewport stack/reflow lives in globals.css (.hero-ss* — see that file).
 
-// Code-token colours, tuned for the dark code panel (consistent in both themes).
+// Code-token colours, tuned to stay legible on the dark panel in both themes.
 const C = {
   kw: "#C7A45C", // keyword — warm gold
   str: "#9DBE8C", // string — sage green
@@ -37,66 +39,91 @@ const codePanelBase: React.CSSProperties = {
   position: "absolute",
   top: 0,
   left: 0,
-  width: "60%",
+  width: "100%",
   height: "100%",
   margin: 0,
   boxSizing: "border-box",
-  background: "#15171B",
-  border: "1px solid rgba(255,255,255,0.08)",
   borderRadius: "10px",
-  padding: "22px 24px",
+  padding: "22px 26px",
   overflow: "hidden",
 };
 
-const maskSharp = "linear-gradient(to right, #000 50%, transparent 86%)";
-const maskBlur = "linear-gradient(to right, transparent 38%, #000 60%, transparent 88%)";
+// Sharp code fades out before the card; the blurred echo peaks right at the
+// card's left edge (~45%), so the dissolve resolves into the rendered surface.
+const maskSharp = "linear-gradient(to right, #000 0%, #000 34%, transparent 58%)";
+const maskBlur = "linear-gradient(to right, transparent 24%, #000 45%, transparent 64%)";
 
 export default function HeroSourceSurface() {
   return (
     <div
-      className="reveal"
+      className="hero-ss reveal"
       aria-hidden="true"
       style={{
         position: "relative",
         zIndex: 2,
-        width: "min(680px, 100%)",
-        height: "clamp(230px, 26vw, 290px)",
-        marginTop: "clamp(48px, 6vw, 80px)",
+        width: "100%",
+        maxWidth: "560px",
+        height: "clamp(244px, 30vw, 300px)",
         animationDelay: "1.1s",
       }}
     >
-      {/* sharp code, fading out toward the right */}
-      <pre style={{ ...codePanelBase, WebkitMaskImage: maskSharp, maskImage: maskSharp }}>
+      {/* the dark editor panel — sharp code, fading out toward the card */}
+      <pre
+        className="hero-ss-code"
+        style={{
+          ...codePanelBase,
+          background: "var(--code-panel-bg)",
+          border: "1px solid var(--code-panel-border)",
+          WebkitMaskImage: maskSharp,
+          maskImage: maskSharp,
+        }}
+      >
         <CodeLines />
       </pre>
+
       {/* blurred echo in the transition band — the code dissolving */}
-      <pre style={{ ...codePanelBase, border: "none", background: "transparent", filter: "blur(5px)", WebkitMaskImage: maskBlur, maskImage: maskBlur, pointerEvents: "none" }}>
+      <pre
+        className="hero-ss-blur"
+        style={{
+          ...codePanelBase,
+          border: "none",
+          background: "transparent",
+          filter: "blur(5px)",
+          WebkitMaskImage: maskBlur,
+          maskImage: maskBlur,
+          pointerEvents: "none",
+        }}
+      >
         <CodeLines />
       </pre>
-      {/* the rendered surface — the live result of that code, emerging at right */}
+
+      {/* the rendered surface — the live result of that code, sitting on the
+          panel's right edge so the dissolving code resolves into it */}
       <div
+        className="hero-ss-card"
         style={{
           position: "absolute",
           top: "50%",
-          right: 0,
+          right: "16px",
           transform: "translateY(-50%)",
-          width: "46%",
+          width: "52%",
+          boxSizing: "border-box",
           background: "var(--bg-alt)",
           border: "1px solid var(--border)",
           borderRadius: "10px",
-          padding: "22px 24px",
-          boxShadow: "0 30px 60px -28px rgba(21,23,26,0.45)",
+          padding: "20px 22px",
+          boxShadow: "0 34px 70px -30px rgba(16,18,22,0.55)",
           zIndex: 3,
         }}
       >
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
           Web · Tirol
         </span>
-        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 400, color: "var(--text)", margin: "10px 0 12px", lineHeight: 1.1 }}>
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.2vw, 1.45rem)", fontWeight: 400, color: "var(--text)", margin: "10px 0 12px", lineHeight: 1.1 }}>
           Maßgeschneidert
         </h3>
         <div style={{ width: "32px", height: "1px", background: "var(--accent)", marginBottom: "12px" }} />
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", margin: 0 }}>
           Von Hand gebaut →
         </p>
       </div>

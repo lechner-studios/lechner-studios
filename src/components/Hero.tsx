@@ -49,10 +49,10 @@ export default function Hero() {
           display: "grid",
           gridTemplateColumns: "1.5fr 1fr",
           gap: "56px",
-          alignItems: "end",
+          alignItems: "center",
         }}
       >
-        {/* LEFT: overline + headline + rule */}
+        {/* LEFT: overline + headline + rule + CTAs */}
         <div>
           {/* Overline */}
           <p
@@ -104,108 +104,110 @@ export default function Hero() {
               animationDelay: "0.62s",
             }}
           />
-        </div>
 
-        {/* RIGHT: CTAs + location, bottom-aligned to the headline baseline */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "2rem",
-            paddingBottom: "4px",
-          }}
-        >
-        {/* CTAs */}
-        <div
-          className="reveal"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "28px",
-            flexWrap: "wrap",
-            animationDelay: "0.92s",
-          }}
-        >
-          <a
-            href={`/${locale}/start`}
+          {/* CTAs + location — bottom of the copy column */}
+          <div
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.7rem",
-              fontWeight: 600,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--hero-accent)",
-              border: "1px solid color-mix(in srgb, var(--hero-accent) 50%, transparent)",
-              borderRadius: "2px",
-              padding: "14px 26px",
-              textDecoration: "none",
-              transition: "background 0.25s, color 0.25s, border-color 0.25s",
-            }}
-            onMouseEnter={(e) => {
-              const t = e.currentTarget as HTMLElement;
-              t.style.background = "var(--hero-accent)";
-              t.style.color = "var(--hero-accent-text)";
-              t.style.borderColor = "var(--hero-accent)";
-            }}
-            onMouseLeave={(e) => {
-              const t = e.currentTarget as HTMLElement;
-              t.style.background = "transparent";
-              t.style.color = "var(--hero-accent)";
-              t.style.borderColor = "color-mix(in srgb, var(--hero-accent) 50%, transparent)";
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "2rem",
+              marginTop: "2.75rem",
             }}
           >
-            {dict.hero.ctaPrimary} →
-          </a>
-          <a
-            href={`/${locale}/work`}
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.7rem",
-              fontWeight: 500,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--hero-text-muted)",
-              textDecoration: "none",
-              borderBottom: "1px solid var(--hero-border)",
-              paddingBottom: "3px",
-              transition: "color 0.25s, border-color 0.25s",
-            }}
-            onMouseEnter={(e) => {
-              const t = e.currentTarget as HTMLElement;
-              t.style.color = "var(--hero-text)";
-              t.style.borderColor = "var(--hero-accent)";
-            }}
-            onMouseLeave={(e) => {
-              const t = e.currentTarget as HTMLElement;
-              t.style.color = "var(--hero-text-muted)";
-              t.style.borderColor = "var(--hero-border)";
-            }}
-          >
-            {dict.hero.ctaSecondary}
-          </a>
+            <div
+              className="reveal"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "28px",
+                flexWrap: "wrap",
+                animationDelay: "0.92s",
+              }}
+            >
+              <a
+                href={`/${locale}/start`}
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.7rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--hero-accent)",
+                  border: "1px solid color-mix(in srgb, var(--hero-accent) 50%, transparent)",
+                  borderRadius: "2px",
+                  padding: "14px 26px",
+                  textDecoration: "none",
+                  transition: "background 0.25s, color 0.25s, border-color 0.25s",
+                }}
+                onMouseEnter={(e) => {
+                  const t = e.currentTarget as HTMLElement;
+                  t.style.background = "var(--hero-accent)";
+                  t.style.color = "var(--hero-accent-text)";
+                  t.style.borderColor = "var(--hero-accent)";
+                }}
+                onMouseLeave={(e) => {
+                  const t = e.currentTarget as HTMLElement;
+                  t.style.background = "transparent";
+                  t.style.color = "var(--hero-accent)";
+                  t.style.borderColor = "color-mix(in srgb, var(--hero-accent) 50%, transparent)";
+                }}
+              >
+                {dict.hero.ctaPrimary} →
+              </a>
+              <a
+                href={`/${locale}/work`}
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.7rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--hero-text-muted)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid var(--hero-border)",
+                  paddingBottom: "3px",
+                  transition: "color 0.25s, border-color 0.25s",
+                }}
+                onMouseEnter={(e) => {
+                  const t = e.currentTarget as HTMLElement;
+                  t.style.color = "var(--hero-text)";
+                  t.style.borderColor = "var(--hero-accent)";
+                }}
+                onMouseLeave={(e) => {
+                  const t = e.currentTarget as HTMLElement;
+                  t.style.color = "var(--hero-text-muted)";
+                  t.style.borderColor = "var(--hero-border)";
+                }}
+              >
+                {dict.hero.ctaSecondary}
+              </a>
+            </div>
+
+            {/* Location */}
+            <p
+              className="reveal"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.62rem",
+                fontWeight: 500,
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "var(--hero-text-faint)",
+                animationDelay: "1.05s",
+              }}
+            >
+              {dict.hero.location}
+            </p>
+          </div>
         </div>
 
-        {/* Location */}
-        <p
-          className="reveal"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.62rem",
-            fontWeight: 500,
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "var(--hero-text-faint)",
-            animationDelay: "1.05s",
-          }}
-        >
-          {dict.hero.location}
-        </p>
+        {/* RIGHT: Source → Surface — code dissolving into its rendered result,
+            in-fold beside the headline */}
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <HeroSourceSurface />
         </div>
       </div>
-
-      {/* Source → Surface — code dissolving into its rendered result */}
-      <HeroSourceSurface />
     </section>
   );
 }

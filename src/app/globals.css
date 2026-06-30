@@ -56,6 +56,9 @@
   --signature:#B8944D; --code-bg:#EEF1F1; --error:#9B2D3A;
   /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
   --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.66); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
+  /* Source→Surface code panel — a dark "editor" slab that must read as elevated
+     above the hero band in BOTH modes (light: dark on sky; dark: lifted off #101216). */
+  --code-panel-bg:#14161A; --code-panel-border:rgba(247,248,248,0.08);
   color-scheme:light;
 }
 [data-theme="dark"] {
@@ -66,6 +69,7 @@
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
   --signature:#B8944D; --code-bg:#23272D; --error:#E59AA3;
   --hero-bg:#101216; --hero-text:#F7F8F8; --hero-text-muted:rgba(247,248,248,0.72); --hero-text-faint:rgba(247,248,248,0.55); --hero-accent:#8FA8C5; --hero-accent-text:#101216; --hero-border:rgba(247,248,248,0.10);
+  --code-panel-bg:#20242B; --code-panel-border:rgba(247,248,248,0.12);
   color-scheme:dark;
 }
 
@@ -338,6 +342,24 @@ section, footer, nav, .theme-surface {
     text-align: left !important;
     padding-top: 0 !important;
   }
+}
+
+/* ── Source → Surface hero proof — responsive reflow ────────────────────────
+   Desktop: the rendered card floats over the code panel's right edge so the
+   masked code dissolves INTO it (composition lives inline in
+   HeroSourceSurface.tsx). On narrow viewports the absolute card would
+   overflow, so the panel stacks — code on top, rendered surface butted
+   directly below, dissolve band hidden. */
+@media (max-width: 760px) {
+  .hero-ss      { height: auto !important; }
+  .hero-ss-code { position: relative !important; width: 100% !important; height: auto !important;
+                  /* gentle right-edge fade so long code lines dissolve rather than hard-clip */
+                  -webkit-mask-image: linear-gradient(to right, #000 86%, transparent 100%) !important;
+                  mask-image: linear-gradient(to right, #000 86%, transparent 100%) !important; }
+  .hero-ss-blur { display: none !important; }
+  .hero-ss-card { position: static !important; transform: none !important; width: auto !important;
+                  margin: -1px 0 0 0 !important;
+                  border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
 }
 
 /* ── Service-detail hybrid showcase ─────────────────────────────────────────
