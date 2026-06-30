@@ -49,6 +49,7 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
+  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
   // Only surface genuinely live/active work — no dead "coming soon / in maintenance"
   // rows linking to "#". Hidden items stay in the dict and reappear once their
   // status flips to live/service and they get a real URL.
@@ -273,24 +274,48 @@ export default function Work({ limit, moreHref, featured }: { limit?: number; mo
                           </div>
                         ) : (
                           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "12px" }}>
-                            {CODEFLASH_CARDS.map((cf) => (
-                              <div
-                                key={cf.topic}
-                                className="hero-proof-card"
-                                style={{ display: "flex", flexDirection: "column", gap: "9px", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "4px", padding: "16px 16px 18px" }}
-                              >
+                            {CODEFLASH_CARDS.map((cf) => {
+                              const isFlipped = !!flipped[cf.topic];
+                              const topicChip = (
                                 <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--accent)" }}>
                                   {cf.topic}
                                 </span>
-                                <span style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", lineHeight: 1.25, color: "var(--text)" }}>
-                                  {cf.q}
+                              );
+                              const hint = (label: string) => (
+                                <span style={{ marginTop: "auto", paddingTop: "10px", fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-faint)" }}>
+                                  {label} ↺
                                 </span>
-                                <span aria-hidden="true" style={{ width: "24px", height: "1px", background: "var(--border-strong)" }} />
-                                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", lineHeight: 1.55, color: "var(--text-muted)" }}>
-                                  {cf.a}
-                                </span>
-                              </div>
-                            ))}
+                              );
+                              return (
+                                <button
+                                  key={cf.topic}
+                                  type="button"
+                                  className="cf-flip hero-proof-card"
+                                  data-flipped={isFlipped ? "true" : "false"}
+                                  aria-pressed={isFlipped}
+                                  onClick={() => setFlipped((f) => ({ ...f, [cf.topic]: !f[cf.topic] }))}
+                                >
+                                  <span className="cf-inner">
+                                    {/* FRONT — the question */}
+                                    <span className="cf-face cf-front">
+                                      {topicChip}
+                                      <span style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", lineHeight: 1.25, color: "var(--text)" }}>
+                                        {cf.q}
+                                      </span>
+                                      {hint(d.flipFront)}
+                                    </span>
+                                    {/* BACK — the answer */}
+                                    <span className="cf-face cf-back">
+                                      {topicChip}
+                                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", lineHeight: 1.55, color: "var(--text-muted)" }}>
+                                        {cf.a}
+                                      </span>
+                                      {hint(d.flipBack)}
+                                    </span>
+                                  </span>
+                                </button>
+                              );
+                            })}
                           </div>
                         )}
                       </div>

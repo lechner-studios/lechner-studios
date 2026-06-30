@@ -121,6 +121,22 @@ section, footer, nav, .theme-surface {
 .hero-proof-card { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
 .hero-proof-card:hover { transform: translateY(-4px); }
 
+/* CodeFlash sample cards — click / tap / keyboard to flip front↔back, as in the
+   real app. Driven by data-flipped (set on click); the card is a <button>, so
+   Enter/Space flip too. Reduced-motion → instant swap, no 3D spin. */
+.cf-flip { perspective: 1000px; background: none; border: none; padding: 0; margin: 0; width: 100%; font: inherit; color: inherit; cursor: pointer; }
+.cf-flip .cf-inner { position: relative; display: block; width: 100%; min-height: 172px; transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+.cf-flip[data-flipped="true"] .cf-inner { transform: rotateY(180deg); }
+.cf-flip .cf-face {
+  position: absolute; inset: 0; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 9px;
+  padding: 16px 16px 14px; border-radius: 4px;
+  background: var(--bg); border: 1px solid var(--border); text-align: left;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+}
+.cf-flip .cf-back { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) { .cf-flip .cf-inner { transition: none; } }
+
 /* Brand-tile hero composition — staggered scale/fade reveal per tile + dot. */
 @keyframes lc-tile-in { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }
 .hero-tile { opacity: 0; animation: lc-tile-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }

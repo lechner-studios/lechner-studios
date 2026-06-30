@@ -118,6 +118,8 @@ export const dictionaries = {
       visit: "Visit →",
       viewAll: "All work →",
       sampleCards: "Sample cards",
+      flipFront: "Show answer",
+      flipBack: "Show question",
       items: [
         {
           id: "websites",
@@ -658,6 +660,8 @@ export const dictionaries = {
       visit: "Besuchen →",
       viewAll: "Alle Arbeiten →",
       sampleCards: "Beispielkarten",
+      flipFront: "Antwort zeigen",
+      flipBack: "Frage zeigen",
       items: [
         {
           id: "websites",
