@@ -20,13 +20,13 @@ export async function generateMetadata({
   const dict = dictionaries[locale];
   return pageMetadata(
     locale,
-    "/marke-identitaet",
+    "/brand",
     dict.serviceDetail.brand.metaTitle,
     dict.serviceDetail.brand.metaDescription,
   );
 }
 
-export default async function MarkeIdentitaetPage({
+export default async function BrandPage({
   params,
 }: {
   params: Promise<{ locale: string }>;

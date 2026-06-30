@@ -31,6 +31,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  async redirects() {
+    // The Brand & Identity page first shipped at /marke-identitaet, then was
+    // renamed to /brand. Redirect the old slug so any crawled/linked URL resolves.
+    return [
+      { source: "/:locale/marke-identitaet", destination: "/:locale/brand", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
