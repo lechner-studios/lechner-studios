@@ -175,12 +175,12 @@ export const dictionaries = {
           desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
         },
         {
-          title: "SEO & Growth",
-          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
-        },
-        {
           title: "Brand & Identity",
           desc: "An inconsistent look undercuts good work. We build coherent visual systems — names, marks, palettes, voice — and the content that carries them, woven into a build or as a brand project in its own right.",
+        },
+        {
+          title: "SEO & Growth",
+          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
         },
       ],
     },
@@ -691,12 +691,12 @@ export const dictionaries = {
           desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
         },
         {
-          title: "SEO & Growth",
-          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
-        },
-        {
           title: "Marke & Identität",
           desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Wir gestalten stimmige visuelle Systeme — Namen, Marken, Farben, Stimme — und die Inhalte, die sie tragen: in ein Projekt integriert oder als eigenständige Markenarbeit.",
+        },
+        {
+          title: "SEO & Growth",
+          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
         },
       ],
     },

@@ -6,9 +6,10 @@ interface BrandMarkProps {
 }
 
 /**
- * The Lechner Studios brand mark — the 2×2 Alpine-pillar tile grid with the
- * gold founder-signature dot, identical to favicon.svg. Used as a parent-brand
- * signature (e.g. in the umbrella-site footer).
+ * The Lechner Studios brand mark — the 2×2 Alpine-pillar tile grid, identical to
+ * favicon.svg. Used as a parent-brand signature (e.g. in the umbrella-site
+ * footer). (Gold founder-dot removed 2026-06-30 per owner — the gold signature
+ * now lives only in the wordmark period.)
  *
  * NOTE: this is the brand mark, NOT the "A Lechner Studios product" endorsement
  * stamp (see EndorsementStamp.tsx). The endorsement stamp belongs on sub-product
@@ -29,7 +30,6 @@ export default function BrandMark({ size = 28, style }: BrandMarkProps) {
       <rect x="52" y="0" width="48" height="48" fill="#8FA8C5" />
       <rect x="0" y="52" width="48" height="48" fill="#254268" />
       <rect x="52" y="52" width="48" height="48" fill="#5E8263" />
-      <circle cx="50" cy="50" r="13" fill="#B8944D" />
     </svg>
   );
 }

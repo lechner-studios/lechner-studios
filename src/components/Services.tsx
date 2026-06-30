@@ -5,9 +5,10 @@ import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
-// Canonical pillar palette per brand spec §3.3
-// (websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md, lines 185-188)
-// Order matches the 2×2 grid: TL=Stone, TR=Sky, BL=Lake, BR=Pine.
+// Pillar palette per brand spec §3.3, grid positions fixed: TL=Stone, TR=Sky,
+// BL=Lake, BR=Pine. Per owner (2026-06-30) the BL/BR *labels* swap so green→
+// Growth and lake→Identity, while the colour tiles stay put — so dict.services
+// .items order is [Web, Apps, Brand & Identity (lake), SEO & Growth (pine)].
 const PILLARS = [
   { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
   { bg: "var(--color-pillar-sky)",   text: "#15171A", muted: "rgba(21,23,26,0.92)" },
@@ -15,9 +16,9 @@ const PILLARS = [
   { bg: "var(--color-pillar-pine-deep)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
 ];
 
-// The first three pillars link to their dedicated service pages.
-// Index matches the 2×2 grid order; the 4th (Brand & Identity) has no page.
-const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", "seo", null];
+// Service-page links by grid index. SEO now rides the green (BR) cell; the lake
+// (BL) cell is Brand & Identity, which has no dedicated page.
+const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", null, "seo"];
 
 export default function Services() {
   const { dict, locale } = useLanguage();

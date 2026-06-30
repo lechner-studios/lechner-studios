@@ -3,6 +3,4 @@
   <rect x="52" y="0"  width="48" height="48" fill="#8FA8C5"/>
   <rect x="0"  y="52" width="48" height="48" fill="#254268"/>
   <rect x="52" y="52" width="48" height="48" fill="#5E8263"/>
-  <!-- Founder signature: the gold dot, centred on the mark. -->
-  <circle cx="50" cy="50" r="13" fill="#B8944D"/>
 </svg>
