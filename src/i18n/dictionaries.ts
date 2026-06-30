@@ -334,6 +334,8 @@ export const dictionaries = {
       },
       detailsLabel: "Anything specific you want us to check?",
       submit: "Request Website-Check",
+      alreadySubmitted: "Your Website-Check request is already with us — no need to send it again. Please bear with us a little; we'll get back to you within two business days.",
+      sendAnother: "Send another request",
     },
     serviceDetail: {
       web: {
@@ -932,6 +934,8 @@ export const dictionaries = {
       },
       detailsLabel: "Etwas Bestimmtes, das wir prüfen sollen?",
       submit: "Website-Check anfragen",
+      alreadySubmitted: "Ihre Website-Check-Anfrage ist schon bei uns — Sie müssen sie nicht erneut senden. Bitte haben Sie einen Moment Geduld; wir melden uns innerhalb von zwei Werktagen bei Ihnen.",
+      sendAnother: "Weitere Anfrage senden",
     },
     serviceDetail: {
       web: {

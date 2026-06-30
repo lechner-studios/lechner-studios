@@ -87,6 +87,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Native <select> dropdown options — explicit colours so the open list is
+   legible in dark mode (it otherwise renders white-on-white until hovered). */
+option { background: var(--bg); color: var(--text); }
+
 /* Smooth theme cross-fade on themed surfaces. */
 section, footer, nav, .theme-surface {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;

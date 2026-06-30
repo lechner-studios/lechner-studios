@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 const DRAFT_KEY = "ls-website-check-draft";
+const SUBMITTED_KEY = "ls-website-check-submitted";
 
 // Targeted intake for the Website-Check offer. Collects the specifics a review
 // needs (URL, concerns, industry, urgency) — not the general name/message form —
@@ -16,7 +17,17 @@ export default function WebsiteCheckIntake() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorKey, setErrorKey] = useState<"validation" | "rate_limit" | "generic" | null>(null);
   const [consentChecked, setConsentChecked] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  // If a request was already sent (persisted), show the "received" message on
+  // revisit instead of an empty form — so re-clicking the CTA gives feedback.
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (localStorage.getItem(SUBMITTED_KEY)) setSubmitted(true);
+    } catch { /* ignore */ }
+  }, []);
 
   // Restore a saved draft on mount (uncontrolled inputs set directly; consent is controlled).
   useEffect(() => {
@@ -103,7 +114,8 @@ export default function WebsiteCheckIntake() {
       });
       if (response.ok) {
         setFormState("success");
-        try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+        try { localStorage.removeItem(DRAFT_KEY); localStorage.setItem(SUBMITTED_KEY, "1"); } catch { /* ignore */ }
+        setSubmitted(true);
       } else if (response.status === 429) {
         setFormState("error"); setErrorKey("rate_limit");
       } else if (response.status === 400) {
@@ -138,11 +150,24 @@ export default function WebsiteCheckIntake() {
   const concernKeys = ["tooSlow", "outdated", "notFound", "notMobile", "general"] as const;
   const urgencyKeys = ["exploring", "weeks", "asap"] as const;
 
-  if (formState === "success") {
+  if (submitted) {
     return (
-      <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--text)", lineHeight: 1.7, maxWidth: "560px" }}>
-        {f.success}
-      </p>
+      <div style={{ maxWidth: "560px" }}>
+        <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--text)", lineHeight: 1.7 }}>
+          {w.alreadySubmitted}
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            try { localStorage.removeItem(SUBMITTED_KEY); } catch { /* ignore */ }
+            setSubmitted(false);
+            setFormState("idle");
+          }}
+          style={{ marginTop: "20px", background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: "var(--font-mono)", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--accent)", textDecoration: "underline" }}
+        >
+          {w.sendAnother} →
+        </button>
+      </div>
     );
   }
 
