@@ -16,8 +16,8 @@ const PILLARS = [
 ];
 
 // Service-page links by grid index. Apps(TL)/Web(TR)/SEO(BR) have pages; the
-// lake (BL) cell is Brand & Identity, which has no dedicated page.
-const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", null, "seo"];
+// lake (BL) cell = Brand & Identity (/marke-identitaet).
+const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", "marke-identitaet", "seo"];
 
 export default function Services() {
   const { dict, locale } = useLanguage();

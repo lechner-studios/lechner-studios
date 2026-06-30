@@ -6,8 +6,8 @@ import type { ServiceDetailEntry } from "../i18n/dictionaries";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
-type ServiceKey = "web" | "apps" | "seo";
-const ORDER: ServiceKey[] = ["web", "apps", "seo"];
+type ServiceKey = "web" | "apps" | "seo" | "brand";
+const ORDER: ServiceKey[] = ["web", "apps", "seo", "brand"];
 
 // Thin line-style check; colour comes from the per-service --svc-accent var.
 function Check() {
