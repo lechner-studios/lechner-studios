@@ -13,8 +13,9 @@ export default function WebsiteCheck() {
   const { dict, locale } = useLanguage();
   const d = dict.websiteCheck;
 
-  const contactHref =
-    `/${locale}/contact?betreff=` + encodeURIComponent("Website-Check");
+  // CTAs scroll to the targeted Website-Check intake form on this same page
+  // (rendered below by the page) instead of the general contact form.
+  const contactHref = "#anfrage";
 
   const wrap: React.CSSProperties = { maxWidth: "1100px", margin: "0 auto" };
   const section: React.CSSProperties = {
