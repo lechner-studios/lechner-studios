@@ -78,10 +78,10 @@ export default function HomeOffers() {
                     background: "var(--card)",
                     textDecoration: "none",
                     transition: "border-color 0.25s, transform 0.25s",
-                    borderColor: isHovered ? "var(--accent)" : "var(--border)",
+                    borderColor: isHovered ? "var(--accent)" : "var(--border-strong)",
                     transform: isHovered ? "translateY(-3px)" : "translateY(0)",
-                    // brand-colour pop (top edge, inset) + soft shadow for depth
-                    boxShadow: `inset 0 3px 0 0 ${meta.accent}, 0 16px 34px -22px rgba(16,18,22,0.32)`,
+                    // brand-colour pop (top edge, inset) + defined edge + 2-layer lift
+                    boxShadow: `inset 0 3px 0 0 ${meta.accent}, 0 1px 3px -1px rgba(16,18,22,0.10), 0 22px 44px -24px rgba(16,18,22,0.44)`,
                   }}
                 >
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-faint)", marginBottom: "16px" }}>

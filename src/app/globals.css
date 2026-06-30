@@ -51,7 +51,7 @@
   /* Light surfaces = a 3-tier elevation scale (distinction). --bg = section
      tone A (lighter), --bg-alt = section tone B (deeper); sections alternate
      A/B, and --card is the brightest tier so cards lift off either band. */
-  --bg:#F2F4F5; --bg-alt:#E7EAEC; --card:#FCFDFD; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
+  --bg:#F4F7F9; --bg-alt:#E9EFF2; --card:#FCFEFF; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
   --border:rgba(21,23,26,0.10); --border-strong:rgba(21,23,26,0.15);
   --accent:#254268; --accent-2:#4A6A4E;
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.62);
@@ -134,10 +134,11 @@ section, footer, nav, .theme-surface {
   position: absolute; inset: 0; box-sizing: border-box;
   display: flex; flex-direction: column; gap: 9px;
   padding: 16px 16px 14px; border-radius: 5px;
-  background: var(--card); border: 1px solid var(--border); text-align: left;
-  /* brand-colour pop (top edge) + soft shadow so the card lifts off the page */
+  background: var(--card); border: 1px solid var(--border-strong); text-align: left;
+  /* brand-colour pop (top edge) + defined edge + 2-layer lift so the card
+     separates even on the lighter section band */
   border-top: 3px solid var(--cf-accent, var(--accent));
-  box-shadow: 0 16px 34px -22px rgba(16,18,22,0.32);
+  box-shadow: 0 1px 3px -1px rgba(16,18,22,0.10), 0 22px 44px -24px rgba(16,18,22,0.44);
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
 }
 .cf-flip .cf-back { transform: rotateY(180deg); }

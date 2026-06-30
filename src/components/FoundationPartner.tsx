@@ -68,10 +68,10 @@ export default function FoundationPartner() {
               width: "100%",
               maxWidth: "320px",
               background: "var(--card)",
-              border: "1px solid var(--border)",
+              border: "1px solid var(--border-strong)",
               borderRadius: "10px",
               padding: "32px 34px",
-              boxShadow: "inset 0 3px 0 0 var(--accent), 0 28px 60px -34px rgba(16,18,22,0.4)",
+              boxShadow: "inset 0 3px 0 0 var(--accent), 0 1px 3px -1px rgba(16,18,22,0.10), 0 28px 56px -32px rgba(16,18,22,0.44)",
             }}
           >
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.56rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)" }}>
