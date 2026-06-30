@@ -61,6 +61,17 @@ export const dictionaries = {
       scroll: "SCROLL",
       proofOverline: "Live concept builds — see for yourself",
       proofCta: "View live",
+      pillars: {
+        eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
+        rest: "Four disciplines, one studio. Hover a pillar to see what each one delivers.",
+        // order matches dict.services.items: Web, Apps, Brand & Identity, SEO
+        proofs: [
+          "Hand-built websites, designed to measure — no templates.",
+          "Full-stack apps & AI automation, in production today.",
+          "Coherent visual systems — marks, palette, voice.",
+          "Technical SEO that compounds over years, not quarters.",
+        ],
+      },
     },
     stance: {
       overline: "OUR STANCE",
@@ -577,6 +588,17 @@ export const dictionaries = {
       scroll: "SCROLLEN",
       proofOverline: "Live-Beispielentwürfe — sehen Sie selbst",
       proofCta: "Live ansehen",
+      pillars: {
+        eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
+        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Säule, um zu sehen, was sie leistet.",
+        // Reihenfolge wie dict.services.items: Web, Apps, Marke & Identität, SEO
+        proofs: [
+          "Handgebaute Websites nach Maß — keine Vorlagen.",
+          "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
+          "Stimmige visuelle Systeme — Marke, Farben, Stimme.",
+          "Technisches SEO, das sich über Jahre auszahlt, nicht über Quartale.",
+        ],
+      },
     },
     stance: {
       overline: "UNSERE HALTUNG",
