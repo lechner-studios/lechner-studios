@@ -1,7 +1,6 @@
 ---
 title: >-
-  Strukturierte Daten für lokale Unternehmen: Was Schema.org-Markup wirklich
-  bewirkt
+  Structured Data for Local Businesses: What Schema.org Markup Actually Does
 description: >-
   Learn how schema.org structured data helps local businesses communicate
   clearly with search engines — and what it actually changes in practice.
