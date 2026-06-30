@@ -5,19 +5,19 @@ import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
 
-// Canonical pillar palette per brand spec §3.3
-// (websites/docs/superpowers/specs/2026-04-27-brand-v4.1-design.md, lines 185-188)
-// Order matches the 2×2 grid: TL=Stone, TR=Sky, BL=Lake, BR=Pine.
+// Grid order (TL, TR, BL, BR), per owner (2026-06-30): sky=Apps · stone=Web /
+// lake=Identity · pine=SEO. Colour→pillar meaning is fixed; only the tile
+// positions are arranged this way (blues stacked left).
 const PILLARS = [
-  { bg: "var(--color-pillar-stone)", text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
-  { bg: "var(--color-pillar-sky)",   text: "#15171A", muted: "rgba(21,23,26,0.92)" },
-  { bg: "var(--color-pillar-lake)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
-  { bg: "var(--color-pillar-pine-deep)",  text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
+  { bg: "var(--color-pillar-sky)",       text: "#15171A", muted: "rgba(21,23,26,0.92)" },
+  { bg: "var(--color-pillar-stone)",     text: "#4A4131", muted: "rgba(74,65,49,0.92)" },
+  { bg: "var(--color-pillar-lake)",      text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
+  { bg: "var(--color-pillar-pine-deep)", text: "#FBFCFC", muted: "rgba(251,252,252,0.92)" },
 ];
 
-// The first three pillars link to their dedicated service pages.
-// Index matches the 2×2 grid order; the 4th (Brand & Identity) has no page.
-const PILLAR_SLUGS: (string | null)[] = ["webdesign", "apps-automation", "seo", null];
+// Service-page links by grid index. Apps(TL)/Web(TR)/SEO(BR) have pages; the
+// lake (BL) cell is Brand & Identity, which has no dedicated page.
+const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", null, "seo"];
 
 export default function Services() {
   const { dict, locale } = useLanguage();
@@ -28,7 +28,7 @@ export default function Services() {
       className="grain lc-pad-section"
       style={{
         position: "relative",
-        background: "var(--bg)",
+        background: "var(--bg-alt)",
         padding: "120px 48px",
         overflow: "hidden",
       }}

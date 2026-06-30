@@ -10,9 +10,9 @@ import Overline from "./Overline";
 // component is exempted in .layer0-allow — the amounts are intentional public
 // marketing figures, matching the offer pages they link to. Ordered to mirror
 // dict.homeOffers.items (check, then direkt).
-const OFFERS: { href: string; title: string; price: { de: string; en: string } }[] = [
-  { href: "/website-check", title: "Website-Check", price: { de: "€290", en: "€290" } },
-  { href: "/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" } },
+const OFFERS: { href: string; title: string; price: { de: string; en: string }; accent: string }[] = [
+  { href: "/website-check", title: "Website-Check", price: { de: "€290", en: "€290" }, accent: "#254268" },
+  { href: "/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" }, accent: "#5E8263" },
 ];
 
 export default function HomeOffers() {
@@ -24,7 +24,7 @@ export default function HomeOffers() {
     <section
       className="lc-pad-section"
       style={{
-        background: "var(--bg)",
+        background: "var(--bg-alt)",
         padding: "120px 48px",
         borderTop: "1px solid var(--border)",
       }}
@@ -73,13 +73,15 @@ export default function HomeOffers() {
                     flexDirection: "column",
                     height: "100%",
                     border: "1px solid var(--border)",
-                    borderRadius: "4px",
+                    borderRadius: "5px",
                     padding: "32px 28px",
-                    background: "var(--bg-alt)",
+                    background: "var(--card)",
                     textDecoration: "none",
                     transition: "border-color 0.25s, transform 0.25s",
-                    borderColor: isHovered ? "var(--accent)" : "var(--border)",
+                    borderColor: isHovered ? "var(--accent)" : "var(--border-strong)",
                     transform: isHovered ? "translateY(-3px)" : "translateY(0)",
+                    // brand-colour pop (top edge, inset) + defined edge + 2-layer lift
+                    boxShadow: `inset 0 3px 0 0 ${meta.accent}, 0 1px 3px -1px rgba(16,18,22,0.10), 0 22px 44px -24px rgba(16,18,22,0.44)`,
                   }}
                 >
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-faint)", marginBottom: "16px" }}>

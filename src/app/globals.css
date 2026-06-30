@@ -48,7 +48,10 @@
  * --contrast-* = the dark editorial bands (hero + footer) that stay dark
  * in BOTH modes. --code-bg = inline/pre background for blog prose. */
 :root {
-  --bg:#F7F8F8; --bg-alt:#FBFCFC; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
+  /* Light surfaces = a 3-tier elevation scale (distinction). --bg = section
+     tone A (lighter), --bg-alt = section tone B (deeper); sections alternate
+     A/B, and --card is the brightest tier so cards lift off either band. */
+  --bg:#F4F7F9; --bg-alt:#E9EFF2; --card:#FCFEFF; --text:#15171A; --text-muted:#5B6168; --text-faint:#6B7178;
   --border:rgba(21,23,26,0.10); --border-strong:rgba(21,23,26,0.15);
   --accent:#254268; --accent-2:#4A6A4E;
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.62);
@@ -56,16 +59,20 @@
   --signature:#B8944D; --code-bg:#EEF1F1; --error:#9B2D3A;
   /* Hero — adapts per mode: Alpine-sky band in light (dark text), dark-grey band in dark (light text). */
   --hero-bg:#8FA8C5; --hero-text:#15171A; --hero-text-muted:rgba(21,23,26,0.72); --hero-text-faint:rgba(21,23,26,0.66); --hero-accent:#1B3252; --hero-accent-text:#F7F8F8; --hero-border:rgba(21,23,26,0.14);
+  /* Source→Surface code panel — a dark "editor" slab that must read as elevated
+     above the hero band in BOTH modes (light: dark on sky; dark: lifted off #101216). */
+  --code-panel-bg:#14161A; --code-panel-border:rgba(247,248,248,0.08);
   color-scheme:light;
 }
 [data-theme="dark"] {
-  --bg:#15171A; --bg-alt:#1B1E22; --text:#F7F8F8; --text-muted:rgba(247,248,248,0.72); --text-faint:rgba(247,248,248,0.50);
+  --bg:#15171A; --bg-alt:#1B1E22; --card:#20242B; --text:#F7F8F8; --text-muted:rgba(247,248,248,0.72); --text-faint:rgba(247,248,248,0.50);
   --border:rgba(247,248,248,0.10); --border-strong:rgba(247,248,248,0.16);
   --accent:#8FA8C5; --accent-2:#8FB89A;
   --contrast-bg:#101216; --on-contrast:#F7F8F8; --on-contrast-muted:rgba(247,248,248,0.72); --on-contrast-faint:rgba(247,248,248,0.55);
   --accent-on-contrast:#8FA8C5; --contrast-border:rgba(247,248,248,0.10);
   --signature:#B8944D; --code-bg:#23272D; --error:#E59AA3;
   --hero-bg:#101216; --hero-text:#F7F8F8; --hero-text-muted:rgba(247,248,248,0.72); --hero-text-faint:rgba(247,248,248,0.55); --hero-accent:#8FA8C5; --hero-accent-text:#101216; --hero-border:rgba(247,248,248,0.10);
+  --code-panel-bg:#20242B; --code-panel-border:rgba(247,248,248,0.12);
   color-scheme:dark;
 }
 
@@ -116,6 +123,26 @@ section, footer, nav, .theme-surface {
 
 .hero-proof-card { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
 .hero-proof-card:hover { transform: translateY(-4px); }
+
+/* CodeFlash sample cards — click / tap / keyboard to flip front↔back, as in the
+   real app. Driven by data-flipped (set on click); the card is a <button>, so
+   Enter/Space flip too. Reduced-motion → instant swap, no 3D spin. */
+.cf-flip { perspective: 1000px; background: none; border: none; padding: 0; margin: 0; width: 100%; font: inherit; color: inherit; cursor: pointer; }
+.cf-flip .cf-inner { position: relative; display: block; width: 100%; min-height: 172px; transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+.cf-flip[data-flipped="true"] .cf-inner { transform: rotateY(180deg); }
+.cf-flip .cf-face {
+  position: absolute; inset: 0; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 9px;
+  padding: 16px 16px 14px; border-radius: 5px;
+  background: var(--card); border: 1px solid var(--border-strong); text-align: left;
+  /* brand-colour pop (top edge) + defined edge + 2-layer lift so the card
+     separates even on the lighter section band */
+  border-top: 3px solid var(--cf-accent, var(--accent));
+  box-shadow: 0 1px 3px -1px rgba(16,18,22,0.10), 0 22px 44px -24px rgba(16,18,22,0.44);
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+}
+.cf-flip .cf-back { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) { .cf-flip .cf-inner { transition: none; } }
 
 /* Brand-tile hero composition — staggered scale/fade reveal per tile + dot. */
 @keyframes lc-tile-in { from { opacity: 0; transform: scale(0.84); } to { opacity: 1; transform: scale(1); } }

@@ -61,11 +61,27 @@ export const dictionaries = {
       scroll: "SCROLL",
       proofOverline: "Live concept builds — see for yourself",
       proofCta: "View live",
+      pillars: {
+        eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
+        rest: "Four disciplines, one studio. Hover a pillar to see what each one delivers.",
+        // order matches dict.services.items: Apps, Web, Brand & Identity, SEO
+        proofs: [
+          "Full-stack apps & AI automation, in production today.",
+          "Hand-built websites, designed to measure — no templates.",
+          "Coherent visual systems — marks, palette, voice.",
+          "Technical SEO that compounds over years, not quarters.",
+        ],
+      },
     },
     stance: {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
       body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      slider: {
+        code: "Code",
+        result: "Result",
+        aria: "Before/after: source code and its rendered result — drag to reveal.",
+      },
     },
     about: {
       overline: "ABOUT THE STUDIO",
@@ -101,6 +117,9 @@ export const dictionaries = {
       statusComingSoon: "Coming Soon",
       visit: "Visit →",
       viewAll: "All work →",
+      sampleCards: "Sample cards",
+      flipFront: "Show answer",
+      flipBack: "Show question",
       items: [
         {
           id: "websites",
@@ -165,22 +184,23 @@ export const dictionaries = {
     services: {
       overline: "WHAT WE DO",
       headline: "Four pillars.\nOne studio.",
+      // Order = the 2×2 grid (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(navy) · SEO(green).
       items: [
-        {
-          title: "Web & Design",
-          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
-        },
         {
           title: "Apps & Automation",
           desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
         },
         {
-          title: "SEO & Growth",
-          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
+          title: "Web & Design",
+          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
         },
         {
           title: "Brand & Identity",
           desc: "An inconsistent look undercuts good work. We build coherent visual systems — names, marks, palettes, voice — and the content that carries them, woven into a build or as a brand project in its own right.",
+        },
+        {
+          title: "SEO & Growth",
+          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
         },
       ],
     },
@@ -422,8 +442,12 @@ export const dictionaries = {
       overline: "CONTACT",
       headline: "Let's talk.",
       body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call — in person or online — and figure out what's possible together. No pitch, no obligation.",
-      startNudge: "Bigger project with more detail? Discuss a project →",
-      ctaLine: "Tell us what you're building — we'll set up a first call within two business days.",
+      startNudge: "Already know exactly what you want? Discuss a project →",
+      ctaLine: "The easiest way to reach us — a message, an email, or WhatsApp. We reply within two business days.",
+      optMessage: "Write a message",
+      optEmail: "Email",
+      optWhatsapp: "WhatsApp",
+      whatsappNumber: "436641534653",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {
@@ -456,6 +480,8 @@ export const dictionaries = {
       overline: "FOUNDATION PARTNERS",
       headline: "Deliberately few clients. Exactly the right moment.",
       body: "We take on only a small number of clients — and that's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. Yes, we're a young studio — and that's precisely the advantage. The craft isn't a promise: it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
+      est: "Founder-stage",
+      place: "Wattens · Tirol · Österreich",
     },
     start: {
       overline: "DISCUSS A PROJECT",
@@ -577,11 +603,27 @@ export const dictionaries = {
       scroll: "SCROLLEN",
       proofOverline: "Live-Beispielentwürfe — sehen Sie selbst",
       proofCta: "Live ansehen",
+      pillars: {
+        eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
+        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Säule, um zu sehen, was sie leistet.",
+        // Reihenfolge wie dict.services.items: Apps, Web, Marke & Identität, SEO
+        proofs: [
+          "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
+          "Handgebaute Websites nach Maß — keine Vorlagen.",
+          "Stimmige visuelle Systeme — Marke, Farben, Stimme.",
+          "Technisches SEO, das sich über Jahre auszahlt, nicht über Quartale.",
+        ],
+      },
     },
     stance: {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
       body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      slider: {
+        code: "Code",
+        result: "Ergebnis",
+        aria: "Vorher/Nachher: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken.",
+      },
     },
     about: {
       overline: "ÜBER DAS STUDIO",
@@ -617,6 +659,9 @@ export const dictionaries = {
       statusComingSoon: "Demnächst",
       visit: "Besuchen →",
       viewAll: "Alle Arbeiten →",
+      sampleCards: "Beispielkarten",
+      flipFront: "Antwort zeigen",
+      flipBack: "Frage zeigen",
       items: [
         {
           id: "websites",
@@ -683,20 +728,20 @@ export const dictionaries = {
       headline: "Vier Säulen.\nEin Studio.",
       items: [
         {
-          title: "Web & Design",
-          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
-        },
-        {
           title: "Apps & Automation",
           desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
         },
         {
-          title: "SEO & Growth",
-          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
+          title: "Web & Design",
+          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
         },
         {
           title: "Marke & Identität",
           desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Wir gestalten stimmige visuelle Systeme — Namen, Marken, Farben, Stimme — und die Inhalte, die sie tragen: in ein Projekt integriert oder als eigenständige Markenarbeit.",
+        },
+        {
+          title: "SEO & Growth",
+          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
         },
       ],
     },
@@ -938,8 +983,12 @@ export const dictionaries = {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
       body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch — vor Ort oder online — und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
-      startNudge: "Größeres Projekt mit mehr Details? Projekt besprechen →",
-      ctaLine: "Erzählen Sie uns, was Sie vorhaben — wir vereinbaren innerhalb von zwei Werktagen ein erstes Gespräch.",
+      startNudge: "Wissen Sie schon genau, was Sie wollen? Projekt besprechen →",
+      ctaLine: "Der einfachste Weg zu uns — eine Nachricht, eine E-Mail oder WhatsApp. Wir antworten innerhalb von zwei Werktagen.",
+      optMessage: "Nachricht schreiben",
+      optEmail: "E-Mail",
+      optWhatsapp: "WhatsApp",
+      whatsappNumber: "436641534653",
       email: "hallo@lechner-studios.at",
       location: "Wattens, Tirol, Österreich",
       form: {
@@ -972,6 +1021,8 @@ export const dictionaries = {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Bewusst wenige Kunden. Genau der richtige Moment.",
       body: "Wir nehmen bewusst nur eine kleine Zahl an Kunden an — das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Ja, wir sind ein junges Studio — und genau das ist der Vorteil. Das Handwerk ist kein Versprechen: Es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      est: "Gründungsphase",
+      place: "Wattens · Tirol · Österreich",
     },
     start: {
       overline: "PROJEKT BESPRECHEN",
