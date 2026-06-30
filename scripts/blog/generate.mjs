@@ -31,14 +31,20 @@ async function main() {
   const date = isoToday();
   console.log(`Generating: [${picked.pillar}] ${picked.slug} — "${picked.keyword}"`);
 
-  const post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey });
-
-  // Lint both locales before writing anything into content/.
-  const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
-  const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
-  const violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
+  // Generate + lint, retrying on lint failure — the model occasionally trips a
+  // scope/structure rule; a fresh generation usually clears it.
+  let post;
+  let violations = [];
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey });
+    const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
+    const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
+    violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
+    if (!violations.length) break;
+    console.error(`Attempt ${attempt}/3 — lint failed:\n` + violations.join("\n"));
+  }
   if (violations.length) {
-    console.error("Lint failed:\n" + violations.join("\n"));
+    console.error("Lint failed after 3 attempts:\n" + violations.join("\n"));
     process.exit(3);
   }
 
