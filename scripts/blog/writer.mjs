@@ -18,20 +18,34 @@ HARD scope/honesty rules (a post breaking these is rejected):
 - NO prices, € amounts, or binding quotes. NO "guarantee"/"Garantie". NO %/metrics/ranking-result claims. NO fabricated testimonials.
 - Brand/identity only ever "as part of a build" — never a standalone offering. SEO framed as TECHNICAL work, never business/marketing consulting (Unternehmensberatung).
 
-Return ONLY a single JSON object, no prose around it, shaped exactly:
-{
-  "en": { "title": "...", "description": "50–160 char meta", "excerpt": "60–100 char teaser", "keywords": ["5 to 7 keywords"], "body": "markdown body (no frontmatter, no H1)" },
-  "de": { "title": "...", "description": "...", "excerpt": "...", "keywords": ["..."], "body": "..." }
-}
-Set date for both to "${date}" is NOT needed (added later). Keep slugs/links exactly as specified.`;
+Return the finished post by calling the \`submit_post\` tool. \`body\` is the markdown body only (no frontmatter, no H1). Keep slugs/links exactly as specified; the date is added later.`;
 }
 
-function extractJson(text) {
-  // Tolerate ```json fences or leading prose.
-  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  const raw = fenced ? fenced[1] : text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1);
-  return JSON.parse(raw);
-}
+// One locale's shape — shared by en + de in the tool schema.
+const LOCALE_SCHEMA = {
+  type: "object",
+  properties: {
+    title: { type: "string" },
+    description: { type: "string", description: "50–160 char meta description" },
+    excerpt: { type: "string", description: "60–100 char teaser" },
+    keywords: { type: "array", items: { type: "string" }, description: "5 to 7 keywords" },
+    body: { type: "string", description: "markdown body (no frontmatter, no H1)" },
+  },
+  required: ["title", "description", "excerpt", "keywords", "body"],
+};
+
+// Tool-use = structured output: the SDK returns `input` as an already-parsed,
+// schema-valid object, so a markdown body with stray quotes/newlines can no
+// longer break a hand-rolled JSON.parse (the old "unterminated string" failures).
+const POST_TOOL = {
+  name: "submit_post",
+  description: "Submit the finished bilingual blog post (English + Austrian German).",
+  input_schema: {
+    type: "object",
+    properties: { en: LOCALE_SCHEMA, de: LOCALE_SCHEMA },
+    required: ["en", "de"],
+  },
+};
 
 function toEntry(part, category, date) {
   return {
@@ -47,24 +61,30 @@ function toEntry(part, category, date) {
   };
 }
 
-// Calls Claude once (one retry on parse failure) and returns { en, de } entries
-// ready for the linter + emitter.
+// Calls Claude (one retry on transient failure) via forced tool-use and returns
+// { en, de } entries ready for the linter + emitter.
 export async function writePost({ pillar, category, keyword, intent, slug, date, pillarPath, apiKey }) {
   const client = new Anthropic({ apiKey });
   const sys = systemPrompt({ pillar, category, keyword, intent, slug, date, pillarPath });
   for (let attempt = 0; attempt < 2; attempt++) {
-    const res = await client.messages.create({
-      model: MODEL,
-      max_tokens: 8192, // two ~800-word bilingual posts + JSON — 4096 risks truncation
-      system: sys,
-      messages: [{ role: "user", content: `Write the post for "${keyword}". Return only the JSON object.` }],
-    });
-    const text = res.content.map((b) => (b.type === "text" ? b.text : "")).join("");
     try {
-      const obj = extractJson(text);
+      const res = await client.messages.create({
+        model: MODEL,
+        max_tokens: 8192, // two ~800-word bilingual posts + JSON — 4096 risks truncation
+        temperature: 0.7,
+        system: sys,
+        tools: [POST_TOOL],
+        tool_choice: { type: "tool", name: "submit_post" },
+        messages: [{ role: "user", content: `Write the post for "${keyword}". Call submit_post with both locales.` }],
+      });
+      const tool = res.content.find((b) => b.type === "tool_use" && b.name === "submit_post");
+      if (!tool || !tool.input?.en || !tool.input?.de) {
+        throw new Error(`no valid submit_post tool_use (stop_reason=${res.stop_reason})`);
+      }
+      const obj = tool.input;
       return { en: toEntry(obj.en, category, date), de: toEntry(obj.de, category, date) };
     } catch (e) {
-      if (attempt === 1) throw new Error(`writer: could not parse JSON after 2 tries: ${e.message}`);
+      if (attempt === 1) throw new Error(`writer: failed after 2 tries: ${e.message}`);
     }
   }
 }

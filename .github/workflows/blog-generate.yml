@@ -3,7 +3,12 @@ on:
   schedule:
     - cron: "23 6 * * 1"   # Mon 06:23 UTC
     - cron: "23 6 * * 4"   # Thu 06:23 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Generate a post but skip the PR (verification only)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -23,8 +28,9 @@ jobs:
         id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/blog/generate.mjs
+        run: node scripts/blog/generate.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Open PR
+        if: ${{ !inputs.dry_run }}
         # The enterprise forbids the default GITHUB_TOKEN from creating PRs, so
         # authenticate as a user via BLOG_BOT_TOKEN (a fine-grained PAT with
         # Contents + Pull requests: write on this repo). Falls back to the default
