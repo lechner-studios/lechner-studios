@@ -121,6 +121,7 @@ export default function Nav() {
   };
 
   return (
+    <>
     <nav className="lc-pad-nav" style={navStyle}>
       <Link href={homeHref} style={logoLinkStyle} aria-label="Lechner Studios">
         <Wordmark variant="inline" size={22} onDark={isDark} />
@@ -182,8 +183,15 @@ export default function Nav() {
           <path d="M3 6h18M3 12h18M3 18h18" />
         </svg>
       </button>
+      </nav>
 
-      {/* Full-screen themed drawer */}
+      {/* Full-screen themed drawer — rendered as a SIBLING of <nav>, not a child.
+          The nav carries `backdrop-filter: blur(...)` in its solid state, which
+          establishes a containing block for position:fixed descendants. Nested
+          inside, the drawer's `inset: 0` resolved against the ~65px-tall nav
+          instead of the viewport, so it only covered the top strip and the page
+          (e.g. the /start form) showed through beneath it. As a sibling it is no
+          longer trapped, so `inset: 0` fills the whole screen. */}
       {menuOpen && (
         <div
           id="lc-mobile-menu"
@@ -283,6 +291,6 @@ export default function Nav() {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 }
