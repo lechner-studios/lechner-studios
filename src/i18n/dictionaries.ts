@@ -1144,7 +1144,7 @@ export const dictionaries = {
     },
     start: {
       overline: "PROJEKT BESPRECHEN",
-      headline: "Bauen wir das Richtige.",
+      headline: "Lassen Sie uns das Richtige bauen.",
       intro:
         "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch — wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",
       nameLabel: "Name",
