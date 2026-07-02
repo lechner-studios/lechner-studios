@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from "react";
 
 // Toggles document.documentElement.dataset.theme between "light"/"dark",
-// persists the choice in localStorage('ls-theme'), and reflects the current
-// mode with a sun/moon icon. The no-flash init script in the locale layout
-// sets the initial dataset.theme before paint; on mount we read it into state.
+// persists the choice in localStorage('ls-theme'), and shows the icon of the
+// mode you'll switch TO (moon in light → go dark, sun in dark → go light) so
+// the glyph agrees with the aria-label. The no-flash init script in the locale
+// layout sets the initial dataset.theme before paint; on mount we read it in.
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -48,15 +49,7 @@ export default function ThemeToggle() {
       }}
     >
       {isDark ? (
-        // Moon — shown in dark mode (click to go light)
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"
-            fill="currentColor"
-          />
-        </svg>
-      ) : (
-        // Sun — shown in light mode (click to go dark)
+        // Sun — shown in dark mode; click to go light
         <svg
           width="16"
           height="16"
@@ -69,6 +62,14 @@ export default function ThemeToggle() {
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+        </svg>
+      ) : (
+        // Moon — shown in light mode; click to go dark
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"
+            fill="currentColor"
+          />
         </svg>
       )}
     </button>
