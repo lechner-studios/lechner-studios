@@ -583,7 +583,7 @@ export const dictionaries = {
       subtitle: "AI twin · Lechner Studios",
       greeting:
         "Hi — I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll bring Sonja in when the stakes need it.",
-      placeholder: "Ask about services, pricing, the Pension website…",
+      placeholder: "Ask about services & pricing…",
       send: "Send",
       close: "Close",
       privacyNote: "AI assistant. Messages aren't stored. Please don't enter sensitive data.",
@@ -1183,7 +1183,7 @@ export const dictionaries = {
       subtitle: "KI-Zwilling · Lechner Studios",
       greeting:
         "Hallo — ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich Sonja dazu.",
-      placeholder: "Fragen Sie zu Leistungen, Preisen, der Pensions-Website…",
+      placeholder: "Fragen Sie zu Leistungen & Preisen…",
       send: "Senden",
       close: "Schließen",
       privacyNote: "KI-Assistent. Nachrichten werden nicht gespeichert. Bitte keine sensiblen Daten eingeben.",
