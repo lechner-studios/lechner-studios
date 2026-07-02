@@ -18,6 +18,7 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,13 +30,14 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/blog/generate.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
-      - name: Open PR
+      - name: Open PR and auto-publish on green
         if: ${{ !inputs.dry_run }}
         # The enterprise forbids the default GITHUB_TOKEN from creating PRs, so
         # authenticate as a user via BLOG_BOT_TOKEN (a fine-grained PAT with
-        # Contents + Pull requests: write on this repo). Falls back to the default
-        # token if the secret is absent — the push still works; only PR creation
-        # needs the PAT, and the Report-failure step will flag it if it's missing.
+        # Contents + Pull requests: write on this repo). The PAT-opened PR is also
+        # what lets the pull_request CI (lint/build/e2e, CodeQL, Vercel) trigger —
+        # a GITHUB_TOKEN-opened PR would suppress those runs. If the secret is
+        # absent the push still works but the PR/merge can't; Report-failure flags it.
         env:
           GH_TOKEN: ${{ secrets.BLOG_BOT_TOKEN || github.token }}
         run: |
@@ -50,9 +52,18 @@ jobs:
           # generate.mjs; skip the repo's husky pre-commit guard (which can false-positive).
           git commit --no-verify -m "blog: ${{ steps.gen.outputs.keyword }} (${{ steps.gen.outputs.pillar }})"
           git push -u origin "$BRANCH"
-          gh pr create --base main --head "$BRANCH" \
+          PR_URL=$(gh pr create --base main --head "$BRANCH" \
             --title "blog: ${{ steps.gen.outputs.keyword }} (${{ steps.gen.outputs.pillar }})" \
-            --body "Auto-generated post. Pillar: ${{ steps.gen.outputs.pillar }} · keyword: \`${{ steps.gen.outputs.keyword }}\` · slug: \`${SLUG}\`. Review both locales (de/en) on the Vercel preview, then merge."
+            --body "Auto-generated post. Pillar: ${{ steps.gen.outputs.pillar }} · keyword: \`${{ steps.gen.outputs.keyword }}\` · slug: \`${SLUG}\`. Auto-publishes once CI is green (the scope/honesty lint + build/e2e are the gate); de/en are on the Vercel preview.")
+          echo "Opened ${PR_URL}"
+          # Auto-publish on green: the site has no branch protection, so gate here
+          # instead. Give the pull_request-triggered checks a moment to register, then
+          # block until they all finish. --fail-fast exits non-zero the instant any
+          # check fails, so a post that trips the lint/build/e2e never merges — it
+          # stays as an open PR and the Report-failure step opens the tracking issue.
+          sleep 45
+          gh pr checks "${PR_URL}" --watch --fail-fast --interval 20
+          gh pr merge "${PR_URL}" --squash --delete-branch
 
       # Surfaces any failure (missing secret, exhausted topics, lint/build error, PR
       # creation) as a GitHub issue so a broken pipeline is never silent again.
