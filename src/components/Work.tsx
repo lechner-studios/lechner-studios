@@ -45,7 +45,7 @@ const CODEFLASH_CARDS = [
   { topic: "Big-O", hue: "#D6CDBE", q: "Binary search complexity?", a: "O(log n) — it halves the search space each step." },
 ];
 
-export default function Work({ limit, moreHref, featured, hideWerkDemos }: { limit?: number; moreHref?: string; featured?: string[]; hideWerkDemos?: boolean }) {
+export default function Work({ limit, moreHref, featured, detailedWerkDemos }: { limit?: number; moreHref?: string; featured?: string[]; detailedWerkDemos?: boolean }) {
   const { dict } = useLanguage();
   const d = dict.work;
   const [hovered, setHovered] = useState<string | null>(null);
@@ -125,9 +125,10 @@ export default function Work({ limit, moreHref, featured, hideWerkDemos }: { lim
             const isClickable = item.url !== "#";
             const isWerk = item.id === "websites";
             const isCodeflash = item.id === "codeflash";
-            // On /work the demos are shown richly by <DemoShowcase>, so suppress
-            // the Werk entry's inline demo thumbnails there (avoids the duplicate).
-            const hasExtra = (isWerk && !hideWerkDemos) || isCodeflash;
+            // Werk always shows its portfolio inline — compact thumbnails on the
+            // homepage, or full detailed cards on /work (detailedWerkDemos). The demos
+            // ARE Werk's proof, so they live under it, not in a separate section.
+            const hasExtra = isWerk || isCodeflash;
 
             const card = (
               <a
@@ -253,27 +254,64 @@ export default function Work({ limit, moreHref, featured, hideWerkDemos }: { lim
                           {isWerk ? dict.demos.overline : d.sampleCards}
                         </p>
                         {isWerk ? (
-                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
-                            {WERK_DEMOS.map((dm) => (
-                              <a
-                                key={dm.slug}
-                                href={`https://demos.lechner-studios.at/${dm.slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hero-proof-card"
-                                style={{ display: "block", textDecoration: "none" }}
-                              >
-                                <div style={{ position: "relative", aspectRatio: "16 / 11", borderRadius: "3px", overflow: "hidden", border: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
-                                  <span style={{ position: "absolute", top: "7px", left: "7px", fontFamily: "var(--font-mono)", fontSize: "0.48rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "2px 7px", borderRadius: "2px" }}>
-                                    {dict.demos.conceptLabel}
+                          detailedWerkDemos ? (
+                            // /work — the demo portfolio merged in as Werk's proof:
+                            // screenshot + concept + name + category + description + link.
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+                              {dict.demos.items.map((dm) => (
+                                <a
+                                  key={dm.slug}
+                                  href={`https://demos.lechner-studios.at/${dm.slug}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="hero-proof-card"
+                                  style={{ display: "flex", flexDirection: "column", height: "100%", border: "1px solid var(--border)", borderRadius: "3px", overflow: "hidden", background: "var(--bg-alt)", textDecoration: "none" }}
+                                >
+                                  <div style={{ position: "relative", aspectRatio: "16 / 10", borderBottom: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
+                                    <span style={{ position: "absolute", top: "8px", left: "8px", fontFamily: "var(--font-mono)", fontSize: "0.5rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "3px 8px", borderRadius: "2px" }}>
+                                      {dict.demos.conceptLabel}
+                                    </span>
+                                  </div>
+                                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "18px 18px 20px" }}>
+                                    <span style={{ fontFamily: "var(--font-display)", fontSize: "1.3rem", fontWeight: 400, letterSpacing: "-0.01em", color: "var(--text)" }}>
+                                      {dm.title}
+                                    </span>
+                                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.56rem", color: "var(--text-muted)", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                                      {dm.category}
+                                    </span>
+                                    <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.65, margin: 0 }}>
+                                      {dm.desc}
+                                    </p>
+                                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.08em", color: "var(--accent)", marginTop: "6px" }}>
+                                      {dict.demos.visit}
+                                    </span>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          ) : (
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
+                              {WERK_DEMOS.map((dm) => (
+                                <a
+                                  key={dm.slug}
+                                  href={`https://demos.lechner-studios.at/${dm.slug}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="hero-proof-card"
+                                  style={{ display: "block", textDecoration: "none" }}
+                                >
+                                  <div style={{ position: "relative", aspectRatio: "16 / 11", borderRadius: "3px", overflow: "hidden", border: "1px solid var(--border)", backgroundImage: `url(/proof/${dm.slug}.webp)`, backgroundSize: "cover", backgroundPosition: "top center" }}>
+                                    <span style={{ position: "absolute", top: "7px", left: "7px", fontFamily: "var(--font-mono)", fontSize: "0.48rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#fff", background: "rgba(21,23,26,0.66)", padding: "2px 7px", borderRadius: "2px" }}>
+                                      {dict.demos.conceptLabel}
+                                    </span>
+                                  </div>
+                                  <span style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "0.95rem", color: "var(--text)", marginTop: "8px" }}>
+                                    {dm.label}
                                   </span>
-                                </div>
-                                <span style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "0.95rem", color: "var(--text)", marginTop: "8px" }}>
-                                  {dm.label}
-                                </span>
-                              </a>
-                            ))}
-                          </div>
+                                </a>
+                              ))}
+                            </div>
+                          )
                         ) : (
                           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "12px" }}>
                             {CODEFLASH_CARDS.map((cf) => {
