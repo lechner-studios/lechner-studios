@@ -1,6 +1,6 @@
 # Seed keyword universe for auto-generated blog posts. Owner-steerable:
 # add entries to keep the generator fed; each becomes one bilingual post.
-# pillar keys map to the service pages: webdesign / apps-automation / seo.
+# pillar keys map to the service pages: webdesign / apps-automation / seo / brand.
 # slug = the canonical URL slug (kebab-case, unique); keyword = primary SEO target.
 webdesign:
   - slug: website-without-page-builder
@@ -170,3 +170,40 @@ seo:
   - slug: seo-yourself-or-agency
     keyword: "SEO selbst machen oder Agentur"
     intent: "what an SMB can do themselves vs where help pays off — the technical foundations either way"
+brand:
+  - slug: what-is-a-brand-identity
+    keyword: "Markenidentität"
+    intent: "what a brand identity really is beyond a logo — name, colours, type and voice as one system — and why even a small business benefits from one (standalone)"
+  - slug: logo-vs-brand
+    keyword: "Logo oder Marke"
+    intent: "a logo is not a brand — what a complete visual identity includes and why the distinction matters"
+  - slug: brand-guidelines-basics
+    keyword: "Corporate Design Richtlinien"
+    intent: "what brand guidelines contain and how they keep a growing business looking consistent everywhere"
+  - slug: rebrand-when-worth-it
+    keyword: "Rebranding wann sinnvoll"
+    intent: "the honest signs it's time to refresh a brand versus leave it alone — no fabricated ROI claims"
+  - slug: brand-colours-and-typography
+    keyword: "Markenfarben und Schrift"
+    intent: "how colour and typography choices quietly shape how a business is perceived — the fundamentals"
+  - slug: consistent-brand-across-touchpoints
+    keyword: "einheitlicher Markenauftritt"
+    intent: "one coherent look across website, print, social and email — why consistency builds trust"
+  - slug: brand-voice-and-tone
+    keyword: "Markenstimme und Tonalität"
+    intent: "defining how a business sounds in words — a practical approach to brand voice for an SMB"
+  - slug: naming-your-business
+    keyword: "Firmennamen finden"
+    intent: "a grounded way to choose a business or product name — memorable, available, honest"
+  - slug: brand-and-website-together
+    keyword: "Marke und Website zusammen"
+    intent: "why brand and website are strongest built together, the identity informing the build from day one (brand as part of a build)"
+  - slug: visual-identity-for-trades
+    keyword: "Markenauftritt Handwerk"
+    intent: "what a credible visual identity looks like for a trades or craft business in Tirol — practical, not corporate"
+  - slug: content-that-fits-your-brand
+    keyword: "Content passend zur Marke"
+    intent: "creating web and social content that reinforces the brand instead of diluting it — consistency of voice and look"
+  - slug: brand-refresh-or-rebuild
+    keyword: "Marke auffrischen oder neu aufbauen"
+    intent: "the difference between a light brand refresh and a full rebuild — how to tell which you need"

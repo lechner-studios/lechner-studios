@@ -25,7 +25,7 @@ REQUIRED — a post missing any of these is rejected:
 
 HARD scope/honesty rules (also rejected if broken):
 - NO prices, € amounts, or binding quotes. NO the words "guarantee"/"Garantie" (or any guarantee claim). NO %/metrics/ranking-result claims. NO fabricated testimonials.
-- Brand/identity only ever "as part of a build" — never a standalone offering. SEO framed as TECHNICAL work, never business/marketing consulting (Unternehmensberatung).
+- Brand & Identity may be presented EITHER standalone (branding, visual identity, content) OR as part of a web/product build — both are in scope, so a brand post can stand on its own. SEO stays TECHNICAL work, never business/marketing consulting (Unternehmensberatung — out of scope).
 
 Return the post by calling the \`submit_post\` tool. \`body\` is the markdown body only (no frontmatter, no H1). The date is added later.`;
 }

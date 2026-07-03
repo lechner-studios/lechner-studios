@@ -28,3 +28,19 @@ test("carries pillar + page path", () => {
   assert.equal(t.slug, "c");
   assert.equal(t.pillar, "apps-automation");
 });
+
+test("targetSlug picks that specific topic in any pillar, ignoring balance", () => {
+  const t = pickTopic({ topics: TOPICS, existingSlugs: new Set(), pillarCounts: { webdesign: 0, "apps-automation": 9, seo: 0 }, targetSlug: "c" });
+  assert.equal(t.slug, "c");
+  assert.equal(t.pillar, "apps-automation");
+});
+
+test("targetSlug returns null when that topic is already published", () => {
+  const t = pickTopic({ topics: TOPICS, existingSlugs: new Set(["c"]), pillarCounts: {}, targetSlug: "c" });
+  assert.equal(t, null);
+});
+
+test("targetSlug returns null when the slug does not exist", () => {
+  const t = pickTopic({ topics: TOPICS, existingSlugs: new Set(), pillarCounts: {}, targetSlug: "nope" });
+  assert.equal(t, null);
+});

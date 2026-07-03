@@ -11,6 +11,10 @@ const ROOT = process.cwd();
 const BLOG_DIR = path.join(ROOT, "content", "blog");
 const TOPICS_PATH = path.join(BLOG_DIR, "topics.yaml");
 const dryRun = process.argv.includes("--dry-run");
+// Optional owner override: generate one specific topic by slug — from the
+// workflow's `topic` input (TARGET_SLUG) or a local `--slug=<slug>` arg.
+const slugArg = process.argv.find((a) => a.startsWith("--slug="));
+const targetSlug = ((slugArg ? slugArg.slice("--slug=".length) : process.env.TARGET_SLUG) || "").trim() || undefined;
 
 function isoToday() {
   // GHA Node has Date; pass via env for sandboxes that block Date.
@@ -23,9 +27,11 @@ async function main() {
 
   const topics = loadTopics(TOPICS_PATH);
   const { slugs, pillarCounts } = readPublished(BLOG_DIR);
-  const picked = pickTopic({ topics, existingSlugs: slugs, pillarCounts });
+  const picked = pickTopic({ topics, existingSlugs: slugs, pillarCounts, targetSlug });
   if (!picked) {
-    console.error("No uncovered topics left — refill content/blog/topics.yaml.");
+    console.error(targetSlug
+      ? `Target topic "${targetSlug}" not found in topics.yaml or already published.`
+      : "No uncovered topics left — refill content/blog/topics.yaml.");
     process.exit(2);
   }
   const date = isoToday();

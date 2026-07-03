@@ -10,7 +10,8 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   if (/\bgarant|\bguarantee/i.test(text)) v.push("guarantee: contains a guarantee claim");
   if (/\d{1,3}\s?%/.test(text)) v.push("metric/percent: contains a % figure (no fabricated metrics)");
   if (/\b(ranking|platz)\s?(?:#?1|eins|one)\b/i.test(text)) v.push("metric: implies a ranking result");
-  if (/\b(stand-?alone|eigenständig)[^.]{0,30}(brand|marke)/i.test(text)) v.push("scope: implies standalone branding (offer brand only as part of a build)");
+  // Standalone branding is IN scope now (the studio runs a registered Werbeagentur),
+  // so brand/identity/content posts no longer need to hedge as "part of a build".
 
   // --- structure / contract ---
   for (const f of ["title", "description", "excerpt", "date", "category"]) {
