@@ -63,7 +63,7 @@ export const dictionaries = {
       proofCta: "View live",
       pillars: {
         eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
-        rest: "Four disciplines, one studio. Hover a pillar to see what each one delivers.",
+        rest: "Four disciplines, one studio. Hover a discipline to see what each one delivers — tap on mobile.",
         // order matches dict.services.items: Apps, Web, Brand & Identity, SEO
         proofs: [
           "Full-stack apps & AI automation, in production today.",
@@ -89,7 +89,7 @@ export const dictionaries = {
       body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH — built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
       stat1n: "5", stat1l: "Products built",
       stat2n: "2026", stat2l: "Founded",
-      stat3n: "4", stat3l: "Pillars",
+      stat3n: "4", stat3l: "Disciplines",
     },
     founder: {
       overline: "FOUNDER",
@@ -183,7 +183,7 @@ export const dictionaries = {
     },
     services: {
       overline: "WHAT WE DO",
-      headline: "Four pillars.\nOne studio.",
+      headline: "Four disciplines.\nOne studio.",
       // Order = the 2×2 grid (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(navy) · SEO(green).
       items: [
         {
@@ -664,7 +664,7 @@ export const dictionaries = {
       proofCta: "Live ansehen",
       pillars: {
         eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
-        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Säule, um zu sehen, was sie leistet.",
+        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Disziplin, um zu sehen, was sie leistet — am Handy antippen.",
         // Reihenfolge wie dict.services.items: Apps, Web, Marke & Identität, SEO
         proofs: [
           "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
@@ -690,7 +690,7 @@ export const dictionaries = {
       body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum — gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
       stat1n: "5", stat1l: "Projekte gebaut",
       stat2n: "2026", stat2l: "Gegründet",
-      stat3n: "4", stat3l: "Säulen",
+      stat3n: "4", stat3l: "Disziplinen",
     },
     founder: {
       overline: "GRÜNDERIN",
@@ -784,7 +784,7 @@ export const dictionaries = {
     },
     services: {
       overline: "LEISTUNGEN",
-      headline: "Vier Säulen.\nEin Studio.",
+      headline: "Vier Disziplinen.\nEin Studio.",
       items: [
         {
           title: "Apps & Automation",
