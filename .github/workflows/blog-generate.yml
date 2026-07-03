@@ -9,6 +9,10 @@ on:
         description: "Generate a post but skip the PR (verification only)"
         type: boolean
         default: false
+      topic:
+        description: "Slug of a specific topic to generate (optional; default = next by pillar balance)"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -29,6 +33,7 @@ jobs:
         id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET_SLUG: ${{ inputs.topic }}
         run: node scripts/blog/generate.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Open PR and auto-publish on green
         if: ${{ !inputs.dry_run }}

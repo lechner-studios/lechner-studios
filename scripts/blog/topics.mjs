@@ -3,12 +3,13 @@ import path from "node:path";
 import yaml from "js-yaml";
 import matter from "gray-matter";
 
-const PILLARS = ["webdesign", "apps-automation", "seo"];
+const PILLARS = ["webdesign", "apps-automation", "seo", "brand"];
 // pillar key → service-page path segment (same here) and the dict category label.
 export const PILLAR_CATEGORY = {
   webdesign: "Web & Design",
   "apps-automation": "Apps & Automation",
   seo: "SEO & Growth",
+  brand: "Brand & Identity",
 };
 
 export function loadTopics(yamlPath) {
@@ -25,7 +26,7 @@ export function readPublished(blogDir) {
   let files = [];
   try { files = fs.readdirSync(blogDir); } catch { files = []; }
   const slugs = new Set();
-  const pillarCounts = { webdesign: 0, "apps-automation": 0, seo: 0 };
+  const pillarCounts = { webdesign: 0, "apps-automation": 0, seo: 0, brand: 0 };
   for (const f of files) {
     if (!f.endsWith(".en.md")) continue; // count each post once (via its en file)
     const slug = f.slice(0, -".en.md".length);
@@ -42,7 +43,16 @@ export function readPublished(blogDir) {
 
 // Choose the pillar with the fewest published posts that still has an uncovered
 // topic; within it, the first uncovered topic. Deterministic, no state file.
-export function pickTopic({ topics, existingSlugs, pillarCounts }) {
+export function pickTopic({ topics, existingSlugs, pillarCounts, targetSlug }) {
+  // Owner override: generate one specific topic by slug (any pillar), as long as
+  // it exists and isn't already published — lets us steer pillar balance on demand.
+  if (targetSlug) {
+    for (const pillar of PILLARS) {
+      const topic = (topics[pillar] || []).find((t) => t.slug === targetSlug);
+      if (topic) return existingSlugs.has(topic.slug) ? null : { pillar, category: PILLAR_CATEGORY[pillar], ...topic };
+    }
+    return null;
+  }
   const candidates = PILLARS
     .map((pillar) => {
       const next = (topics[pillar] || []).find((t) => !existingSlugs.has(t.slug));
