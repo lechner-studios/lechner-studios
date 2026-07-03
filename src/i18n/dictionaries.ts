@@ -63,7 +63,7 @@ export const dictionaries = {
       proofCta: "View live",
       pillars: {
         eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
-        rest: "Four disciplines, one studio. Hover a pillar to see what each one delivers.",
+        rest: "Four disciplines, one studio. Hover a discipline to see what each one delivers — tap on mobile.",
         // order matches dict.services.items: Apps, Web, Brand & Identity, SEO
         proofs: [
           "Full-stack apps & AI automation, in production today.",
@@ -664,7 +664,7 @@ export const dictionaries = {
       proofCta: "Live ansehen",
       pillars: {
         eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
-        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Säule, um zu sehen, was sie leistet.",
+        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Disziplin, um zu sehen, was sie leistet — am Handy antippen.",
         // Reihenfolge wie dict.services.items: Apps, Web, Marke & Identität, SEO
         proofs: [
           "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
