@@ -227,7 +227,7 @@ export const dictionaries = {
       },
       offer: {
         heading: "Three packages — you choose.",
-        intro: "From a fast start to the full direct-booking machine. All prices net (small-business scheme, no VAT).",
+        intro: "From a fast start to the full direct-booking machine. All prices are final — small-business scheme under § 6 (1) 27 UStG, no VAT.",
         note: "Hosting, business email and maintenance are included in the care plan. Domain first year included.",
         ctaLabel: "Request an offer",
         tiers: [
@@ -290,7 +290,7 @@ export const dictionaries = {
       },
       offer: {
         heading: "One fixed price.",
-        priceNote: "net (small-business scheme, no VAT)",
+        priceNote: "final price — small-business scheme, no VAT",
         creditNote: "Booking a Werk or Direktbucher project within 30 days? The full fee is credited toward it — so the check costs you nothing if we build together.",
         turnaround: "Report within 5 business days · 30-minute walkthrough call included",
         ctaLabel: "Book a Website-Check",
@@ -827,7 +827,7 @@ export const dictionaries = {
       },
       offer: {
         heading: "Drei Pakete — Sie wählen.",
-        intro: "Vom schnellen Einstieg bis zur kompletten Direktbuchungs-Maschine. Alle Preise netto (Kleinunternehmer, keine USt).",
+        intro: "Vom schnellen Einstieg bis zur kompletten Direktbuchungs-Maschine. Alle Preise sind Endpreise — Kleinunternehmerin gem. § 6 Abs. 1 Z 27 UStG, keine USt.",
         note: "Hosting, Geschäfts-E-Mail und Wartung sind im Wartungspaket enthalten. Domain 1. Jahr inklusive.",
         ctaLabel: "Angebot anfordern",
         tiers: [
@@ -890,7 +890,7 @@ export const dictionaries = {
       },
       offer: {
         heading: "Ein Festpreis.",
-        priceNote: "netto (Kleinunternehmer, keine USt)",
+        priceNote: "Endpreis — Kleinunternehmerin gem. § 6 Abs. 1 Z 27 UStG, keine USt",
         creditNote: "Buchen Sie innerhalb von 30 Tagen ein Werk- oder Direktbucher-Projekt? Der volle Betrag wird darauf angerechnet — der Check kostet Sie dann nichts, wenn wir gemeinsam bauen.",
         turnaround: "Bericht innerhalb von 5 Werktagen · 30-minütiges Gespräch inklusive",
         ctaLabel: "Website-Check buchen",
