@@ -18,6 +18,8 @@ const PILLARS = [
 // Service-page links by grid index. Apps(TL)/Web(TR)/SEO(BR) have pages; the
 // lake (BL) cell = Brand & Identity (/brand).
 const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", "brand", "seo"];
+// Web & Design lives on the dedicated werk storefront — its pillar links out.
+const WERK_URL = "https://werk.lechner-studios.at";
 
 export default function Services() {
   const { dict, locale } = useLanguage();
@@ -135,7 +137,7 @@ export default function Services() {
               return (
                 <Link
                   key={i}
-                  href={`/${locale}/${slug}`}
+                  href={slug === "webdesign" ? WERK_URL : `/${locale}/${slug}`}
                   className="grain"
                   style={cellStyle}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.86")}
