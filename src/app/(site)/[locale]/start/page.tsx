@@ -44,25 +44,26 @@ export default async function StartPage({
           className="lc-pad-section"
           style={{
             background: "var(--bg)",
-            padding: "120px 48px",
+            padding: "104px 48px 120px",
             borderTop: "1px solid var(--border)",
           }}
         >
           <div style={{ maxWidth: "680px", margin: "0 auto" }}>
-            {/* Editorial header */}
-            <div style={{ marginBottom: "64px", maxWidth: "640px" }}>
-              <Overline marginBottom="2rem">
+            {/* Editorial header — kept ceremonial but tightened so more of the
+                form sits above the fold (audit: only Name/E-Mail were visible). */}
+            <div style={{ marginBottom: "40px", maxWidth: "640px" }}>
+              <Overline marginBottom="1.5rem">
                 {s.overline}
               </Overline>
               <h1
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(3rem, 6vw, 5.5rem)",
+                  fontSize: "clamp(2.4rem, 4.6vw, 3.9rem)",
                   fontWeight: 300,
-                  lineHeight: 0.95,
+                  lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                   color: "var(--text)",
-                  marginBottom: "32px",
+                  marginBottom: "22px",
                   fontStyle: "italic",
                 }}
               >
