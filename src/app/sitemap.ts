@@ -3,7 +3,10 @@ import { getAllSlugs } from "../lib/blog";
 
 const BASE = "https://lechner-studios.at";
 
-const routes = ["", "/work", "/about", "/blog", "/contact", "/start", "/webdesign", "/apps-automation", "/seo", "/brand", "/website-check", "/pension-website-tirol", "/impressum", "/privacy"] as const;
+// Web & Design pages (/webdesign, /website-check, /pension-website-tirol) were
+// consolidated into the werk storefront and now 301-redirect there (see
+// next.config.ts) — intentionally omitted from this sitemap.
+const routes = ["", "/work", "/about", "/blog", "/contact", "/start", "/apps-automation", "/seo", "/brand", "/impressum", "/privacy"] as const;
 
 function priorityFor(route: string): number {
   if (route === "") return 1.0;

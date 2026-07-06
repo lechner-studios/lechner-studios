@@ -10,9 +10,10 @@ import Overline from "./Overline";
 // component is exempted in .layer0-allow — the amounts are intentional public
 // marketing figures, matching the offer pages they link to. Ordered to mirror
 // dict.homeOffers.items (check, then direkt).
+// Web & Design offers now live on the werk storefront — link out directly.
 const OFFERS: { href: string; title: string; price: { de: string; en: string }; accent: string }[] = [
-  { href: "/website-check", title: "Website-Check", price: { de: "€290", en: "€290" }, accent: "#254268" },
-  { href: "/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" }, accent: "#5E8263" },
+  { href: "https://werk.lechner-studios.at/website-check", title: "Website-Check", price: { de: "€290", en: "€290" }, accent: "#254268" },
+  { href: "https://werk.lechner-studios.at/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" }, accent: "#5E8263" },
 ];
 
 export default function HomeOffers() {
@@ -65,7 +66,7 @@ export default function HomeOffers() {
             return (
               <Reveal key={meta.title} delay={i * 80}>
                 <Link
-                  href={`/${locale}${meta.href}`}
+                  href={meta.href.startsWith("http") ? meta.href : `/${locale}${meta.href}`}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
                   style={{

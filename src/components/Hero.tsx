@@ -7,6 +7,8 @@ import { useLanguage } from "../context/LanguageContext";
 // (TL, TR, BL, BR): Apps(sky) · Web(stone) / Identity(lake) · SEO(pine).
 const PILLAR_HUES = ["#8FA8C5", "#D6CDBE", "#254268", "#5E8263"]; // sky, stone, lake, pine
 const PILLAR_SLUGS: (string | null)[] = ["apps-automation", "webdesign", "brand", "seo"];
+// Web & Design lives on the dedicated werk storefront — its pillar links out.
+const WERK_URL = "https://werk.lechner-studios.at";
 
 export default function Hero() {
   const { dict, locale } = useLanguage();
@@ -157,7 +159,7 @@ export default function Hero() {
                 onFocus: () => setActive(i),
               };
               return p.slug ? (
-                <Link key={i} role="listitem" href={`/${locale}/${p.slug}`} style={style} {...handlers}>
+                <Link key={i} role="listitem" href={p.slug === "webdesign" ? WERK_URL : `/${locale}/${p.slug}`} style={style} {...handlers}>
                   {inner}
                 </Link>
               ) : (
