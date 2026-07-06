@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { alternateLocale, LOCALES, HREFLANG } from "../i18n/config";
 import Wordmark from "./Wordmark";
+import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
@@ -93,6 +94,7 @@ export default function Nav() {
     textDecoration: "none",
     display: "inline-flex",
     alignItems: "center",
+    gap: "10px",
     transition: "opacity 0.4s",
   };
 
@@ -124,6 +126,7 @@ export default function Nav() {
     <>
     <nav className="lc-pad-nav" style={navStyle}>
       <Link href={homeHref} style={logoLinkStyle} aria-label="Lechner Studios">
+        <BrandMark size={22} />
         <Wordmark variant="inline" size={22} onDark={isDark} />
       </Link>
       <div className="lc-nav-desktop" style={{ alignItems: "center", gap: "32px" }}>
