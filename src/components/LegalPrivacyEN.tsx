@@ -3,7 +3,7 @@
 // EN-only Privacy notice. Rendered at /en/privacy.
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
 // only) and an AI chat assistant (Claude API via Anthropic, rate-limiting
-// via Upstash/Vercel KV). No analytics, no cookies.
+// via Upstash/Vercel KV). Cookieless analytics (Vercel Web Analytics); no cookies.
 // Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV — plus Sentry
 // (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN is set; the Sentry
 // disclosure below renders on that same env gate.
@@ -35,7 +35,7 @@ export default function LegalPrivacyEN() {
         <p style={overlineStyle}>Privacy</p>
         <h1 style={headlineStyle}>Privacy</h1>
         <p style={subStyle}>
-          This site has a contact form (forwarded by a Vercel Function to our email provider Zoho, stored only as an email) and an AI chat assistant (Anthropic Claude API; messages are not stored by us or by Anthropic). No tracking, no analytics, no cookies.
+          This site has a contact form (forwarded by a Vercel Function to our email provider Zoho, stored only as an email) and an AI chat assistant (Anthropic Claude API; messages are not stored by us or by Anthropic). No cookies and no personal tracking — for reach measurement we use only a cookieless, anonymous statistic (Vercel Web Analytics).
         </p>
 
         <section>
@@ -67,9 +67,10 @@ export default function LegalPrivacyEN() {
             <li>user agent (browser, operating system)</li>
           </ul>
           <p style={bodyStyle}>
-            This site sets <strong>no cookies</strong>, performs{" "}
-            <strong>no tracking</strong> and uses{" "}
-            <strong>no analytics services</strong>.
+            This site sets <strong>no cookies</strong> and performs{" "}
+            <strong>no personal tracking</strong>. For reach measurement we use
+            only a <strong>cookieless, anonymous statistic</strong> (Vercel Web
+            Analytics — see point&nbsp;5).
           </p>
 
           <h3 style={h3Style}>3. Contact requests</h3>
@@ -117,6 +118,19 @@ export default function LegalPrivacyEN() {
             in place with Vercel.
           </p>
           <p style={mutedStyle}>
+            To tailor and improve the site, we collect anonymous, aggregated
+            usage statistics with <strong>Vercel Web Analytics</strong>. The
+            measurement is <strong>cookieless</strong>: no cookies, no
+            cross-device recognition, no persistent user profile. Only
+            aggregated metrics are collected (pages viewed, referring page,
+            approximate region at country level, device/browser type);
+            individuals are not identifiable. Legal basis: Art. 6(1)(f) GDPR
+            (legitimate interest). As no information is stored on or read from
+            your device, no consent is required; you may object under Art. 21
+            GDPR. Processing is carried out by our hosting provider Vercel named
+            above.
+          </p>
+          <p style={mutedStyle}>
             In addition, <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Netherlands) is used as an email provider (Zoho Mail); EU data center, DPA in place (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>).
           </p>
           <p style={mutedStyle}>
@@ -134,9 +148,9 @@ export default function LegalPrivacyEN() {
             </p>
           )}
           <p style={mutedStyle}>
-            No further processors are used on this site — in particular, no
-            third-party analytics, tracking, advertising or embedded
-            services.
+            No further processors are used on this site — in particular no
+            third-party advertising, tracking, profiling or embedded services
+            and no cookie-based analytics.
           </p>
 
           <h3 style={h3Style}>6. AI chat assistant</h3>
@@ -264,7 +278,7 @@ export default function LegalPrivacyEN() {
 
           <h3 style={h3Style}>11. Last updated</h3>
           <p style={bodyStyle}>
-            June 2026.
+            July 2026.
           </p>
         </section>
 
