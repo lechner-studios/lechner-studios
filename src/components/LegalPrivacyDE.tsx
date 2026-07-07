@@ -3,7 +3,7 @@
 // DE-only Datenschutzerklärung. Rendered at /de/privacy.
 // This site has a contact form (Vercel Function → Zoho EU SMTP, email
 // only) and a KI-Chat-Assistent (Claude API via Anthropic, rate-limiting
-// via Upstash/Vercel KV). No analytics, no cookies.
+// via Upstash/Vercel KV). Cookieless analytics (Vercel Web Analytics); no cookies.
 // Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV — plus Sentry
 // (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN is set; the Sentry
 // disclosure below renders on that same env gate.
@@ -35,7 +35,7 @@ export default function LegalPrivacyDE() {
         <p style={overlineStyle}>Datenschutz</p>
         <h1 style={headlineStyle}>Datenschutz</h1>
         <p style={subStyle}>
-          Diese Website hat ein Kontaktformular (über eine Vercel-Funktion an unseren E-Mail-Provider Zoho weitergeleitet, ausschließlich als E-Mail gespeichert) und einen KI-Chat-Assistenten (Anthropic Claude API; Nachrichten werden weder von uns noch von Anthropic gespeichert). Kein Tracking, keine Analytics, keine Cookies.
+          Diese Website hat ein Kontaktformular (über eine Vercel-Funktion an unseren E-Mail-Provider Zoho weitergeleitet, ausschließlich als E-Mail gespeichert) und einen KI-Chat-Assistenten (Anthropic Claude API; Nachrichten werden weder von uns noch von Anthropic gespeichert). Keine Cookies, kein personenbezogenes Tracking — zur Reichweitenmessung nutzen wir ausschließlich eine cookiefreie, anonyme Statistik (Vercel Web Analytics).
         </p>
 
         <section>
@@ -67,9 +67,11 @@ export default function LegalPrivacyDE() {
             <li>User-Agent (Browser, Betriebssystem)</li>
           </ul>
           <p style={bodyStyle}>
-            Diese Website setzt <strong>keine Cookies</strong>, betreibt
-            <strong> kein Tracking</strong> und nutzt{" "}
-            <strong>keine Analytics-Dienste</strong>.
+            Diese Website setzt <strong>keine Cookies</strong> und betreibt{" "}
+            <strong>kein personenbezogenes Tracking</strong>. Zur
+            Reichweitenmessung nutzen wir ausschließlich eine{" "}
+            <strong>cookiefreie, anonyme Statistik</strong> (Vercel Web
+            Analytics — siehe Punkt&nbsp;5).
           </p>
 
           <h3 style={h3Style}>3. Kontaktaufnahme</h3>
@@ -120,6 +122,21 @@ export default function LegalPrivacyDE() {
             Auftragsverarbeitungsvertrag mit Vercel.
           </p>
           <p style={mutedStyle}>
+            Zur bedarfsgerechten Gestaltung und Verbesserung der Website erfassen
+            wir mit <strong>Vercel Web Analytics</strong> anonyme, aggregierte
+            Nutzungsstatistiken. Die Messung erfolgt <strong>cookiefrei</strong>:
+            keine Cookies, keine geräteübergreifende Wiedererkennung, kein
+            dauerhaftes Nutzerprofil. Erhoben werden ausschließlich aggregierte
+            Kennzahlen (aufgerufene Seiten, verweisende Seite, ungefähre Region
+            auf Länderebene, Geräte-/Browsertyp); einzelne Personen sind nicht
+            identifizierbar. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO
+            (berechtigtes Interesse). Da keine Informationen auf Ihrem Endgerät
+            gespeichert oder ausgelesen werden, ist keine Einwilligung
+            erforderlich; ein Widerspruch nach Art. 21 DSGVO ist möglich. Die
+            Verarbeitung erfolgt durch den bereits genannten
+            Hosting-Dienstleister Vercel.
+          </p>
+          <p style={mutedStyle}>
             Darüber hinaus wird <strong>Zoho Corporation B.V.</strong> (Hoogoorddreef 15, 1101 BA Amsterdam, Niederlande) als E-Mail-Provider (Zoho Mail) eingesetzt; EU-Rechenzentrum, AVV vorhanden (<a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>).
           </p>
           <p style={mutedStyle}>
@@ -137,9 +154,9 @@ export default function LegalPrivacyDE() {
             </p>
           )}
           <p style={mutedStyle}>
-            Weitere Auftragsverarbeiter werden auf dieser Website nicht
-            eingesetzt — insbesondere keine Analytics-, Tracking-, Werbe-
-            oder Embed-Dienste Dritter.
+            Darüber hinaus werden keine weiteren Auftragsverarbeiter eingesetzt —
+            insbesondere keine werblichen Tracking-, Profiling- oder
+            Embed-Dienste Dritter und keine cookiebasierte Analyse.
           </p>
 
           <h3 style={h3Style}>6. KI-Chat-Assistent</h3>
@@ -274,7 +291,7 @@ export default function LegalPrivacyDE() {
 
           <h3 style={h3Style}>11. Aktualität</h3>
           <p style={bodyStyle}>
-            Stand: Juni 2026.
+            Stand: Juli 2026.
           </p>
         </section>
 

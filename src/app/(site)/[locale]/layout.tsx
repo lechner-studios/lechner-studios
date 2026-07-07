@@ -7,6 +7,7 @@ import { LOCALES, isLocale, HREFLANG, alternateLocale, type Locale } from "../..
 import { LanguageProvider } from "../../../context/LanguageContext";
 import StudioDirectorChat from "../../../components/StudioDirectorChat";
 import SentryInit from "../../../components/SentryInit";
+import { Analytics } from "@vercel/analytics/next";
 
 // Brand v4.2 typography — display unchanged from v4.1.
 // Body sans: General Sans (replaces Manrope). Mono: IBM Plex Mono (replaces JetBrains Mono).
@@ -212,6 +213,8 @@ export default async function LocaleRootLayout({
         <LanguageProvider locale={locale}>
           <StudioDirectorChat />
         </LanguageProvider>
+        {/* Cookieless, first-party reach measurement (disclosed in /[locale]/privacy). */}
+        <Analytics />
       </body>
     </html>
   );
