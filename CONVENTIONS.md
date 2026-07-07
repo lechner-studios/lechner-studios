@@ -22,9 +22,9 @@ CSS custom properties in `src/app/globals.css`. Never hardcode hex when a token 
 
 | Use | Token | Hex |
 |---|---|---|
-| Ink (body text) | `--color-ink` | `#1A1812` |
-| Paper (cream surface) | `--color-paper` | `#F6F1EB` |
-| Warm white (light surface alt) | `--color-warm-white` | `#FDFBF8` |
+| Ink (body text) | `--color-ink` | `#15171A` |
+| Paper (cool near-white surface) | `--color-paper` | `#F7F8F8` |
+| Warm white (light surface alt) | `--color-warm-white` | `#FBFCFC` |
 | Gold (on light) | `--color-gold` | `#B8944D` |
 | Gold (on dark) | `--color-gold-on-dark` | `#C9A961` |
 | Pillar Stone | `--color-pillar-stone` | `#D6CDBE` |
@@ -34,20 +34,21 @@ CSS custom properties in `src/app/globals.css`. Never hardcode hex when a token 
 
 ## Typography
 
-Self-hosted + Google fonts in `src/app/layout.tsx`:
+All self-hosted via `next/font/local` in `src/app/(site)/[locale]/layout.tsx` (no runtime Google fetch). Fallback stacks + token definitions live in `src/app/globals.css` (brand v4.2 / ADR-0027).
 
 | CSS variable | Font | Use |
 |---|---|---|
-| `--font-display` | Cormorant (300–600, italic) | Display text, body serifs |
+| `--font-display` | Cormorant (variable, weight 300–700, upright + italic) | Display headings (body serif retired) |
 | `--font-display-bold` | Cormorant 700 (self-hosted) | Brand wordmark, hero h1 |
 | `--font-display-italiana` | Italiana 400 (self-hosted) | Sub-lines, decorative |
-| `--font-sans` | Manrope (300–700) | Body, UI |
-| `--font-mono` | JetBrains Mono (400–600) | Overlines, labels, captions |
+| `--font-sans` | General Sans (self-hosted, 400/500/600) | Body, UI |
+| `--font-mono` | IBM Plex Mono (self-hosted, 400/500) | Overlines, labels, captions |
 
 ## i18n
 
-- Bilingual EN + DE via `src/context/LanguageContext.tsx` and `src/i18n/dictionaries.ts`.
-- Toggle is currently client-state — same URL serves both languages. **Bilingual URL routes (`/en` + `/de`) and proper `hreflang` is a pending follow-up** (see brand-portfolio-amendments §0 follow-ups).
+- Bilingual DE + EN, **locale-routed** under `src/app/(site)/[locale]/` (`de` default). Routing config — `LOCALES`, `DEFAULT_LOCALE`, `HREFLANG` — lives in `src/i18n/config.ts`; copy in `src/i18n/dictionaries.ts`.
+- URLs are locale-prefixed (`/de/…`, `/en/…`). `src/middleware.ts` redirects `/` → `/de` and legacy bare `/impressum` + `/privacy` → their `/de/…` equivalent (308). The active locale comes from the URL segment and is passed server-side to `LanguageProvider` (`src/context/LanguageContext.tsx`); the `Nav` language toggle is a `<Link>` to the alternate-locale URL (preserving path + hash).
+- `hreflang` alternates are emitted from `generateMetadata` (`de` → `de-AT`, `en` → `en`, `x-default` → `/de`); `<html lang>` is set per route.
 - Add new copy to BOTH locales in the same edit. Never ship asymmetric dictionary state.
 - Title localization in EN copy: `Geschäftsführer` → `Managing Director`, `Gründerin` → `Founder`. **Exception: legal pages** (Impressum, Datenschutz) preserve the German title because it's the registered designation.
 
@@ -69,14 +70,14 @@ When adding a new responsive layout, mirror the pattern. Don't introduce a compe
 - **`onMouseEnter` / `onMouseLeave` color changes** are an a11y anti-pattern (don't fire on keyboard focus or touch). Prefer CSS `:hover, :focus-visible` via classes when adding new interactivity. Existing inline-handler instances are tracked as a follow-up.
 - **`next/image`** for portrait/asset images. Set explicit `width` + `height` for layout reservation; use `sizes` for responsive optimization; reserve `priority` for genuinely above-the-fold images.
 - **Brand assets** in `public/`:
-  - Founder portraits: `public/founder/sonja-lechner.jpg`, `public/founder/jason-lechner.jpg`
+  - Founder portrait: `public/founder/sonja-lechner.jpg` (used by `src/components/Founder.tsx`)
   - Favicon set: `public/favicon-*.png`, `public/favicon.svg`, `public/apple-touch-icon.png`
-  - Fonts: `public/fonts/cormorant-700.woff2`, `public/fonts/italiana-400.woff2`
+  - Fonts (`public/fonts/`, `.woff2`): `cormorant-variable`, `cormorant-italic-variable`, `cormorant-700`, `italiana-400`, `general-sans-400/500/600`, `ibm-plex-mono-400/500`
   - OG image: `public/og-image.png`
 
 ## Legal pages
 
-The Impressum (`src/app/impressum/page.tsx`) and Datenschutz (`src/app/privacy/page.tsx`) operate by **stricter rules** than marketing surfaces. See `feedback_legal_pages_canonical` memory and brand-portfolio-amendments §5.
+The Impressum (`src/app/(site)/[locale]/impressum/page.tsx`) and Datenschutz (`src/app/(site)/[locale]/privacy/page.tsx`) operate by **stricter rules** than marketing surfaces. See `feedback_legal_pages_canonical` memory and brand-portfolio-amendments §5.
 
 Key rules:
 
@@ -94,14 +95,20 @@ Key rules:
 - **PRs**: keep scope tight. Bundle hygiene fixes into the PR they enable; otherwise split.
 - **Commit messages**: conventional-commit-ish (`feat(scope):`, `fix(scope):`, `copy(scope):`, `chore(scope):`, `docs(scope):`).
 
-## Pending follow-ups (from 2026-04-28 deep-dive audit)
+## Follow-ups (tracked from the 2026-04-28 deep-dive audit)
 
-Open items not yet implemented — see `project_brand_canon_session_additions` memory and brand-portfolio-amendments §0 for context:
+Context: `project_brand_canon_session_additions` memory and brand-portfolio-amendments §0.
 
-- **Bilingual URL routes** (`/en`, `/de`) + `hreflang` annotations — unblocks DE SEO
-- **JSON-LD structured data** — Organization + LocalBusiness + Person × 2
-- **Homepage metadata refresh** — `layout.tsx` description still pre-Tier-1 framing
-- **A11y bundle** — `:focus-visible`, `prefers-reduced-motion`, lang-sync on language toggle, skip-link, contrast bumps on small overlines
-- **Per-pillar service pages** — `/services/{slug}` deep treatments
-- **Process / "How we work" section** — engagement-model signal absent from homepage
-- **Social proof** — testimonials / client logos / press mentions
+Shipped since the audit (kept here so this doc reflects reality):
+
+- **Bilingual URL routes + `hreflang`** — locale-routed `(site)/[locale]`, `hreflang` alternates + per-route `<html lang>` (see i18n above).
+- **JSON-LD structured data** — Organization + LocalBusiness + Person (Sonja) in `src/app/(site)/[locale]/layout.tsx`. A second Person entry (Jason) is not yet added — the original target was Person × 2.
+- **Homepage metadata refresh** — per-locale `generateMetadata` (title / description from `dictionaries.ts`, canonical, Open Graph, Twitter) on the four-pillar framing.
+- **A11y bundle** — `:focus-visible` + `prefers-reduced-motion` (`globals.css`), a `.skip-link` (`href="#main"`) on every page, and per-route `<html lang>`.
+- **Per-pillar pages** — dedicated pillar pages ship at top-level slugs, not `/services/{slug}`: `/apps-automation`, `/seo`, `/brand` (Web & Design 301s to `werk.lechner-studios.at`).
+
+Still open:
+
+- **Process / "How we work" section** — built (`src/components/HowWeWork.tsx`, wired into `/about`) but staged OFF behind `NEXT_PUBLIC_SHOW_HOW_WE_WORK`; flip on when the AI-twin doctrine is implemented.
+- **Social proof** — testimonials / client logos / press mentions.
+- **`onMouseEnter` / `onMouseLeave` cleanup** — migrate remaining inline hover-only handlers to CSS `:hover, :focus-visible` (see Component patterns above).
