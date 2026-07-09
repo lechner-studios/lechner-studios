@@ -53,6 +53,12 @@ jobs:
           git config user.name "lechner-studios-bot"
           git config user.email "bot@users.noreply.github.com"
           git checkout -b "$BRANCH"
+          # Self-heal: the branch name is deterministic (blog/auto/<slug>), so a
+          # prior closed or failed run can leave a stale remote branch behind that
+          # would make the push below a non-fast-forward and abort the run. Clear
+          # any stale copy first — these blog/auto/* branches are bot-owned throwaways
+          # (deleted on merge), and the post is fully regenerated each run.
+          git push origin --delete "$BRANCH" 2>/dev/null || true
           git add content/blog/"${SLUG}".en.md content/blog/"${SLUG}".de.md
           # --no-verify: the post already passed the stricter scope/honesty lint in
           # generate.mjs; skip the repo's husky pre-commit guard (which can false-positive).
