@@ -1,0 +1,69 @@
+name: blog-auto-merge
+
+# Event-driven publish gate for auto-generated blog posts.
+#
+# blog-generate.yml now only opens the PR; it no longer blocks in-job waiting on
+# checks. That old design coupled the publish to the repo's ~15-min PR CI (plus
+# slow CodeQL) and repeatedly hit the generate job's timeout — the run was then
+# CANCELLED (not failed), Report-failure was skipped, and the post never merged,
+# silently. This workflow reacts to "PR CI" finishing instead: on success it
+# squash-merges the blog/auto/* PR; on anything else it opens a loud tracking
+# issue. CodeQL / Vercel are not publish gates — PR CI (scope/honesty lint +
+# build + e2e) is the gate the owner cares about.
+#
+# workflow_run always executes the copy of this file on the default branch, so it
+# takes effect only once merged to main.
+
+on:
+  workflow_run:
+    workflows: ["PR CI"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    # Same-repo blog/auto/* PRs only — never a fork, never a human branch.
+    if: >-
+      startsWith(github.event.workflow_run.head_branch, 'blog/auto/') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    timeout-minutes: 5
+    env:
+      # Merge as the bot PAT when present (keeps actor consistent with the PR
+      # author); the default token can merge too but PAT avoids any org policy edge.
+      GH_TOKEN: ${{ secrets.BLOG_BOT_TOKEN || github.token }}
+      REPO: ${{ github.repository }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+      RUN_URL: ${{ github.event.workflow_run.html_url }}
+    steps:
+      - name: Merge on green
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: |
+          set -e
+          # Idempotent: re-runs of PR CI fire this again — bail if already handled.
+          STATE=$(gh pr view "$BRANCH" --repo "$REPO" --json state --jq .state 2>/dev/null || echo "")
+          if [ "$STATE" != "OPEN" ]; then
+            echo "PR for $BRANCH is '${STATE:-not found}' — nothing to merge."
+            exit 0
+          fi
+          echo "PR CI passed for $BRANCH — squash-merging."
+          gh pr merge "$BRANCH" --repo "$REPO" --squash --delete-branch
+
+      - name: Report failure
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: |
+          set -e
+          TITLE="blog-generate pipeline failed"
+          BODY="PR CI concluded \`${CONCLUSION}\` for branch \`${BRANCH}\` — the post did not publish. Run log: ${RUN_URL}. Fix the failure (or the post), then re-run PR CI on the PR to publish. Close this issue once a post merges."
+          # Reuse one open tracking issue instead of spamming a new one every run.
+          EXISTING=$(gh issue list --repo "$REPO" --state open --search "$TITLE in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "$REPO" --body "$BODY"
+          else
+            gh issue create --repo "$REPO" --title "$TITLE" --body "$BODY"
+          fi
