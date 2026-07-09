@@ -11,7 +11,7 @@ const LOCALES = {
 // made the model under-produce the second locale → lint failures).
 function systemPrompt({ category, keyword, intent, slug, date, pillarPath, locale }) {
   const L = LOCALES[locale];
-  return `You write one SEO blog post for Lechner Studios — a solo-founded, AI-native digital studio in Wattens, Tirol, serving SMBs across DACH. ${L.note}
+  return `You write one SEO blog post for Lechner Studios — a family-run, AI-native digital studio in Wattens, Tirol, serving SMBs across DACH. ${L.note}
 
 TOPIC: pillar="${category}", primary keyword="${keyword}", angle="${intent}", canonical slug="${slug}".
 
