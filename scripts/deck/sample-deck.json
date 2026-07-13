@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "title": "Lechner Studios — Capabilities",
+  "overline": "Family studio · Tirol",
+  "subtitle": "Web, apps, growth, and brand — designed and built end to end, in-house.",
+  "pillars": [
+    {
+      "key": "stone",
+      "kicker": "Web & Design",
+      "title": "Sites that earn trust on the first scroll",
+      "points": [
+        "Fast, accessible, mobile-first builds",
+        "Editorial design rooted in a real brand system",
+        "Bilingual (DE/EN) from day one"
+      ]
+    },
+    {
+      "key": "sky",
+      "kicker": "Apps & Automation",
+      "title": "Software that removes the busywork",
+      "points": [
+        "Client portals, dashboards, and internal tools",
+        "Workflow automation across the stack",
+        "Built to maintain, not to lock you in"
+      ]
+    },
+    {
+      "key": "lake",
+      "kicker": "SEO & Growth",
+      "title": "Found by the people already looking",
+      "points": [
+        "Technical SEO and Core Web Vitals",
+        "Content that answers real search intent",
+        "Measured, honest reporting — no vanity metrics"
+      ]
+    },
+    {
+      "key": "pine",
+      "kicker": "Brand & Identity",
+      "title": "A brand that still fits at scale",
+      "points": [
+        "Wordmark, palette, type, and voice",
+        "One system across web, print, and social",
+        "Guidelines your team can actually use"
+      ]
+    }
+  ],
+  "closing": {
+    "title": "Let's build yours",
+    "line": "lechner-studios.at"
+  }
+}
