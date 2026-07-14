@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:e2e": "playwright test",
-    "blog:generate": "node scripts/blog/generate.mjs"
+    "blog:generate": "node scripts/blog/generate.mjs",
+    "deck:generate": "node scripts/deck/generate.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.2",
