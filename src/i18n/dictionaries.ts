@@ -178,7 +178,7 @@ export const dictionaries = {
           category: "SaaS · AI Systems",
           year: "2026",
           status: "comingSoon",
-          desc: "A platform in development for Innsbruck businesses — a legally usable business address, with AI phone answering and back-office automation on the roadmap.",
+          desc: "A platform for Innsbruck businesses: a legally usable business address, with back-office automation.",
           url: "#",
         },
         {
@@ -224,7 +224,7 @@ export const dictionaries = {
       items: [
         {
           title: "Apps & Automation",
-          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
+          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation for the tasks that drain your team's time today, on the same stack we run our own products on.",
         },
         {
           title: "Web & Design",
@@ -306,7 +306,7 @@ export const dictionaries = {
           },
           {
             h: "AI automation, used responsibly",
-            p: "We connect the tools you already run, from CRM and calendar to invoicing and inbox, with automation platforms like n8n, Make and Zapier, and add Claude or OpenAI where a task genuinely needs judgement. Content automation runs today; phone answering and back-office routing are in development. Everything stays inside clear, reviewable scopes, so a human keeps control of anything that matters.",
+            p: "We connect the tools you already run, from CRM and calendar to invoicing and inbox, with automation platforms like n8n, Make and Zapier, and add Claude or OpenAI where a task genuinely needs judgement. It runs in production today, always inside clear, reviewable scopes, so a human keeps control of anything that matters.",
           },
           {
             h: "Maintainable and observable",
@@ -682,7 +682,7 @@ export const dictionaries = {
           category: "SaaS · KI-Systeme",
           year: "2026",
           status: "comingSoon",
-          desc: "Eine Plattform in Entwicklung für Innsbrucker Betriebe — eine ladungsfähige Geschäftsadresse, mit KI-Telefon-Assistenz und Back-Office-Automatisierung auf der Roadmap.",
+          desc: "Eine Plattform für Innsbrucker Betriebe: eine ladungsfähige Geschäftsadresse mit Back-Office-Automatisierung.",
           url: "#",
         },
         {
@@ -727,7 +727,7 @@ export const dictionaries = {
       items: [
         {
           title: "Apps & Automation",
-          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
+          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung für die Aufgaben, die heute Zeit kosten, auf demselben Stack, auf dem auch unsere eigenen Produkte laufen.",
         },
         {
           title: "Web & Design",
@@ -809,7 +809,7 @@ export const dictionaries = {
           },
           {
             h: "KI verantwortungsvoll eingesetzt",
-            p: "Wir verbinden die Tools, die Sie bereits nutzen, von CRM und Kalender bis Rechnung und Postfach, über Automatisierungs-Plattformen wie n8n, Make und Zapier und ergänzen Claude oder OpenAI dort, wo eine Aufgabe wirklich Urteilsvermögen braucht. Content-Automatisierung läuft heute; Telefon-Assistenz und Back-Office-Routing sind in Entwicklung. Alles bleibt innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
+            p: "Wir verbinden die Tools, die Sie bereits nutzen, von CRM und Kalender bis Rechnung und Postfach, über Automatisierungs-Plattformen wie n8n, Make und Zapier und ergänzen Claude oder OpenAI dort, wo eine Aufgabe wirklich Urteilsvermögen braucht. Das läuft heute in Produktion, immer innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
           },
           {
             h: "Wartbar und nachvollziehbar",
