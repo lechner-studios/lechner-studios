@@ -145,6 +145,24 @@ function buildJsonLd(locale: Locale) {
           postalCode: "6112",
           addressCountry: "AT",
         },
+        // Entity reconciliation: confirms the GitHub org and this domain are
+        // the same entity. Add further verified profiles here as they exist —
+        // only URLs we actually control belong in sameAs.
+        sameAs: ["https://github.com/lechner-studios"],
+        // Competencies, scoped to what ADR-0011 puts in the four pillars.
+        // Deliberately excludes anything the ADR marks out of scope, so this
+        // stays a claim we can stand behind rather than a keyword list.
+        knowsAbout: [
+          "Webdesign",
+          "Web Development",
+          "Brand & Identity",
+          "SEO",
+          "Business Process Automation",
+          "API Integrations",
+          "Next.js",
+          "Supabase",
+          "GDPR Compliant Architecture",
+        ],
         inLanguage: HREFLANG[locale],
       },
       {

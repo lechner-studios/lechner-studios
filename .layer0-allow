@@ -42,3 +42,8 @@ src/components/WebsiteCheckJsonLd.tsx
 # prices are intentional public marketing figures, isolated to this one
 # component (not the shared copy dictionary).
 src/components/HomeOffers.tsx
+
+# Machine-readable studio summary for AI assistants and agents. Carries the
+# public hallo@ inbox and the Präsenz entry price — the same figures already
+# published on the werk storefront it points at. Intentionally readable.
+public/llms.txt

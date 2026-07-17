@@ -57,4 +57,4 @@ These aren't advanced features. They're the standard a professional build should
 
 ---
 
-A responsive website isn't a premium upgrade — it's the foundation. If your current site doesn't hold up on a phone, it's worth understanding what a proper rebuild would involve. You can see how Lechner Studios approaches this kind of work on the [web design services page](/en/webdesign), or get in touch directly to talk through your specific situation via the [contact page](/en/contact).
+A responsive website isn't a premium upgrade — it's the foundation. If your current site doesn't hold up on a phone, it's worth understanding what a proper rebuild would involve. You can see how Lechner Studios approaches this kind of work in the [Werk studio](https://werk.lechner-studios.at), or get in touch directly to talk through your specific situation via the [contact page](/en/contact).

@@ -29,7 +29,7 @@ The key point is that structured data does not change what visitors see on your 
 
 ## A Concrete Example: LocalBusiness Markup
 
-Here is a simplified JSON-LD snippet for a fictional joinery in Innsbruck:
+Here is a simplified JSON-LD snippet for a fictional [joinery in Tyrol](https://werk.lechner-studios.at/tischlerei-website-tirol):
 
 ```json
 {

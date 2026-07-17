@@ -55,4 +55,4 @@ The moment it becomes worth revisiting is when the site starts to matter — whe
 
 A custom-built site is not a luxury. It is the appropriate tool for a business that takes its web presence seriously, built once and built to last.
 
-If you want to understand what a custom build would look like for your specific situation, the [web design services page](/en/webdesign) covers how Lechner Studios approaches projects, or you are welcome to [get in touch directly](/en/contact).
+If you want to understand what a custom build would look like for your specific situation, the [Werk studio](https://werk.lechner-studios.at) covers how Lechner Studios approaches projects, or you are welcome to [get in touch directly](/en/contact).

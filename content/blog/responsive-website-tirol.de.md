@@ -51,4 +51,4 @@ Schließlich gehört auch die Barrierefreiheit in diesen Zusammenhang: Ausreiche
 
 ---
 
-Eine responsive Website ist kein Bonus-Feature – sie ist die Grundlage dafür, dass Ihre Webpräsenz ihren Zweck erfüllt: Menschen zu erreichen, egal mit welchem Gerät sie gerade unterwegs sind. Wenn Sie wissen möchten, wie das für Ihren Betrieb konkret aussehen kann, werfen Sie gerne einen Blick auf [unsere Webdesign-Leistungen](/de/webdesign) oder [nehmen Sie direkt Kontakt auf](/de/contact).
+Eine responsive Website ist kein Bonus-Feature – sie ist die Grundlage dafür, dass Ihre Webpräsenz ihren Zweck erfüllt: Menschen zu erreichen, egal mit welchem Gerät sie gerade unterwegs sind. Wenn Sie wissen möchten, wie das für Ihren Betrieb konkret aussehen kann, werfen Sie gerne einen Blick auf [unsere Webdesign-Leistungen](https://werk.lechner-studios.at) oder [nehmen Sie direkt Kontakt auf](/de/contact).

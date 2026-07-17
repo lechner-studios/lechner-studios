@@ -33,4 +33,4 @@ A good quote doesn't just name a sum — it names the **scope behind it**: which
 
 We don't quote blanket prices into thin air, because they rarely match what a business actually needs. Instead we clarify the scope in a short conversation, then put a **fixed, non-binding quote** on the table for your specific project — with a transparent split between one-time and ongoing costs. You know where you stand up front, and there are no surprises at the end.
 
-If you're weighing this up and would like an honest read on your project, see [how we build websites](/en/webdesign), or [get in touch](/en/contact) — we'll walk through the scope together.
+If you're weighing this up and would like an honest read on your project, see [our packages and fixed prices](https://werk.lechner-studios.at/angebote), or [get in touch](/en/contact) — we'll walk through the scope together.
