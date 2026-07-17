@@ -68,8 +68,8 @@ Single source of truth for offer identity, importable from both runtimes.
 
 ```js
 export const OFFERS = {
-  "website-check": { key: "website-check", href: "/website-check", title: "Website-Check", price: { de: "€290", en: "€290" } },
-  "direktbucher":  { key: "direktbucher",  href: "/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" } },
+  "website-check": { key: "website-check", href: "https://werk.lechner-studios.at/website-check", title: "Website-Check", price: { de: "€290", en: "€290" }, accent: "#254268" },
+  "direktbucher":  { key: "direktbucher",  href: "https://werk.lechner-studios.at/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" }, accent: "#5E8263" },
 };
 export const OFFER_ORDER = [OFFERS["website-check"], OFFERS["direktbucher"]]; // HomeOffers' existing order
 export const DEFAULT_OFFER = "website-check";
@@ -82,9 +82,10 @@ export function isOfferKey(v) { return typeof v === "string" && Object.hasOwn(OF
 export type OfferKey = "website-check" | "direktbucher";
 export type Offer = {
   key: OfferKey;
-  href: string;                 // locale-less; callers prefix /${locale}
+  href: string;                 // ABSOLUTE werk storefront URL; never locale-prefixed
   title: string;                // brand name, not translated
   price: { de: string; en: string };
+  accent: string;               // per-offer brand hex, used for the card's top edge
 };
 export const OFFERS: Record<OfferKey, Offer>;
 export const OFFER_ORDER: Offer[];
@@ -94,7 +95,11 @@ export function isOfferKey(v: unknown): v is OfferKey;
 
 `isOfferKey` is what `lint.mjs` imports, so the validator and the renderer can never disagree about which keys exist. That sharing is only possible because the module is `.mjs`.
 
-Price strings are copied verbatim from the current `HomeOffers.tsx` array so the homepage renders identically.
+Price strings, hrefs and accents are copied verbatim from the current `HomeOffers.tsx` array so the homepage renders identically.
+
+**The offers live on an external storefront.** Commit `22edd58` (#118, "consolidate Web & Design into the werk storefront") deleted the internal `/website-check` and `/pension-website-tirol` routes; `next.config.ts:42-43` now only 301-redirects them to `werk.lechner-studios.at`. So `href` is an absolute URL and callers must NOT prefix a locale. Using the old relative paths would still resolve, but only via a redirect hop that #118 deliberately removed.
+
+`accent` is a per-offer brand hex consumed by `HomeOffers.tsx:85` in the card's `inset` box-shadow. It is part of offer identity here because dropping it would break that card.
 
 ### `src/components/HomeOffers.tsx` (modified, minimally)
 
@@ -102,7 +107,11 @@ Deletes its local `OFFERS` array and imports `OFFER_ORDER` instead. Behaviour is
 
 That positional coupling is fragile, and the file's own header comment at line 11 flags it ("Ordered to mirror dict.homeOffers.items"). Fixing it means restructuring `dict.homeOffers.items` into a keyed shape, which is out of scope here. Noted, not fixed.
 
-Once the `€` literals leave this file, its `.layer0-allow` entry is removed and replaced by one for `src/lib/offers.mjs`. Net effect: the exempted surface shrinks from two files to one, instead of growing to four.
+Once the `€` literals leave this file, its `.layer0-allow` entry is removed and replaced by one for `src/lib/offers.mjs`.
+
+The allowlist also carries two **stale entries for files #118 deleted**: `src/components/WebsiteCheck.tsx` and `src/components/WebsiteCheckJsonLd.tsx`. Those are removed in the same edit. This is not cosmetic: an allowlist entry for a non-existent path silently pre-exempts any future file created there, which is the opposite of what a guard should do.
+
+Net effect: the price-bearing exempted surface goes from three entries (two of them dangling) to one live module.
 
 ### `src/lib/post-art.mjs` + `src/lib/post-art.d.mts` (new)
 
@@ -204,7 +213,7 @@ Everything below uses that existing tooling. Nothing new is installed.
 ## Out of scope
 
 - **`og:image`.** The art is inline SVG, and social cards need a rasterized file at a URL. Different machinery, separate job. `generateMetadata`'s `openGraph` block is untouched.
-- **Folding `WebsiteCheck.tsx` and `WebsiteCheckJsonLd.tsx` into `lib/offers.mjs`.** They carry a price and a schema.org `priceCurrency`, so consolidating them is a larger refactor with its own JSON-LD risk.
+- **The werk storefront itself.** The Website-Check and Direktbucher pages now live on `werk.lechner-studios.at` (#118). This design only links to them. Their copy, pricing and schema.org markup are out of scope and out of this repo.
 - **Fixing the `HomeOffers` positional index coupling.** Needs a dictionary restructure.
 - **Re-generating or hand-editing existing posts.** The defaults cover them.
 - **Prose-quality guardrails in the generator.** Tracked separately; see the note below.

@@ -36,7 +36,7 @@ node --test "scripts/blog/*.test.mjs" "src/lib/*.test.mjs"
 
 | File | Status | Responsibility |
 |---|---|---|
-| `src/lib/offers.mjs` | Create | Offer identity: key, href, title, price. The only place a `€` lives outside the WebsiteCheck pages. |
+| `src/lib/offers.mjs` | Create | Offer identity: key, absolute werk href, title, price, accent. After this, the only file in the repo carrying a `€`. |
 | `src/lib/offers.d.mts` | Create | Types for the `.tsx` consumers. |
 | `src/lib/offers.test.mjs` | Create | Runtime-shape guards for the above. |
 | `src/lib/post-art.mjs` | Create | Pure geometry: `artSpec(slug, category)` returns plain data. |
@@ -53,7 +53,7 @@ node --test "scripts/blog/*.test.mjs" "src/lib/*.test.mjs"
 | `scripts/blog/lint.mjs` | Modify | Validate `offer` via `isOfferKey`. |
 | `scripts/blog/generate.mjs` | Modify | Pass `picked.offer` into frontmatter. |
 | `content/blog/topics.yaml` | Modify | Document `offer:`; set `direktbucher` on the pension topic. |
-| `.layer0-allow` | Modify | Move entry from `HomeOffers.tsx` to `src/lib/offers.mjs`. |
+| `.layer0-allow` | Modify | Move entry from `HomeOffers.tsx` to `src/lib/offers.mjs`; drop two stale entries for files #118 deleted. |
 | `package.json` | Modify | Add the missing `test` script. |
 
 ---
@@ -114,12 +114,14 @@ test("DEFAULT_OFFER is a valid key", () => {
   assert.equal(isOfferKey(DEFAULT_OFFER), true);
 });
 
-test("every offer has a de and en price and a locale-less href", () => {
+test("every offer has de/en prices, an absolute werk href, and an accent", () => {
   for (const o of Object.values(OFFERS)) {
     assert.ok(o.price.de.length > 0, `${o.key} missing de price`);
     assert.ok(o.price.en.length > 0, `${o.key} missing en price`);
-    assert.ok(o.href.startsWith("/"), `${o.key} href must start with /`);
-    assert.ok(!o.href.startsWith("/en/") && !o.href.startsWith("/de/"), `${o.key} href must not carry a locale`);
+    // #118 moved these offers to the werk storefront. The href is absolute and
+    // callers must not locale-prefix it; a relative path would only 301-hop.
+    assert.ok(o.href.startsWith("https://werk.lechner-studios.at/"), `${o.key} href must be an absolute werk URL`);
+    assert.match(o.accent, /^#[0-9a-f]{6}$/i, `${o.key} accent must be a hex colour`);
   }
 });
 ```
@@ -148,15 +150,17 @@ Create `src/lib/offers.mjs`. Price strings are copied verbatim from the current 
 export const OFFERS = {
   "website-check": {
     key: "website-check",
-    href: "/website-check",
+    href: "https://werk.lechner-studios.at/website-check",
     title: "Website-Check",
     price: { de: "€290", en: "€290" },
+    accent: "#254268",
   },
   "direktbucher": {
     key: "direktbucher",
-    href: "/pension-website-tirol",
+    href: "https://werk.lechner-studios.at/pension-website-tirol",
     title: "Direktbucher",
     price: { de: "ab €3.900", en: "from €3,900" },
+    accent: "#5E8263",
   },
 };
 
@@ -183,11 +187,13 @@ export type OfferKey = "website-check" | "direktbucher";
 
 export type Offer = {
   key: OfferKey;
-  /** Locale-less. Callers prefix `/${locale}`. */
+  /** ABSOLUTE werk storefront URL. Never locale-prefixed. */
   href: string;
   /** Brand name. Never translated. */
   title: string;
   price: { de: string; en: string };
+  /** Per-offer brand hex for the card's inset top edge. */
+  accent: string;
 };
 
 export declare const OFFERS: Record<OfferKey, Offer>;
@@ -1117,12 +1123,13 @@ export default function BlogOfferCta({ offer }: { offer: OfferKey }) {
   const d = dict.blogOffer;
   const item = d.items[offer];
   const meta = OFFERS[offer];
+  // meta.href is an absolute werk URL (#118). Used as-is, no locale prefix.
 
   return (
     <aside style={{ marginTop: "80px", paddingTop: "48px", borderTop: "1px solid var(--border)" }}>
       <Overline marginBottom="1.5rem">{d.overline}</Overline>
       <Link
-        href={`/${locale}${meta.href}`}
+        href={meta.href}
         style={{
           display: "block",
           border: "1px solid var(--border)",
@@ -1232,9 +1239,9 @@ Run: `node -e "import('./src/lib/blog.ts')"` will not work (TypeScript). Instead
 The guard must still block prices elsewhere. Verify the allowlist did not over-broaden:
 
 ```bash
-grep -rn "€" src/ --include="*.tsx" --include="*.ts" | grep -v "offers.mjs\|WebsiteCheck"
+grep -rn "€" src/ --include="*.tsx" --include="*.ts"
 ```
-Expected: no output. If a `€` appears in the dictionary or another component, it must be moved into `offers.mjs`.
+Expected: no output. `offers.mjs` is excluded by the `--include` filters, so any hit means a `€` leaked into a `.ts`/`.tsx` file and must be moved into `offers.mjs`.
 
 - [ ] **Step 7: Optional e2e**
 
