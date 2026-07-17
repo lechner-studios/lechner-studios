@@ -17,3 +17,21 @@ test("writes slug.en.md + slug.de.md that re-parse to the same fields", () => {
   assert.equal(de.data.title, "T-de");
   assert.deepEqual(en.data.keywords, ["a", "b", "c", "d", "e"]);
 });
+
+test("writes the offer key when present", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-16", category: "Web & Design", keywords: ["a", "b", "c", "d", "e"], offer: "direktbucher" };
+  emitPost("with-offer", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  const en = matter(fs.readFileSync(path.join(dir, "with-offer.en.md"), "utf8"));
+  assert.equal(en.data.offer, "direktbucher");
+});
+
+test("omits the offer key entirely when absent, rather than writing undefined", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-16", category: "Web & Design", keywords: ["a", "b", "c", "d", "e"] };
+  emitPost("no-offer", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  const raw = fs.readFileSync(path.join(dir, "no-offer.en.md"), "utf8");
+  assert.doesNotMatch(raw, /offer/, "an absent offer must not appear in the file at all");
+  const en = matter(raw);
+  assert.equal("offer" in en.data, false);
+});

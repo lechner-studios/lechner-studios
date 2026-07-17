@@ -2,12 +2,16 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-const FIELD_ORDER = ["title", "description", "excerpt", "date", "category", "keywords"];
+const FIELD_ORDER = ["title", "description", "excerpt", "date", "category", "keywords", "offer"];
 
 function writeOne(dir, slug, locale, { frontmatter, body }) {
   // Order fields to match existing posts (gray-matter stringify preserves insertion order).
   const ordered = {};
-  for (const k of FIELD_ORDER) ordered[k] = frontmatter[k];
+  // Only assign keys that are actually present. Assigning an absent optional
+  // field (offer) would serialize it as an empty/undefined YAML key.
+  for (const k of FIELD_ORDER) {
+    if (frontmatter[k] !== undefined) ordered[k] = frontmatter[k];
+  }
   const file = matter.stringify(`${body}\n`, ordered);
   fs.writeFileSync(path.join(dir, `${slug}.${locale}.md`), file, "utf8");
 }
