@@ -28,17 +28,33 @@ export function pickIndex(slug, count) {
   return hash(slug) % count;
 }
 
+// Deterministic pick with duplicate avoidance: start at the slug's hashed index
+// and walk forward (wrapping) to the first photo whose Pexels URL isn't already
+// used. Two posts in one category share a query, so without this their hashes
+// can collide onto the same photo. Falls back to the hashed index if every
+// candidate is already taken.
+export function choosePhoto(photos, slug, avoidUrls = new Set()) {
+  if (!photos.length) return null;
+  const start = pickIndex(slug, photos.length);
+  for (let k = 0; k < photos.length; k++) {
+    const p = photos[(start + k) % photos.length];
+    if (!avoidUrls.has(p.url)) return p;
+  }
+  return photos[start];
+}
+
 // Live: search Pexels, pick a photo, download src.large to disk. Returns the
-// frontmatter image fields, or null if nothing usable was found.
-export async function fetchPhoto({ post, slug, apiKey, outDir, fetchImpl = fetch }) {
+// frontmatter image fields, or null if nothing usable was found. `avoidUrls`
+// lets a batch caller (backfill) dedupe across posts.
+export async function fetchPhoto({ post, slug, apiKey, outDir, fetchImpl = fetch, avoidUrls = new Set() }) {
   const query = queryFor(post);
   const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&orientation=landscape&per_page=15`;
   const res = await fetchImpl(url, { headers: { Authorization: apiKey } });
   if (!res.ok) throw new Error(`pexels search ${res.status} for "${query}"`);
   const data = await res.json();
   const photos = (data.photos || []).filter((p) => p.src?.large);
-  if (photos.length === 0) return null;
-  const photo = photos[pickIndex(slug, photos.length)];
+  const photo = choosePhoto(photos, slug, avoidUrls);
+  if (!photo) return null;
 
   const imgRes = await fetchImpl(photo.src.large);
   if (!imgRes.ok) throw new Error(`pexels image download ${imgRes.status}`);

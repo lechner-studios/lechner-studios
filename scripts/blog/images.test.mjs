@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { queryFor, pickIndex, CATEGORY_IMAGE_QUERIES } from "./images.mjs";
+import { queryFor, pickIndex, choosePhoto, CATEGORY_IMAGE_QUERIES } from "./images.mjs";
 
 test("queryFor uses the per-post override when present", () => {
   assert.equal(queryFor({ category: "Web & Design", imageQuery: "custom thing" }), "custom thing");
@@ -29,4 +29,22 @@ test("every category maps to a distinct query", () => {
   assert.equal(new Set(qs).size, qs.length);
   assert.deepEqual(Object.keys(CATEGORY_IMAGE_QUERIES).sort(),
     ["Apps & Automation", "Brand & Identity", "SEO & Growth", "Web & Design"]);
+});
+
+const PHOTOS = [{ url: "a" }, { url: "b" }, { url: "c" }, { url: "d" }, { url: "e" }];
+test("choosePhoto returns null on an empty set", () => {
+  assert.equal(choosePhoto([], "slug"), null);
+});
+test("choosePhoto is deterministic for a slug when nothing is avoided", () => {
+  assert.deepEqual(choosePhoto(PHOTOS, "getting-found-locally"), choosePhoto(PHOTOS, "getting-found-locally"));
+});
+test("choosePhoto skips an already-used url (dedupe)", () => {
+  const first = choosePhoto(PHOTOS, "getting-found-locally");
+  const second = choosePhoto(PHOTOS, "getting-found-locally", new Set([first.url]));
+  assert.notEqual(second.url, first.url);
+});
+test("choosePhoto falls back to the hashed pick when every url is taken", () => {
+  const taken = new Set(PHOTOS.map((p) => p.url));
+  const chosen = choosePhoto(PHOTOS, "any-slug", taken);
+  assert.ok(PHOTOS.includes(chosen));
 });
