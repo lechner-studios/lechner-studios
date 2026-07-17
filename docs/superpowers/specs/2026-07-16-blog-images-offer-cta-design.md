@@ -7,12 +7,12 @@
 
 ## Goal
 
-Every blog post, the ten already published and every future auto-generated one, gets:
+Every blog post, the 19 already published and every future auto-generated one, gets:
 
 1. **Generated brand art**: a deterministic, on-brand hero band on the post and a small tile on the index.
 2. **A matched offer CTA**: one card at the end of the post pointing at the offer that fits the topic.
 
-Both must survive auto-generation. Retrofitting the ten existing posts by hand is a non-goal, because post #11 would silently lose the feature.
+Both must survive auto-generation. Retrofitting the 19 existing posts by hand is a non-goal, because post #20 would silently lose the feature.
 
 ## Decisions (owner-approved)
 
@@ -146,7 +146,7 @@ Copy (label, description, CTA text) comes from a new `dict.blogOffer` block. Pri
 ### `src/lib/blog.ts` (modified)
 
 - `BlogMeta` gains `offer: OfferKey`.
-- `offer: data.offer ?? DEFAULT_OFFER`. This defaulting is what retrofits the ten existing posts with zero file edits. None of them is a pension topic, so `website-check` is correct for all ten.
+- `offer: data.offer ?? DEFAULT_OFFER`. This defaulting is what retrofits the 19 existing posts with zero file edits. The pension topic is still unpublished (it exists only as a topics.yaml entry), so `website-check` is correct for all 19.
 - `readMetaForFile` and `getPost` currently build near-identical meta objects. Adding a field to both duplicates the drift risk, so extract a shared `toMeta(data, slug, locale)` and have both call it. Targeted cleanup, justified by this change.
 
 ### `scripts/blog/emit.mjs` (modified)
@@ -172,11 +172,11 @@ Passes `picked.offer` into both locales' frontmatter before linting. One line ea
 
 ## Data flow — the retrofit story
 
-No existing `.md` file is edited. The ten published posts have no `offer` key, so `blog.ts` defaults them to `website-check`, and `PostArt` derives their art from slugs that already exist. The retrofit is a consequence of the defaults rather than a migration step.
+No existing `.md` file is edited. The 19 published posts have no `offer` key, so `blog.ts` defaults them to `website-check`, and `PostArt` derives their art from slugs that already exist. The retrofit is a consequence of the defaults rather than a migration step.
 
 ## Testing
 
-The repo has no vitest, no jest, and no React testing library. The three existing tests use Node's built-in runner (`node:test` + `node:assert/strict`) in plain `.mjs`, and all 11 pass today via:
+The repo has no vitest, no jest, and no React testing library. The three existing test files use Node's built-in runner (`node:test` + `node:assert/strict`) in plain `.mjs`, and all 14 pass today (emit 1, lint 6, topics 7) via:
 
 ```
 node --test "scripts/blog/*.test.mjs"
@@ -211,7 +211,7 @@ Everything below uses that existing tooling. Nothing new is installed.
 
 ## Related, tracked separately
 
-The published posts average 11 em dashes each (121 across 11 English posts), which reads as machine-written at a glance. `writer.mjs` never constrains punctuation or cadence, and `lint.mjs` never checks. That is a content-quality problem in the same two files this design touches, but it is a distinct concern from art and CTAs, and it deserves its own spec rather than being smuggled into this one.
+The published posts average 12 em dashes each (235 across 19 English posts; 369 across all 38 files including de). This reads as machine-written at a glance. `writer.mjs` never constrains punctuation or cadence, and `lint.mjs` never checks. That is a content-quality problem in the same two files this design touches, but it is a distinct concern from art and CTAs, and it deserves its own spec rather than being smuggled into this one.
 
 ## Risks
 

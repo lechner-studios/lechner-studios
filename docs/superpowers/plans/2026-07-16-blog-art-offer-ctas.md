@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Give every blog post (the 10 published and every future auto-generated one) a deterministic brand-art hero plus a matched offer CTA, without hand-editing a single existing post.
+**Goal:** Give every blog post (the 19 published and every future auto-generated one) a deterministic brand-art hero plus a matched offer CTA, without hand-editing a single existing post.
 
 **Architecture:** Offer identity moves to `src/lib/offers.mjs`, a plain ESM module importable by both bare `node` (`scripts/blog/lint.mjs`) and Next (`.tsx`), with a `.d.mts` sibling for types. Art geometry lives in a pure `src/lib/post-art.mjs` so it is testable with `node:test`; `PostArt.tsx` is a thin SVG renderer over it. An optional `offer:` key in `topics.yaml` flows through `pickTopic` into frontmatter, and `blog.ts` defaults it to `website-check`, which retrofits the existing posts for free.
 
@@ -20,7 +20,7 @@ Run tests with:
 ```
 node --test "scripts/blog/*.test.mjs" "src/lib/*.test.mjs"
 ```
-(11 tests pass today from `scripts/blog/` alone.)
+(14 tests pass today from `scripts/blog/` alone: emit 1, lint 6, topics 7.)
 
 **Why `offers.mjs` and not `offers.ts`:** `scripts/blog/lint.mjs` runs under bare `node`, which cannot import TypeScript. A `.ts` file could never be the shared source. `tsconfig.json` already has `allowJs: true`.
 
@@ -199,7 +199,7 @@ export declare function isOfferKey(v: unknown): v is OfferKey;
 - [ ] **Step 6: Run tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS, 17 tests total (11 existing + 6 new), 0 fail
+Expected: PASS, 20 tests total (14 existing + 6 new), 0 fail
 
 - [ ] **Step 7: Commit**
 
@@ -288,7 +288,7 @@ Expected: no errors mentioning `HomeOffers.tsx` or `offers`. If `OFFER_ORDER[i]`
 - [ ] **Step 5: Verify the guard now permits the commit and still guards elsewhere**
 
 Run: `npm test`
-Expected: PASS, 17 tests
+Expected: PASS, 20 tests
 
 - [ ] **Step 6: Commit Tasks 1 and 2 together**
 
@@ -537,7 +537,7 @@ export declare function artSpec(slug: string, category: string): ArtSpec;
 - [ ] **Step 5: Run tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS, 25 tests total, 0 fail
+Expected: PASS, 28 tests total, 0 fail
 
 - [ ] **Step 6: Commit**
 
@@ -892,7 +892,7 @@ to:
 - [ ] **Step 4: Run tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS, 27 tests, 0 fail
+Expected: PASS, 30 tests, 0 fail
 
 - [ ] **Step 5: Commit**
 
@@ -963,7 +963,7 @@ and in the `// --- structure / contract ---` block, after the keywords check, ad
 - [ ] **Step 4: Run tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS, 30 tests, 0 fail
+Expected: PASS, 33 tests, 0 fail
 
 This step also proves the cross-runtime import works: a bare-node script has just imported the same module Next imports.
 
@@ -1030,7 +1030,7 @@ Scan the rest of the file for other pension, tourism, or holiday-let topics and 
 - [ ] **Step 3: Verify end to end without calling the API**
 
 Run: `npm test`
-Expected: PASS, 30 tests
+Expected: PASS, 33 tests
 
 Run: `node -e "import('./scripts/blog/topics.mjs').then(async m => { const t = m.loadTopics('content/blog/topics.yaml'); const p = m.pickTopic({ topics: t, existingSlugs: new Set(), pillarCounts: { webdesign: 0, 'apps-automation': 0, seo: 0 } }); console.log(JSON.stringify(p, null, 2)); })"`
 Expected: prints a picked topic object. Confirm that when the pension topic is the one picked, it carries `"offer": "direktbucher"`. This proves the spread works without spending an API call.
@@ -1203,7 +1203,7 @@ all site copy."
 - [ ] **Step 1: Whole suite**
 
 Run: `npm test`
-Expected: 30 tests, 30 pass, 0 fail
+Expected: 33 tests, 33 pass, 0 fail
 
 - [ ] **Step 2: Types**
 
