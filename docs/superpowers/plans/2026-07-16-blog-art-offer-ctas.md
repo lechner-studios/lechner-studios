@@ -1135,7 +1135,10 @@ export default function BlogOfferCta({ offer }: { offer: OfferKey }) {
           border: "1px solid var(--border)",
           borderRadius: "4px",
           padding: "32px 28px",
-          background: "var(--bg-alt)",
+          // --card is the brightest of ADR-0037's 3-tier elevation scale, so
+          // cards lift off either section band. HomeOffers.tsx:74 does the same.
+          background: "var(--card)",
+          borderTop: `3px solid ${meta.accent}`,
           textDecoration: "none",
         }}
       >
