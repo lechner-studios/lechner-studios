@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { DEFAULT_OFFER, isOfferKey } from "./offers.mjs";
+import type { OfferKey } from "./offers.mjs";
 
 export type BlogMeta = {
   slug: string;
@@ -11,6 +13,8 @@ export type BlogMeta = {
   date: string;
   category: string;
   keywords: string[];
+  /** Which productized offer this post's CTA points at. */
+  offer: OfferKey;
 };
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -23,9 +27,9 @@ function slugForLocale(filename: string, locale: string): string | null {
   return filename.slice(0, -suffix.length);
 }
 
-function readMetaForFile(filename: string, locale: string, slug: string): BlogMeta | null {
-  const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
-  const { data } = matter(raw);
+// Single builder for both read paths, so a new frontmatter field only has to be
+// added in one place.
+function toMeta(data: Record<string, unknown>, slug: string, locale: string): BlogMeta {
   return {
     slug,
     locale,
@@ -35,7 +39,16 @@ function readMetaForFile(filename: string, locale: string, slug: string): BlogMe
     date: String(data.date ?? ""),
     category: String(data.category ?? ""),
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+    // Posts published before offers existed carry no `offer` key. Defaulting
+    // here is what retrofits them with no file edits.
+    offer: isOfferKey(data.offer) ? data.offer : DEFAULT_OFFER,
   };
+}
+
+function readMetaForFile(filename: string, locale: string, slug: string): BlogMeta | null {
+  const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
+  const { data } = matter(raw);
+  return toMeta(data, slug, locale);
 }
 
 export function getAllPosts(locale: string): BlogMeta[] {
@@ -71,17 +84,7 @@ export function getPost(
     return null;
   }
   const { data, content } = matter(raw);
-  const meta: BlogMeta = {
-    slug,
-    locale,
-    title: String(data.title ?? ""),
-    description: String(data.description ?? ""),
-    excerpt: String(data.excerpt ?? ""),
-    date: String(data.date ?? ""),
-    category: String(data.category ?? ""),
-    keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
-  };
-  return { meta, content };
+  return { meta: toMeta(data, slug, locale), content };
 }
 
 export function getAllSlugs(locale: string): string[] {
