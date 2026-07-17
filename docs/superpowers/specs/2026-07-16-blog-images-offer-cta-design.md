@@ -19,7 +19,9 @@ Both must survive auto-generation. Retrofitting the ten existing posts by hand i
 - **Art = generated brand art**, not stock, not AI-per-post, not a curated library. Deterministic inline SVG derived from the slug, drawn in the Alpine palette. Zero licensing, zero per-post cost, no third-party fetch (which satisfies the DSGVO self-hosting rule by construction), and it scales with auto-generation.
 - **Placement = post hero + small index tile.** The index tile stays small: a 72px square floated left of each row's text, inside the existing 40px-padded hairline row. `/blog` is an editorial hairline list rather than a card grid, and it must still read as one. The hero is a band at the full 880px column width, roughly 180px tall, sitting between the H1 and the prose.
 - **Offer mapping = per-topic `offer:` key in `topics.yaml`, defaulting to `website-check`.** Pillar-based mapping was rejected. `direct-booking-website-pension`, the one topic that most obviously wants Direktbucher, is filed under the `webdesign` pillar, so the pillar cannot distinguish it.
-- **Prices move to `src/lib/offers.ts`** as a single source of truth, shared by `HomeOffers.tsx` and the new CTA. This shrinks the Layer-0 exempted surface rather than growing it.
+- **Prices move to `src/lib/offers.mjs`** (plus a sibling `offers.d.ts` for types) as a single source of truth, shared by `HomeOffers.tsx`, the new CTA, and `lint.mjs`. This shrinks the Layer-0 exempted surface rather than growing it.
+
+  It is `.mjs` rather than `.ts` for a hard reason: `scripts/blog/lint.mjs` runs under bare `node`, which cannot import a TypeScript module. A `.ts` file could not be the shared source. `tsconfig.json` already sets `allowJs: true`, and the sibling `offers.d.ts` gives the `.tsx` consumers their types.
 
 ## Existing plumbing (reused as-is)
 
@@ -47,32 +49,52 @@ writer.mjs (Claude) → body + frontmatter    │
               └─ blog.ts ── offer ?? "website-check" → BlogMeta
                   ├─ blog/page.tsx      → <PostArt> tile
                   └─ blog/[slug]/page.tsx → <PostArt> hero + <BlogOfferCta>
-                                              └─ lib/offers.ts (price, href, title)
+                                              └─ lib/offers.mjs (price, href, title)
+
+lib/offers.mjs  ← imported by BOTH lint.mjs (bare node) and *.tsx (Next).
+                  This is why it is .mjs, not .ts.
+lib/post-art.mjs ← pure geometry; PostArt.tsx is a thin renderer over it.
 ```
 
 The writer is deliberately not told about offers. `offer` is owner data from `topics.yaml` rather than model output, so `writer.mjs:18` ("NO prices, € amounts") stays true and `lint.mjs:9`'s € ban keeps protecting the post body. The price never enters the markdown. A component renders it.
 
 ## Components
 
-### `src/lib/offers.ts` (new)
+### `src/lib/offers.mjs` + `src/lib/offers.d.ts` (new)
 
-Single source of truth for offer identity.
+Single source of truth for offer identity, importable from both runtimes.
+
+`offers.mjs` (plain ESM, no types, runs under bare node):
+
+```js
+export const OFFERS = {
+  "website-check": { key: "website-check", href: "/website-check", title: "Website-Check", price: { de: "€290", en: "€290" } },
+  "direktbucher":  { key: "direktbucher",  href: "/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" } },
+};
+export const OFFER_ORDER = [OFFERS["website-check"], OFFERS["direktbucher"]]; // HomeOffers' existing order
+export const DEFAULT_OFFER = "website-check";
+export function isOfferKey(v) { return typeof v === "string" && Object.hasOwn(OFFERS, v); }
+```
+
+`offers.d.ts` (types for the `.tsx` consumers):
 
 ```ts
 export type OfferKey = "website-check" | "direktbucher";
 export type Offer = {
   key: OfferKey;
-  href: string;                          // locale-less; callers prefix /${locale}
-  title: string;                         // brand name, not translated
+  href: string;                 // locale-less; callers prefix /${locale}
+  title: string;                // brand name, not translated
   price: { de: string; en: string };
 };
 export const OFFERS: Record<OfferKey, Offer>;
-export const OFFER_ORDER: Offer[];       // check, then direkt — HomeOffers' existing order
-export const DEFAULT_OFFER: OfferKey = "website-check";
+export const OFFER_ORDER: Offer[];
+export const DEFAULT_OFFER: OfferKey;
 export function isOfferKey(v: unknown): v is OfferKey;
 ```
 
-`isOfferKey` is exported for the linter, so the validator and the renderer can never disagree about what keys exist.
+`isOfferKey` is what `lint.mjs` imports, so the validator and the renderer can never disagree about which keys exist. That sharing is only possible because the module is `.mjs`.
+
+Price strings are copied verbatim from the current `HomeOffers.tsx` array so the homepage renders identically.
 
 ### `src/components/HomeOffers.tsx` (modified, minimally)
 
@@ -80,7 +102,20 @@ Deletes its local `OFFERS` array and imports `OFFER_ORDER` instead. Behaviour is
 
 That positional coupling is fragile, and the file's own header comment at line 11 flags it ("Ordered to mirror dict.homeOffers.items"). Fixing it means restructuring `dict.homeOffers.items` into a keyed shape, which is out of scope here. Noted, not fixed.
 
-Once the `€` literals leave this file, its `.layer0-allow` entry is removed and replaced by one for `src/lib/offers.ts`. Net effect: the exempted surface shrinks from two files to one, instead of growing to four.
+Once the `€` literals leave this file, its `.layer0-allow` entry is removed and replaced by one for `src/lib/offers.mjs`. Net effect: the exempted surface shrinks from two files to one, instead of growing to four.
+
+### `src/lib/post-art.mjs` + `src/lib/post-art.d.ts` (new)
+
+The art's geometry as a pure function, separated from JSX so it is testable with the tooling this repo already has (`node:test`). There is no React test runner here, so a `.tsx` render test is not an option without adding a whole test stack.
+
+```js
+// artSpec("what-a-website-costs", "Web & Design") → stable plain data
+export function artSpec(slug, category) // → { family, seed, shapes: [{ kind, x, y, r?, w?, h?, rot?, fill }] }
+```
+
+- **Deterministic**: a small string hash of `slug` seeds the geometry. No `Math.random()`, no `Date`. The same slug always yields the same spec, which keeps SSG output stable across builds and makes the behaviour testable.
+- **Family by category**: the category selects one of three geometry families, so all "Web & Design" posts look related while each post stays individual. A visual system rather than ten unrelated pictures.
+- `fill` values are CSS variable names (`"var(--accent)"`), never hex.
 
 ### `src/components/PostArt.tsx` (new)
 
@@ -92,9 +127,9 @@ export default function PostArt({
 }: { slug: string; category: string; variant: "hero" | "tile" }): JSX.Element
 ```
 
-- **Deterministic**: a small string hash of `slug` seeds the geometry. The same slug always renders identical output, with no `Math.random()` and no `Date`. That is what makes it testable and what keeps SSG output stable across builds.
-- **Family by category**: the category selects one of three geometry families, so all "Web & Design" posts look related while each post stays individual. A visual system rather than ten unrelated pictures.
-- **Themed by variables only**: fills reference `var(--accent)`, `var(--accent-2)`, `var(--border)`, `var(--bg-alt)`. No hardcoded hex, so dark mode is free.
+A thin renderer. Calls `artSpec(slug, category)` and maps each shape to an SVG element. `variant` sets only the viewBox and CSS size (hero: full column width, ~180px tall; tile: 72px square). It holds no geometry logic of its own, so the tested pure function carries the determinism guarantee.
+
+- **Themed by variables only**: fills come through from `artSpec` as `var(--accent)`, `var(--accent-2)`, `var(--border)`, `var(--bg-alt)`. No hardcoded hex, so dark mode is free.
 - **Decorative**: `aria-hidden="true"` and `role="presentation"`. It carries no information the headline doesn't, so it takes no alt text. That is the right call for a screen reader and consistent with the care already shown by the skip-link and `dict.a11y`.
 - No files, no `/public` writes, no build step. Inline SVG in the server-rendered HTML.
 
@@ -125,7 +160,7 @@ Copy (label, description, CTA text) comes from a new `dict.blogOffer` block. Pri
 
 ### `scripts/blog/lint.mjs` (modified)
 
-One rule: `offer` may be absent, but if present it must satisfy `isOfferKey`. This catches a typo in `topics.yaml` (`offer: websitecheck`) at generation time, rather than shipping a post whose CTA silently renders nothing.
+Imports `isOfferKey` from `../../src/lib/offers.mjs`. One rule: `offer` may be absent, but if present it must satisfy `isOfferKey`. This catches a typo in `topics.yaml` (`offer: websitecheck`) at generation time, rather than shipping a post whose CTA silently renders nothing.
 
 ### `scripts/blog/generate.mjs` (modified)
 
@@ -141,19 +176,35 @@ No existing `.md` file is edited. The ten published posts have no `offer` key, s
 
 ## Testing
 
-Matching the existing `*.test.mjs` pattern in `scripts/blog/`:
+The repo has no vitest, no jest, and no React testing library. The three existing tests use Node's built-in runner (`node:test` + `node:assert/strict`) in plain `.mjs`, and all 11 pass today via:
 
-- `lint.test.mjs`: a valid offer key passes; an unknown key is rejected; an absent key is allowed.
-- `emit.test.mjs`: `offer` is written when present; no `offer` key is emitted when absent (the undefined guard above); field order is stable.
-- `offers.test.ts`: `isOfferKey` accepts exactly the keys in `OFFERS`; `OFFER_ORDER` matches `dict.homeOffers.items` length, guarding the positional coupling that `HomeOffers` still relies on.
-- `PostArt`: the same slug renders byte-identical output twice; different slugs differ; output contains no hardcoded hex.
+```
+node --test "scripts/blog/*.test.mjs"
+```
 
-`generate.mjs` already ends with `npm run build`, which exercises `generateStaticParams` across every post in both locales. A post that fails to render fails the generation run.
+There is no `test` npm script, and `blog-generate.yml` does not run these tests. This design adds tests, so it also adds the script:
+
+```json
+"test": "node --test \"scripts/blog/*.test.mjs\" \"src/lib/*.test.mjs\""
+```
+
+Everything below uses that existing tooling. Nothing new is installed.
+
+- `scripts/blog/lint.test.mjs`: a valid offer key passes; an unknown key is rejected; an absent key is allowed.
+- `scripts/blog/emit.test.mjs`: `offer` is written when present; no `offer` key is emitted when absent (the undefined guard above); field order is stable.
+- `src/lib/offers.test.mjs`: `isOfferKey` accepts exactly the keys in `OFFERS` and rejects near-misses; `OFFER_ORDER` contains every key in `OFFERS` exactly once; `DEFAULT_OFFER` is a valid key.
+- `src/lib/post-art.test.mjs`: `artSpec` is deterministic (same slug twice gives deep-equal output); different slugs give different output; the same category gives the same `family`; no `fill` value matches `/#[0-9a-f]{3,6}/i`.
+
+`PostArt.tsx` and `BlogOfferCta.tsx` have no unit tests, because testing them would mean adding a React test stack that this repo has deliberately done without. They are thin renderers over tested pure functions, and they are covered by:
+
+- `npm run build`, which `generate.mjs` already runs, exercising `generateStaticParams` across every post in both locales. A post that fails to render fails the generation run.
+- `tsc` via the build, which type-checks the `offers.d.ts` contract at every call site.
+- An optional Playwright case in the existing `tests/e2e/`, asserting a post page renders one `svg[aria-hidden="true"]` and one link to `/en/website-check`.
 
 ## Out of scope
 
 - **`og:image`.** The art is inline SVG, and social cards need a rasterized file at a URL. Different machinery, separate job. `generateMetadata`'s `openGraph` block is untouched.
-- **Folding `WebsiteCheck.tsx` and `WebsiteCheckJsonLd.tsx` into `lib/offers.ts`.** They carry a price and a schema.org `priceCurrency`, so consolidating them is a larger refactor with its own JSON-LD risk.
+- **Folding `WebsiteCheck.tsx` and `WebsiteCheckJsonLd.tsx` into `lib/offers.mjs`.** They carry a price and a schema.org `priceCurrency`, so consolidating them is a larger refactor with its own JSON-LD risk.
 - **Fixing the `HomeOffers` positional index coupling.** Needs a dictionary restructure.
 - **Re-generating or hand-editing existing posts.** The defaults cover them.
 - **Prose-quality guardrails in the generator.** Tracked separately; see the note below.
@@ -167,6 +218,7 @@ The published posts average 11 em dashes each (121 across 11 English posts), whi
 | Risk | Mitigation |
 |---|---|
 | Generated art looks cheap and undercuts a deliberately editorial design | Three category families in the brand palette, small index tile, hero band constrained to the 880px column. Render and eyeball before merging. The design bar here is the existing index, which is good. |
-| `.layer0-allow` edit is wrong, so pre-commit blocks or the guard silently weakens | The allow entry moves `HomeOffers.tsx` to `lib/offers.ts` in the same commit. Verify by committing; the hook is the test. |
+| `.layer0-allow` edit is wrong, so pre-commit blocks or the guard silently weakens | The allow entry moves `HomeOffers.tsx` to `src/lib/offers.mjs` in the same commit. Verify by committing; the hook is the test. |
+| `offers.d.ts` and `offers.mjs` drift apart, since nothing type-checks the `.mjs` against its own declaration | `offers.test.mjs` asserts the runtime shape (every `OFFERS` key present in `OFFER_ORDER`, `DEFAULT_OFFER` valid). `tsc` catches the consumer side. Accepted residual risk of the `.mjs` + `.d.ts` pattern, and the price of sharing one module between node and Next. |
 | `emit.mjs` undefined-key bug ships | Covered by an explicit `emit.test.mjs` case. |
 | SVG bloats every post's HTML | Geometry is a handful of shapes rather than a traced image. Keep it under roughly 2KB inline. It costs one fewer network round-trip than an `<img>` would. |
