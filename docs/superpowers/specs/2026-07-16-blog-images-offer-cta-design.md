@@ -19,9 +19,9 @@ Both must survive auto-generation. Retrofitting the ten existing posts by hand i
 - **Art = generated brand art**, not stock, not AI-per-post, not a curated library. Deterministic inline SVG derived from the slug, drawn in the Alpine palette. Zero licensing, zero per-post cost, no third-party fetch (which satisfies the DSGVO self-hosting rule by construction), and it scales with auto-generation.
 - **Placement = post hero + small index tile.** The index tile stays small: a 72px square floated left of each row's text, inside the existing 40px-padded hairline row. `/blog` is an editorial hairline list rather than a card grid, and it must still read as one. The hero is a band at the full 880px column width, roughly 180px tall, sitting between the H1 and the prose.
 - **Offer mapping = per-topic `offer:` key in `topics.yaml`, defaulting to `website-check`.** Pillar-based mapping was rejected. `direct-booking-website-pension`, the one topic that most obviously wants Direktbucher, is filed under the `webdesign` pillar, so the pillar cannot distinguish it.
-- **Prices move to `src/lib/offers.mjs`** (plus a sibling `offers.d.ts` for types) as a single source of truth, shared by `HomeOffers.tsx`, the new CTA, and `lint.mjs`. This shrinks the Layer-0 exempted surface rather than growing it.
+- **Prices move to `src/lib/offers.mjs`** (plus a sibling `offers.d.mts` for types) as a single source of truth, shared by `HomeOffers.tsx`, the new CTA, and `lint.mjs`. This shrinks the Layer-0 exempted surface rather than growing it.
 
-  It is `.mjs` rather than `.ts` for a hard reason: `scripts/blog/lint.mjs` runs under bare `node`, which cannot import a TypeScript module. A `.ts` file could not be the shared source. `tsconfig.json` already sets `allowJs: true`, and the sibling `offers.d.ts` gives the `.tsx` consumers their types.
+  It is `.mjs` rather than `.ts` for a hard reason: `scripts/blog/lint.mjs` runs under bare `node`, which cannot import a TypeScript module. A `.ts` file could not be the shared source. `tsconfig.json` already sets `allowJs: true`, and the sibling `offers.d.mts` gives the `.tsx` consumers their types.
 
 ## Existing plumbing (reused as-is)
 
@@ -60,7 +60,7 @@ The writer is deliberately not told about offers. `offer` is owner data from `to
 
 ## Components
 
-### `src/lib/offers.mjs` + `src/lib/offers.d.ts` (new)
+### `src/lib/offers.mjs` + `src/lib/offers.d.mts` (new)
 
 Single source of truth for offer identity, importable from both runtimes.
 
@@ -76,7 +76,7 @@ export const DEFAULT_OFFER = "website-check";
 export function isOfferKey(v) { return typeof v === "string" && Object.hasOwn(OFFERS, v); }
 ```
 
-`offers.d.ts` (types for the `.tsx` consumers):
+`offers.d.mts` (types for the `.tsx` consumers):
 
 ```ts
 export type OfferKey = "website-check" | "direktbucher";
@@ -104,7 +104,7 @@ That positional coupling is fragile, and the file's own header comment at line 1
 
 Once the `€` literals leave this file, its `.layer0-allow` entry is removed and replaced by one for `src/lib/offers.mjs`. Net effect: the exempted surface shrinks from two files to one, instead of growing to four.
 
-### `src/lib/post-art.mjs` + `src/lib/post-art.d.ts` (new)
+### `src/lib/post-art.mjs` + `src/lib/post-art.d.mts` (new)
 
 The art's geometry as a pure function, separated from JSX so it is testable with the tooling this repo already has (`node:test`). There is no React test runner here, so a `.tsx` render test is not an option without adding a whole test stack.
 
@@ -198,7 +198,7 @@ Everything below uses that existing tooling. Nothing new is installed.
 `PostArt.tsx` and `BlogOfferCta.tsx` have no unit tests, because testing them would mean adding a React test stack that this repo has deliberately done without. They are thin renderers over tested pure functions, and they are covered by:
 
 - `npm run build`, which `generate.mjs` already runs, exercising `generateStaticParams` across every post in both locales. A post that fails to render fails the generation run.
-- `tsc` via the build, which type-checks the `offers.d.ts` contract at every call site.
+- `tsc` via the build, which type-checks the `offers.d.mts` contract at every call site.
 - An optional Playwright case in the existing `tests/e2e/`, asserting a post page renders one `svg[aria-hidden="true"]` and one link to `/en/website-check`.
 
 ## Out of scope
@@ -219,6 +219,6 @@ The published posts average 11 em dashes each (121 across 11 English posts), whi
 |---|---|
 | Generated art looks cheap and undercuts a deliberately editorial design | Three category families in the brand palette, small index tile, hero band constrained to the 880px column. Render and eyeball before merging. The design bar here is the existing index, which is good. |
 | `.layer0-allow` edit is wrong, so pre-commit blocks or the guard silently weakens | The allow entry moves `HomeOffers.tsx` to `src/lib/offers.mjs` in the same commit. Verify by committing; the hook is the test. |
-| `offers.d.ts` and `offers.mjs` drift apart, since nothing type-checks the `.mjs` against its own declaration | `offers.test.mjs` asserts the runtime shape (every `OFFERS` key present in `OFFER_ORDER`, `DEFAULT_OFFER` valid). `tsc` catches the consumer side. Accepted residual risk of the `.mjs` + `.d.ts` pattern, and the price of sharing one module between node and Next. |
+| `offers.d.mts` and `offers.mjs` drift apart, since nothing type-checks the `.mjs` against its own declaration | `offers.test.mjs` asserts the runtime shape (every `OFFERS` key present in `OFFER_ORDER`, `DEFAULT_OFFER` valid). `tsc` catches the consumer side. Accepted residual risk of the `.mjs` + `.d.mts` pattern, and the price of sharing one module between node and Next. |
 | `emit.mjs` undefined-key bug ships | Covered by an explicit `emit.test.mjs` case. |
 | SVG bloats every post's HTML | Geometry is a handful of shapes rather than a traced image. Keep it under roughly 2KB inline. It costs one fewer network round-trip than an `<img>` would. |
