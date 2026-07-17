@@ -3,6 +3,7 @@ export const dictionaries = {
     nav: {
       work: "Work",
       about: "About",
+      stack: "Stack",
       journal: "Journal",
       contact: "Contact",
       toggle: "DE",
@@ -33,7 +34,7 @@ export const dictionaries = {
         "Lechner Studios is a family-run, AI-native digital studio in Wattens, Tirol, founded by Sonja Lechner.",
       stackTitle: "Our Stack & Philosophy — how Lechner Studios builds",
       stackDescription:
-        "The tools and principles behind every Lechner Studios site: hand-written code, self-hosted with zero third-party requests, fast, accessible, and GDPR-compliant by construction.",
+        "The tools and principles behind every Lechner Studios site: hand-written code, self-hosted and privacy-first, fast, accessible, and GDPR-compliant by construction.",
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
@@ -79,7 +80,7 @@ export const dictionaries = {
     stance: {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
-      body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      body: "We hand-write every site on a modern stack — fast, self-hosted and privacy-first, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
       moreLink: "See the stack and why it matters →",
       slider: {
         code: "Code",
@@ -105,7 +106,7 @@ export const dictionaries = {
       principles: [
         { title: "Speed", body: "A slow site loses visitors before they read a word. We measure real load times on real devices and treat performance as a feature, not an afterthought." },
         { title: "Accessibility", body: "Contrast, keyboard navigation, and screen-reader structure are built in from the start, so the site works for every visitor and meets the WCAG basics." },
-        { title: "Privacy by construction", body: "Zero third-party requests at runtime. Nothing loads from an outside server behind your visitor's back. That is what makes GDPR compliance structural rather than a bolt-on." },
+        { title: "Privacy by construction", body: "Self-hosted fonts and assets, no ad networks, no social embeds, no tracking cookies. The little that does reach an outside server is cookieless analytics and error monitoring, both privacy-friendly. That keeps GDPR compliance structural rather than a bolt-on." },
         { title: "Maintainability", body: "Clean, typed, documented code you are never locked out of. If our paths ever part, another engineer can pick it up without a rewrite." },
       ],
       buildersTitle: "Why not a page builder?",
@@ -257,7 +258,7 @@ export const dictionaries = {
           },
           {
             h: "Built on a fast, durable foundation",
-            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted with zero third-party requests, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
+            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted and privacy-first, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — hand-coded, self-hosted" },
           },
           {
@@ -506,6 +507,7 @@ export const dictionaries = {
     nav: {
       work: "Arbeiten",
       about: "Über uns",
+      stack: "Stack",
       journal: "Journal",
       contact: "Kontakt",
       toggle: "EN",
@@ -536,7 +538,7 @@ export const dictionaries = {
         "Lechner Studios ist ein familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol, gegründet von Sonja Lechner.",
       stackTitle: "Stack & Philosophie — wie Lechner Studios baut",
       stackDescription:
-        "Die Werkzeuge und Prinzipien hinter jeder Website von Lechner Studios: von Hand geschrieben, selbst gehostet ohne Drittanbieter-Anfragen, schnell, barrierearm und DSGVO-konform von Grund auf.",
+        "Die Werkzeuge und Prinzipien hinter jeder Website von Lechner Studios: von Hand geschrieben, selbst gehostet und datenschutzfreundlich, schnell, barrierearm und DSGVO-konform von Grund auf.",
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
@@ -582,7 +584,7 @@ export const dictionaries = {
     stance: {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
-      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet und datenschutzfreundlich, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
       moreLink: "Der Stack und warum er zählt →",
       slider: {
         code: "Code",
@@ -608,7 +610,7 @@ export const dictionaries = {
       principles: [
         { title: "Tempo", body: "Eine langsame Seite verliert Besucher, bevor sie ein Wort gelesen haben. Wir messen echte Ladezeiten auf echten Geräten und behandeln Performance als Funktion, nicht als nachträgliche Kür." },
         { title: "Barrierefreiheit", body: "Kontrast, Tastaturbedienung und eine für Screenreader lesbare Struktur sind von Anfang an eingebaut. So funktioniert Ihre Seite für alle Besucher und erfüllt die WCAG-Grundlagen." },
-        { title: "Datenschutz von Grund auf", body: "Null Drittanbieter-Anfragen zur Laufzeit. Nichts lädt heimlich von einem externen Server nach. Genau das macht DSGVO-Konformität baulich statt nachträglich." },
+        { title: "Datenschutz von Grund auf", body: "Selbst gehostete Schriften und Assets, keine Werbenetzwerke, keine Social-Embeds, keine Tracking-Cookies. Das Wenige, das nach außen geht, sind cookielose Statistik und Fehler-Monitoring, beide datenschonend. Das macht DSGVO-Konformität baulich statt nachträglich." },
         { title: "Wartbarkeit", body: "Sauberer, typisierter, dokumentierter Code, aus dem Sie nie ausgesperrt sind. Sollten sich unsere Wege trennen, kann ein anderer Entwickler ihn ohne Neubau übernehmen." },
       ],
       buildersTitle: "Warum kein Baukasten?",
@@ -759,7 +761,7 @@ export const dictionaries = {
           },
           {
             h: "Auf schnellem, langlebigem Fundament gebaut",
-            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet, ganz ohne Drittanbieter-Anfragen: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
+            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet und datenschutzfreundlich: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — handgeschrieben, selbst gehostet" },
           },
           {
