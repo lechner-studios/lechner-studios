@@ -1239,9 +1239,11 @@ Run: `node -e "import('./src/lib/blog.ts')"` will not work (TypeScript). Instead
 The guard must still block prices elsewhere. Verify the allowlist did not over-broaden:
 
 ```bash
-grep -rn "€" src/ --include="*.tsx" --include="*.ts"
+grep -rn "€" src/ --include="*.tsx" --include="*.ts" | grep -v "studio-director/knowledge.ts"
 ```
 Expected: no output. `offers.mjs` is excluded by the `--include` filters, so any hit means a `€` leaked into a `.ts`/`.tsx` file and must be moved into `offers.mjs`.
+
+`studio-director/knowledge.ts` is filtered out as a **known pre-existing exception, not something this plan may fix**. It carries four unallowlisted prices that predate this work (PR #115, `217b5cd`). It is tracked separately, along with the reason the guard never caught it: the Layer-0 scan is a local pre-commit hook and cannot see commits authored through the GitHub API. Do not "fix" it by adding it to `.layer0-allow`.
 
 - [ ] **Step 7: Optional e2e**
 
