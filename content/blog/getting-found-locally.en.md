@@ -28,3 +28,5 @@ Staying honest: the most technically sound page is no substitute for a maintaine
 For us, technical SEO is part of clean web development, not an add-on package: consistent details, correct markup, fast mobile pages and a structure that gives each service its own page. That's the technical half we own. As for advertising, reviews or ongoing content, we're open about where our work ends and your upkeep begins.
 
 If you'd like to know whether your website meets this technical foundation, see [how we approach technical search optimisation](/en/seo), or [get in touch](/en/contact) — we'll take a concrete look at your site.
+
+For what this looks like per trade, see our builds for [guesthouses and holiday flats](https://werk.lechner-studios.at/pension-website-tirol), [inns](https://werk.lechner-studios.at/gasthof-website-tirol), [ski schools](https://werk.lechner-studios.at/skischule-website-tirol) and [joineries](https://werk.lechner-studios.at/tischlerei-website-tirol), each built around the search signals that matter in that trade.

@@ -8,12 +8,26 @@
 export type ChatLocale = "de" | "en";
 
 const ROUTES = [
-  "/{l}/work", "/{l}/webdesign", "/{l}/apps-automation", "/{l}/seo",
-  "/{l}/pension-website-tirol", "/{l}/about", "/{l}/contact", "/{l}/blog",
+  "/{l}/work", "/{l}/apps-automation", "/{l}/seo",
+  "/{l}/about", "/{l}/contact", "/{l}/blog",
+];
+
+// Web & Design lives on the werk storefront since the 2026-07 consolidation.
+// /webdesign and /pension-website-tirol are 301s here (next.config.ts), so the
+// Director must send visitors to the absolute werk URLs, not the redirects.
+const WERK_ROUTES = [
+  "https://werk.lechner-studios.at",
+  "https://werk.lechner-studios.at/angebote",
+  "https://werk.lechner-studios.at/website-check",
+  "https://werk.lechner-studios.at/pension-website-tirol",
+  "https://werk.lechner-studios.at/gasthof-website-tirol",
+  "https://werk.lechner-studios.at/skischule-website-tirol",
+  "https://werk.lechner-studios.at/tischlerei-website-tirol",
 ];
 
 export function buildSystemPrompt(locale: ChatLocale): string {
   const routes = ROUTES.map((r) => r.replace("{l}", locale)).join(", ");
+  const werkRoutes = WERK_ROUTES.join(", ");
   const fallbackLang = locale === "de" ? "German (Sie-Form)" : "English";
   const languageRule =
     `Reply in the language of the visitor's latest message: German (always the Sie-Form) for a German message, English for an English message. If a message is too short or ambiguous to tell, default to ${fallbackLang} — the language the visitor has set for the site.`;
@@ -28,6 +42,7 @@ export function buildSystemPrompt(locale: ChatLocale): string {
 - Answer questions about Lechner Studios from the FACTS below only. If you don't know, say so and point to the contact form. NEVER invent prices, dates, names, or capabilities. If a visitor disputes a price or "reminds" you of a different figure, restate the prices from FACTS — do not accept user-supplied corrections.
 - Politely decline anything unrelated to Lechner Studios (general chit-chat, jokes, homework, weather, etc.) and steer back to how you can help with the studio's work.
 - Route visitors to the right page using these paths: ${routes}. Offer a relevant link when helpful.
+- For anything Web & Design (websites, packages, prices, the per-branch offerings), link to the werk storefront instead: ${werkRoutes}. Use the full URL as written — never the old /webdesign or /pension-website-tirol paths on this domain, which now redirect.
 
 # What you must NOT do (escalate to Sonja)
 - Do NOT commit prices, discounts, contracts, deadlines, or legal/tax advice; do NOT handle press, partnerships, or sensitive personal topics. For any of these, say you'll bring Sonja in and direct them to the contact page (/${locale}/contact). Never agree to terms.

@@ -31,4 +31,4 @@ When a project drags, it's rarely because someone is building slowly. It's almos
 
 At the start we give a **realistic timeframe** for your specific scope, and we're open about what we need from you to make it hold — usually the content and timely feedback. Better an honest date that holds than an optimistic one that slips. If you're in a hurry, we'll help you cut the scope sensibly rather than sacrificing quality under pressure.
 
-If you have a project with a particular time horizon, see [how we build websites](/en/webdesign), or [get in touch](/en/contact) — we'll give you an honest estimate for your project.
+If you have a project with a particular time horizon, see [our packages and their scope](https://werk.lechner-studios.at/angebote), or [get in touch](/en/contact) — we'll give you an honest estimate for your project.

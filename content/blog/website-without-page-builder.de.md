@@ -55,4 +55,4 @@ Der richtige Zeitpunkt für eine Neubewertung kommt, wenn die Website anfängt, 
 
 Eine individuell entwickelte Website ist kein Luxus. Sie ist das passende Werkzeug für ein Unternehmen, das seinen Webauftritt ernst nimmt — einmal gebaut, um zu bleiben.
 
-Wenn Sie verstehen möchten, wie ein individuelles Projekt für Ihre konkrete Situation aussehen könnte, finden Sie auf der [Webdesign-Leistungsseite](/de/webdesign) mehr Informationen zum Ansatz von Lechner Studios — oder [nehmen Sie direkt Kontakt auf](/de/contact).
+Wenn Sie verstehen möchten, wie ein individuelles Projekt für Ihre konkrete Situation aussehen könnte, finden Sie im [Werk-Studio](https://werk.lechner-studios.at) mehr Informationen zum Ansatz von Lechner Studios — oder [nehmen Sie direkt Kontakt auf](/de/contact).
