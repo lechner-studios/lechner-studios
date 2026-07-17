@@ -40,3 +40,18 @@ test("flags incomplete frontmatter", () => {
   const v = lintPost({ frontmatter: { ...goodFm, keywords: ["only", "three", "kw"] }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /keywords/i.test(x)));
 });
+
+test("accepts a valid offer key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, offer: "direktbucher" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("accepts an absent offer key", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("rejects an unknown offer key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, offer: "websitecheck" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /offer/i.test(x)));
+});

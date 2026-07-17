@@ -1,3 +1,5 @@
+import { isOfferKey } from "../../src/lib/offers.mjs";
+
 // Returns an array of human-readable violation strings; [] means clean.
 // Catches the Gewerbe-scope / honesty risks the owner cares about, plus the
 // structural contract the blog renderer + sitemap rely on.
@@ -19,6 +21,11 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   }
   if (!Array.isArray(fm.keywords) || fm.keywords.length < 5 || fm.keywords.length > 7) {
     v.push("keywords: must be 5–7 entries");
+  }
+  // `offer` is optional (blog.ts defaults it), but a typo must not ship — a bad
+  // key renders no CTA at all, silently.
+  if (fm.offer !== undefined && !isOfferKey(fm.offer)) {
+    v.push(`offer: '${fm.offer}' is not a known offer key`);
   }
   if (fm.description && (fm.description.length < 50 || fm.description.length > 160)) {
     v.push("description: must be 50–160 chars");
