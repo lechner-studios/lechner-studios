@@ -54,6 +54,11 @@ export default function LegalImpressumEN() {
             <a href="mailto:hallo@lechner-studios.at" style={linkStyle}>
               hallo@lechner-studios.at
             </a>
+            <br />
+            Phone:{" "}
+            <a href="tel:+436641534653" style={linkStyle}>
+              +43 664 153 4653
+            </a>
           </div>
 
           <div style={sectionLabelStyle}>Object of business</div>

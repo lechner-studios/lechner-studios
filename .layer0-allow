@@ -47,3 +47,9 @@ src/components/HomeOffers.tsx
 # public hallo@ inbox and the Präsenz entry price — the same figures already
 # published on the werk storefront it points at. Intentionally readable.
 public/llms.txt
+
+# Site layout emits the Organization + LocalBusiness JSON-LD, which now carries
+# the public business telephone (the same number on the Impressum + footer) for
+# NAP consistency. The digit run trips the phone-like guard; it is the studio's
+# own published contact number, not third-party PII.
+src/app/(site)/[locale]/layout.tsx

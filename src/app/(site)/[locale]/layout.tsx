@@ -136,6 +136,7 @@ function buildJsonLd(locale: Locale) {
         url: `https://lechner-studios.at/${locale}`,
         logo: "https://lechner-studios.at/og-image.png",
         email: "hallo@lechner-studios.at",
+        telephone: "+43 664 153 4653",
         description: dict.meta.orgDescription,
         founder: { "@id": "https://lechner-studios.at#sonja" },
         address: {
@@ -171,6 +172,7 @@ function buildJsonLd(locale: Locale) {
         name: "Lechner Studios",
         url: `https://lechner-studios.at/${locale}`,
         email: "hallo@lechner-studios.at",
+        telephone: "+43 664 153 4653",
         image: "https://lechner-studios.at/og-image.png",
         address: {
           "@type": "PostalAddress",
