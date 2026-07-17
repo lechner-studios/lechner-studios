@@ -31,6 +31,9 @@ export const dictionaries = {
       aboutTitle: "About the Studio",
       aboutDescription:
         "Lechner Studios is a family-run, AI-native digital studio in Wattens, Tirol, founded by Sonja Lechner.",
+      stackTitle: "Our Stack & Philosophy — how Lechner Studios builds",
+      stackDescription:
+        "The tools and principles behind every Lechner Studios site: hand-written code, self-hosted with zero third-party requests, fast, accessible, and GDPR-compliant by construction.",
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
@@ -77,11 +80,40 @@ export const dictionaries = {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
       body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      moreLink: "See the stack and why it matters →",
       slider: {
         code: "Code",
         result: "Result",
         aria: "Before/after: source code and its rendered result — drag to reveal.",
       },
+    },
+    stack: {
+      overline: "STACK & PHILOSOPHY",
+      headline: "Hand-built, on a modern stack.",
+      intro:
+        "Most small-business sites today are assembled in a builder. We write every line ourselves, on the same tools large product teams use. There is a practical reason for it. It decides how fast your site loads and how quietly it handles your visitors' data, and whether you can still extend it in five years.",
+      stackOverline: "WHAT WE BUILD ON",
+      items: [
+        { name: "Next.js & React", why: "The foundation. Server-rendered pages load fast and are legible to search engines from the first byte, not once a script has finished." },
+        { name: "TypeScript", why: "Every function is typed. Mistakes surface while we build, not once they reach your customers." },
+        { name: "Hand-written CSS", why: "No builder markup, no utility-framework weight. Only the styles your site needs, driven by a small set of design tokens." },
+        { name: "Self-hosted fonts & assets", why: "No Google Fonts request, no external script. Everything lives on your own domain, which keeps the site fast and GDPR-clean without cookie-banner acrobatics." },
+        { name: "Supabase", why: "When a project needs a database or logins, we reach for Supabase: an open Postgres foundation that can be hosted in the EU." },
+        { name: "Vercel", why: "Hosted on infrastructure that delivers worldwide and scales on its own, with no server for you to maintain." },
+      ],
+      principlesOverline: "WHAT WE OPTIMISE FOR",
+      principles: [
+        { title: "Speed", body: "A slow site loses visitors before they read a word. We measure real load times on real devices and treat performance as a feature, not an afterthought." },
+        { title: "Accessibility", body: "Contrast, keyboard navigation, and screen-reader structure are built in from the start, so the site works for every visitor and meets the WCAG basics." },
+        { title: "Privacy by construction", body: "Zero third-party requests at runtime. Nothing loads from an outside server behind your visitor's back. That is what makes GDPR compliance structural rather than a bolt-on." },
+        { title: "Maintainability", body: "Clean, typed, documented code you are never locked out of. If our paths ever part, another engineer can pick it up without a rewrite." },
+      ],
+      buildersTitle: "Why not a page builder?",
+      buildersBody: "Builders are quick to start and expensive to live with: heavy pages, third-party scripts you did not choose, and a ceiling you hit the moment you need something specific. We have written about the trade-off in more detail.",
+      buildersLink1: "Custom site vs. website builder",
+      buildersLink2: "A website without a page builder",
+      ctaText: "Have a project in mind?",
+      ctaLabel: "Discuss it with us",
     },
     about: {
       overline: "ABOUT THE STUDIO",
@@ -502,6 +534,9 @@ export const dictionaries = {
       aboutTitle: "Über das Studio",
       aboutDescription:
         "Lechner Studios ist ein familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol, gegründet von Sonja Lechner.",
+      stackTitle: "Stack & Philosophie — wie Lechner Studios baut",
+      stackDescription:
+        "Die Werkzeuge und Prinzipien hinter jeder Website von Lechner Studios: von Hand geschrieben, selbst gehostet ohne Drittanbieter-Anfragen, schnell, barrierearm und DSGVO-konform von Grund auf.",
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
@@ -548,11 +583,40 @@ export const dictionaries = {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
       body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      moreLink: "Der Stack und warum er zählt →",
       slider: {
         code: "Code",
         result: "Ergebnis",
         aria: "Vorher/Nachher: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken.",
       },
+    },
+    stack: {
+      overline: "STACK & PHILOSOPHIE",
+      headline: "Von Hand gebaut, auf einem modernen Stack.",
+      intro:
+        "Die meisten Websites für kleine Betriebe entstehen heute im Baukasten. Wir schreiben stattdessen jede Zeile selbst, auf denselben Werkzeugen, mit denen große Produktteams arbeiten. Dahinter steckt ein praktischer Grund. Es entscheidet darüber, wie schnell Ihre Seite lädt und wie sparsam sie mit den Daten Ihrer Besucher umgeht, und ob sie sich in fünf Jahren noch erweitern lässt.",
+      stackOverline: "WORAUF WIR BAUEN",
+      items: [
+        { name: "Next.js & React", why: "Das Fundament. Server-gerenderte Seiten laden schnell und sind vom ersten Byte an für Suchmaschinen lesbar, nicht erst, wenn ein Skript fertig geladen hat." },
+        { name: "TypeScript", why: "Jede Funktion ist typisiert. Fehler zeigen sich beim Bauen, nicht erst beim Kunden." },
+        { name: "Handgeschriebenes CSS", why: "Kein Baukasten-Markup, kein Framework-Ballast. Nur die Stile, die Ihre Seite wirklich braucht, gesteuert über einen kleinen Satz zentraler Design-Tokens." },
+        { name: "Selbst gehostete Schriften & Assets", why: "Keine Google-Fonts-Anfrage, kein externes Skript. Alles liegt auf Ihrer eigenen Domain. Das hält die Seite schnell und DSGVO-sauber, ohne Cookie-Banner-Akrobatik." },
+        { name: "Supabase", why: "Wenn ein Projekt eine Datenbank oder Logins braucht, setzen wir auf Supabase: eine offene Postgres-Basis, die sich in der EU hosten lässt." },
+        { name: "Vercel", why: "Gehostet auf einer Infrastruktur, die weltweit ausliefert und von selbst skaliert, ohne dass Sie einen Server pflegen müssen." },
+      ],
+      principlesOverline: "WORAUF WIR OPTIMIEREN",
+      principles: [
+        { title: "Tempo", body: "Eine langsame Seite verliert Besucher, bevor sie ein Wort gelesen haben. Wir messen echte Ladezeiten auf echten Geräten und behandeln Performance als Funktion, nicht als nachträgliche Kür." },
+        { title: "Barrierefreiheit", body: "Kontrast, Tastaturbedienung und eine für Screenreader lesbare Struktur sind von Anfang an eingebaut. So funktioniert Ihre Seite für alle Besucher und erfüllt die WCAG-Grundlagen." },
+        { title: "Datenschutz von Grund auf", body: "Null Drittanbieter-Anfragen zur Laufzeit. Nichts lädt heimlich von einem externen Server nach. Genau das macht DSGVO-Konformität baulich statt nachträglich." },
+        { title: "Wartbarkeit", body: "Sauberer, typisierter, dokumentierter Code, aus dem Sie nie ausgesperrt sind. Sollten sich unsere Wege trennen, kann ein anderer Entwickler ihn ohne Neubau übernehmen." },
+      ],
+      buildersTitle: "Warum kein Baukasten?",
+      buildersBody: "Baukästen sind schnell begonnen und teuer im Alltag: schwere Seiten, Skripte von Dritten, die Sie nicht gewählt haben, und eine Decke, an die Sie stoßen, sobald Sie etwas Bestimmtes brauchen. Über diesen Kompromiss haben wir ausführlicher geschrieben.",
+      buildersLink1: "Maßgeschneidert vs. Baukasten",
+      buildersLink2: "Eine Website ohne Baukasten",
+      ctaText: "Ein Projekt im Kopf?",
+      ctaLabel: "Sprechen wir darüber",
     },
     about: {
       overline: "ÜBER DAS STUDIO",
