@@ -11,6 +11,7 @@ import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
 import PostArt from "../../../../../components/PostArt";
+import BlogOfferCta from "../../../../../components/BlogOfferCta";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
 
 export async function generateStaticParams() {
@@ -171,6 +172,8 @@ export default async function BlogArticlePage({
             <div className="blog-prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
             </div>
+
+            <BlogOfferCta offer={meta.offer} />
           </article>
         </section>
         <Footer />

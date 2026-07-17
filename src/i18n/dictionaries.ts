@@ -51,6 +51,19 @@ export const dictionaries = {
       empty: "Articles coming soon.",
       published: "Published",
     },
+    blogOffer: {
+      overline: "NEXT STEP",
+      items: {
+        "website-check": {
+          desc: "A focused audit of your existing site: technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.",
+          cta: "Book a Website-Check",
+        },
+        "direktbucher": {
+          desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol. Live in two weeks, with the portal commission back in your pocket.",
+          cta: "See Direktbucher",
+        },
+      },
+    },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Websites, apps & automation,\nbuilt to measure.",
@@ -518,6 +531,19 @@ export const dictionaries = {
       backToBlog: "← Alle Beiträge",
       empty: "Beiträge folgen in Kürze.",
       published: "Veröffentlicht",
+    },
+    blogOffer: {
+      overline: "NÄCHSTER SCHRITT",
+      items: {
+        "website-check": {
+          desc: "Eine fokussierte Analyse Ihrer bestehenden Website: technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.",
+          cta: "Website-Check buchen",
+        },
+        "direktbucher": {
+          desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol. Live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.",
+          cta: "Direktbucher ansehen",
+        },
+      },
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
