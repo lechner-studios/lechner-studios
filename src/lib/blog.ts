@@ -15,6 +15,12 @@ export type BlogMeta = {
   keywords: string[];
   /** Which productized offer this post's CTA points at. */
   offer: OfferKey;
+  /** Self-hosted photo path (/blog/<slug>.jpg) and its Pexels attribution. All optional; a post without a photo is still valid. */
+  image?: string | undefined;
+  imageAlt?: string | undefined;
+  imageCredit?: string | undefined;
+  imageCreditUrl?: string | undefined;
+  imagePexelsUrl?: string | undefined;
 };
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -42,6 +48,13 @@ function toMeta(data: Record<string, unknown>, slug: string, locale: string): Bl
     // Posts published before offers existed carry no `offer` key. Defaulting
     // here is what retrofits them with no file edits.
     offer: isOfferKey(data.offer) ? data.offer : DEFAULT_OFFER,
+    // Image fields are NOT defaulted (unlike offer): an absent photo is a
+    // valid, expected state (PostImage renders a plain fallback block).
+    image: typeof data.image === "string" ? data.image : undefined,
+    imageAlt: typeof data.imageAlt === "string" ? data.imageAlt : undefined,
+    imageCredit: typeof data.imageCredit === "string" ? data.imageCredit : undefined,
+    imageCreditUrl: typeof data.imageCreditUrl === "string" ? data.imageCreditUrl : undefined,
+    imagePexelsUrl: typeof data.imagePexelsUrl === "string" ? data.imagePexelsUrl : undefined,
   };
 }
 

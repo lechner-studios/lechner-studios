@@ -27,6 +27,11 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   if (fm.offer !== undefined && !isOfferKey(fm.offer)) {
     v.push(`offer: '${fm.offer}' is not a known offer key`);
   }
+  // Catches a raw Pexels CDN URL leaking into frontmatter, which would be a
+  // DSGVO hotlink (images must be downloaded + self-hosted, never linked live).
+  if (fm.image !== undefined && !String(fm.image).startsWith("/blog/")) {
+    v.push("image: must be a /blog/ path (self-hosted)");
+  }
   if (fm.description && (fm.description.length < 50 || fm.description.length > 160)) {
     v.push("description: must be 50–160 chars");
   }

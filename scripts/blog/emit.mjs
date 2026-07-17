@@ -2,7 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-const FIELD_ORDER = ["title", "description", "excerpt", "date", "category", "keywords", "offer"];
+const FIELD_ORDER = [
+  "title",
+  "description",
+  "excerpt",
+  "date",
+  "category",
+  "keywords",
+  "offer",
+  "image",
+  "imageAlt",
+  "imageCredit",
+  "imageCreditUrl",
+  "imagePexelsUrl",
+];
 
 function writeOne(dir, slug, locale, { frontmatter, body }) {
   // Order fields to match existing posts (gray-matter stringify preserves insertion order).

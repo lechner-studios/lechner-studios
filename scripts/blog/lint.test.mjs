@@ -55,3 +55,16 @@ test("rejects an unknown offer key", () => {
   const v = lintPost({ frontmatter: { ...goodFm, offer: "websitecheck" }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /offer/i.test(x)));
 });
+
+test("accepts a valid /blog/ image path", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, image: "/blog/x.jpg" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("accepts an absent image", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("rejects an image that is a remote hotlink, not a /blog/ path", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, image: "https://images.pexels.com/x.jpg" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /image/i.test(x)));
+});
