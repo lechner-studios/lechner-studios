@@ -4,17 +4,12 @@ import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
+import { OFFER_ORDER } from "../lib/offers.mjs";
 
-// Hrefs, brand titles and prices live here, not in the shared dictionary, so
-// the Layer-0 PII/currency guard stays active over all site copy. This
-// component is exempted in .layer0-allow — the amounts are intentional public
-// marketing figures, matching the offer pages they link to. Ordered to mirror
-// dict.homeOffers.items (check, then direkt).
-// Web & Design offers now live on the werk storefront — link out directly.
-const OFFERS: { href: string; title: string; price: { de: string; en: string }; accent: string }[] = [
-  { href: "https://werk.lechner-studios.at/website-check", title: "Website-Check", price: { de: "€290", en: "€290" }, accent: "#254268" },
-  { href: "https://werk.lechner-studios.at/pension-website-tirol", title: "Direktbucher", price: { de: "ab €3.900", en: "from €3,900" }, accent: "#5E8263" },
-];
+// Offer hrefs/titles/prices live in src/lib/offers.mjs (shared with the blog
+// generator and BlogOfferCta), not in the shared dictionary, so the Layer-0
+// PII/currency guard stays active over all site copy. OFFER_ORDER is ordered to
+// mirror dict.homeOffers.items (check, then direkt).
 
 export default function HomeOffers() {
   const { dict, locale } = useLanguage();
@@ -61,7 +56,7 @@ export default function HomeOffers() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
           {d.items.map((item, i) => {
-            const meta = OFFERS[i];
+            const meta = OFFER_ORDER[i];
             const isHovered = hovered === i;
             return (
               <Reveal key={meta.title} delay={i * 80}>

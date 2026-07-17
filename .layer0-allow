@@ -28,17 +28,11 @@ src/app/api/contact/route.ts
 # low-friction contact point, not third-party PII.
 src/components/Footer.tsx
 
-# Website-Check offer surface carries the productized fixed price (a native
-# Euro amount) and its schema.org Offer markup (which requires the ISO
-# priceCurrency code) as intentional public marketing content — the same kind
-# of public price already shown on the Pension/Direktbucher landing. The price
-# is isolated to these two offer files (not the shared copy dictionary), so the
-# Layer-0 currency/PII scan stays active over all other site copy.
-src/components/WebsiteCheck.tsx
-src/components/WebsiteCheckJsonLd.tsx
-
-# Homepage offer band surfaces the two productized entry offers with their
-# public fixed prices (Website-Check + Direktbucher). Same rationale as above:
-# prices are intentional public marketing figures, isolated to this one
-# component (not the shared copy dictionary).
-src/components/HomeOffers.tsx
+# Single source of truth for the two productized entry offers (Website-Check +
+# Direktbucher) and their public fixed prices. Imported by HomeOffers, by
+# BlogOfferCta, and by the blog generator's linter. Same rationale as above:
+# prices are intentional public marketing figures, isolated to this one module
+# (not the shared copy dictionary), so the Layer-0 currency/PII scan stays
+# active over all other site copy. HomeOffers.tsx no longer needs an exemption
+# because the amounts have left it.
+src/lib/offers.mjs
