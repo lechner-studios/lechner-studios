@@ -60,6 +60,31 @@ async function main() {
     process.exit(3);
   }
 
+  // Fetch a self-hosted photo (Pexels). Owner data + generation-time only; the
+  // browser never calls Pexels. A post without a photo is still valid, so a
+  // failure warns and continues.
+  if (process.env.PEXELS_API_KEY) {
+    try {
+      const { fetchPhoto } = await import("./images.mjs");
+      const img = await fetchPhoto({
+        post: picked,
+        slug: picked.slug,
+        apiKey: process.env.PEXELS_API_KEY,
+        outDir: path.join(ROOT, "public", "blog"),
+      });
+      if (img) {
+        Object.assign(post.en.frontmatter, img);
+        Object.assign(post.de.frontmatter, img);
+      } else {
+        console.warn(`No Pexels photo for "${picked.slug}" — post ships without one.`);
+      }
+    } catch (e) {
+      console.warn(`Pexels fetch failed for "${picked.slug}": ${e.message} — post ships without one.`);
+    }
+  } else {
+    console.warn("PEXELS_API_KEY not set — post ships without a photo.");
+  }
+
   const outDir = dryRun ? fs.mkdtempSync(path.join(os.tmpdir(), "blog-dry-")) : BLOG_DIR;
   const files = emitPost(picked.slug, post, outDir);
   console.log("Wrote:\n" + files.join("\n"));

@@ -6,6 +6,10 @@
 #   Valid keys live in src/lib/offers.mjs: website-check | direktbucher.
 #   Omit it and the post falls back to website-check, the entry offer, which
 #   suits nearly every topic. Set direktbucher on pension/tourism topics.
+# imageQuery = OPTIONAL. A per-topic Pexels search override (see
+#   scripts/blog/images.mjs). Omit it and the post's category theme
+#   (CATEGORY_IMAGE_QUERIES) is used instead — the default for every topic
+#   below.
 webdesign:
   - slug: website-without-page-builder
     keyword: "Website ohne Baukasten"
