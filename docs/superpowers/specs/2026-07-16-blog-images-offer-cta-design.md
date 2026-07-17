@@ -218,6 +218,25 @@ Everything below uses that existing tooling. Nothing new is installed.
 - **Re-generating or hand-editing existing posts.** The defaults cover them.
 - **Prose-quality guardrails in the generator.** Tracked separately; see the note below.
 
+## Why the art is not tinted per pillar
+
+ADR-0037 assigns each pillar a colour (Web & Design → stone, Apps & Automation → sky, SEO & Growth → pine). The art deliberately does NOT use them. Measured contrast against the tile background:
+
+| Pillar | Light tile `#E9EFF2` | Dark tile `#1B1E22` |
+|---|---|---|
+| stone `#D6CDBE` | **1.36** | 10.62 |
+| sky `#8FA8C5` | **2.11** | 6.83 |
+| pine `#5E8263` | 3.73 | 3.86 |
+| lake `#254268` | 8.79 | **1.64** |
+
+Tinting would make Web & Design and Apps & Automation art effectively invisible in light mode. The generic fills measure 8.79 / 5.23 light and 6.83 / 7.56 dark: visible and even in both themes.
+
+The cause is structural. The pillar colours were chosen for the 2×2 `BrandMark` tile, where they contrast **against each other** on a neutral ground, not against a themed page background. That is why `BrandMark.tsx` can hardcode them with no dark variant. They are not a themeable palette, and treating them as one is a category error.
+
+There is also an unresolved tangle to settle before any pillar token is added: `--accent`'s DARK value `#8FA8C5` **is** the sky pillar's hex, so the palette already conflates "lake-navy in dark mode" with "sky".
+
+Owner decision (2026-07-17): ship the art on generic accent; the palette extension is its own ADR-0037 amendment, tracked separately. Pillar identity is carried by geometry (grid / nodes / strata) in the meantime. `post-art.mjs`'s `FILLS` constant is the single place to change once per-theme pillar tokens exist.
+
 ## Related, tracked separately
 
 The published posts average 12 em dashes each (235 across 19 English posts; 369 across all 38 files including de). This reads as machine-written at a glance. `writer.mjs` never constrains punctuation or cadence, and `lint.mjs` never checks. That is a content-quality problem in the same two files this design touches, but it is a distinct concern from art and CTAs, and it deserves its own spec rather than being smuggled into this one.
