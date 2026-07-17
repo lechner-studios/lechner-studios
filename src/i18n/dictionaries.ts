@@ -100,7 +100,8 @@ export const dictionaries = {
         { name: "Hand-written CSS", why: "No builder markup, no utility-framework weight. Only the styles your site needs, driven by a small set of design tokens." },
         { name: "Self-hosted fonts & assets", why: "No Google Fonts request, no external script. Everything lives on your own domain, which keeps the site fast and GDPR-clean without cookie-banner acrobatics." },
         { name: "Supabase", why: "When a project needs a database or logins, we reach for Supabase: an open Postgres foundation that can be hosted in the EU." },
-        { name: "Vercel", why: "Hosted on infrastructure that delivers worldwide and scales on its own, with no server for you to maintain." },
+        { name: "Vercel", why: "Hosted on infrastructure that delivers worldwide and scales on its own, with no server for you to maintain. Its analytics are cookieless, so there is no consent banner to manage." },
+        { name: "Sentry", why: "Error monitoring, EU-region and without visitor IPs or cookies. It tells us when something breaks so we can fix it before you have to report it." },
       ],
       principlesOverline: "WHAT WE OPTIMISE FOR",
       principles: [
@@ -604,7 +605,8 @@ export const dictionaries = {
         { name: "Handgeschriebenes CSS", why: "Kein Baukasten-Markup, kein Framework-Ballast. Nur die Stile, die Ihre Seite wirklich braucht, gesteuert über einen kleinen Satz zentraler Design-Tokens." },
         { name: "Selbst gehostete Schriften & Assets", why: "Keine Google-Fonts-Anfrage, kein externes Skript. Alles liegt auf Ihrer eigenen Domain. Das hält die Seite schnell und DSGVO-sauber, ohne Cookie-Banner-Akrobatik." },
         { name: "Supabase", why: "Wenn ein Projekt eine Datenbank oder Logins braucht, setzen wir auf Supabase: eine offene Postgres-Basis, die sich in der EU hosten lässt." },
-        { name: "Vercel", why: "Gehostet auf einer Infrastruktur, die weltweit ausliefert und von selbst skaliert, ohne dass Sie einen Server pflegen müssen." },
+        { name: "Vercel", why: "Gehostet auf einer Infrastruktur, die weltweit ausliefert und von selbst skaliert, ohne dass Sie einen Server pflegen müssen. Die Statistik ist cookielos, es gibt also kein Consent-Banner zu verwalten." },
+        { name: "Sentry", why: "Fehler-Monitoring, in der EU-Region und ohne Besucher-IPs oder Cookies. Es meldet uns Fehler, damit wir sie beheben, bevor Sie sie melden müssen." },
       ],
       principlesOverline: "WORAUF WIR OPTIMIEREN",
       principles: [
