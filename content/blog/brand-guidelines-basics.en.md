@@ -16,6 +16,11 @@ keywords:
   - brand standards
   - style guide
   - brand identity
+image: /blog/brand-guidelines-basics.jpg
+imageAlt: Artistic minimalist arrangement of geometric shapes in neutral tones.
+imageCredit: KATRIN  BOLOVTSOVA
+imageCreditUrl: https://www.pexels.com/@ekaterina-bolovtsova
+imagePexelsUrl: https://www.pexels.com/photo/clay-shapes-and-wooden-elements-composition-7307724/
 ---
 A business can have a beautiful logo and still look like a different company every time someone encounters it online, in print, or in a presentation. That gap — between having a brand and actually living it consistently — is exactly what brand guidelines are designed to close. Whether you are a team of three or thirty, a clear set of design standards is one of the most practical investments you can make in how your business presents itself to the world.
 

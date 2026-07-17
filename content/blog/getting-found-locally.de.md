@@ -5,6 +5,11 @@ excerpt: "Lokal gefunden zu werden ist zur Hälfte Pflege Ihres Eintrags und zur
 date: "2026-06-15"
 category: "SEO & Growth"
 keywords: ["lokal gefunden werden", "lokale Sichtbarkeit", "Website lokale Suche", "strukturierte Daten", "Local SEO technisch", "Website Tirol gefunden werden"]
+image: /blog/getting-found-locally.jpg
+imageAlt: Serene view of mist-covered forested mountains in the Carpathians, Ukraine.
+imageCredit: Ira Martyniuk
+imageCreditUrl: https://www.pexels.com/@ira-martyniuk-2147702405
+imagePexelsUrl: https://www.pexels.com/photo/foggy-forest-landscape-in-the-carpathians-34350109/
 ---
 
 Wenn jemand in Ihrer Nähe nach dem sucht, was Sie anbieten, entscheidet sich in Sekunden, ob Sie auftauchen — und ob die Person bleibt. Lokal gefunden zu werden hat zwei Hälften: die Pflege Ihres Eintrags in Karten- und Suchdiensten, und eine Website, die technisch sauber genug ist, um den Eintrag zu stützen statt ihn zu untergraben. Über das Werbliche reden andere; hier geht es um die technische Hälfte, die in den Bereich der Webentwicklung fällt — und die überraschend oft das schwächste Glied ist.

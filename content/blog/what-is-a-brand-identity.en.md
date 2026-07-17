@@ -14,6 +14,11 @@ keywords:
   - small business branding
   - brand voice
   - logo and typography
+image: /blog/what-is-a-brand-identity.jpg
+imageAlt: Minimalist still life featuring geometric shapes and a palo santo stick against a beige background.
+imageCredit: Mikhail Nilov
+imageCreditUrl: https://www.pexels.com/@mikhail-nilov
+imagePexelsUrl: https://www.pexels.com/photo/geometric-shapes-on-the-table-7827743/
 ---
 Most people, when asked about their brand, point to their logo. That is understandable — the logo is the most visible piece. But it is also a little like describing a house by its front door. A brand identity is the whole building: every element that shapes how people recognise, read, and feel about your business, working together as a single, coherent system.
 

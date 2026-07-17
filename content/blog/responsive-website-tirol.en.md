@@ -14,6 +14,11 @@ keywords:
   - mobile-friendly website
   - SMB website design
   - responsive design DACH
+image: /blog/responsive-website-tirol.jpg
+imageAlt: Spacious modern atrium with glass walls and polished reflections, exuding an urban architectural style.
+imageCredit: Zerrin Velizade
+imageCreditUrl: https://www.pexels.com/@zerrin-velizade-340349032
+imagePexelsUrl: https://www.pexels.com/photo/black-and-white-photo-of-a-large-building-with-windows-18592583/
 ---
 If someone told you your website "isn't responsive," you might nod along and quietly wonder what that actually means. You're not alone. The term gets thrown around constantly, but the real explanation — and the real stakes — rarely follow. Here's an honest look at what responsive design means in practice, why it's no longer optional, and what a well-built responsive site actually involves.
 

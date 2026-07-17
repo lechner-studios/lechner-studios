@@ -14,6 +14,11 @@ keywords:
   - Markenaufbau
   - Corporate Design
   - Branding KMU
+image: /blog/logo-vs-brand.jpg
+imageAlt: A minimalist composition featuring green leaves and an orange on geometric shapes against a yellow background.
+imageCredit: Daria Liudnaya
+imageCreditUrl: https://www.pexels.com/@daria-liudnaya
+imagePexelsUrl: https://www.pexels.com/photo/photo-of-green-leaves-on-yellow-background-7354440/
 ---
 Viele Unternehmen beauftragen ein Logo – und glauben danach, sie hätten eine Marke. Das ist verständlich, denn das Logo ist das Sichtbarste, das Greifbarste. Aber es ist nur ein Teil eines größeren Ganzen. Wer den Unterschied zwischen Logo und Marke kennt, trifft bessere Entscheidungen – beim Aufbau seines Unternehmens, bei der Zusammenarbeit mit Gestaltern und beim Einsatz von Kommunikationsmitteln.
 

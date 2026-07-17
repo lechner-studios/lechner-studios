@@ -5,6 +5,11 @@ excerpt: "\"What does a website cost?\" is the most common first question — an
 date: "2026-06-15"
 category: "Web & Design"
 keywords: ["website cost", "web design price", "how much does a website cost", "build a website", "web design Tyrol", "website cost Austria"]
+image: /blog/what-a-website-costs.jpg
+imageAlt: A stunning modern architectural ceiling with a curved skylight and unique lighting elements.
+imageCredit: Alex Kalinin
+imageCreditUrl: https://www.pexels.com/@loaldesign
+imagePexelsUrl: https://www.pexels.com/photo/modern-architectural-ceiling-and-skylight-design-31735039/
 ---
 
 "What does a website cost?" is almost always the first question — and honestly the hardest to answer in the abstract. A website isn't an off-the-shelf product; it's a range, from a lean one-page presence to a multilingual site with booking, integrations and ongoing care. Anyone who quotes a firm number before a single conversation is guessing — or selling you a template. It's far more useful to understand what drives the price, so you can judge any quote you're given.

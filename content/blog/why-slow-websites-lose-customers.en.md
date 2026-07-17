@@ -5,6 +5,11 @@ excerpt: "Most visitors are gone before a slow page has finished loading. What l
 date: "2026-06-15"
 category: "SEO & Growth"
 keywords: ["website load time", "slow website", "website performance", "Core Web Vitals", "make website faster", "page speed SEO", "website speed Tyrol"]
+image: /blog/why-slow-websites-lose-customers.jpg
+imageAlt: Scenic view of mountains and forest surrounded by clouds and lush greenery.
+imageCredit: Denis Ba
+imageCreditUrl: https://www.pexels.com/@dbpx
+imagePexelsUrl: https://www.pexels.com/photo/a-green-trees-on-mountain-5998812/
 ---
 
 Speed is a website's invisible feature: nobody praises a fast page, but almost everyone abandons a slow one. A large share of visitors drop off when loading stalls — and on a phone, often on mediocre signal, patience is shorter still. For a local business that wants to be found through search, that isn't a technical detail; it's a direct question of enquiries lost or won.

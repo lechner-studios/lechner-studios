@@ -5,6 +5,11 @@ excerpt: "\"How long will it take?\" is the second question after price. The hon
 date: "2026-06-15"
 category: "Web & Design"
 keywords: ["how long to build a website", "website timeline", "web design process", "build a website", "web design timeframe"]
+image: /blog/how-long-a-website-takes.jpg
+imageAlt: A modern interior showcasing a minimalist staircase with contrasting black and white colors.
+imageCredit: Sofia Guzeva
+imageCreditUrl: https://www.pexels.com/@sofia-guzeva-116278630
+imagePexelsUrl: https://www.pexels.com/photo/stairs-inside-a-white-building-13398027/
 ---
 
 After price, timeline is the most common question — and here too there's no honest single number, just a range. A lean, clearly defined website can be up in a few weeks; an extensive, multilingual presence with features takes correspondingly longer. What's interesting, though, is that the timeline rarely hinges on build time itself. A project gets delayed at almost exactly the same two points every time: content and decisions.

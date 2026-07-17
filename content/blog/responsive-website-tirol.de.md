@@ -14,6 +14,11 @@ keywords:
   - mobile Optimierung
   - KMU Website
   - responsive Design
+image: /blog/responsive-website-tirol.jpg
+imageAlt: Spacious modern atrium with glass walls and polished reflections, exuding an urban architectural style.
+imageCredit: Zerrin Velizade
+imageCreditUrl: https://www.pexels.com/@zerrin-velizade-340349032
+imagePexelsUrl: https://www.pexels.com/photo/black-and-white-photo-of-a-large-building-with-windows-18592583/
 ---
 Wer heute eine neue Website in Auftrag gibt oder die bestehende überarbeiten lässt, begegnet früher oder später dem Begriff „responsive". Er wird oft wie ein Qualitätsmerkmal nebenbei erwähnt – dabei steckt dahinter weit mehr als ein technisches Detail. Dieser Beitrag erklärt, was eine responsive Website tatsächlich ausmacht, wo die häufigsten Missverständnisse liegen und warum kein Tiroler Betrieb darauf verzichten kann.
 

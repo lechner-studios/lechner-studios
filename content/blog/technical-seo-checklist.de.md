@@ -18,6 +18,11 @@ keywords:
   - Core Web Vitals
   - Indexierung
   - SEO Grundlagen
+image: /blog/technical-seo-checklist.jpg
+imageAlt: A serene view of a wooden cabin amidst a misty mountain landscape, perfect for nature lovers.
+imageCredit: eberhard grossgasteiger
+imageCreditUrl: https://www.pexels.com/@eberhardgross
+imagePexelsUrl: https://www.pexels.com/photo/mountains-1104397/
 ---
 Wer über SEO spricht, denkt meist zuerst an Inhalte und Keywords. Beides ist wichtig — aber nur dann, wenn Suchmaschinen die Website überhaupt finden, lesen und einordnen können. Genau darum geht es beim technischen SEO: die Infrastruktur einer Website so aufzubauen, dass sie für Crawler verständlich, konsistent und fehlerfrei ist. Es ist keine sichtbare Arbeit, aber sie ist die Basis, auf der alles andere aufbaut.
 

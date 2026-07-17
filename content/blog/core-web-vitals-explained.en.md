@@ -16,6 +16,11 @@ keywords:
   - CLS
   - technical SEO
   - web performance
+image: /blog/core-web-vitals-explained.jpg
+imageAlt: Captivating view of fog-draped alpine peaks in the Dolomites, showcasing winter's serene beauty.
+imageCredit: Marek Piwnicki
+imageCreditUrl: https://www.pexels.com/@marek-piwnicki-3907296
+imagePexelsUrl: https://www.pexels.com/photo/misty-dolomites-mountain-range-in-winter-28551774/
 ---
 Google's Core Web Vitals have been part of its ranking signals since 2021, yet many small and mid-sized businesses still treat them as a mystery buried somewhere in Search Console. They don't have to be. Once you understand what each metric actually measures — and why it was chosen — the path to improvement becomes a lot clearer.
 

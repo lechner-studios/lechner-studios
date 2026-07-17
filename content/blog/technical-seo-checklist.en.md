@@ -16,6 +16,11 @@ keywords:
   - structured data
   - site speed
   - indexing
+image: /blog/technical-seo-checklist.jpg
+imageAlt: A serene view of a wooden cabin amidst a misty mountain landscape, perfect for nature lovers.
+imageCredit: eberhard grossgasteiger
+imageCreditUrl: https://www.pexels.com/@eberhardgross
+imagePexelsUrl: https://www.pexels.com/photo/mountains-1104397/
 ---
 Most conversations about SEO start with content and keywords — and those things matter. But before any of that work pays off, search engines need to be able to find, read, and understand your site in the first place. That is what technical SEO is about: making sure the infrastructure underneath your content is clean, consistent, and machine-readable. It is not glamorous work, but it is the layer everything else rests on.
 

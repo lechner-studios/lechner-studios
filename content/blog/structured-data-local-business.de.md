@@ -16,6 +16,11 @@ keywords:
   - LocalBusiness Schema
   - technisches SEO
   - lokale Suche
+image: /blog/structured-data-local-business.jpg
+imageAlt: A serene view of mist-blanketed alpine mountains during twilight in Switzerland.
+imageCredit: Branka Krnjaja
+imageCreditUrl: https://www.pexels.com/@krnjajab
+imagePexelsUrl: https://www.pexels.com/photo/mist-covered-alpine-mountains-at-dusk-32132186/
 ---
 Wer ein lokales Unternehmen betreibt – sei es ein Handwerksbetrieb in Innsbruck, eine Praxis in Salzburg oder ein Fachgeschäft in Wien – stellt sich früher oder später die Frage: Wie stellt Google eigentlich sicher, dass meine Adresse, meine Öffnungszeiten und mein Angebot in den Suchergebnissen korrekt angezeigt werden? Ein wesentlicher Teil der Antwort liegt in strukturierten Daten, genauer gesagt im sogenannten Schema.org-Markup. Was dahintersteckt und warum es für lokale Betriebe technisch relevant ist, erklärt dieser Beitrag.
 

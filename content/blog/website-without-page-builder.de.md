@@ -18,6 +18,11 @@ keywords:
   - Webdesign Tirol
   - Baukasten Alternative
   - maßgeschneiderte Website
+image: /blog/website-without-page-builder.jpg
+imageAlt: Sleek futuristic architecture in black and white with reflective surfaces.
+imageCredit: Elkhan  Ganiyev
+imageCreditUrl: https://www.pexels.com/@ganiyevart
+imagePexelsUrl: https://www.pexels.com/photo/futuristic-courtyard-lined-with-shining-white-tiles-15153700/
 ---
 Ein Baukasten verspricht eine fertige Website in wenigen Stunden. Für ein erstes Experiment oder eine simple Informationsseite kann das durchaus sinnvoll sein. Wenn Ihre Website aber ein ernsthafter Teil Ihrer Außenwirkung ist — wenn potenzielle Kundinnen und Kunden dort landen und sich ein erstes Bild von Ihnen machen — dann lohnt es sich, genauer hinzuschauen, was ein Baukasten wirklich leistet und wo er an seine Grenzen stößt.
 
