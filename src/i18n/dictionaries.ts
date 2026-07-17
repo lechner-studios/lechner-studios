@@ -128,7 +128,7 @@ export const dictionaries = {
           year: "2026",
           status: "service",
           desc: "Custom websites for independent businesses. No templates, no builders — every site is designed to measure for the client's market and voice.",
-          url: "https://websites.lechner-studios.at",
+          url: "https://werk.lechner-studios.at",
         },
         {
           id: "vistera",
@@ -174,6 +174,9 @@ export const dictionaries = {
       lead: "Four working demos, each hand-coded from scratch — no builders, no templates. They're concept designs for fictional businesses, built to show exactly how a bespoke site looks, loads and behaves.",
       conceptLabel: "Concept",
       visit: "Open demo →",
+      // The demos are concepts for fictional businesses. This row points at the
+      // real, priced offer behind each one, on the werk storefront.
+      offersOverline: "THE OFFER BEHIND EACH DEMO",
       items: [
         { slug: "pension", title: "Pension Musterhof", category: "Concept · Hospitality", desc: "A small-hotel site with a direct-booking calendar and a commission-savings calculator — built to keep guests off the booking portals." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Concept · Restaurant", desc: "A guesthouse site with a seasonal menu and an interactive table-reservation flow." },
@@ -596,7 +599,7 @@ export const dictionaries = {
           year: "2026",
           status: "service",
           desc: "Maßgeschneiderte Websites für unabhängige Unternehmen. Keine Vorlagen, kein Baukasten — jede Site wird für Markt und Stimme des Kunden entworfen.",
-          url: "https://websites.lechner-studios.at",
+          url: "https://werk.lechner-studios.at",
         },
         {
           id: "vistera",
@@ -642,6 +645,9 @@ export const dictionaries = {
       lead: "Vier funktionierende Demos, jede von Hand programmiert — kein Baukasten, keine Vorlage. Es sind Konzept-Entwürfe für fiktive Betriebe, gebaut um zu zeigen, wie sich eine maßgeschneiderte Seite anfühlt, lädt und verhält.",
       conceptLabel: "Konzept",
       visit: "Demo öffnen →",
+      // Die Demos sind Konzepte für fiktive Betriebe. Diese Zeile führt zum
+      // echten, bepreisten Angebot dahinter, im werk-Storefront.
+      offersOverline: "DAS ANGEBOT HINTER JEDER DEMO",
       items: [
         { slug: "pension", title: "Pension Musterhof", category: "Konzept · Hotellerie", desc: "Eine Pensions-Seite mit Direktbuchungs-Kalender und Provisions-Rechner — gebaut, um Gäste von den Buchungsportalen fernzuhalten." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Konzept · Gastronomie", desc: "Eine Gasthof-Seite mit saisonaler Karte und interaktiver Tisch-Reservierung." },

@@ -27,12 +27,17 @@ const STATUS_LABEL_MAP: Record<string, keyof ReturnType<typeof useLanguage>["dic
 
 // Werk's live demos — rendered inline under the Werk entry as its portfolio,
 // so the website work has one home (here) instead of a duplicate hero strip.
+// `offer` is the priced landing on the werk storefront that the demo is proof
+// for; the demo itself is a concept for a fictional business, so the two are
+// deliberately separate links.
 const WERK_DEMOS = [
-  { slug: "pension", label: "Pension" },
-  { slug: "gasthof", label: "Gasthof" },
-  { slug: "skischule", label: "Skischule" },
-  { slug: "tischlerei", label: "Tischlerei" },
+  { slug: "pension", label: "Pension", offer: "pension-website-tirol" },
+  { slug: "gasthof", label: "Gasthof", offer: "gasthof-website-tirol" },
+  { slug: "skischule", label: "Skischule", offer: "skischule-website-tirol" },
+  { slug: "tischlerei", label: "Tischlerei", offer: "tischlerei-website-tirol" },
 ];
+
+const WERK_BASE = "https://werk.lechner-studios.at";
 
 // CodeFlash sample cards — rendered inline under the CodeFlash entry. CodeFlash
 // IS a flashcards product, so the honest "sample" is real rendered cards (no
@@ -254,7 +259,8 @@ export default function Work({ limit, moreHref, featured, detailedWerkDemos }: {
                           {isWerk ? dict.demos.overline : d.sampleCards}
                         </p>
                         {isWerk ? (
-                          detailedWerkDemos ? (
+                          <>
+                          {detailedWerkDemos ? (
                             // /work — the demo portfolio merged in as Werk's proof:
                             // screenshot + concept + name + category + description + link.
                             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
@@ -311,7 +317,47 @@ export default function Work({ limit, moreHref, featured, detailedWerkDemos }: {
                                 </a>
                               ))}
                             </div>
-                          )
+                          )}
+                          {/* The demos are fictional concepts; these are the real
+                              priced offers they stand in for. Separate links, so a
+                              visitor is never sent to a sales page expecting a demo. */}
+                          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-faint)", margin: "24px 0 10px" }}>
+                            {dict.demos.offersOverline}
+                          </p>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: "0 18px" }}>
+                            {WERK_DEMOS.map((dm) => (
+                              // The anchor carries a 44px tap target; the inner span
+                              // keeps the rule tight under the text so the row still
+                              // reads as a line of links, not a stack of buttons.
+                              <a
+                                key={dm.offer}
+                                href={`${WERK_BASE}/${dm.offer}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  minHeight: "44px",
+                                  textDecoration: "none",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "var(--font-mono)",
+                                    fontSize: "0.68rem",
+                                    fontWeight: 600,
+                                    letterSpacing: "0.06em",
+                                    color: "var(--accent)",
+                                    borderBottom: "1px solid color-mix(in srgb, var(--accent) 35%, transparent)",
+                                    paddingBottom: "2px",
+                                  }}
+                                >
+                                  {dm.label} →
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                          </>
                         ) : (
                           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: "12px" }}>
                             {CODEFLASH_CARDS.map((cf) => {
