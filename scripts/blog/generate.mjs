@@ -43,6 +43,12 @@ async function main() {
   let violations = [];
   for (let attempt = 1; attempt <= 3; attempt++) {
     post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey });
+    // `offer` is owner data from topics.yaml, never model output — the writer is
+    // deliberately not told about offers, so its "NO prices" rule stays true.
+    if (picked.offer !== undefined) {
+      post.en.frontmatter.offer = picked.offer;
+      post.de.frontmatter.offer = picked.offer;
+    }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
     violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
