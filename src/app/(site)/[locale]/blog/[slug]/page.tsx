@@ -10,7 +10,7 @@ import { dictionaries } from "../../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
-import PostArt from "../../../../../components/PostArt";
+import PostImage from "../../../../../components/PostImage";
 import BlogOfferCta from "../../../../../components/BlogOfferCta";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
 
@@ -166,8 +166,21 @@ export default async function BlogArticlePage({
             </h1>
 
             <div style={{ marginBottom: "56px" }}>
-              <PostArt slug={slug} category={meta.category} variant="hero" />
+              <PostImage image={meta.image} alt={meta.imageAlt} variant="hero" />
             </div>
+
+            {meta.image && meta.imageCredit && (
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.04em", color: "var(--text-faint)", marginTop: "-40px", marginBottom: "56px" }}>
+                Foto:{" "}
+                <a href={meta.imageCreditUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                  {meta.imageCredit}
+                </a>
+                {" · "}
+                <a href={meta.imagePexelsUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                  Pexels
+                </a>
+              </p>
+            )}
 
             <div className="blog-prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
