@@ -290,7 +290,7 @@ export const dictionaries = {
         slug: "apps-automation",
         metaTitle: "App Development & Automation Tirol — for SMBs",
         metaDescription:
-          "App development and process automation in Tirol. We build full-stack apps and AI automation that take repetitive work off SMB teams across DACH.",
+          "App development and process automation in Tirol. We build full-stack apps on Next.js and Supabase and connect your tools with n8n, Make, Zapier and AI, taking repetitive work off SMB teams across DACH.",
         overline: "APPS & AUTOMATION",
         headline: "Apps and automation that do the actual work.",
         intro:
@@ -302,11 +302,11 @@ export const dictionaries = {
           },
           {
             h: "Full-stack apps, built to fit",
-            p: "Custom web applications and internal tools designed around your workflow, integrated with the systems you already use, rather than forcing your business into off-the-shelf software.",
+            p: "Custom web applications and internal tools built on the same stack as our own products, Next.js and Supabase, designed around your workflow and integrated with the systems you already use, rather than forcing your business into off-the-shelf software.",
           },
           {
             h: "AI automation, used responsibly",
-            p: "We use AI where it earns its place — content automation today, with phone answering and back-office routing in development — always inside clear, reviewable scopes, so a human stays in control of anything that matters.",
+            p: "We connect the tools you already run, from CRM and calendar to invoicing and inbox, with automation platforms like n8n, Make and Zapier, and add Claude or OpenAI where a task genuinely needs judgement. Content automation runs today; phone answering and back-office routing are in development. Everything stays inside clear, reviewable scopes, so a human keeps control of anything that matters.",
           },
           {
             h: "Maintainable and observable",
@@ -319,7 +319,7 @@ export const dictionaries = {
           { n: "03", label: "It runs; you review" },
         ],
         includedLabel: "What we build",
-        included: ["Custom web apps", "Workflow automation", "Content pipelines", "Internal tools"],
+        included: ["Custom web apps (Next.js + Supabase)", "Workflow automation (n8n / Make / Zapier)", "CRM & invoicing sync", "Form-to-database routing", "AI integrations (Claude / OpenAI)", "Content pipelines", "Internal tools & dashboards"],
         proof:
           "The automation we describe here we run in our own studio first — built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
@@ -793,7 +793,7 @@ export const dictionaries = {
         slug: "apps-automation",
         metaTitle: "App-Entwicklung & Automatisierung Tirol — für KMU",
         metaDescription:
-          "App-Entwicklung und Prozessautomatisierung in Tirol. Full-Stack-Apps und KI-Automatisierung, die wiederkehrende Arbeit von KMU-Teams im DACH-Raum übernehmen.",
+          "App-Entwicklung und Prozessautomatisierung in Tirol. Full-Stack-Apps auf Next.js und Supabase, verbunden mit Ihren Tools über n8n, Make, Zapier und KI, die wiederkehrende Arbeit von KMU-Teams im DACH-Raum übernehmen.",
         overline: "APPS & AUTOMATION",
         headline: "Apps und Automatisierung, die die Arbeit wirklich erledigen.",
         intro:
@@ -805,11 +805,11 @@ export const dictionaries = {
           },
           {
             h: "Full-Stack-Apps, passgenau gebaut",
-            p: "Maßgeschneiderte Web-Applikationen und interne Tools rund um Ihren Arbeitsablauf, integriert mit den Systemen, die Sie bereits nutzen — statt Ihr Unternehmen in Software von der Stange zu zwingen.",
+            p: "Maßgeschneiderte Web-Applikationen und interne Tools auf demselben Stack wie unsere eigenen Produkte, Next.js und Supabase, rund um Ihren Arbeitsablauf gebaut und mit den Systemen integriert, die Sie bereits nutzen, statt Ihr Unternehmen in Software von der Stange zu zwingen.",
           },
           {
             h: "KI verantwortungsvoll eingesetzt",
-            p: "Wir setzen KI dort ein, wo sie ihren Platz verdient — Content-Automatisierung heute, Telefon-Assistenz und Back-Office-Routing in Entwicklung — immer innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
+            p: "Wir verbinden die Tools, die Sie bereits nutzen, von CRM und Kalender bis Rechnung und Postfach, über Automatisierungs-Plattformen wie n8n, Make und Zapier und ergänzen Claude oder OpenAI dort, wo eine Aufgabe wirklich Urteilsvermögen braucht. Content-Automatisierung läuft heute; Telefon-Assistenz und Back-Office-Routing sind in Entwicklung. Alles bleibt innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
           },
           {
             h: "Wartbar und nachvollziehbar",
@@ -822,7 +822,7 @@ export const dictionaries = {
           { n: "03", label: "Es läuft; Sie prüfen" },
         ],
         includedLabel: "Was wir bauen",
-        included: ["Individuelle Web-Apps", "Workflow-Automatisierung", "Content-Pipelines", "Interne Tools"],
+        included: ["Individuelle Web-Apps (Next.js + Supabase)", "Workflow-Automatisierung (n8n / Make / Zapier)", "CRM- & Rechnungs-Sync", "Formular-zu-Datenbank-Routing", "KI-Integrationen (Claude / OpenAI)", "Content-Pipelines", "Interne Tools & Dashboards"],
         proof:
           "Die Automatisierung, von der hier die Rede ist, setzen wir zuerst im eigenen Studio ein — im Haus gebaut, so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",
