@@ -10,6 +10,7 @@ import { dictionaries } from "../../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
+import PostArt from "../../../../../components/PostArt";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
 
 export async function generateStaticParams() {
@@ -157,11 +158,15 @@ export default async function BlogArticlePage({
                 lineHeight: 1.08,
                 letterSpacing: "-0.02em",
                 color: "var(--text)",
-                marginBottom: "56px",
+                marginBottom: "40px",
               }}
             >
               {meta.title}
             </h1>
+
+            <div style={{ marginBottom: "56px" }}>
+              <PostArt slug={slug} category={meta.category} variant="hero" />
+            </div>
 
             <div className="blog-prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>

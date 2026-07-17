@@ -9,6 +9,7 @@ import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Footer from "../../../../components/Footer";
 import Overline from "../../../../components/Overline";
+import PostArt from "../../../../components/PostArt";
 import { getAllPosts } from "../../../../lib/blog";
 
 export async function generateMetadata({
@@ -108,65 +109,70 @@ export default async function BlogIndexPage({
                     <Link
                       href={`/${locale}/blog/${post.slug}`}
                       style={{
-                        display: "block",
+                        display: "flex",
+                        gap: "24px",
+                        alignItems: "flex-start",
                         padding: "40px 0",
                         textDecoration: "none",
                         color: "inherit",
                       }}
                     >
-                      <div
-                        style={{
-                          fontFamily: "var(--font-mono)",
-                          fontSize: "0.62rem",
-                          fontWeight: 600,
-                          letterSpacing: "0.18em",
-                          textTransform: "uppercase",
-                          color: "var(--accent)",
-                          marginBottom: "16px",
-                          display: "flex",
-                          gap: "16px",
-                          flexWrap: "wrap",
-                        }}
-                      >
-                        <span>{post.category}</span>
-                        <span style={{ color: "var(--text-faint)" }}>{formatDate(post.date, locale)}</span>
+                      <PostArt slug={post.slug} category={post.category} variant="tile" />
+                      <div style={{ flexGrow: 1, minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.62rem",
+                            fontWeight: 600,
+                            letterSpacing: "0.18em",
+                            textTransform: "uppercase",
+                            color: "var(--accent)",
+                            marginBottom: "16px",
+                            display: "flex",
+                            gap: "16px",
+                            flexWrap: "wrap",
+                          }}
+                        >
+                          <span>{post.category}</span>
+                          <span style={{ color: "var(--text-faint)" }}>{formatDate(post.date, locale)}</span>
+                        </div>
+                        <h2
+                          style={{
+                            fontFamily: "var(--font-display)",
+                            fontSize: "clamp(1.6rem, 2.6vw, 2.1rem)",
+                            fontWeight: 400,
+                            lineHeight: 1.2,
+                            letterSpacing: "-0.01em",
+                            color: "var(--text)",
+                            marginBottom: "12px",
+                          }}
+                        >
+                          {post.title}
+                        </h2>
+                        <p
+                          style={{
+                            fontSize: "1rem",
+                            lineHeight: 1.7,
+                            color: "var(--text-muted)",
+                            maxWidth: "60ch",
+                            marginBottom: "16px",
+                          }}
+                        >
+                          {post.excerpt}
+                        </p>
+                        <span
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.72rem",
+                            fontWeight: 600,
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            color: "var(--accent)",
+                          }}
+                        >
+                          {dict.blog.readMore}
+                        </span>
                       </div>
-                      <h2
-                        style={{
-                          fontFamily: "var(--font-display)",
-                          fontSize: "clamp(1.6rem, 2.6vw, 2.1rem)",
-                          fontWeight: 400,
-                          lineHeight: 1.2,
-                          letterSpacing: "-0.01em",
-                          color: "var(--text)",
-                          marginBottom: "12px",
-                        }}
-                      >
-                        {post.title}
-                      </h2>
-                      <p
-                        style={{
-                          fontSize: "1rem",
-                          lineHeight: 1.7,
-                          color: "var(--text-muted)",
-                          maxWidth: "60ch",
-                          marginBottom: "16px",
-                        }}
-                      >
-                        {post.excerpt}
-                      </p>
-                      <span
-                        style={{
-                          fontFamily: "var(--font-mono)",
-                          fontSize: "0.72rem",
-                          fontWeight: 600,
-                          letterSpacing: "0.12em",
-                          textTransform: "uppercase",
-                          color: "var(--accent)",
-                        }}
-                      >
-                        {dict.blog.readMore}
-                      </span>
                     </Link>
                   </li>
                 ))}
