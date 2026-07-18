@@ -14,11 +14,7 @@ keywords:
   - Markenidentität
   - Corporate Identity erneuern
   - Markenentwicklung KMU
-image: /blog/rebrand-when-worth-it.jpg
-imageAlt: Modern still life featuring geometric shapes and a green leaf on a pastel background.
-imageCredit: Daria Liudnaya
-imageCreditUrl: https://www.pexels.com/@daria-liudnaya
-imagePexelsUrl: https://www.pexels.com/photo/photo-of-leaf-on-light-pink-background-7354513/
+graphic: type-system
 ---
 Ein neues Logo, frische Farben, ein überarbeiteter Markenauftritt – das klingt verlockend, besonders wenn das Tagesgeschäft stagniert oder der Wettbewerb plötzlich moderner wirkt. Doch ein Rebranding ist kein Allheilmittel, und es kostet Zeit, Energie und Aufmerksamkeit. Bevor Sie den Schritt wagen, lohnt es sich, ehrlich hinzuschauen: Was steckt wirklich hinter dem Wunsch nach Veränderung?
 

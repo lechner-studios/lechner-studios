@@ -325,6 +325,14 @@ section, footer, nav, .theme-surface {
   margin: 2.4em 0;
 }
 
+/* Text inside inlined post graphics (src/lib/post-graphics.mjs). */
+.pg-c { font-family: var(--font-mono); font-size: 12.5px; font-weight: 400; }
+.pg-lb { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; }
+
+/* Post graphic wrapper: the inlined SVG has no width/height (viewBox only), so
+ * it scales to fill this box in both the tile (72px) and hero (100%) variants. */
+.pg-wrap svg { width: 100%; height: 100%; display: block; }
+
 /* Nav responsive — desktop link group vs. mobile hamburger.
  * Base: desktop group shows, burger hidden; the @media block below flips them.
  * The burger button carries NO inline `display` so this class governs it. */

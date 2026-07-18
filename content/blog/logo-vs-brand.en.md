@@ -15,11 +15,7 @@ keywords:
   - logo design
   - brand system
   - SMB branding
-image: /blog/logo-vs-brand.jpg
-imageAlt: A minimalist composition featuring green leaves and an orange on geometric shapes against a yellow background.
-imageCredit: Daria Liudnaya
-imageCreditUrl: https://www.pexels.com/@daria-liudnaya
-imagePexelsUrl: https://www.pexels.com/photo/photo-of-green-leaves-on-yellow-background-7354440/
+graphic: type-system
 ---
 When a small business owner says "we need a brand," they usually mean "we need a logo." That's a completely understandable starting point — a logo is visible, concrete, and easy to brief. But treating a logo as the finished product is one of the most common mistakes growing businesses make, and it tends to cost more to fix later than it would have to get right the first time.
 

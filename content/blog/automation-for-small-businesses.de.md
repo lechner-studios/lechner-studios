@@ -5,11 +5,7 @@ excerpt: "Automatisierung heißt nicht, Menschen zu ersetzen. Es heißt, die imm
 date: "2026-06-15"
 category: "Apps & Automation"
 keywords: ["Automatisierung KMU", "Prozesse automatisieren", "Workflow Automatisierung", "Daten automatisieren", "Automatisierung kleine Unternehmen", "Automatisierung Tirol"]
-image: /blog/automation-for-small-businesses.jpg
-imageAlt: Upward view of modern interior columns in a geometrically structured space.
-imageCredit: JUSTIN JOSEPH
-imageCreditUrl: https://www.pexels.com/@justin-joseph-2753649
-imagePexelsUrl: https://www.pexels.com/photo/abstract-architectural-view-of-interior-columns-34688378/
+graphic: node-flow
 ---
 
 Automatisierung klingt nach großen Worten — und meint im Alltag eines kleinen Betriebs meist etwas sehr Bodenständiges: dieselbe digitale Handarbeit, die jede Woche anfällt, nicht mehr von Hand erledigen zu müssen. Es geht nicht darum, Menschen zu ersetzen, sondern darum, die stupide, fehleranfällige Wiederholung verschwinden zu lassen, damit Ihre Zeit dorthin fließt, wo Urteilsvermögen gefragt ist. Die Kunst liegt nicht in der Technik, sondern in der Auswahl: zu wissen, welche Aufgaben sich lohnen und welche nicht.

@@ -5,11 +5,7 @@ excerpt: "Not every problem needs its own software. But some do. Here's how to t
 date: "2026-06-15"
 category: "Apps & Automation"
 keywords: ["custom web app", "custom software", "build a web application", "software for small business", "bespoke app", "web app Tyrol"]
-image: /blog/when-a-custom-web-app-is-worth-it.jpg
-imageAlt: A stunning black and white image showcasing the intricate patterns of modern architecture from a unique angle.
-imageCredit: Thomas Parker
-imageCreditUrl: https://www.pexels.com/@thomas-parker-1272388137
-imagePexelsUrl: https://www.pexels.com/photo/intricate-modern-architectural-patterns-31619253/
+graphic: node-flow
 ---
 
 Between a website and off-the-shelf software lies a space that a surprising number of businesses grow into: their own web application. By that we don't mean a marketing presence, but a tool that does a specific job in your business — a customer portal, an internal calculator, a way to manage something that doesn't exist as a standard product. The question is rarely "can we build it?" — it's almost always "is it worth it?" And the honest answer is often: not yet, or: not in this form.

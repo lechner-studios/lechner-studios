@@ -16,11 +16,7 @@ keywords:
   - structured data
   - technisches SEO
   - lokale Suche
-image: /blog/structured-data-local-business.jpg
-imageAlt: A serene view of mist-blanketed alpine mountains during twilight in Switzerland.
-imageCredit: Branka Krnjaja
-imageCreditUrl: https://www.pexels.com/@krnjajab
-imagePexelsUrl: https://www.pexels.com/photo/mist-covered-alpine-mountains-at-dusk-32132186/
+graphic: load-waterfall
 ---
 When someone searches for a business near them, search engines do a lot of quiet work behind the scenes — parsing websites, comparing signals, and trying to understand what a page is actually about. Structured data is one of the clearest ways a local business can help with that process. It is not magic, and it is not a shortcut. It is a technical layer that speaks directly to crawlers in a language they are built to understand.
 

@@ -52,3 +52,16 @@ test("omits image fields entirely when absent", () => {
   const raw = fs.readFileSync(path.join(dir, "no-img.en.md"), "utf8");
   assert.doesNotMatch(raw, /image/, "absent image fields must not appear at all");
 });
+
+test("writes the graphic key when present", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-18", category: "Web & Design", keywords: ["a","b","c","d","e"], graphic: "dom-diff" };
+  emitPost("with-g", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  assert.equal(matter(fs.readFileSync(path.join(dir, "with-g.en.md"), "utf8")).data.graphic, "dom-diff");
+});
+test("omits the graphic key when absent", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-18", category: "Web & Design", keywords: ["a","b","c","d","e"] };
+  emitPost("no-g", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  assert.doesNotMatch(fs.readFileSync(path.join(dir, "no-g.en.md"), "utf8"), /graphic/);
+});

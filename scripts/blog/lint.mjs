@@ -1,4 +1,5 @@
 import { isOfferKey } from "../../src/lib/offers.mjs";
+import { isGraphicKey } from "../../src/lib/post-graphics.mjs";
 
 // Returns an array of human-readable violation strings; [] means clean.
 // Catches the Gewerbe-scope / honesty risks the owner cares about, plus the
@@ -27,6 +28,9 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   if (fm.offer !== undefined && !isOfferKey(fm.offer)) {
     v.push(`offer: '${fm.offer}' is not a known offer key`);
   }
+  // `graphic` is optional (PostGraphic falls back to a photo, then a flat
+  // band), but a typo must not ship — a bad key renders nothing, silently.
+  if (fm.graphic !== undefined && !isGraphicKey(fm.graphic)) v.push("graphic: unknown graphic key");
   // Catches a raw Pexels CDN URL leaking into frontmatter, which would be a
   // DSGVO hotlink (images must be downloaded + self-hosted, never linked live).
   if (fm.image !== undefined && !String(fm.image).startsWith("/blog/")) {

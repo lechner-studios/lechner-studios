@@ -14,11 +14,7 @@ keywords:
   - Markenaufbau
   - visuelle Identität
   - Kleinunternehmen Branding
-image: /blog/what-is-a-brand-identity.jpg
-imageAlt: Minimalist still life featuring geometric shapes and a palo santo stick against a beige background.
-imageCredit: Mikhail Nilov
-imageCreditUrl: https://www.pexels.com/@mikhail-nilov
-imagePexelsUrl: https://www.pexels.com/photo/geometric-shapes-on-the-table-7827743/
+graphic: type-system
 ---
 Viele Unternehmerinnen und Unternehmer denken bei „Marke" zuerst an ein Logo. Das ist verständlich – das Logo ist das Sichtbarste, das Erste, was Kundinnen und Kunden wahrnehmen. Aber eine Markenidentität ist weit mehr als ein einzelnes Bildsymbol. Sie ist ein zusammenhängendes System aus visuellen und sprachlichen Entscheidungen, das bestimmt, wie ein Unternehmen nach außen wirkt – und wie es sich anfühlt, mit ihm zu tun zu haben.
 

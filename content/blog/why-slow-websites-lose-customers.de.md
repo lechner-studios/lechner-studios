@@ -5,11 +5,7 @@ excerpt: "Die meisten Besucher sind weg, bevor eine langsame Seite fertig gelade
 date: "2026-06-15"
 category: "SEO & Growth"
 keywords: ["Website Ladezeit", "langsame Website", "Website Performance", "Core Web Vitals", "Website schneller machen", "Ladezeit SEO", "Website Geschwindigkeit Tirol"]
-image: /blog/why-slow-websites-lose-customers.jpg
-imageAlt: Scenic view of mountains and forest surrounded by clouds and lush greenery.
-imageCredit: Denis Ba
-imageCreditUrl: https://www.pexels.com/@dbpx
-imagePexelsUrl: https://www.pexels.com/photo/a-green-trees-on-mountain-5998812/
+graphic: load-waterfall
 ---
 
 Geschwindigkeit ist das unsichtbare Merkmal einer Website: Niemand lobt eine schnelle Seite, aber fast jeder verlässt eine langsame. Ein großer Teil der Besucher springt ab, wenn das Laden ins Stocken gerät — und auf dem Handy, oft bei mittelmäßigem Empfang, ist die Geduld noch kürzer. Für einen lokalen Betrieb, der über die Suche gefunden werden will, ist das kein technisches Detail, sondern eine direkte Frage von verlorenen oder gewonnenen Anfragen.

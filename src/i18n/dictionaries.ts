@@ -64,6 +64,12 @@ export const dictionaries = {
         },
       },
     },
+    blogGraphic: {
+      "dom-diff": { ALT: "Nested page-builder markup beside hand-written semantic HTML", L1: "PAGE BUILDER", L2: "≈50 DIVS", L3: "HAND-WRITTEN", L4: "4 TAGS", W1: "Offer", W2: "Plain text." },
+      "node-flow": { ALT: "Data flowing between CRM, automation and accounting", L1: "CONNECT TOOLS", N1: "CRM", N2: "AUTOMATION", N3: "LEXOFFICE API", N4: "EMAIL", L2: "ONE PATH, NO REPURCHASE" },
+      "load-waterfall": { ALT: "A lean request waterfall from a hand-built page", L1: "LOAD TIME", L2: "5 REQUESTS", L3: "BUDGET" },
+      "type-system": { ALT: "The brand's type system and Alpine palette", L1: "BRAND SYSTEM", L2: "TYPOGRAPHY" },
+    },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Websites, apps & automation,\nbuilt to measure.",
@@ -544,6 +550,12 @@ export const dictionaries = {
           cta: "Direktbucher ansehen",
         },
       },
+    },
+    blogGraphic: {
+      "dom-diff": { ALT: "Verschachtelter Baukasten-Code gegenüber semantischem HTML", L1: "BAUKASTEN-CODE", L2: "≈50 DIVS", L3: "HANDGESCHRIEBEN", L4: "4 TAGS", W1: "Angebot", W2: "Klarer Text." },
+      "node-flow": { ALT: "Datenfluss zwischen CRM, Automatisierung und Buchhaltung", L1: "TOOLS VERBINDEN", N1: "CRM", N2: "AUTOMATISIERUNG", N3: "LEXOFFICE API", N4: "E-MAIL", L2: "EIN WEG, KEIN NEUKAUF" },
+      "load-waterfall": { ALT: "Schlanker Request-Wasserfall einer handgebauten Seite", L1: "LADEZEIT", L2: "5 REQUESTS", L3: "BUDGET" },
+      "type-system": { ALT: "Schriftsystem und Alpine-Palette der Marke", L1: "MARKENSYSTEM", L2: "TYPOGRAFIE" },
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",

@@ -9,7 +9,7 @@ import { pageMetadata } from "../../../../lib/seo";
 import Nav from "../../../../components/Nav";
 import Footer from "../../../../components/Footer";
 import Overline from "../../../../components/Overline";
-import PostImage from "../../../../components/PostImage";
+import PostMedia from "../../../../components/PostMedia";
 import { getAllPosts } from "../../../../lib/blog";
 
 export async function generateMetadata({
@@ -117,7 +117,7 @@ export default async function BlogIndexPage({
                         color: "inherit",
                       }}
                     >
-                      <PostImage image={post.image} alt={post.imageAlt} variant="tile" />
+                      <PostMedia meta={post} dict={dict} variant="tile" />
                       <div style={{ flexGrow: 1, minWidth: 0 }}>
                         <div
                           style={{

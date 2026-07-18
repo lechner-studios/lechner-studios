@@ -16,11 +16,7 @@ keywords:
   - technisches SEO
   - Ladezeit Website
   - CLS beheben
-image: /blog/core-web-vitals-explained.jpg
-imageAlt: Captivating view of fog-draped alpine peaks in the Dolomites, showcasing winter's serene beauty.
-imageCredit: Marek Piwnicki
-imageCreditUrl: https://www.pexels.com/@marek-piwnicki-3907296
-imagePexelsUrl: https://www.pexels.com/photo/misty-dolomites-mountain-range-in-winter-28551774/
+graphic: load-waterfall
 ---
 Wer sich mit SEO beschäftigt, stolpert früher oder später über den Begriff „Core Web Vitals". Google verwendet diese Messwerte seit 2021 als offiziellen Rankingfaktor – und trotzdem herrscht in vielen kleinen und mittleren Unternehmen noch Unsicherheit darüber, was dahintersteckt und wo man überhaupt ansetzen soll. Dieser Beitrag erklärt die drei zentralen Signale verständlich und zeigt, an welchen technischen Stellschrauben sich tatsächlich etwas bewegen lässt.
 

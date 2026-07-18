@@ -18,11 +18,7 @@ keywords:
   - web design DACH
   - page builder alternatives
   - professional website
-image: /blog/website-without-page-builder.jpg
-imageAlt: Sleek futuristic architecture in black and white with reflective surfaces.
-imageCredit: Elkhan  Ganiyev
-imageCreditUrl: https://www.pexels.com/@ganiyevart
-imagePexelsUrl: https://www.pexels.com/photo/futuristic-courtyard-lined-with-shining-white-tiles-15153700/
+graphic: dom-diff
 ---
 Page builders promise a website in an afternoon. For a hobby project or a quick landing page, that can be perfectly fine. But if you run an independent business — a consultancy, a practice, a craft — and your website is a real part of how clients find and judge you, the trade-offs of a builder start to matter in ways that are easy to underestimate at the start.
 

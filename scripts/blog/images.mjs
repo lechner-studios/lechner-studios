@@ -3,10 +3,10 @@
 // and commit; the browser never calls Pexels.
 
 export const CATEGORY_IMAGE_QUERIES = {
-  "Web & Design": "minimalist modern architecture interior",
-  "Apps & Automation": "abstract geometric architecture lines",
-  "SEO & Growth": "alpine mountain landscape mist",
-  "Brand & Identity": "minimal design studio still life",
+  "Web & Design": "dark developer workspace mechanical keyboard",
+  "Apps & Automation": "server rack cables dark technical",
+  "SEO & Growth": "code editor screen dark closeup",
+  "Brand & Identity": "designer desk typography prints monochrome",
 };
 const FALLBACK_QUERY = "minimal architecture";
 

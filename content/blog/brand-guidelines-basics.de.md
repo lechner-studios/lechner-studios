@@ -18,11 +18,7 @@ keywords:
   - Brand Guidelines
   - Unternehmensauftritt
   - Designkonsistenz
-image: /blog/brand-guidelines-basics.jpg
-imageAlt: Artistic minimalist arrangement of geometric shapes in neutral tones.
-imageCredit: KATRIN  BOLOVTSOVA
-imageCreditUrl: https://www.pexels.com/@ekaterina-bolovtsova
-imagePexelsUrl: https://www.pexels.com/photo/clay-shapes-and-wooden-elements-composition-7307724/
+graphic: type-system
 ---
 Wer ein Unternehmen aufbaut oder weiterentwickelt, merkt früh: Sobald mehrere Personen an Texten, Präsentationen oder Social-Media-Beiträgen arbeiten, schleicht sich Uneinheitlichkeit ein. Die Schrift hier etwas anders, das Logo dort ein bisschen kleiner, die Farben auf der Website nicht ganz dieselben wie auf dem Flyer. Genau hier kommen Corporate Design Richtlinien ins Spiel – ein strukturiertes Dokument, das allen Beteiligten zeigt, wie das Unternehmen nach außen hin auftreten soll.
 

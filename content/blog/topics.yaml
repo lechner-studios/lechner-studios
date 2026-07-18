@@ -10,6 +10,11 @@
 #   scripts/blog/images.mjs). Omit it and the post's category theme
 #   (CATEGORY_IMAGE_QUERIES) is used instead — the default for every topic
 #   below.
+# graphic = OPTIONAL. Which crafted technical graphic renders as the post's
+#   hero/tile (see src/lib/post-graphics.mjs). Valid keys: dom-diff | node-flow
+#   | load-waterfall | type-system. Omit it and the post's category default
+#   (CATEGORY_GRAPHIC) is used instead. A graphic always outranks a photo, so
+#   the Pexels fetch below only ever shows for a post with no graphic.
 webdesign:
   - slug: website-without-page-builder
     keyword: "Website ohne Baukasten"

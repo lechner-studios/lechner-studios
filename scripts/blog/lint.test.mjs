@@ -68,3 +68,12 @@ test("rejects an image that is a remote hotlink, not a /blog/ path", () => {
   const v = lintPost({ frontmatter: { ...goodFm, image: "https://images.pexels.com/x.jpg" }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /image/i.test(x)));
 });
+
+test("accepts a valid graphic key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, graphic: "dom-diff" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("rejects an unknown graphic key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, graphic: "nope" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /graphic/i.test(x)));
+});

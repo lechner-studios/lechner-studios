@@ -14,11 +14,7 @@ keywords:
   - KI-Tools für Unternehmen
   - digitale Prozesse
   - Apps und Automatisierung
-image: /blog/ai-for-small-business-sensibly.jpg
-imageAlt: Abstract view of an urban office building's repetitive window patterns, capturing modern architecture.
-imageCredit: Sydney Sang
-imageCreditUrl: https://www.pexels.com/@urfriendlyphotog
-imagePexelsUrl: https://www.pexels.com/photo/office-building-wall-in-black-and-white-26547201/
+graphic: node-flow
 ---
 Künstliche Intelligenz ist gerade in aller Munde – und gleichzeitig sorgt sie für viel Verwirrung. Gerade für kleine Unternehmen stellt sich die Frage: Was bringt KI wirklich, und wo ist der Aufwand größer als der Nutzen? Dieser Beitrag gibt eine ehrliche Einschätzung – ohne Versprechen, die niemand halten kann, und ohne den üblichen Technologie-Hype.
 

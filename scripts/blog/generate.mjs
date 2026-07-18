@@ -49,6 +49,10 @@ async function main() {
       post.en.frontmatter.offer = picked.offer;
       post.de.frontmatter.offer = picked.offer;
     }
+    // Crafted graphic per pillar, overridable per topic (topics.yaml `graphic:`).
+    const { CATEGORY_GRAPHIC, isGraphicKey } = await import("../../src/lib/post-graphics.mjs");
+    const g = isGraphicKey(picked.graphic) ? picked.graphic : CATEGORY_GRAPHIC[picked.category];
+    if (g) { post.en.frontmatter.graphic = g; post.de.frontmatter.graphic = g; }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
     violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
