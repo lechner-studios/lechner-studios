@@ -50,8 +50,15 @@ async function main() {
       post.de.frontmatter.offer = picked.offer;
     }
     // Crafted graphic per pillar, overridable per topic (topics.yaml `graphic:`).
+    // `graphic: none` opts a topic out entirely, which is the only way to reach
+    // the Pexels photo path below — a graphic always outranks a photo at render.
     const { CATEGORY_GRAPHIC, isGraphicKey } = await import("../../src/lib/post-graphics.mjs");
-    const g = isGraphicKey(picked.graphic) ? picked.graphic : CATEGORY_GRAPHIC[picked.category];
+    const optedOut = picked.graphic === "none";
+    const g = optedOut
+      ? null
+      : isGraphicKey(picked.graphic)
+        ? picked.graphic
+        : CATEGORY_GRAPHIC[picked.category];
     if (g) { post.en.frontmatter.graphic = g; post.de.frontmatter.graphic = g; }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
@@ -64,10 +71,16 @@ async function main() {
     process.exit(3);
   }
 
-  // Fetch a self-hosted photo (Pexels). Owner data + generation-time only; the
-  // browser never calls Pexels. A post without a photo is still valid, so a
-  // failure warns and continues.
-  if (process.env.PEXELS_API_KEY) {
+  // Fetch a self-hosted photo (Pexels) ONLY when no graphic was assigned. A
+  // graphic always outranks a photo at render, so fetching one anyway would
+  // spend API quota and commit a jpg that never displays. Set `graphic: none`
+  // on a topic to opt into this path.
+  //
+  // Generation-time only either way; the browser never calls Pexels. A post
+  // without a photo is still valid, so a failure warns and continues.
+  if (post.en.frontmatter.graphic) {
+    console.log(`Graphic "${post.en.frontmatter.graphic}" assigned — skipping photo fetch.`);
+  } else if (process.env.PEXELS_API_KEY) {
     try {
       const { fetchPhoto } = await import("./images.mjs");
       const img = await fetchPhoto({
