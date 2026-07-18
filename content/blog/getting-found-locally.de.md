@@ -29,3 +29,5 @@ Ehrlich bleibt: Die technisch beste Seite ersetzt keinen gepflegten Karteneintra
 Für uns ist technisches SEO Teil sauberer Webentwicklung, kein Zusatzpaket: konsistente Angaben, korrektes Markup, schnelle mobile Seiten und eine Struktur, die je Leistung eine eigene Seite hat. Das ist die technische Hälfte, die wir verantworten. Was Werbung, Bewertungen oder laufende Inhalte angeht, sagen wir offen, wo unsere Arbeit endet und Ihre Pflege beginnt.
 
 Wenn Sie wissen möchten, ob Ihre Website diese technische Grundlage erfüllt, sehen Sie sich an, [wie wir technische Suchoptimierung verstehen](/de/seo), oder [schreiben Sie uns](/de/contact) — wir sehen uns Ihre Seite konkret an.
+
+Wie das branchenspezifisch aussieht, zeigen unsere Umsetzungen für [Pension und Ferienwohnung](https://werk.lechner-studios.at/pension-website-tirol), [Gasthof](https://werk.lechner-studios.at/gasthof-website-tirol), [Skischule](https://werk.lechner-studios.at/skischule-website-tirol) und [Tischlerei](https://werk.lechner-studios.at/tischlerei-website-tirol), jeweils mit den Suchsignalen, auf die es in der Branche ankommt.

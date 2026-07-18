@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import Overline from "./Overline";
@@ -10,7 +11,7 @@ import SourceSurfaceSlider from "./SourceSurfaceSlider";
 // slider is its proof: real source on one side, its live rendered result on the
 // other — drag to reveal. It literally demonstrates "no templates, hand-written".
 export default function Stance() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
   const d = dict.stance;
 
   return (
@@ -65,6 +66,25 @@ export default function Stance() {
             >
               {d.body}
             </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <Link
+              href={`/${locale}/stack`}
+              style={{
+                display: "inline-block",
+                marginTop: "28px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                color: "var(--accent)",
+                textDecoration: "none",
+                borderBottom: "1px solid color-mix(in srgb, var(--accent) 40%, transparent)",
+                paddingBottom: "3px",
+              }}
+            >
+              {d.moreLink}
+            </Link>
           </Reveal>
         </div>
 

@@ -136,6 +136,7 @@ function buildJsonLd(locale: Locale) {
         url: `https://lechner-studios.at/${locale}`,
         logo: "https://lechner-studios.at/og-image.png",
         email: "hallo@lechner-studios.at",
+        telephone: "+43 664 153 4653",
         description: dict.meta.orgDescription,
         founder: { "@id": "https://lechner-studios.at#sonja" },
         address: {
@@ -145,6 +146,24 @@ function buildJsonLd(locale: Locale) {
           postalCode: "6112",
           addressCountry: "AT",
         },
+        // Entity reconciliation: confirms the GitHub org and this domain are
+        // the same entity. Add further verified profiles here as they exist —
+        // only URLs we actually control belong in sameAs.
+        sameAs: ["https://github.com/lechner-studios"],
+        // Competencies, scoped to what ADR-0011 puts in the four pillars.
+        // Deliberately excludes anything the ADR marks out of scope, so this
+        // stays a claim we can stand behind rather than a keyword list.
+        knowsAbout: [
+          "Webdesign",
+          "Web Development",
+          "Brand & Identity",
+          "SEO",
+          "Business Process Automation",
+          "API Integrations",
+          "Next.js",
+          "Supabase",
+          "GDPR Compliant Architecture",
+        ],
         inLanguage: HREFLANG[locale],
       },
       {
@@ -153,6 +172,7 @@ function buildJsonLd(locale: Locale) {
         name: "Lechner Studios",
         url: `https://lechner-studios.at/${locale}`,
         email: "hallo@lechner-studios.at",
+        telephone: "+43 664 153 4653",
         image: "https://lechner-studios.at/og-image.png",
         address: {
           "@type": "PostalAddress",

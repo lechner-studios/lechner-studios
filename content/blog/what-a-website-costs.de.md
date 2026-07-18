@@ -34,4 +34,4 @@ Ein gutes Angebot nennt nicht nur eine Summe, sondern den **Leistungsumfang dahi
 
 Wir nennen keine Pauschalpreise ins Blaue, weil sie selten zu dem passen, was ein Betrieb wirklich braucht. Stattdessen klären wir in einem kurzen Gespräch den Umfang und legen dann ein **festes, unverbindliches Angebot** für genau Ihr Projekt vor — mit transparenter Aufteilung in einmalige und laufende Kosten. Sie wissen vorher, woran Sie sind, und es gibt keine Überraschungen am Ende.
 
-Wenn Sie gerade abwägen und eine ehrliche Einschätzung für Ihr Vorhaben möchten, sehen Sie sich an, [wie wir Websites bauen](/de/webdesign), oder [schreiben Sie uns](/de/contact) — wir gehen den Umfang gemeinsam durch.
+Wenn Sie gerade abwägen und eine ehrliche Einschätzung für Ihr Vorhaben möchten, sehen Sie sich [unsere Pakete und Festpreise](https://werk.lechner-studios.at/angebote) an, oder [schreiben Sie uns](/de/contact) — wir gehen den Umfang gemeinsam durch.

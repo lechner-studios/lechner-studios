@@ -9,6 +9,23 @@ import BrandMark from "./BrandMark";
 // dictionary) so the Layer-0 PII guard stays active over all site copy; this
 // component is exempted in .layer0-allow.
 const EMAIL = "hallo@lechner-studios.at";
+// The studio's single contact line (a mobile). Personal, but the only number —
+// listed on purpose (owner decision 2026-07-17, retiring the ai-brain 00g
+// "omitted by choice" note). Display + tel: forms kept in sync with the
+// Impressum and the schema `telephone` for NAP consistency.
+const PHONE_DISPLAY = "+43 664 153 4653";
+const PHONE_HREF = "+436641534653";
+
+const contactLinkStyle: React.CSSProperties = {
+  fontFamily: "var(--font-mono)",
+  fontSize: "0.7rem",
+  color: "var(--on-contrast)",
+  letterSpacing: "0.08em",
+  textDecoration: "none",
+  borderBottom: "1px solid var(--contrast-border)",
+  paddingBottom: "2px",
+  transition: "border-color 0.2s",
+};
 
 export default function Footer() {
   const { dict, locale } = useLanguage();
@@ -76,23 +93,24 @@ export default function Footer() {
       {/* Direct contact — a low-friction mailto for visitors who'd rather not
           use the form. Text stays var(--on-contrast) (AA on the dark footer);
           only the underline shifts on hover. */}
-      <a
-        href={`mailto:${EMAIL}`}
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.7rem",
-          color: "var(--on-contrast)",
-          letterSpacing: "0.08em",
-          textDecoration: "none",
-          borderBottom: "1px solid var(--contrast-border)",
-          paddingBottom: "2px",
-          transition: "border-color 0.2s",
-        }}
-        onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--on-contrast)")}
-        onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--contrast-border)")}
-      >
-        {EMAIL}
-      </a>
+      <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center" }}>
+        <a
+          href={`mailto:${EMAIL}`}
+          style={contactLinkStyle}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--on-contrast)")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--contrast-border)")}
+        >
+          {EMAIL}
+        </a>
+        <a
+          href={`tel:${PHONE_HREF}`}
+          style={contactLinkStyle}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--on-contrast)")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "var(--contrast-border)")}
+        >
+          {PHONE_DISPLAY}
+        </a>
+      </div>
 
       {/* Legal disclosure links — Impressum/Datenschutz live in the footer
           where they're expected and §5 ECG-findable. */}

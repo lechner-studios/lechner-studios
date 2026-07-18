@@ -3,6 +3,7 @@ export const dictionaries = {
     nav: {
       work: "Work",
       about: "About",
+      stack: "Stack",
       journal: "Journal",
       contact: "Contact",
       toggle: "DE",
@@ -31,6 +32,9 @@ export const dictionaries = {
       aboutTitle: "About the Studio",
       aboutDescription:
         "Lechner Studios is a family-run, AI-native digital studio in Wattens, Tirol, founded by Sonja Lechner.",
+      stackTitle: "Our Stack & Philosophy — how Lechner Studios builds",
+      stackDescription:
+        "The tools and principles behind every Lechner Studios site: hand-written code, self-hosted and privacy-first, fast, accessible, and GDPR-compliant by construction.",
       contactTitle: "Contact",
       contactDescription:
         "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
@@ -101,12 +105,41 @@ export const dictionaries = {
     stance: {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
-      body: "We hand-write every site on a modern stack — fast, self-hosted with zero third-party requests, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      body: "We hand-write every site on a modern stack — fast, self-hosted and privacy-first, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      moreLink: "See the stack and why it matters →",
       slider: {
         code: "Code",
         result: "Result",
         aria: "Before/after: source code and its rendered result — drag to reveal.",
       },
+    },
+    stack: {
+      overline: "STACK & PHILOSOPHY",
+      headline: "Hand-built, on a modern stack.",
+      intro:
+        "Most small-business sites today are assembled in a builder. We write every line ourselves, on the same tools large product teams use. There is a practical reason for it. It decides how fast your site loads and how quietly it handles your visitors' data, and whether you can still extend it in five years.",
+      stackOverline: "WHAT WE BUILD ON",
+      items: [
+        { name: "Next.js & React", why: "The foundation. Server-rendered pages load fast and are legible to search engines from the first byte, not once a script has finished." },
+        { name: "TypeScript", why: "Every function is typed. Mistakes surface while we build, not once they reach your customers." },
+        { name: "Hand-written CSS", why: "No builder markup, no utility-framework weight. Only the styles your site needs, driven by a small set of design tokens." },
+        { name: "Self-hosted fonts & assets", why: "No Google Fonts request, no external script. Everything lives on your own domain, which keeps the site fast and GDPR-clean without cookie-banner acrobatics." },
+        { name: "Supabase", why: "When a project needs a database or logins, we reach for Supabase: an open Postgres foundation that can be hosted in the EU." },
+        { name: "Vercel", why: "Hosted on infrastructure that delivers worldwide and scales on its own, with no server for you to maintain. Its analytics are cookieless, so there is no consent banner to manage." },
+      ],
+      principlesOverline: "WHAT WE OPTIMISE FOR",
+      principles: [
+        { title: "Speed", body: "A slow site loses visitors before they read a word. We measure real load times on real devices and treat performance as a feature, not an afterthought." },
+        { title: "Accessibility", body: "Contrast, keyboard navigation, and screen-reader structure are built in from the start, so the site works for every visitor and meets the WCAG basics." },
+        { title: "Privacy by construction", body: "Self-hosted fonts and assets, no ad networks, no social embeds, no tracking cookies. The one thing that measures visitors is cookieless analytics, so there is nothing to consent to. That keeps GDPR compliance structural rather than a bolt-on." },
+        { title: "Maintainability", body: "Clean, typed, documented code you are never locked out of. If our paths ever part, another engineer can pick it up without a rewrite." },
+      ],
+      buildersTitle: "Why not a page builder?",
+      buildersBody: "Builders are quick to start and expensive to live with: heavy pages, third-party scripts you did not choose, and a ceiling you hit the moment you need something specific. We have written about the trade-off in more detail.",
+      buildersLink1: "Custom site vs. website builder",
+      buildersLink2: "A website without a page builder",
+      ctaText: "Have a project in mind?",
+      ctaLabel: "Discuss it with us",
     },
     about: {
       overline: "ABOUT THE STUDIO",
@@ -153,7 +186,7 @@ export const dictionaries = {
           year: "2026",
           status: "service",
           desc: "Custom websites for independent businesses. No templates, no builders — every site is designed to measure for the client's market and voice.",
-          url: "https://websites.lechner-studios.at",
+          url: "https://werk.lechner-studios.at",
         },
         {
           id: "vistera",
@@ -170,7 +203,7 @@ export const dictionaries = {
           category: "SaaS · AI Systems",
           year: "2026",
           status: "comingSoon",
-          desc: "A platform in development for Innsbruck businesses — a legally usable business address, with AI phone answering and back-office automation on the roadmap.",
+          desc: "A platform for Innsbruck businesses: a legally usable business address, with back-office automation.",
           url: "#",
         },
         {
@@ -199,6 +232,9 @@ export const dictionaries = {
       lead: "Four working demos, each hand-coded from scratch — no builders, no templates. They're concept designs for fictional businesses, built to show exactly how a bespoke site looks, loads and behaves.",
       conceptLabel: "Concept",
       visit: "Open demo →",
+      // The demos are concepts for fictional businesses. This row points at the
+      // real, priced offer behind each one, on the werk storefront.
+      offersOverline: "THE OFFER BEHIND EACH DEMO",
       items: [
         { slug: "pension", title: "Pension Musterhof", category: "Concept · Hospitality", desc: "A small-hotel site with a direct-booking calendar and a commission-savings calculator — built to keep guests off the booking portals." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Concept · Restaurant", desc: "A guesthouse site with a seasonal menu and an interactive table-reservation flow." },
@@ -213,7 +249,7 @@ export const dictionaries = {
       items: [
         {
           title: "Apps & Automation",
-          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation — from content pipelines we run in production today to PropTech VR and virtual-office systems in development.",
+          desc: "The repetitive work that eats your week, software can take off your hands. We build full-stack apps and AI automation for the tasks that drain your team's time today, on the same stack we run our own products on.",
         },
         {
           title: "Web & Design",
@@ -247,7 +283,7 @@ export const dictionaries = {
           },
           {
             h: "Built on a fast, durable foundation",
-            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted with zero third-party requests, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
+            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted and privacy-first, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — hand-coded, self-hosted" },
           },
           {
@@ -279,7 +315,7 @@ export const dictionaries = {
         slug: "apps-automation",
         metaTitle: "App Development & Automation Tirol — for SMBs",
         metaDescription:
-          "App development and process automation in Tirol. We build full-stack apps and AI automation that take repetitive work off SMB teams across DACH.",
+          "App development and process automation in Tirol. We build full-stack apps on Next.js and Supabase and connect your tools with n8n, Make, Zapier and AI, taking repetitive work off SMB teams across DACH.",
         overline: "APPS & AUTOMATION",
         headline: "Apps and automation that do the actual work.",
         intro:
@@ -291,11 +327,11 @@ export const dictionaries = {
           },
           {
             h: "Full-stack apps, built to fit",
-            p: "Custom web applications and internal tools designed around your workflow, integrated with the systems you already use, rather than forcing your business into off-the-shelf software.",
+            p: "Custom web applications and internal tools built on the same stack as our own products, Next.js and Supabase, designed around your workflow and integrated with the systems you already use, rather than forcing your business into off-the-shelf software.",
           },
           {
             h: "AI automation, used responsibly",
-            p: "We use AI where it earns its place — content automation today, with phone answering and back-office routing in development — always inside clear, reviewable scopes, so a human stays in control of anything that matters.",
+            p: "We connect the tools you already run, from CRM and calendar to invoicing and inbox, with automation platforms like n8n, Make and Zapier, and add Claude or OpenAI where a task genuinely needs judgement. It runs in production today, always inside clear, reviewable scopes, so a human keeps control of anything that matters.",
           },
           {
             h: "Maintainable and observable",
@@ -308,7 +344,7 @@ export const dictionaries = {
           { n: "03", label: "It runs; you review" },
         ],
         includedLabel: "What we build",
-        included: ["Custom web apps", "Workflow automation", "Content pipelines", "Internal tools"],
+        included: ["Custom web apps (Next.js + Supabase)", "Workflow automation (n8n / Make / Zapier)", "CRM & invoicing sync", "Form-to-database routing", "AI integrations (Claude / OpenAI)", "Content pipelines", "Internal tools & dashboards"],
         proof:
           "The automation we describe here we run in our own studio first — built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
@@ -496,6 +532,7 @@ export const dictionaries = {
     nav: {
       work: "Arbeiten",
       about: "Über uns",
+      stack: "Stack",
       journal: "Journal",
       contact: "Kontakt",
       toggle: "EN",
@@ -524,6 +561,9 @@ export const dictionaries = {
       aboutTitle: "Über das Studio",
       aboutDescription:
         "Lechner Studios ist ein familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol, gegründet von Sonja Lechner.",
+      stackTitle: "Stack & Philosophie — wie Lechner Studios baut",
+      stackDescription:
+        "Die Werkzeuge und Prinzipien hinter jeder Website von Lechner Studios: von Hand geschrieben, selbst gehostet und datenschutzfreundlich, schnell, barrierearm und DSGVO-konform von Grund auf.",
       contactTitle: "Kontakt",
       contactDescription:
         "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
@@ -591,12 +631,41 @@ export const dictionaries = {
     stance: {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
-      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet ohne Drittanbieter-Anfragen, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet und datenschutzfreundlich, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      moreLink: "Der Stack und warum er zählt →",
       slider: {
         code: "Code",
         result: "Ergebnis",
         aria: "Vorher/Nachher: Quellcode und gerendertes Ergebnis – ziehen zum Aufdecken.",
       },
+    },
+    stack: {
+      overline: "STACK & PHILOSOPHIE",
+      headline: "Von Hand gebaut, auf einem modernen Stack.",
+      intro:
+        "Die meisten Websites für kleine Betriebe entstehen heute im Baukasten. Wir schreiben stattdessen jede Zeile selbst, auf denselben Werkzeugen, mit denen große Produktteams arbeiten. Dahinter steckt ein praktischer Grund. Es entscheidet darüber, wie schnell Ihre Seite lädt und wie sparsam sie mit den Daten Ihrer Besucher umgeht, und ob sie sich in fünf Jahren noch erweitern lässt.",
+      stackOverline: "WORAUF WIR BAUEN",
+      items: [
+        { name: "Next.js & React", why: "Das Fundament. Server-gerenderte Seiten laden schnell und sind vom ersten Byte an für Suchmaschinen lesbar, nicht erst, wenn ein Skript fertig geladen hat." },
+        { name: "TypeScript", why: "Jede Funktion ist typisiert. Fehler zeigen sich beim Bauen, nicht erst beim Kunden." },
+        { name: "Handgeschriebenes CSS", why: "Kein Baukasten-Markup, kein Framework-Ballast. Nur die Stile, die Ihre Seite wirklich braucht, gesteuert über einen kleinen Satz zentraler Design-Tokens." },
+        { name: "Selbst gehostete Schriften & Assets", why: "Keine Google-Fonts-Anfrage, kein externes Skript. Alles liegt auf Ihrer eigenen Domain. Das hält die Seite schnell und DSGVO-sauber, ohne Cookie-Banner-Akrobatik." },
+        { name: "Supabase", why: "Wenn ein Projekt eine Datenbank oder Logins braucht, setzen wir auf Supabase: eine offene Postgres-Basis, die sich in der EU hosten lässt." },
+        { name: "Vercel", why: "Gehostet auf einer Infrastruktur, die weltweit ausliefert und von selbst skaliert, ohne dass Sie einen Server pflegen müssen. Die Statistik ist cookielos, es gibt also kein Consent-Banner zu verwalten." },
+      ],
+      principlesOverline: "WORAUF WIR OPTIMIEREN",
+      principles: [
+        { title: "Tempo", body: "Eine langsame Seite verliert Besucher, bevor sie ein Wort gelesen haben. Wir messen echte Ladezeiten auf echten Geräten und behandeln Performance als Funktion, nicht als nachträgliche Kür." },
+        { title: "Barrierefreiheit", body: "Kontrast, Tastaturbedienung und eine für Screenreader lesbare Struktur sind von Anfang an eingebaut. So funktioniert Ihre Seite für alle Besucher und erfüllt die WCAG-Grundlagen." },
+        { title: "Datenschutz von Grund auf", body: "Selbst gehostete Schriften und Assets, keine Werbenetzwerke, keine Social-Embeds, keine Tracking-Cookies. Das Einzige, was Ihre Besucher misst, ist cookielose Statistik, also gibt es nichts zuzustimmen. Das macht DSGVO-Konformität baulich statt nachträglich." },
+        { title: "Wartbarkeit", body: "Sauberer, typisierter, dokumentierter Code, aus dem Sie nie ausgesperrt sind. Sollten sich unsere Wege trennen, kann ein anderer Entwickler ihn ohne Neubau übernehmen." },
+      ],
+      buildersTitle: "Warum kein Baukasten?",
+      buildersBody: "Baukästen sind schnell begonnen und teuer im Alltag: schwere Seiten, Skripte von Dritten, die Sie nicht gewählt haben, und eine Decke, an die Sie stoßen, sobald Sie etwas Bestimmtes brauchen. Über diesen Kompromiss haben wir ausführlicher geschrieben.",
+      buildersLink1: "Maßgeschneidert vs. Baukasten",
+      buildersLink2: "Eine Website ohne Baukasten",
+      ctaText: "Ein Projekt im Kopf?",
+      ctaLabel: "Sprechen wir darüber",
     },
     about: {
       overline: "ÜBER DAS STUDIO",
@@ -643,7 +712,7 @@ export const dictionaries = {
           year: "2026",
           status: "service",
           desc: "Maßgeschneiderte Websites für unabhängige Unternehmen. Keine Vorlagen, kein Baukasten — jede Site wird für Markt und Stimme des Kunden entworfen.",
-          url: "https://websites.lechner-studios.at",
+          url: "https://werk.lechner-studios.at",
         },
         {
           id: "vistera",
@@ -660,7 +729,7 @@ export const dictionaries = {
           category: "SaaS · KI-Systeme",
           year: "2026",
           status: "comingSoon",
-          desc: "Eine Plattform in Entwicklung für Innsbrucker Betriebe — eine ladungsfähige Geschäftsadresse, mit KI-Telefon-Assistenz und Back-Office-Automatisierung auf der Roadmap.",
+          desc: "Eine Plattform für Innsbrucker Betriebe: eine ladungsfähige Geschäftsadresse mit Back-Office-Automatisierung.",
           url: "#",
         },
         {
@@ -689,6 +758,9 @@ export const dictionaries = {
       lead: "Vier funktionierende Demos, jede von Hand programmiert — kein Baukasten, keine Vorlage. Es sind Konzept-Entwürfe für fiktive Betriebe, gebaut um zu zeigen, wie sich eine maßgeschneiderte Seite anfühlt, lädt und verhält.",
       conceptLabel: "Konzept",
       visit: "Demo öffnen →",
+      // Die Demos sind Konzepte für fiktive Betriebe. Diese Zeile führt zum
+      // echten, bepreisten Angebot dahinter, im werk-Storefront.
+      offersOverline: "DAS ANGEBOT HINTER JEDER DEMO",
       items: [
         { slug: "pension", title: "Pension Musterhof", category: "Konzept · Hotellerie", desc: "Eine Pensions-Seite mit Direktbuchungs-Kalender und Provisions-Rechner — gebaut, um Gäste von den Buchungsportalen fernzuhalten." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Konzept · Gastronomie", desc: "Eine Gasthof-Seite mit saisonaler Karte und interaktiver Tisch-Reservierung." },
@@ -702,7 +774,7 @@ export const dictionaries = {
       items: [
         {
           title: "Apps & Automation",
-          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung — von Content-Pipelines, die heute in Produktion laufen, bis zu PropTech-VR und Virtual-Office-Systemen in Entwicklung.",
+          desc: "Die wiederkehrende Arbeit, die Ihre Woche frisst, kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung für die Aufgaben, die heute Zeit kosten, auf demselben Stack, auf dem auch unsere eigenen Produkte laufen.",
         },
         {
           title: "Web & Design",
@@ -736,7 +808,7 @@ export const dictionaries = {
           },
           {
             h: "Auf schnellem, langlebigem Fundament gebaut",
-            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet, ganz ohne Drittanbieter-Anfragen: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
+            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet und datenschutzfreundlich: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — handgeschrieben, selbst gehostet" },
           },
           {
@@ -768,7 +840,7 @@ export const dictionaries = {
         slug: "apps-automation",
         metaTitle: "App-Entwicklung & Automatisierung Tirol — für KMU",
         metaDescription:
-          "App-Entwicklung und Prozessautomatisierung in Tirol. Full-Stack-Apps und KI-Automatisierung, die wiederkehrende Arbeit von KMU-Teams im DACH-Raum übernehmen.",
+          "App-Entwicklung und Prozessautomatisierung in Tirol. Full-Stack-Apps auf Next.js und Supabase, verbunden mit Ihren Tools über n8n, Make, Zapier und KI, die wiederkehrende Arbeit von KMU-Teams im DACH-Raum übernehmen.",
         overline: "APPS & AUTOMATION",
         headline: "Apps und Automatisierung, die die Arbeit wirklich erledigen.",
         intro:
@@ -780,11 +852,11 @@ export const dictionaries = {
           },
           {
             h: "Full-Stack-Apps, passgenau gebaut",
-            p: "Maßgeschneiderte Web-Applikationen und interne Tools rund um Ihren Arbeitsablauf, integriert mit den Systemen, die Sie bereits nutzen — statt Ihr Unternehmen in Software von der Stange zu zwingen.",
+            p: "Maßgeschneiderte Web-Applikationen und interne Tools auf demselben Stack wie unsere eigenen Produkte, Next.js und Supabase, rund um Ihren Arbeitsablauf gebaut und mit den Systemen integriert, die Sie bereits nutzen, statt Ihr Unternehmen in Software von der Stange zu zwingen.",
           },
           {
             h: "KI verantwortungsvoll eingesetzt",
-            p: "Wir setzen KI dort ein, wo sie ihren Platz verdient — Content-Automatisierung heute, Telefon-Assistenz und Back-Office-Routing in Entwicklung — immer innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
+            p: "Wir verbinden die Tools, die Sie bereits nutzen, von CRM und Kalender bis Rechnung und Postfach, über Automatisierungs-Plattformen wie n8n, Make und Zapier und ergänzen Claude oder OpenAI dort, wo eine Aufgabe wirklich Urteilsvermögen braucht. Das läuft heute in Produktion, immer innerhalb klarer, überprüfbarer Grenzen, damit bei allem Wesentlichen ein Mensch die Kontrolle behält.",
           },
           {
             h: "Wartbar und nachvollziehbar",
@@ -797,7 +869,7 @@ export const dictionaries = {
           { n: "03", label: "Es läuft; Sie prüfen" },
         ],
         includedLabel: "Was wir bauen",
-        included: ["Individuelle Web-Apps", "Workflow-Automatisierung", "Content-Pipelines", "Interne Tools"],
+        included: ["Individuelle Web-Apps (Next.js + Supabase)", "Workflow-Automatisierung (n8n / Make / Zapier)", "CRM- & Rechnungs-Sync", "Formular-zu-Datenbank-Routing", "KI-Integrationen (Claude / OpenAI)", "Content-Pipelines", "Interne Tools & Dashboards"],
         proof:
           "Die Automatisierung, von der hier die Rede ist, setzen wir zuerst im eigenen Studio ein — im Haus gebaut, so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",

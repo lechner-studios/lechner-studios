@@ -32,4 +32,4 @@ Wenn ein Projekt sich zieht, liegt es selten daran, dass jemand langsam baut. Es
 
 Wir nennen zu Beginn einen **realistischen Zeitrahmen** für Ihren konkreten Umfang und sagen offen, was wir von Ihnen brauchen, damit er hält — meist die Inhalte und zeitnahes Feedback. Lieber ein ehrlicher Termin, der steht, als ein optimistischer, der rutscht. Wer es eilig hat, dem helfen wir, den Umfang sinnvoll zu schneiden, statt unter Druck Qualität zu opfern.
 
-Wenn Sie ein Vorhaben mit einem bestimmten Zeithorizont haben, sehen Sie sich an, [wie wir Websites bauen](/de/webdesign), oder [schreiben Sie uns](/de/contact) — wir schätzen die Dauer für Ihr Projekt ehrlich ein.
+Wenn Sie ein Vorhaben mit einem bestimmten Zeithorizont haben, sehen Sie sich [unsere Pakete mit klarem Umfang](https://werk.lechner-studios.at/angebote) an, oder [schreiben Sie uns](/de/contact) — wir schätzen die Dauer für Ihr Projekt ehrlich ein.

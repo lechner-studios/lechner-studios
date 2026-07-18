@@ -36,7 +36,7 @@ Für lokale Unternehmen ist der Schema-Typ `LocalBusiness` (bzw. seine spezifisc
 - **Bewertungen** – sofern sie auf der eigenen Website eingebunden sind
 - **Angebotene Leistungen** – über verknüpfte `Service`-Objekte
 
-Ein konkretes Beispiel: Ein Tischlereibetrieb in Hall in Tirol betreibt eine einfache Website mit Kontaktseite. Ohne strukturierte Daten muss Google aus dem Seitentext ableiten, was das Unternehmen macht, wo es sich befindet und wann es erreichbar ist. Mit einem korrekt eingebetteten `LocalBusiness`-Block im JSON-LD-Format weiß die Suchmaschine exakt: Unternehmenstyp ist `HomeAndConstructionBusiness`, die Adresse lautet Musterstraße 4, 6060 Hall in Tirol, geöffnet ist Montag bis Freitag von 7:30 bis 17:00 Uhr. Diese Klarheit reduziert Interpretationsspielraum – und das ist im technischen SEO ein echter Vorteil.
+Ein konkretes Beispiel: Ein [Tischlereibetrieb in Tirol](https://werk.lechner-studios.at/tischlerei-website-tirol) betreibt eine einfache Website mit Kontaktseite. Ohne strukturierte Daten muss Google aus dem Seitentext ableiten, was das Unternehmen macht, wo es sich befindet und wann es erreichbar ist. Mit einem korrekt eingebetteten `LocalBusiness`-Block im JSON-LD-Format weiß die Suchmaschine exakt: Unternehmenstyp ist `HomeAndConstructionBusiness`, die Adresse lautet Musterstraße 4, 6060 Hall in Tirol, geöffnet ist Montag bis Freitag von 7:30 bis 17:00 Uhr. Diese Klarheit reduziert Interpretationsspielraum – und das ist im technischen SEO ein echter Vorteil.
 
 ## Wie strukturierte Daten in die Praxis umgesetzt werden
 

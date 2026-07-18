@@ -363,6 +363,12 @@ section, footer, nav, .theme-surface {
   .lc-stack-pillars {
     grid-template-columns: 1fr !important;
   }
+  /* /stack tech rows: name over description on narrow viewports, so the
+     "why" column isn't crushed into a ribbon. */
+  .lc-stack-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
 
   /* Work section — internal layout fixes for narrow viewports */
   .lc-work-header {

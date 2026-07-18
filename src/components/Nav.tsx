@@ -143,6 +143,12 @@ export default function Nav() {
           onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--hero-text-muted)"; }}
         >{dict.nav.about}</Link>
         <Link
+          href={`/${locale}/stack`}
+          style={linkStyle}
+          onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--hero-accent)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = solid ? "var(--text-muted)" : "var(--hero-text-muted)"; }}
+        >{dict.nav.stack}</Link>
+        <Link
           href={`/${locale}/blog`}
           style={linkStyle}
           onMouseEnter={e => { e.currentTarget.style.color = solid ? "var(--accent)" : "var(--hero-accent)"; }}
@@ -248,6 +254,7 @@ export default function Nav() {
             {[
               { href: `/${locale}/work`, label: dict.nav.work },
               { href: `/${locale}/about`, label: dict.nav.about },
+              { href: `/${locale}/stack`, label: dict.nav.stack },
               { href: `/${locale}/blog`, label: dict.nav.journal },
               { href: `/${locale}/contact`, label: dict.nav.contact },
             ].map(item => (

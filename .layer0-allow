@@ -33,6 +33,22 @@ src/components/Footer.tsx
 # BlogOfferCta, and by the blog generator's linter. Same rationale as above:
 # prices are intentional public marketing figures, isolated to this one module
 # (not the shared copy dictionary), so the Layer-0 currency/PII scan stays
-# active over all other site copy. HomeOffers.tsx no longer needs an exemption
-# because the amounts have left it.
+# active over all other site copy.
+#
+# This entry replaces three older ones. HomeOffers.tsx no longer needs an
+# exemption because the amounts have left it, and WebsiteCheck.tsx /
+# WebsiteCheckJsonLd.tsx were deleted by #118 when the offers moved to the werk
+# storefront — an allow entry for a path that no longer exists silently
+# pre-exempts anything later created there, which inverts the guard.
 src/lib/offers.mjs
+
+# Machine-readable studio summary for AI assistants and agents. Carries the
+# public hallo@ inbox and the Präsenz entry price — the same figures already
+# published on the werk storefront it points at. Intentionally readable.
+public/llms.txt
+
+# Site layout emits the Organization + LocalBusiness JSON-LD, which now carries
+# the public business telephone (the same number on the Impressum + footer) for
+# NAP consistency. The digit run trips the phone-like guard; it is the studio's
+# own published contact number, not third-party PII.
+src/app/(site)/[locale]/layout.tsx

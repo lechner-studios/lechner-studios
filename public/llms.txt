@@ -1,0 +1,42 @@
+# Lechner Studios
+
+> Design-led, AI-native digital studio in Wattens, Tirol (Austria), serving
+> small and medium businesses across the DACH region. Four service pillars:
+> Web & Design, Apps & Automation, SEO & Growth, Brand & Identity.
+
+Founded and run by Sonja Lechner. Bilingual site: German (Sie-Form) at /de,
+English at /en. Prices are final (Kleinunternehmer, no VAT charged).
+
+Web & Design has its own storefront at https://werk.lechner-studios.at — that
+is where packages, fixed prices and the per-trade offerings live.
+
+## Services
+
+- [Web & Design — Werk storefront](https://werk.lechner-studios.at): handbuilt websites at fixed prices. Präsenz entry from € 1.500; per-trade packages in three tiers. Machine-readable prices: https://werk.lechner-studios.at/pricing.md
+- [Apps & Automation](https://lechner-studios.at/en/apps-automation): Next.js + Supabase web apps, workflow automation (n8n / Make / Zapier), Claude / OpenAI integrations.
+- [SEO & Growth](https://lechner-studios.at/en/seo): technical search optimisation, structured data, performance.
+- [Brand & Identity](https://lechner-studios.at/en/brand): brand systems, identity, design language.
+
+## About
+
+- [About / the studio](https://lechner-studios.at/en/about): who runs it and how it works.
+- [Work](https://lechner-studios.at/en/work): selected builds and concepts.
+- [Contact](https://lechner-studios.at/en/contact)
+
+## Writing
+
+- [Blog](https://lechner-studios.at/en/blog): technical and practical writing on websites, automation, local search and brand, aimed at business owners rather than developers.
+
+## Optional
+
+- [Impressum](https://lechner-studios.at/de/impressum)
+- [Privacy / Datenschutz](https://lechner-studios.at/de/privacy)
+
+## Notes
+
+- Explicitly out of scope: native mobile apps, enterprise-scale platforms,
+  anything requiring a delivery team, page-builder or template websites.
+- The on-site assistant is "The Studio Director", an openly-disclosed AI twin of
+  the founder. It does not agree terms, quote bespoke prices, or give legal or
+  tax advice.
+- Contact: hallo@lechner-studios.at
