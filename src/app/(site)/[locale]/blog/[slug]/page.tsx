@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { LanguageProvider } from "../../../../../context/LanguageContext";
 import { LOCALES, isLocale, HREFLANG, type Locale } from "../../../../../i18n/config";
-import { dictionaries } from "../../../../../i18n/dictionaries";
+import { dictionaries, type Dictionary } from "../../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
@@ -51,6 +51,10 @@ function formatDate(date: string, locale: Locale): string {
     month: "long",
     day: "numeric",
   });
+}
+
+function formatReadingTime(dict: Dictionary, minutes: number): string {
+  return dict.blog.readingTime.replace("{n}", String(minutes));
 }
 
 export default async function BlogArticlePage({
@@ -151,7 +155,9 @@ export default async function BlogArticlePage({
               }}
             >
               <span>{meta.category}</span>
-              <span>{formatDate(meta.date, locale)}</span>
+              <span>
+                {formatDate(meta.date, locale)} · {formatReadingTime(dict, meta.minutes)}
+              </span>
             </div>
 
             <h1

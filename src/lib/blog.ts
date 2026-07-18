@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { DEFAULT_OFFER, isOfferKey } from "./offers.mjs";
 import type { OfferKey } from "./offers.mjs";
+import { readingTime } from "./reading-time.mjs";
 
 export type BlogMeta = {
   slug: string;
@@ -13,6 +14,8 @@ export type BlogMeta = {
   date: string;
   category: string;
   keywords: string[];
+  /** Estimated reading time in whole minutes, derived from the body at read time (never stored). */
+  minutes: number;
   /** Which productized offer this post's CTA points at. */
   offer: OfferKey;
   /** Crafted technical graphic key (src/lib/post-graphics.mjs). Optional; falls back to a photo, then a flat band. */
@@ -36,8 +39,9 @@ function slugForLocale(filename: string, locale: string): string | null {
 }
 
 // Single builder for both read paths, so a new frontmatter field only has to be
-// added in one place.
-function toMeta(data: Record<string, unknown>, slug: string, locale: string): BlogMeta {
+// added in one place. `content` is the post body (markdown, frontmatter
+// already stripped by gray-matter) — required to derive `minutes`.
+function toMeta(data: Record<string, unknown>, content: string, slug: string, locale: string): BlogMeta {
   return {
     slug,
     locale,
@@ -47,6 +51,7 @@ function toMeta(data: Record<string, unknown>, slug: string, locale: string): Bl
     date: String(data.date ?? ""),
     category: String(data.category ?? ""),
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+    minutes: readingTime(content),
     // Posts published before offers existed carry no `offer` key. Defaulting
     // here is what retrofits them with no file edits.
     offer: isOfferKey(data.offer) ? data.offer : DEFAULT_OFFER,
@@ -65,8 +70,12 @@ function toMeta(data: Record<string, unknown>, slug: string, locale: string): Bl
 
 function readMetaForFile(filename: string, locale: string, slug: string): BlogMeta | null {
   const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
-  const { data } = matter(raw);
-  return toMeta(data, slug, locale);
+  // Previously destructured only `{ data }` — the index page had no way to
+  // compute reading time because the body was parsed by gray-matter but then
+  // discarded. Capturing `content` here is what makes `minutes` available on
+  // BlogMeta for both getAllPosts and getPost.
+  const { data, content } = matter(raw);
+  return toMeta(data, content, slug, locale);
 }
 
 export function getAllPosts(locale: string): BlogMeta[] {
@@ -102,7 +111,7 @@ export function getPost(
     return null;
   }
   const { data, content } = matter(raw);
-  return { meta: toMeta(data, slug, locale), content };
+  return { meta: toMeta(data, content, slug, locale), content };
 }
 
 export function getAllSlugs(locale: string): string[] {

@@ -50,6 +50,12 @@ export const dictionaries = {
       backToBlog: "← All articles",
       empty: "Articles coming soon.",
       published: "Published",
+      // {n} is replaced with the computed minute count. Kept as a template
+      // string (not concatenated) so the German path stays a real
+      // localization rather than English words with a number spliced in.
+      readingTime: "{n} min read",
+      filterAll: "All",
+      filterAriaLabel: "Filter articles by category",
     },
     blogOffer: {
       overline: "NEXT STEP",
@@ -537,6 +543,9 @@ export const dictionaries = {
       backToBlog: "← Alle Beiträge",
       empty: "Beiträge folgen in Kürze.",
       published: "Veröffentlicht",
+      readingTime: "{n} Min. Lesezeit",
+      filterAll: "Alle",
+      filterAriaLabel: "Beiträge nach Kategorie filtern",
     },
     blogOffer: {
       overline: "NÄCHSTER SCHRITT",
