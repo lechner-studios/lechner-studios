@@ -9,7 +9,24 @@
 //
 // Every graphic uses the same 1000x340 viewBox so slots are interchangeable.
 
-const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// Escapes quotes as well as angle brackets. Every token today lands in element
+// content (<title>, <text>, <tspan>), where quotes are harmless, so this makes
+// no visual difference. It is here so that moving a token into an attribute
+// later cannot quietly open an injection: the output of this file is handed to
+// dangerouslySetInnerHTML.
+//
+// CodeQL flags that sink as stored XSS (js/stored-xss) because post frontmatter
+// reaches it. It is not exploitable: frontmatter only selects which of the four
+// fixed templates renders — GRAPHICS[key] returns undefined for anything else —
+// and the substituted labels come from the i18n dictionary, never from post
+// content. Keep it that way; never interpolate post body or title here.
+const esc = (t) =>
+  String(t)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 
 const INK = "#15171A";
 const HAIR = "#F7F8F8";
