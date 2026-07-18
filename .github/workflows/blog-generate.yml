@@ -33,6 +33,11 @@ jobs:
         id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Only consumed when a topic sets `graphic: none` — a crafted graphic
+          # outranks a photo, so the fetch is skipped for every other post.
+          # Absent, the generator warns and ships the post without a photo
+          # rather than failing.
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           TARGET_SLUG: ${{ inputs.topic }}
         run: node scripts/blog/generate.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Open PR
