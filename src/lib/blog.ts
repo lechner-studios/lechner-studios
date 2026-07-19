@@ -30,12 +30,25 @@ export type BlogMeta = {
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+// A slug becomes a URL path segment, a route param and a link target, so it is
+// held to the kebab-case contract topics.yaml documents. Enforcing it here, at
+// the single boundary where a filename turns into a slug, means no consumer
+// downstream can be handed anything else: a stray or hand-dropped file with an
+// odd name is simply not a post rather than becoming part of a href.
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+export function isValidSlug(slug: string): boolean {
+  return SLUG_PATTERN.test(slug);
+}
+
 // Filenames look like "<slug>.<locale>.md". This derives the slug for a given
-// locale, returning null when the file isn't an article for that locale.
+// locale, returning null when the file isn't an article for that locale or the
+// derived slug does not satisfy the contract above.
 function slugForLocale(filename: string, locale: string): string | null {
   const suffix = `.${locale}.md`;
   if (!filename.endsWith(suffix)) return null;
-  return filename.slice(0, -suffix.length);
+  const slug = filename.slice(0, -suffix.length);
+  return isValidSlug(slug) ? slug : null;
 }
 
 // Single builder for both read paths, so a new frontmatter field only has to be
@@ -102,6 +115,9 @@ export function getPost(
   locale: string,
   slug: string,
 ): { meta: BlogMeta; content: string } | null {
+  // The slug arrives as a route param and is concatenated into a filesystem
+  // path below, so it is validated before it can traverse out of BLOG_DIR.
+  if (!isValidSlug(slug)) return null;
   const filename = `${slug}.${locale}.md`;
   const filePath = path.join(BLOG_DIR, filename);
   let raw: string;
