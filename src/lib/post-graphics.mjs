@@ -2,53 +2,50 @@
 // self-hosted IBM Plex Mono, ink ground, sky/lake linework, gold used once as a
 // mark. Deliberately dark in both site themes, the way a code editor is.
 //
-// These are SVG strings rather than JSX so the preview tooling and the site
-// render byte-identical output. Labels are tokenised ({{L1}}…) and filled per
-// locale by the renderer, which is only possible because the SVG is inlined in
-// the page rather than referenced as a flat .svg file.
+// These are plain data descriptors, not markup. Each builder below returns a
+// { viewBox, title, nodes } spec describing rects/lines/paths/text — never a
+// string of HTML/SVG. `renderGraphic()` resolves the {{TOKEN}}-style label
+// references into plain strings and hands the result to PostGraphic.tsx,
+// which maps nodes to real JSX elements. React escapes every text child it
+// renders, so there is no HTML-injection sink anywhere in this pipeline: a
+// post's frontmatter can only ever select *which* of the four fixed
+// descriptors renders (GRAPHICS[key] is undefined for anything else), never
+// influence what markup gets produced.
 //
 // Every graphic uses the same 1000x340 viewBox so slots are interchangeable.
-
-// Escapes quotes as well as angle brackets. Every token today lands in element
-// content (<title>, <text>, <tspan>), where quotes are harmless, so this makes
-// no visual difference. It is here so that moving a token into an attribute
-// later cannot quietly open an injection: the output of this file is handed to
-// dangerouslySetInnerHTML.
-//
-// CodeQL flags that sink as stored XSS (js/stored-xss) because post frontmatter
-// reaches it. It is not exploitable: frontmatter only selects which of the four
-// fixed templates renders — GRAPHICS[key] returns undefined for anything else —
-// and the substituted labels come from the i18n dictionary, never from post
-// content. Keep it that way; never interpolate post body or title here.
-const esc = (t) =>
-  String(t)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 
 const INK = "#15171A";
 const HAIR = "#F7F8F8";
 const SKY = "#8FA8C5";
 const GOLD = "#B8944D";
 
-function panel(inner) {
-  return [
-    '<svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pgT">',
-    '<title id="pgT">{{ALT}}</title>',
-    `<rect x="0" y="0" width="1000" height="340" rx="6" fill="${INK}"/>`,
-    `<rect x="0.5" y="0.5" width="999" height="339" rx="6" fill="none" stroke="${HAIR}" stroke-opacity="0.12"/>`,
-    inner,
-    "</svg>",
-  ].join("\n");
+// ---- node constructors -----------------------------------------------
+// Each returns a plain object; PostGraphic.tsx reads these fields directly.
+// `opacity` on rect/text/tspan-parts maps to fill-opacity; path distinguishes
+// fill vs stroke opacity since it can use both.
+
+const bgRect = () => ({ t: "rect", x: 0, y: 0, w: 1000, h: 340, rx: 6, fill: INK });
+const borderRect = () => ({
+  t: "rect", x: 0.5, y: 0.5, w: 999, h: 339, rx: 6,
+  fill: "none", stroke: HAIR, strokeOpacity: "0.12",
+});
+
+// Label text whose content is a token, resolved later via `labels[token]`.
+const lblToken = (x, y, label, fill, opacity = 1, anchor = "start") => ({
+  t: "text", cls: "pg-lb", x, y, fill, opacity, anchor, label,
+});
+// Label text whose content is a literal string, never localized.
+const lblText = (x, y, text, fill, opacity = 1, anchor = "start") => ({
+  t: "text", cls: "pg-lb", x, y, fill, opacity, anchor, text,
+});
+// Monospace "code" text, always literal.
+const codeText = (x, y, text, fill, opacity = 1) => ({
+  t: "text", cls: "pg-c", x, y, fill, opacity, text,
+});
+
+function panel(title, nodes) {
+  return { viewBox: "0 0 1000 340", title, nodes: [bgRect(), borderRect(), ...nodes] };
 }
-
-const lbl = (x, y, text, fill, op = 1, anchor = "start") =>
-  `<text x="${x}" y="${y}" class="pg-lb" text-anchor="${anchor}" fill="${fill}" fill-opacity="${op}">${text}</text>`;
-
-const code = (x, y, text, fill, op = 1) =>
-  `<text x="${x}" y="${y}" class="pg-c" fill="${fill}" fill-opacity="${op}">${esc(text)}</text>`;
 
 // ---------------------------------------------------------------- dom-diff
 // Nested builder markup collapsing into noise vs four semantic tags.
@@ -61,64 +58,68 @@ const BUILDER = [
   '<div class="wpb_wrapper">', "<div>", "…",
 ];
 
+// tag parts render in SKY with no opacity attribute; token parts render in
+// HAIR at a fixed 0.92 opacity — mirrors the old tag-vs-substitution split.
+const DOM_DIFF_ROWS = [
+  { indent: 0, parts: [{ tag: "<main>" }] },
+  { indent: 1, parts: [{ tag: "<article>" }] },
+  { indent: 2, parts: [{ tag: "<h1>" }, { token: "W1" }, { tag: "</h1>" }] },
+  { indent: 2, parts: [{ tag: "<p>" }, { token: "W2" }, { tag: "</p>" }] },
+  { indent: 1, parts: [{ tag: "</article>" }] },
+  { indent: 0, parts: [{ tag: "</main>" }] },
+];
+
 function domDiff() {
-  let left = "";
-  BUILDER.forEach((t, i) => {
-    left += code(30 + i * 11, 84 + i * 18, t, HAIR, Math.max(0.16, 0.42 - i * 0.019).toFixed(3)) + "\n";
-  });
-  const rows = [
-    [0, [["<main>", 1]]],
-    [1, [["<article>", 1]]],
-    [2, [["<h1>", 1], ["{{W1}}", 0], ["</h1>", 1]]],
-    [2, [["<p>", 1], ["{{W2}}", 0], ["</p>", 1]]],
-    [1, [["</article>", 1]]],
-    [0, [["</main>", 1]]],
-  ];
-  let right = "";
-  rows.forEach(([ind, parts], n) => {
-    let ts = "";
-    for (const [t, isTag] of parts) {
-      ts += isTag
-        ? `<tspan fill="${SKY}">${esc(t)}</tspan>`
-        : `<tspan fill="${HAIR}" fill-opacity="0.92">${t}</tspan>`;
-    }
-    right += `<text x="${556 + ind * 18}" y="${118 + n * 29}" class="pg-c">${ts}</text>\n`;
-  });
-  return panel([
-    `<line x1="500" y1="26" x2="500" y2="314" stroke="${HAIR}" stroke-opacity="0.10"/>`,
-    lbl(30, 46, "{{L1}}", HAIR, 0.4),
-    lbl(470, 46, "{{L2}}", HAIR, 0.28, "end"),
-    lbl(556, 46, "{{L3}}", SKY),
-    lbl(970, 46, "{{L4}}", SKY, 0.65, "end"),
-    `<line x1="556" y1="58" x2="590" y2="58" stroke="${GOLD}" stroke-width="2"/>`,
-    left, right,
-  ].join("\n"));
+  const left = BUILDER.map((text, i) =>
+    codeText(30 + i * 11, 84 + i * 18, text, HAIR, Math.max(0.16, 0.42 - i * 0.019).toFixed(3)),
+  );
+  const right = DOM_DIFF_ROWS.map(({ indent, parts }, n) => ({
+    t: "tspans",
+    x: 556 + indent * 18,
+    y: 118 + n * 29,
+    cls: "pg-c",
+    parts: parts.map((p) =>
+      "tag" in p ? { text: p.tag, fill: SKY } : { label: p.token, fill: HAIR, opacity: 0.92 },
+    ),
+  }));
+  return panel("ALT", [
+    { t: "line", x1: 500, y1: 26, x2: 500, y2: 314, stroke: HAIR, strokeOpacity: "0.10" },
+    lblToken(30, 46, "L1", HAIR, 0.4),
+    lblToken(470, 46, "L2", HAIR, 0.28, "end"),
+    lblToken(556, 46, "L3", SKY),
+    lblToken(970, 46, "L4", SKY, 0.65, "end"),
+    { t: "line", x1: 556, y1: 58, x2: 590, y2: 58, stroke: GOLD, strokeWidth: 2 },
+    ...left,
+    ...right,
+  ]);
 }
 
 // ---------------------------------------------------------------- node-flow
 // Tools talking to each other. Right-angle routing, no bubbly SaaS curves.
+function box(x, y, w, h, token, strong) {
+  return [
+    { t: "rect", x, y, w, h, rx: 3, fill: "none", stroke: strong ? SKY : HAIR, strokeOpacity: strong ? 0.85 : 0.3 },
+    lblToken(x + w / 2, y + h / 2 + 4, token, strong ? SKY : HAIR, strong ? 1 : 0.55, "middle"),
+  ];
+}
+const arrow = (x, y) => ({ t: "path", d: `M${x} ${y} l-7 -4 v8 z`, fill: SKY, fillOpacity: 0.85 });
+
 function nodeFlow() {
-  const box = (x, y, w, h, text, strong) => [
-    `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="none" stroke="${strong ? SKY : HAIR}" stroke-opacity="${strong ? 0.85 : 0.3}"/>`,
-    lbl(x + w / 2, y + h / 2 + 4, text, strong ? SKY : HAIR, strong ? 1 : 0.55, "middle"),
-  ].join("\n");
-  const arrow = (x, y) =>
-    `<path d="M${x} ${y} l-7 -4 v8 z" fill="${SKY}" fill-opacity="0.85"/>`;
-  return panel([
-    lbl(30, 46, "{{L1}}", SKY),
-    `<line x1="30" y1="58" x2="64" y2="58" stroke="${GOLD}" stroke-width="2"/>`,
-    box(40, 128, 190, 56, "{{N1}}", false),
-    box(405, 128, 190, 56, "{{N2}}", true),
-    box(770, 128, 190, 56, "{{N3}}", false),
-    box(405, 246, 190, 50, "{{N4}}", false),
-    `<line x1="230" y1="156" x2="398" y2="156" stroke="${SKY}" stroke-opacity="0.5"/>`,
+  return panel("ALT", [
+    lblToken(30, 46, "L1", SKY),
+    { t: "line", x1: 30, y1: 58, x2: 64, y2: 58, stroke: GOLD, strokeWidth: 2 },
+    ...box(40, 128, 190, 56, "N1", false),
+    ...box(405, 128, 190, 56, "N2", true),
+    ...box(770, 128, 190, 56, "N3", false),
+    ...box(405, 246, 190, 50, "N4", false),
+    { t: "line", x1: 230, y1: 156, x2: 398, y2: 156, stroke: SKY, strokeOpacity: 0.5 },
     arrow(405, 156),
-    `<line x1="595" y1="156" x2="763" y2="156" stroke="${SKY}" stroke-opacity="0.5"/>`,
+    { t: "line", x1: 595, y1: 156, x2: 763, y2: 156, stroke: SKY, strokeOpacity: 0.5 },
     arrow(770, 156),
-    `<path d="M500 184 V246" fill="none" stroke="${SKY}" stroke-opacity="0.35"/>`,
-    `<path d="M500 246 l-4 -7 h8 z" fill="${SKY}" fill-opacity="0.5"/>`,
-    lbl(500, 316, "{{L2}}", HAIR, 0.3, "middle"),
-  ].join("\n"));
+    { t: "path", d: "M500 184 V246", fill: "none", stroke: SKY, strokeOpacity: 0.35 },
+    { t: "path", d: "M500 246 l-4 -7 h8 z", fill: SKY, fillOpacity: 0.5 },
+    lblToken(500, 316, "L2", HAIR, 0.3, "middle"),
+  ]);
 }
 
 // ---------------------------------------------------------------- load-waterfall
@@ -131,22 +132,23 @@ const REQ = [
   { l: "JS", x: 398, w: 52, o: 0.32 },
 ];
 function loadWaterfall() {
-  let rows = "";
-  REQ.forEach((r, i) => {
+  const rows = REQ.flatMap((r, i) => {
     const y = 116 + i * 38;
-    rows += lbl(40, y + 11, r.l, HAIR, 0.45) + "\n";
-    rows += `<rect x="130" y="${y}" width="700" height="14" rx="2" fill="${HAIR}" fill-opacity="0.05"/>\n`;
-    rows += `<rect x="${r.x}" y="${y}" width="${r.w}" height="14" rx="2" fill="${SKY}" fill-opacity="${r.o}"/>\n`;
+    return [
+      lblText(40, y + 11, r.l, HAIR, 0.45),
+      { t: "rect", x: 130, y, w: 700, h: 14, rx: 2, fill: HAIR, opacity: 0.05 },
+      { t: "rect", x: r.x, y, w: r.w, h: 14, rx: 2, fill: SKY, opacity: r.o },
+    ];
   });
-  return panel([
-    lbl(40, 46, "{{L1}}", SKY),
-    `<line x1="40" y1="58" x2="74" y2="58" stroke="${GOLD}" stroke-width="2"/>`,
-    lbl(960, 46, "{{L2}}", HAIR, 0.28, "end"),
-    `<line x1="130" y1="86" x2="130" y2="316" stroke="${HAIR}" stroke-opacity="0.16"/>`,
-    rows,
-    `<line x1="560" y1="96" x2="560" y2="306" stroke="${SKY}" stroke-opacity="0.28" stroke-dasharray="3 4"/>`,
-    lbl(568, 306, "{{L3}}", SKY, 0.6),
-  ].join("\n"));
+  return panel("ALT", [
+    lblToken(40, 46, "L1", SKY),
+    { t: "line", x1: 40, y1: 58, x2: 74, y2: 58, stroke: GOLD, strokeWidth: 2 },
+    lblToken(960, 46, "L2", HAIR, 0.28, "end"),
+    { t: "line", x1: 130, y1: 86, x2: 130, y2: 316, stroke: HAIR, strokeOpacity: 0.16 },
+    ...rows,
+    { t: "line", x1: 560, y1: 96, x2: 560, y2: 306, stroke: SKY, strokeOpacity: 0.28, dash: "3 4" },
+    lblToken(568, 306, "L3", SKY, 0.6),
+  ]);
 }
 
 // ---------------------------------------------------------------- type-system
@@ -157,32 +159,32 @@ const CHIPS = [
   { c: "#254268", l: "LAKE" },
   { c: "#5E8263", l: "PINE" },
 ];
+const SPECIMEN_STYLE = { fontFamily: "Cormorant,Georgia,serif", fontSize: "196px", fontWeight: 700 };
+const SCALE = [
+  { y: 120, s: 26, t: "Cormorant 700" },
+  { y: 158, s: 18, t: "General Sans 500" },
+  { y: 190, s: 13, t: "IBM Plex Mono 400" },
+];
+
 function typeSystem() {
-  let chips = "";
-  CHIPS.forEach((ch, i) => {
+  const chips = CHIPS.flatMap((ch, i) => {
     const x = 556 + i * 104;
-    chips += `<rect x="${x}" y="228" width="72" height="40" rx="3" fill="${ch.c}"/>\n`;
-    chips += lbl(x, 290, ch.l, HAIR, 0.4) + "\n";
+    return [
+      { t: "rect", x, y: 228, w: 72, h: 40, rx: 3, fill: ch.c },
+      lblText(x, 290, ch.l, HAIR, 0.4),
+    ];
   });
-  const scale = [
-    { y: 120, s: 26, t: "Cormorant 700" },
-    { y: 158, s: 18, t: "General Sans 500" },
-    { y: 190, s: 13, t: "IBM Plex Mono 400" },
-  ];
-  let rows = "";
-  scale.forEach((r) => {
-    rows += `<text x="556" y="${r.y}" class="pg-c" style="font-size:${r.s}px" fill="${HAIR}" fill-opacity="0.75">${esc(r.t)}</text>\n`;
-  });
-  return panel([
-    `<line x1="500" y1="26" x2="500" y2="314" stroke="${HAIR}" stroke-opacity="0.10"/>`,
-    lbl(30, 46, "{{L1}}", SKY),
-    `<line x1="30" y1="58" x2="64" y2="58" stroke="${GOLD}" stroke-width="2"/>`,
-    `<text x="40" y="268" style="font-family:Cormorant,Georgia,serif;font-size:196px;font-weight:700" fill="${HAIR}" fill-opacity="0.9">Aa</text>`,
-    `<text x="330" y="268" style="font-family:Cormorant,Georgia,serif;font-size:196px;font-weight:700" fill="${GOLD}">.</text>`,
-    lbl(556, 46, "{{L2}}", HAIR, 0.4),
-    rows,
-    chips,
-  ].join("\n"));
+  const scale = SCALE.map((r) => ({ ...codeText(556, r.y, r.t, HAIR, 0.75), style: { fontSize: `${r.s}px` } }));
+  return panel("ALT", [
+    { t: "line", x1: 500, y1: 26, x2: 500, y2: 314, stroke: HAIR, strokeOpacity: "0.10" },
+    lblToken(30, 46, "L1", SKY),
+    { t: "line", x1: 30, y1: 58, x2: 64, y2: 58, stroke: GOLD, strokeWidth: 2 },
+    { t: "text", x: 40, y: 268, fill: HAIR, opacity: 0.9, style: SPECIMEN_STYLE, text: "Aa" },
+    { t: "text", x: 330, y: 268, fill: GOLD, style: SPECIMEN_STYLE, text: "." },
+    lblToken(556, 46, "L2", HAIR, 0.4),
+    ...scale,
+    ...chips,
+  ]);
 }
 
 export const GRAPHICS = {
@@ -205,11 +207,38 @@ export const CATEGORY_GRAPHIC = {
   "Brand & Identity": "type-system",
 };
 
+function resolveText(label, text, labels) {
+  if (label != null) return labels[label] ?? "";
+  return text ?? "";
+}
+
+function resolveNode(node, labels) {
+  if (node.t === "text") {
+    const { label, text, ...rest } = node;
+    return { ...rest, text: resolveText(label, text, labels) };
+  }
+  if (node.t === "tspans") {
+    const { parts, ...rest } = node;
+    return {
+      ...rest,
+      parts: parts.map(({ label, text, ...p }) => ({ ...p, text: resolveText(label, text, labels) })),
+    };
+  }
+  return node;
+}
+
 // Render a graphic with its labels filled in. `labels` supplies the tokens the
-// graphic declares; anything missing falls back to an empty string so a partial
-// dictionary can never emit a raw {{TOKEN}} to a visitor.
+// graphic declares; anything missing falls back to an empty string so a
+// partial dictionary can never emit a raw {{TOKEN}} to a visitor. Returns a
+// plain data descriptor — no HTML, no escaping — for PostGraphic.tsx to turn
+// into JSX.
 export function renderGraphic(key, labels = {}) {
   const build = GRAPHICS[key];
   if (!build) return null;
-  return build().replace(/\{\{(\w+)\}\}/g, (_, k) => esc(labels[k] ?? ""));
+  const spec = build();
+  return {
+    viewBox: spec.viewBox,
+    title: labels[spec.title] ?? "",
+    nodes: spec.nodes.map((n) => resolveNode(n, labels)),
+  };
 }
