@@ -51,6 +51,9 @@ webdesign:
   - slug: ai-in-web-development
     keyword: "KI in der Webentwicklung"
     intent: "what AI does and doesn't do when building a real website — a tool that speeds the craft, not a replacement for it"
+    # A post about the human craft behind the tooling reads better with a real
+    # workspace than with a diagram, so this one opts into the photo path.
+    graphic: none
   - slug: ai-website-builders-vs-custom-built
     keyword: "KI-Website-Baukasten"
     intent: "the new AI site-builders vs a custom-built site — what you gain and what you quietly lose"
