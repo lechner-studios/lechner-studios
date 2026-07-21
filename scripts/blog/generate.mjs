@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { execSync } from "node:child_process";
-import { loadTopics, readPublished, pickTopic } from "./topics.mjs";
+import { loadTopics, readPublished, pickTopic, readRecentTitles } from "./topics.mjs";
 import { writePost } from "./writer.mjs";
 import { emitPost } from "./emit.mjs";
 import { lintPost } from "./lint.mjs";
@@ -37,12 +37,20 @@ async function main() {
   const date = isoToday();
   console.log(`Generating: [${picked.pillar}] ${picked.slug} — "${picked.keyword}"`);
 
+  // Recent titles per locale, newest first — the only variety signal a
+  // one-post-at-a-time generator has to avoid converging on a formula.
+  // Computed once (titles don't change across retries below).
+  const recentTitles = {
+    en: readRecentTitles(BLOG_DIR, "en", 8),
+    de: readRecentTitles(BLOG_DIR, "de", 8),
+  };
+
   // Generate + lint, retrying on lint failure — the model occasionally trips a
   // scope/structure rule; a fresh generation usually clears it.
   let post;
   let violations = [];
   for (let attempt = 1; attempt <= 3; attempt++) {
-    post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey });
+    post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey, recentTitles });
     // `offer` is owner data from topics.yaml, never model output — the writer is
     // deliberately not told about offers, so its "NO prices" rule stays true.
     if (picked.offer !== undefined) {
@@ -107,7 +115,14 @@ async function main() {
   console.log("Wrote:\n" + files.join("\n"));
 
   if (dryRun) {
-    console.log("\n--- DRY RUN: en post ---\n" + fs.readFileSync(files[0], "utf8"));
+    // Both locales, not just en. de-AT is the primary market and the one where
+    // the cadence rules carry real linguistic risk, since the Gedankenstrich is
+    // correct German punctuation. A dry run that hides the German post cannot
+    // verify the thing most likely to go wrong.
+    for (const file of files) {
+      const locale = path.basename(file).split(".").at(-2);
+      console.log(`\n--- DRY RUN: ${locale} post ---\n` + fs.readFileSync(file, "utf8"));
+    }
     return;
   }
 

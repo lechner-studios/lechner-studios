@@ -31,7 +31,10 @@ webdesign:
     intent: "signs it's time to rebuild vs patch an existing site"
   - slug: accessible-website-eaa
     keyword: "barrierefreie Website"
-    intent: "accessibility as a build standard (WCAG) and the EAA deadline — what it means in practice"
+    # Steered away from the statutory penalty schedule on purpose: the fines are
+    # currency amounts, lint.mjs rejects those in a post body, and three
+    # generation attempts in a row failed on exactly that. Keep it on practice.
+    intent: "accessibility as a build standard (WCAG) and what the EAA deadline changes in day-to-day practice; cover obligations and remediation, never the penalty amounts"
   - slug: edit-your-website-yourself
     keyword: "Website selbst bearbeiten"
     intent: "keeping content editable without a developer, without a bloated page-builder"

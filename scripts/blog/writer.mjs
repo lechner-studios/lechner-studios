@@ -9,8 +9,11 @@ const LOCALES = {
 
 // One locale, generated in its own focused call (cramming both into one response
 // made the model under-produce the second locale → lint failures).
-function systemPrompt({ category, keyword, intent, slug, date, pillarPath, locale }) {
+function systemPrompt({ category, keyword, intent, slug, date, pillarPath, locale, recentTitles }) {
   const L = LOCALES[locale];
+  const recentTitlesBlock = recentTitles && recentTitles.length
+    ? `\n\nRECENT TITLES IN ${L.lang.toUpperCase()} (most recent first) — do not reuse their shape, opening word, or rhetorical structure:\n${recentTitles.map((t) => `- "${t}"`).join("\n")}`
+    : "";
   return `You write one SEO blog post for Lechner Studios — a family-run, AI-native digital studio in Wattens, Tirol, serving SMBs across DACH. ${L.note}
 
 TOPIC: pillar="${category}", primary keyword="${keyword}", angle="${intent}", canonical slug="${slug}".
@@ -26,6 +29,15 @@ REQUIRED — a post missing any of these is rejected:
 HARD scope/honesty rules (also rejected if broken):
 - NO prices, € amounts, or binding quotes. NO the words "guarantee"/"Garantie" (or any guarantee claim). NO %/metrics/ranking-result claims. NO fabricated testimonials.
 - Brand & Identity may be presented EITHER standalone (branding, visual identity, content) OR as part of a web/product build — both are in scope, so a brand post can stand on its own. SEO stays TECHNICAL work, never business/marketing consulting (Unternehmensberatung — out of scope).
+
+VOICE & CADENCE (violating these reads as machine-written; rewrite until they're clean):
+- Dashes are a budget, not a default. At most THREE dash-parentheticals (— or –) in the whole body, and never two in the same paragraph. Reach for a comma, a colon, parentheses, or two shorter sentences first. (German note: the Gedankenstrich is correct de-AT punctuation, but it is not your default rhythm.)
+- Vary the title shape. Do not reach for "Haupttitel: Untertitel" by reflex, and never use the "X – und wo/wann/warum nicht" shape. A plain declarative sentence or a direct question is often the stronger title.
+- Cut intensifier padding, especially in titles: wirklich, really, actually, truly, genuinely, simply, einfach (as filler). The sentence is stronger without it.
+- Never use "It's not X, it's Y" or "Es geht nicht um X, sondern um Y" as a rhetorical move.
+- Use a three-item list only when there are exactly three things to list. Do not reach for one purely for rhythm.
+- Skip throat-clearing openers: "Here's the thing", "Kurz gesagt", "Let's dive in", "It's worth noting".
+- Do not stack bold-lead paragraphs: consecutive paragraphs that each open with a bolded phrase.${recentTitlesBlock}
 
 Return the post by calling the \`submit_post\` tool. \`body\` is the markdown body only (no frontmatter, no H1). The date is added later.`;
 }
@@ -88,11 +100,13 @@ async function writeLocale(client, args) {
 }
 
 // Generates each locale in its own focused tool-use call and returns { en, de }
-// entries ready for the linter + emitter.
-export async function writePost({ pillar, category, keyword, intent, slug, date, pillarPath, apiKey }) {
+// entries ready for the linter + emitter. `recentTitles` is per-locale
+// ({ en: [...], de: [...] }) so each call only sees its own language's titles.
+export async function writePost({ pillar, category, keyword, intent, slug, date, pillarPath, apiKey, recentTitles }) {
   const client = new Anthropic({ apiKey });
   const base = { pillar, category, keyword, intent, slug, date, pillarPath };
-  const en = await writeLocale(client, { ...base, locale: "en" });
-  const de = await writeLocale(client, { ...base, locale: "de" });
+  const rt = recentTitles || {};
+  const en = await writeLocale(client, { ...base, locale: "en", recentTitles: rt.en });
+  const de = await writeLocale(client, { ...base, locale: "de", recentTitles: rt.de });
   return { en: toEntry(en, category, date), de: toEntry(de, category, date) };
 }
