@@ -20,13 +20,13 @@ keywords:
   - professional website
 graphic: dom-diff
 ---
-Page builders promise a website in an afternoon. For a hobby project or a quick landing page, that can be perfectly fine. But if you run an independent business — a consultancy, a practice, a craft — and your website is a real part of how clients find and judge you, the trade-offs of a builder start to matter in ways that are easy to underestimate at the start.
+Page builders promise a website in an afternoon. For a hobby project or a quick landing page, that can be perfectly fine. But if you run an independent business (a consultancy, a practice, a craft) and your website is a real part of how clients find and judge you, the trade-offs of a builder start to matter in ways that are easy to underestimate at the start.
 
 ## What a Page Builder Actually Gives You
 
 Builders like Wix, Squarespace, or the WordPress block editor are genuinely useful tools. They lower the barrier to getting something online, and they handle hosting, updates, and some of the technical scaffolding. There is nothing wrong with starting there.
 
-What they also give you, though, is a shared foundation: the same templates, the same HTML output patterns, the same bloated JavaScript that every other site on that platform carries. You are renting space inside someone else's system, and the constraints of that system shape every decision — what you can lay out, how fast the page loads, how the markup is structured. You can customise the surface, but you cannot change the foundation.
+What they also give you, though, is a shared foundation: the same templates, the same HTML output patterns, the same bloated JavaScript that every other site on that platform carries. You are renting space inside someone else's system, and the constraints of that system shape every decision: what you can lay out, how fast the page loads, how the markup is structured. You can customise the surface, but you cannot change the foundation.
 
 ## The Performance Gap Is Real
 
@@ -36,7 +36,7 @@ This matters for two reasons. First, visitors on mobile connections in rural Tir
 
 ## Ownership Without Conditions
 
-When your website lives inside a SaaS builder, the platform sets the rules. Pricing changes, features get deprecated, export options are limited, and moving away means starting over or accepting data loss. Your domain might be yours, but the site itself often is not — not in any meaningful sense.
+When your website lives inside a SaaS builder, the platform sets the rules. Pricing changes, features get deprecated, export options are limited, and moving away means starting over or accepting data loss. Your domain might be yours, but in any meaningful sense the site itself often is not.
 
 A custom-built site is a file. It can live on any host, be moved without ceremony, be handed to a developer who has never heard of the platform it came from. You own it the way you own a document, not the way you rent a billboard.
 
@@ -52,8 +52,8 @@ That is not a dramatic transformation. It is just a site that does its job prope
 
 Honesty matters here. If you need a website this week, have no budget, and are genuinely unsure whether your business will exist in a year, a builder is a reasonable starting point. Getting something real online is better than waiting for a perfect custom build.
 
-The moment it becomes worth revisiting is when the site starts to matter — when clients are citing it, when you are paying for ads that land on it, when you want it to reflect the quality of the work you actually do.
+The moment it becomes worth revisiting is when the site starts to matter: clients are citing it, you are paying for ads that land on it, you want it to reflect the quality of the work you actually do.
 
 A custom-built site is not a luxury. It is the appropriate tool for a business that takes its web presence seriously, built once and built to last.
 
-If you want to understand what a custom build would look like for your specific situation, the [Werk studio](https://werk.lechner-studios.at) covers how Lechner Studios approaches projects, or you are welcome to [get in touch directly](/en/contact).
+If you want to understand what a custom build would look like for your specific situation, the [Werk studio](https://werk.lechner-studios.at) covers how Lechner Studios approaches projects, take a look at [our web design work](/en/webdesign), or you are welcome to [get in touch directly](/en/contact).

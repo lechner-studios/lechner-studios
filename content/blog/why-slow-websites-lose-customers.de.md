@@ -12,24 +12,22 @@ Geschwindigkeit ist das unsichtbare Merkmal einer Website: Niemand lobt eine sch
 
 ## Geschwindigkeit ist ein Rankingfaktor
 
-Suchmaschinen messen, wie schnell und stabil eine Seite für echte Nutzer lädt — zusammengefasst in den sogenannten **Core Web Vitals**. Drei Dinge zählen besonders: Wie schnell der wesentliche Inhalt sichtbar wird, wie zügig die Seite auf eine erste Eingabe reagiert, und ob beim Laden nichts unkontrolliert verspringt. Seiten, die hier gut abschneiden, haben bei sonst gleichen Inhalten einen Vorteil. Bei lokalen Suchanfragen, wo die Konkurrenz überschaubar ist, kann dieser Vorteil den Unterschied zwischen Seite eins und Seite zwei ausmachen.
+Suchmaschinen messen, wie schnell und stabil eine Seite für echte Nutzer lädt, zusammengefasst in den sogenannten **Core Web Vitals**. Drei Dinge zählen besonders: Wie schnell der wesentliche Inhalt sichtbar wird, wie zügig die Seite auf eine erste Eingabe reagiert, und ob beim Laden nichts unkontrolliert verspringt. Seiten, die hier gut abschneiden, haben bei sonst gleichen Inhalten einen Vorteil. Bei lokalen Suchanfragen, wo die Konkurrenz überschaubar ist, kann dieser Vorteil den Unterschied zwischen Seite eins und Seite zwei ausmachen.
 
 ## Was den Unterschied am Ende ausmacht
 
-Das eigentliche Argument ist aber gar nicht das Ranking, sondern was danach passiert. Jemand sucht nach einem Anbieter in der Nähe, tippt auf Ihr Ergebnis — und entscheidet in den ersten Sekunden, ob er bleibt. Lädt die Seite zäh, ist diese Person zurück bei den Suchergebnissen und beim nächsten Treffer, bevor Ihr Angebot überhaupt zu sehen war. Sie haben das Ranking gewonnen und den Kunden trotzdem verloren. Schnelligkeit ist damit nicht nur ein SEO-Thema, sondern die Voraussetzung dafür, dass Ihre eigentliche Arbeit überhaupt ankommt.
+Das eigentliche Argument hat mit dem Ranking wenig zu tun. Entscheidend ist, was danach passiert: Jemand sucht nach einem Anbieter in der Nähe, tippt auf Ihr Ergebnis und entscheidet in den ersten Sekunden, ob er bleibt. Lädt die Seite zäh, ist diese Person zurück bei den Suchergebnissen und beim nächsten Treffer, bevor Ihr Angebot überhaupt zu sehen war. Sie haben das Ranking gewonnen und den Kunden trotzdem verloren. Schnelligkeit ist damit mehr als ein SEO-Thema: Sie entscheidet, ob Ihre eigentliche Arbeit überhaupt ankommt.
 
 ## Was Seiten langsam macht
 
-**Zu viel mitgeliefertes Gewicht.** Viele Seiten laden Code und Funktionen, die sie auf der jeweiligen Seite gar nicht brauchen — besonders bei generischen Baukasten-Vorlagen, die für jeden denkbaren Fall gerüstet sind. Der Browser muss alles verarbeiten, auch das Ungenutzte.
-
-**Unoptimierte Bilder.** Ein einziges, in voller Kameraauflösung eingebundenes Foto kann mehr wiegen als die gesamte restliche Seite. Bilder in der richtigen Größe und im richtigen Format auszuliefern ist einer der größten und einfachsten Hebel.
-
-**Zu viele Drittanbieter-Skripte.** Jedes eingebundene Tool — Tracking, Widgets, eingebettete Inhalte — bringt eigenen Code von fremden Servern mit. Jedes einzelne kann die Seite ausbremsen, und in Summe wird es spürbar.
+- **Zu viel mitgeliefertes Gewicht.** Viele Seiten laden Code und Funktionen, die sie auf der jeweiligen Seite gar nicht brauchen, besonders bei generischen Baukasten-Vorlagen, die für jeden denkbaren Fall gerüstet sind. Der Browser muss alles verarbeiten, auch das Ungenutzte.
+- **Unoptimierte Bilder.** Ein einziges, in voller Kameraauflösung eingebundenes Foto kann mehr wiegen als die gesamte restliche Seite. Bilder in der richtigen Größe und im richtigen Format auszuliefern ist einer der größten und einfachsten Hebel.
+- **Zu viele Drittanbieter-Skripte.** Jedes eingebundene Tool (Tracking, Widgets, eingebettete Inhalte) bringt eigenen Code von fremden Servern mit. Jedes einzelne kann die Seite ausbremsen, und in Summe wird es spürbar.
 
 ## Was hilft
 
-Schnelligkeit ist kein Trick, sondern Disziplin: nur das laden, was die Seite wirklich braucht, Bilder konsequent optimieren, fremde Skripte auf das Nötige beschränken und auf solidem technischem Fundament bauen statt auf generischem Ballast. Eine schlanke, sauber gebaute Seite ist von Natur aus schneller als eine überladene — und sie bleibt es, weil die Geschwindigkeit aus der Bauweise kommt und nicht aus einem nachträglichen Pflaster.
+Schnelligkeit ist kein Trick, sondern Disziplin: nur das laden, was die Seite braucht, Bilder konsequent optimieren, fremde Skripte auf das Nötige beschränken und auf solidem technischem Fundament bauen statt auf generischem Ballast. Eine schlanke, sauber gebaute Seite ist von Natur aus schneller als eine überladene — und sie bleibt es, weil die Geschwindigkeit aus der Bauweise kommt und nicht aus einem nachträglichen Pflaster.
 
 Und es ist keine einmalige Sache. Jedes hinzugefügte Bild, jedes neue Tool kann eine Seite wieder langsamer machen, weshalb sich der Blick auf die Ladezeit regelmäßig lohnt.
 
-Wenn Ihre Website sich zäh anfühlt oder Sie wissen möchten, woran es liegt, sehen Sie sich an, [wie wir technische Suchoptimierung verstehen](/de/seo), oder [schreiben Sie uns](/de/contact) — wir sehen uns die Ladezeit konkret an.
+Wenn Ihre Website sich zäh anfühlt oder Sie wissen möchten, woran es liegt, sehen Sie sich an, [wie wir technische Suchoptimierung verstehen](/de/seo), oder [schreiben Sie uns](/de/contact); wir sehen uns die Ladezeit konkret an.
