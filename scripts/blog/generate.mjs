@@ -115,7 +115,14 @@ async function main() {
   console.log("Wrote:\n" + files.join("\n"));
 
   if (dryRun) {
-    console.log("\n--- DRY RUN: en post ---\n" + fs.readFileSync(files[0], "utf8"));
+    // Both locales, not just en. de-AT is the primary market and the one where
+    // the cadence rules carry real linguistic risk, since the Gedankenstrich is
+    // correct German punctuation. A dry run that hides the German post cannot
+    // verify the thing most likely to go wrong.
+    for (const file of files) {
+      const locale = path.basename(file).split(".").at(-2);
+      console.log(`\n--- DRY RUN: ${locale} post ---\n` + fs.readFileSync(file, "utf8"));
+    }
     return;
   }
 
