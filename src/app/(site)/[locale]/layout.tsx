@@ -101,6 +101,9 @@ export async function generateMetadata({
     icons: {
       icon: [
         { url: "/favicon.svg", type: "image/svg+xml" },
+        // 48px raster: Google Search wants a multiple of 48px and ignores
+        // smaller rasters when picking the SERP site icon.
+        { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
         { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
         { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       ],
