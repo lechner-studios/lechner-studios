@@ -16,6 +16,7 @@ keywords:
   - Erinnerungs-Workflow
   - automatische Terminerinnerung
   - Buchungsautomatisierung
+graphic: node-flow
 ---
 Vergessene Termine kosten stiller, als man denkt. Jemand bucht einen Termin, der Alltag holt ihn ein — und plötzlich ist ein Slot leer, der längst hätte weitergegeben werden können. Automatische Erinnerungen lösen das Problem nicht vollständig, aber sie adressieren die häufigste Ursache: schlicht vergessen. Was dabei oft unterschätzt wird, ist der Einrichtungsaufwand im Vorfeld. Wer weiß, was diese Systeme leisten und wo ihre Grenzen liegen, trifft bessere Entscheidungen.
 

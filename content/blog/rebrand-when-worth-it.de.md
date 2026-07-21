@@ -14,6 +14,7 @@ keywords:
   - Markenidentität
   - Corporate Identity erneuern
   - Markenentwicklung KMU
+graphic: type-system
 ---
 Ein neues Logo, frische Farben, ein überarbeiteter Markenauftritt – das klingt verlockend, besonders wenn das Tagesgeschäft stagniert oder der Wettbewerb plötzlich moderner wirkt. Doch ein Rebranding ist kein Allheilmittel, und es kostet Zeit, Energie und Aufmerksamkeit. Bevor Sie den Schritt wagen, lohnt es sich, ehrlich hinzuschauen: Was steckt wirklich hinter dem Wunsch nach Veränderung?
 

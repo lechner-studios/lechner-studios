@@ -5,6 +5,7 @@ excerpt: "„Was kostet eine Website?“ ist die häufigste erste Frage — und 
 date: "2026-06-15"
 category: "Web & Design"
 keywords: ["was kostet eine Website", "Website Kosten", "Webdesign Preis", "Website erstellen lassen", "Webdesign Tirol", "Website Kosten Österreich"]
+graphic: dom-diff
 ---
 
 „Was kostet eine Website?“ ist fast immer die erste Frage — und ehrlicherweise die am schwersten pauschal zu beantwortende. Eine Website ist kein fertiges Produkt aus dem Regal, sondern eine Bandbreite: von der schlanken einseitigen Präsenz bis zur mehrsprachigen Seite mit Buchung, Anbindungen und laufender Pflege. Wer Ihnen ohne ein einziges Gespräch eine feste Zahl nennt, rät — oder verkauft eine Vorlage. Sinnvoller ist, zu verstehen, was den Preis bestimmt, damit Sie ein Angebot einschätzen können.

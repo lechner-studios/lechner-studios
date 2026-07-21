@@ -16,6 +16,7 @@ keywords:
   - small business automation
   - app integration
   - process automation
+graphic: node-flow
 ---
 Most small and mid-sized businesses are sitting on a quiet problem: they have a CRM, a form tool, an email platform, maybe a project board — and each one works fine on its own. The issue is the space between them. Someone fills out a form, and then a person manually copies that data into the CRM. A deal closes, and someone else remembers to email the onboarding doc. That friction adds up, and it rarely shows up on any dashboard.
 

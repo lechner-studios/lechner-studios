@@ -16,6 +16,7 @@ keywords:
   - visual identity
   - brand strategy
   - SMB branding
+graphic: type-system
 ---
 Your logo has been the same since 2009. A colleague mentions it looks "a bit dated." Someone on your team floats the idea of a rebrand. Sound familiar? The question of whether to refresh a brand is one of the most common — and most emotionally charged — decisions a small or mid-sized business faces. The honest answer is that sometimes a rebrand is exactly the right move, and sometimes it is an expensive distraction. Knowing the difference matters.
 

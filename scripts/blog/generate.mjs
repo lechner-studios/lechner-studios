@@ -43,6 +43,23 @@ async function main() {
   let violations = [];
   for (let attempt = 1; attempt <= 3; attempt++) {
     post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey });
+    // `offer` is owner data from topics.yaml, never model output — the writer is
+    // deliberately not told about offers, so its "NO prices" rule stays true.
+    if (picked.offer !== undefined) {
+      post.en.frontmatter.offer = picked.offer;
+      post.de.frontmatter.offer = picked.offer;
+    }
+    // Crafted graphic per pillar, overridable per topic (topics.yaml `graphic:`).
+    // `graphic: none` opts a topic out entirely, which is the only way to reach
+    // the Pexels photo path below — a graphic always outranks a photo at render.
+    const { CATEGORY_GRAPHIC, isGraphicKey } = await import("../../src/lib/post-graphics.mjs");
+    const optedOut = picked.graphic === "none";
+    const g = optedOut
+      ? null
+      : isGraphicKey(picked.graphic)
+        ? picked.graphic
+        : CATEGORY_GRAPHIC[picked.category];
+    if (g) { post.en.frontmatter.graphic = g; post.de.frontmatter.graphic = g; }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
     violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
@@ -52,6 +69,37 @@ async function main() {
   if (violations.length) {
     console.error("Lint failed after 3 attempts:\n" + violations.join("\n"));
     process.exit(3);
+  }
+
+  // Fetch a self-hosted photo (Pexels) ONLY when no graphic was assigned. A
+  // graphic always outranks a photo at render, so fetching one anyway would
+  // spend API quota and commit a jpg that never displays. Set `graphic: none`
+  // on a topic to opt into this path.
+  //
+  // Generation-time only either way; the browser never calls Pexels. A post
+  // without a photo is still valid, so a failure warns and continues.
+  if (post.en.frontmatter.graphic) {
+    console.log(`Graphic "${post.en.frontmatter.graphic}" assigned — skipping photo fetch.`);
+  } else if (process.env.PEXELS_API_KEY) {
+    try {
+      const { fetchPhoto } = await import("./images.mjs");
+      const img = await fetchPhoto({
+        post: picked,
+        slug: picked.slug,
+        apiKey: process.env.PEXELS_API_KEY,
+        outDir: path.join(ROOT, "public", "blog"),
+      });
+      if (img) {
+        Object.assign(post.en.frontmatter, img);
+        Object.assign(post.de.frontmatter, img);
+      } else {
+        console.warn(`No Pexels photo for "${picked.slug}" — post ships without one.`);
+      }
+    } catch (e) {
+      console.warn(`Pexels fetch failed for "${picked.slug}": ${e.message} — post ships without one.`);
+    }
+  } else {
+    console.warn("PEXELS_API_KEY not set — post ships without a photo.");
   }
 
   const outDir = dryRun ? fs.mkdtempSync(path.join(os.tmpdir(), "blog-dry-")) : BLOG_DIR;

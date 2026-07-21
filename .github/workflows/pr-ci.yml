@@ -1,8 +1,12 @@
 name: PR CI
 
-# Pull-request gate: lint + build + Playwright e2e.
+# Pull-request gate: lint + unit tests + build + Playwright e2e.
 # Complements main-health.yml (which only builds main weekly) by giving every
 # PR a fast, full check before merge.
+#
+# Node 22, not 20: the unit-test step runs `node --test` with glob patterns,
+# and the test runner only expands globs from v21 onward. On 20 the quoted
+# pattern is read as a literal filename and the step fails to find any test.
 on:
   pull_request:
   workflow_dispatch:
@@ -12,7 +16,7 @@ permissions:
 
 jobs:
   check:
-    name: Lint, build & e2e
+    name: Lint, test, build & e2e
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -28,6 +32,13 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      # The blog's scope/honesty guardrails (no prices, no fabricated metrics,
+      # valid offer/graphic keys, self-hosted image paths) live in node:test
+      # files. Without this step they are documentation rather than enforcement,
+      # and blog-auto-merge.yml publishes posts on this workflow's success.
+      - name: Unit tests
+        run: npm test
 
       # The Playwright config only defines the chromium project, so install
       # just that browser (with its OS deps) rather than the full set.

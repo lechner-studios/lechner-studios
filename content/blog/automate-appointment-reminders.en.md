@@ -14,6 +14,7 @@ keywords:
   - reminder workflow
   - Terminerinnerungen automatisieren
   - booking automation
+graphic: node-flow
 ---
 Missed appointments are a quiet drain on small businesses. Someone books a slot, life gets busy, and they simply forget — no bad intentions, just an empty calendar spot that could have been filled. Automated reminders don't eliminate this entirely, but they do address the most common cause: people genuinely forgetting. Setting them up properly takes some thought, and it's worth being clear about what they can and can't do before you invest the time.
 

@@ -16,6 +16,7 @@ keywords:
   - LocalBusiness Schema
   - technisches SEO
   - lokale Suche
+graphic: load-waterfall
 ---
 Wer ein lokales Unternehmen betreibt – sei es ein Handwerksbetrieb in Innsbruck, eine Praxis in Salzburg oder ein Fachgeschäft in Wien – stellt sich früher oder später die Frage: Wie stellt Google eigentlich sicher, dass meine Adresse, meine Öffnungszeiten und mein Angebot in den Suchergebnissen korrekt angezeigt werden? Ein wesentlicher Teil der Antwort liegt in strukturierten Daten, genauer gesagt im sogenannten Schema.org-Markup. Was dahintersteckt und warum es für lokale Betriebe technisch relevant ist, erklärt dieser Beitrag.
 
@@ -71,6 +72,64 @@ Ein korrektes `LocalBusiness`-Markup sieht in JSON-LD vereinfacht so aus:
 Wichtig ist dabei die Konsistenz: Die hier angegebenen NAP-Daten sollten exakt mit jenen im Google Business Profile und auf der Website selbst übereinstimmen. Abweichungen – etwa unterschiedliche Schreibweisen der Adresse – können dazu führen, dass Suchmaschinen die Informationen als widersprüchlich einstufen.
 
 Nach der Implementierung empfiehlt sich eine Überprüfung mit dem [Rich Results Test](https://search.google.com/test/rich-results) von Google sowie der Schema Markup Validator unter validator.schema.org. Beide Tools zeigen an, ob das Markup syntaktisch korrekt ist und welche Felder erkannt wurden.
+
+## Eine Vorlage zum Direktverwenden
+
+Das bisher Erklärte zeigt, was strukturierte Daten leisten und warum sie relevant sind. Hier finden Sie einen vollständigeren `LocalBusiness`-Block, den Sie tatsächlich übernehmen können – kein weiteres Anschauungsbeispiel, sondern ein Ausgangspunkt mit den gängigen Feldern bereits ausgefüllt, den Sie mit Ihren eigenen Angaben anpassen und in den `<head>` einsetzen können.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Musterbetrieb GmbH",
+  "url": "https://www.musterbetrieb.at",
+  "image": "https://www.musterbetrieb.at/bilder/betrieb.jpg",
+  "logo": "https://www.musterbetrieb.at/bilder/logo.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Musterstraße 1",
+    "postalCode": "6020",
+    "addressLocality": "Innsbruck",
+    "addressRegion": "Tirol",
+    "addressCountry": "AT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.2692,
+    "longitude": 11.4041
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Tirol"
+  },
+  "sameAs": [
+    "https://www.facebook.com/musterbetrieb",
+    "https://www.instagram.com/musterbetrieb"
+  ]
+}
+```
+
+Worauf Sie vor dem Einsatz achten sollten:
+
+- **Wählen Sie den spezifischsten passenden Typ.** `LocalBusiness` funktioniert, aber `Restaurant`, `HairSalon`, `HomeAndConstructionBusiness` oder `Electrician` sagen Suchmaschinen mehr. Die vollständige Liste der Untertypen finden Sie auf schema.org.
+- **Jeder Wert muss dem entsprechen, was Besucherinnen und Besucher tatsächlich auf der Seite sehen.** Markup, das dem sichtbaren Inhalt widerspricht, ist schlimmer als gar keines.
+- **`addressCountry` erhält den ISO-Code `AT`,** nicht den ausgeschriebenen Ländernamen.
+- **Verwenden Sie Ihre echten Koordinaten.** Klicken Sie in einem Kartendienst mit der rechten Maustaste auf Ihren Standort und übernehmen Sie die angezeigten Werte; erfundene Koordinaten platzieren Sie in der falschen Straße.
+- **Als Kleinunternehmer:in lassen Sie `vatID` einfach weg,** statt eine zu erfinden. Ein fehlendes optionales Feld ist unproblematisch, ein falsches nicht.
+- **Wo es hingehört:** in den `<head>`, als `<script type="application/ld+json">`-Element.
+- **Prüfen Sie es, bevor Sie sich darauf verlassen.** Googles Rich Results Test und der Validator unter validator.schema.org sind beide kostenlos und zeigen Fehler zuverlässig an. Strukturierte Daten, die die Validierung nicht bestehen, bewirken nichts.
+
+Ein Feld fehlt bewusst: `priceRange`. Es ist optional, und ein Platzhalter aus ein paar Währungszeichen ist schlechter als das Weglassen – tragen Sie es erst ein, wenn Sie einen echten Wert haben, der widerspiegelt, was Sie tatsächlich verlangen.
+
+Zwei weitere Felder gehören in einen echten Eintrag, stehen im Block oben aber bewusst nicht: `telephone` und `email`. Tragen Sie Ihre eigenen ein. Das erste Beispiel in diesem Artikel zeigt das Format der Telefonnummer – international, mit Ländervorwahl.
 
 ## Was strukturierte Daten nicht sind
 

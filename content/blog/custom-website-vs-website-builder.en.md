@@ -5,6 +5,7 @@ excerpt: "Website builders are genuinely good for some jobs and quietly expensiv
 date: "2026-06-14"
 category: "Web & Design"
 keywords: ["website builder", "custom website", "web design", "SEO", "performance", "site ownership"]
+graphic: dom-diff
 ---
 
 It is one of the first questions almost every project starts with: should you use a website builder like Squarespace, Wix or Webflow, or have a site built to measure? The honest answer is that both are right — for different situations. The trick is knowing which situation you are actually in before you commit, because switching later is the expensive part.

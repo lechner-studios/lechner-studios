@@ -6,10 +6,12 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { LanguageProvider } from "../../../../../context/LanguageContext";
 import { LOCALES, isLocale, HREFLANG, type Locale } from "../../../../../i18n/config";
-import { dictionaries } from "../../../../../i18n/dictionaries";
+import { dictionaries, type Dictionary } from "../../../../../i18n/dictionaries";
 import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
+import PostMedia, { pickGraphic } from "../../../../../components/PostMedia";
+import BlogOfferCta from "../../../../../components/BlogOfferCta";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
 
 export async function generateStaticParams() {
@@ -51,6 +53,10 @@ function formatDate(date: string, locale: Locale): string {
   });
 }
 
+function formatReadingTime(dict: Dictionary, minutes: number): string {
+  return dict.blog.readingTime.replace("{n}", String(minutes));
+}
+
 export default async function BlogArticlePage({
   params,
 }: {
@@ -63,6 +69,9 @@ export default async function BlogArticlePage({
   const post = getPost(locale, slug);
   if (!post) notFound();
   const { meta, content } = post;
+  // A crafted graphic has no photographer, so the credit line below is
+  // gated on this — it must never render under a graphic.
+  const usingGraphic = Boolean(pickGraphic(meta, dict));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -146,7 +155,9 @@ export default async function BlogArticlePage({
               }}
             >
               <span>{meta.category}</span>
-              <span>{formatDate(meta.date, locale)}</span>
+              <span>
+                {formatDate(meta.date, locale)} · {formatReadingTime(dict, meta.minutes)}
+              </span>
             </div>
 
             <h1
@@ -157,15 +168,34 @@ export default async function BlogArticlePage({
                 lineHeight: 1.08,
                 letterSpacing: "-0.02em",
                 color: "var(--text)",
-                marginBottom: "56px",
+                marginBottom: "40px",
               }}
             >
               {meta.title}
             </h1>
 
+            <div style={{ marginBottom: "56px" }}>
+              <PostMedia meta={meta} dict={dict} variant="hero" />
+            </div>
+
+            {!usingGraphic && meta.image && meta.imageCredit && (
+              <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.04em", color: "var(--text-faint)", marginTop: "-40px", marginBottom: "56px" }}>
+                Foto:{" "}
+                <a href={meta.imageCreditUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                  {meta.imageCredit}
+                </a>
+                {" · "}
+                <a href={meta.imagePexelsUrl} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                  Pexels
+                </a>
+              </p>
+            )}
+
             <div className="blog-prose">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
             </div>
+
+            <BlogOfferCta offer={meta.offer} />
           </article>
         </section>
         <Footer />

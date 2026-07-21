@@ -16,6 +16,7 @@ keywords:
   - structured data
   - technisches SEO
   - lokale Suche
+graphic: load-waterfall
 ---
 When someone searches for a business near them, search engines do a lot of quiet work behind the scenes — parsing websites, comparing signals, and trying to understand what a page is actually about. Structured data is one of the clearest ways a local business can help with that process. It is not magic, and it is not a shortcut. It is a technical layer that speaks directly to crawlers in a language they are built to understand.
 
@@ -71,6 +72,64 @@ For businesses operating across the DACH region — Austria, Germany, and Switze
 A few implementation issues come up repeatedly. Marking up information that does not appear on the page itself is against Google's guidelines and can lead to manual actions. Using the wrong schema type — for instance, applying a generic `Organization` type to a business that clearly has a physical location and serves walk-in customers — means missing out on the more specific signals that `LocalBusiness` subtypes provide. And leaving structured data static while the underlying business details change (new hours, a new address) creates exactly the kind of inconsistency that erodes trust.
 
 Testing is straightforward: Google's Rich Results Test and Schema Markup Validator are both free tools that flag errors and warnings in your markup before anything goes live.
+
+## A Copy-Paste-Ready Template
+
+Everything above explains what structured data does and why it matters. Here is a fuller `LocalBusiness` block you can actually adapt — not another illustration, but a starting point with every commonly used field filled in, ready to edit with your own details and drop into `<head>`.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Musterbetrieb GmbH",
+  "url": "https://www.musterbetrieb.at",
+  "image": "https://www.musterbetrieb.at/bilder/betrieb.jpg",
+  "logo": "https://www.musterbetrieb.at/bilder/logo.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Musterstraße 1",
+    "postalCode": "6020",
+    "addressLocality": "Innsbruck",
+    "addressRegion": "Tirol",
+    "addressCountry": "AT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.2692,
+    "longitude": 11.4041
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Tirol"
+  },
+  "sameAs": [
+    "https://www.facebook.com/musterbetrieb",
+    "https://www.instagram.com/musterbetrieb"
+  ]
+}
+```
+
+A few things worth getting right before you use it:
+
+- **Use the most specific type that fits.** `LocalBusiness` works, but `Restaurant`, `HairSalon`, `HomeAndConstructionBusiness` or `Electrician` tell search engines more. The full list of subtypes is on schema.org.
+- **Every value must match what a visitor can actually see on the page.** Schema that contradicts the visible content is worse than none at all.
+- **`addressCountry` takes the ISO code `AT`,** not the country's full name.
+- **Use your real coordinates.** Right-click your location in a map service and copy the values it gives you; invented coordinates put you on the wrong street.
+- **Running as a Kleinunternehmer? Leave `vatID` out entirely** rather than inventing one. An absent optional field is fine; a wrong one is not.
+- **Where it goes:** inside `<head>`, as a `<script type="application/ld+json">` element.
+- **Validate before you trust it.** Google's Rich Results Test and the validator at validator.schema.org both catch errors for free. Structured data that fails validation does nothing.
+
+One field is missing on purpose: `priceRange`. It is optional, and a placeholder like a couple of currency symbols is worse than leaving it out — add it only once you have a real value that reflects what you actually charge.
+
+Two more fields belong in a real record but are left out of the block above so you copy your own rather than ours: `telephone` and `email`. The first example in this article shows the phone format — international, with the country code.
 
 ---
 

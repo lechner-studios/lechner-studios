@@ -2,6 +2,23 @@
 # add entries to keep the generator fed; each becomes one bilingual post.
 # pillar keys map to the service pages: webdesign / apps-automation / seo / brand.
 # slug = the canonical URL slug (kebab-case, unique); keyword = primary SEO target.
+# offer = OPTIONAL. Which productized offer the post's CTA points at.
+#   Valid keys live in src/lib/offers.mjs: website-check | direktbucher.
+#   Omit it and the post falls back to website-check, the entry offer, which
+#   suits nearly every topic. Set direktbucher on pension/tourism topics.
+# imageQuery = OPTIONAL. A per-topic Pexels search override (see
+#   scripts/blog/images.mjs). Omit it and the post's category theme
+#   (CATEGORY_IMAGE_QUERIES) is used instead — the default for every topic
+#   below.
+# graphic = OPTIONAL. Which crafted technical graphic renders as the post's
+#   hero/tile (see src/lib/post-graphics.mjs). Valid keys: dom-diff | node-flow
+#   | load-waterfall | type-system. Omit it and the post's category default
+#   (CATEGORY_GRAPHIC) is used instead. A graphic always outranks a photo, so
+#   the Pexels fetch below only ever shows for a post with no graphic.
+#   Set `graphic: none` to opt a topic out of graphics entirely. That is the
+#   only way to reach the photo path, for a post where atmosphere (a real
+#   developer workspace) serves better than a diagram. With neither a graphic
+#   nor a photo, the post falls back to a plain tinted band.
 webdesign:
   - slug: website-without-page-builder
     keyword: "Website ohne Baukasten"
@@ -30,9 +47,13 @@ webdesign:
   - slug: direct-booking-website-pension
     keyword: "Direktbuchung Website Pension"
     intent: "a guesthouse site that wins direct bookings instead of paying portal commission — technically"
+    offer: direktbucher
   - slug: ai-in-web-development
     keyword: "KI in der Webentwicklung"
     intent: "what AI does and doesn't do when building a real website — a tool that speeds the craft, not a replacement for it"
+    # A post about the human craft behind the tooling reads better with a real
+    # workspace than with a diagram, so this one opts into the photo path.
+    graphic: none
   - slug: ai-website-builders-vs-custom-built
     keyword: "KI-Website-Baukasten"
     intent: "the new AI site-builders vs a custom-built site — what you gain and what you quietly lose"
@@ -45,18 +66,22 @@ webdesign:
   - slug: ferienwohnung-website
     keyword: "Website für Ferienwohnung"
     intent: "a holiday-let site built for direct bookings — links to the live pension demo"
+    offer: direktbucher
   - slug: club-association-website
     keyword: "Website für Verein"
     intent: "what a club/association site needs — members, events, news — kept simple and self-editable"
   - slug: save-booking-commission
     keyword: "Booking.com Provision sparen"
     intent: "how a direct-booking website keeps the portal commission in your pocket — honest, no fabricated numbers"
+    offer: direktbucher
   - slug: channel-manager-vs-own-website
     keyword: "Channel Manager eigene Website"
     intent: "how a channel manager and your own direct-booking site work together, not against each other"
+    offer: direktbucher
   - slug: rent-holiday-let-directly
     keyword: "Ferienwohnung direkt vermieten"
     intent: "renting a holiday flat more directly instead of relying only on portals — what the website needs"
+    offer: direktbucher
   - slug: how-a-website-project-works
     keyword: "Website-Projekt Ablauf"
     intent: "what actually happens from first call to launch — the steps, honestly, no surprises"

@@ -14,6 +14,7 @@ keywords:
   - small business branding
   - brand voice
   - logo and typography
+graphic: type-system
 ---
 Most people, when asked about their brand, point to their logo. That is understandable — the logo is the most visible piece. But it is also a little like describing a house by its front door. A brand identity is the whole building: every element that shapes how people recognise, read, and feel about your business, working together as a single, coherent system.
 

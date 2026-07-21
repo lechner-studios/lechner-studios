@@ -16,6 +16,7 @@ keywords:
   - CLS
   - technical SEO
   - web performance
+graphic: load-waterfall
 ---
 Google's Core Web Vitals have been part of its ranking signals since 2021, yet many small and mid-sized businesses still treat them as a mystery buried somewhere in Search Console. They don't have to be. Once you understand what each metric actually measures — and why it was chosen — the path to improvement becomes a lot clearer.
 

@@ -16,6 +16,7 @@ keywords:
   - prozessautomatisierung
   - make zapier n8n
   - digitale arbeitsabläufe
+graphic: node-flow
 ---
 Viele kleine und mittlere Unternehmen stehen vor dem gleichen stillen Problem: Es gibt ein CRM, ein Formular-Tool, eine E-Mail-Plattform, vielleicht ein Projektboard — und jedes davon funktioniert für sich genommen gut. Das eigentliche Problem liegt im Zwischenraum. Jemand füllt ein Kontaktformular aus, und dann tippt jemand anderes diese Daten manuell ins CRM. Ein Auftrag wird abgeschlossen, und ein Kollege erinnert sich daran, die Onboarding-Unterlagen zu schicken. Diese kleinen Reibungspunkte summieren sich — und sie tauchen auf keinem Dashboard auf.
 

@@ -14,6 +14,7 @@ keywords:
   - mobile Optimierung
   - KMU Website
   - responsive Design
+graphic: dom-diff
 ---
 Wer heute eine neue Website in Auftrag gibt oder die bestehende überarbeiten lässt, begegnet früher oder später dem Begriff „responsive". Er wird oft wie ein Qualitätsmerkmal nebenbei erwähnt – dabei steckt dahinter weit mehr als ein technisches Detail. Dieser Beitrag erklärt, was eine responsive Website tatsächlich ausmacht, wo die häufigsten Missverständnisse liegen und warum kein Tiroler Betrieb darauf verzichten kann.
 

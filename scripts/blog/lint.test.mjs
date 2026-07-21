@@ -40,3 +40,40 @@ test("flags incomplete frontmatter", () => {
   const v = lintPost({ frontmatter: { ...goodFm, keywords: ["only", "three", "kw"] }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /keywords/i.test(x)));
 });
+
+test("accepts a valid offer key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, offer: "direktbucher" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("accepts an absent offer key", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("rejects an unknown offer key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, offer: "websitecheck" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /offer/i.test(x)));
+});
+
+test("accepts a valid /blog/ image path", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, image: "/blog/x.jpg" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("accepts an absent image", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("rejects an image that is a remote hotlink, not a /blog/ path", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, image: "https://images.pexels.com/x.jpg" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /image/i.test(x)));
+});
+
+test("accepts a valid graphic key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, graphic: "dom-diff" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+test("rejects an unknown graphic key", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, graphic: "nope" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /graphic/i.test(x)));
+});

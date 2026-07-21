@@ -5,6 +5,7 @@ excerpt: "Nicht jedes Problem braucht eine eigene Software. Aber manche schon. S
 date: "2026-06-15"
 category: "Apps & Automation"
 keywords: ["eigene Web-App", "individuelle Software", "Web-Anwendung erstellen lassen", "Software für KMU", "maßgeschneiderte App", "Web-App Tirol"]
+graphic: node-flow
 ---
 
 Zwischen einer Website und einer fertig gekauften Software liegt ein Bereich, in den überraschend viele Betriebe hineinwachsen: die eigene Web-Anwendung. Damit ist kein Marketing-Auftritt gemeint, sondern ein Werkzeug, das eine bestimmte Aufgabe in Ihrem Betrieb erledigt — ein Kundenportal, ein interner Rechner, eine Verwaltung für etwas, das es als Standardprodukt so nicht gibt. Die Frage ist selten „können wir das bauen?“ — fast immer lautet sie „lohnt es sich?“. Und die ehrliche Antwort ist oft: noch nicht, oder: nicht in dieser Form.

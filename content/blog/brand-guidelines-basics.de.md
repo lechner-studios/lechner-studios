@@ -18,6 +18,7 @@ keywords:
   - Brand Guidelines
   - Unternehmensauftritt
   - Designkonsistenz
+graphic: type-system
 ---
 Wer ein Unternehmen aufbaut oder weiterentwickelt, merkt früh: Sobald mehrere Personen an Texten, Präsentationen oder Social-Media-Beiträgen arbeiten, schleicht sich Uneinheitlichkeit ein. Die Schrift hier etwas anders, das Logo dort ein bisschen kleiner, die Farben auf der Website nicht ganz dieselben wie auf dem Flyer. Genau hier kommen Corporate Design Richtlinien ins Spiel – ein strukturiertes Dokument, das allen Beteiligten zeigt, wie das Unternehmen nach außen hin auftreten soll.
 

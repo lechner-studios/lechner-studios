@@ -14,6 +14,7 @@ keywords:
   - KI-Tools für Unternehmen
   - digitale Prozesse
   - Apps und Automatisierung
+graphic: node-flow
 ---
 Künstliche Intelligenz ist gerade in aller Munde – und gleichzeitig sorgt sie für viel Verwirrung. Gerade für kleine Unternehmen stellt sich die Frage: Was bringt KI wirklich, und wo ist der Aufwand größer als der Nutzen? Dieser Beitrag gibt eine ehrliche Einschätzung – ohne Versprechen, die niemand halten kann, und ohne den üblichen Technologie-Hype.
 

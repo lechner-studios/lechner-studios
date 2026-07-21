@@ -16,6 +16,7 @@ keywords:
   - structured data
   - site speed
   - indexing
+graphic: load-waterfall
 ---
 Most conversations about SEO start with content and keywords — and those things matter. But before any of that work pays off, search engines need to be able to find, read, and understand your site in the first place. That is what technical SEO is about: making sure the infrastructure underneath your content is clean, consistent, and machine-readable. It is not glamorous work, but it is the layer everything else rests on.
 

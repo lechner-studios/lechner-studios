@@ -54,6 +54,31 @@ export const dictionaries = {
       backToBlog: "← All articles",
       empty: "Articles coming soon.",
       published: "Published",
+      // {n} is replaced with the computed minute count. Kept as a template
+      // string (not concatenated) so the German path stays a real
+      // localization rather than English words with a number spliced in.
+      readingTime: "{n} min read",
+      filterAll: "All",
+      filterAriaLabel: "Filter articles by category",
+    },
+    blogOffer: {
+      overline: "NEXT STEP",
+      items: {
+        "website-check": {
+          desc: "A focused audit of your existing site: technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.",
+          cta: "Book a Website-Check",
+        },
+        "direktbucher": {
+          desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol. Live in two weeks, with the portal commission back in your pocket.",
+          cta: "See Direktbucher",
+        },
+      },
+    },
+    blogGraphic: {
+      "dom-diff": { ALT: "Nested page-builder markup beside hand-written semantic HTML", L1: "PAGE BUILDER", L2: "≈50 DIVS", L3: "HAND-WRITTEN", L4: "4 TAGS", W1: "Offer", W2: "Plain text." },
+      "node-flow": { ALT: "Data flowing between CRM, automation and accounting", L1: "CONNECT TOOLS", N1: "CRM", N2: "AUTOMATION", N3: "LEXOFFICE API", N4: "EMAIL", L2: "ONE PATH, NO REPURCHASE" },
+      "load-waterfall": { ALT: "A lean request waterfall from a hand-built page", L1: "LOAD TIME", L2: "5 REQUESTS", L3: "BUDGET" },
+      "type-system": { ALT: "The brand's type system and Alpine palette", L1: "BRAND SYSTEM", L2: "TYPOGRAPHY" },
     },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
@@ -558,6 +583,28 @@ export const dictionaries = {
       backToBlog: "← Alle Beiträge",
       empty: "Beiträge folgen in Kürze.",
       published: "Veröffentlicht",
+      readingTime: "{n} Min. Lesezeit",
+      filterAll: "Alle",
+      filterAriaLabel: "Beiträge nach Kategorie filtern",
+    },
+    blogOffer: {
+      overline: "NÄCHSTER SCHRITT",
+      items: {
+        "website-check": {
+          desc: "Eine fokussierte Analyse Ihrer bestehenden Website: technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.",
+          cta: "Website-Check buchen",
+        },
+        "direktbucher": {
+          desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol. Live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.",
+          cta: "Direktbucher ansehen",
+        },
+      },
+    },
+    blogGraphic: {
+      "dom-diff": { ALT: "Verschachtelter Baukasten-Code gegenüber semantischem HTML", L1: "BAUKASTEN-CODE", L2: "≈50 DIVS", L3: "HANDGESCHRIEBEN", L4: "4 TAGS", W1: "Angebot", W2: "Klarer Text." },
+      "node-flow": { ALT: "Datenfluss zwischen CRM, Automatisierung und Buchhaltung", L1: "TOOLS VERBINDEN", N1: "CRM", N2: "AUTOMATISIERUNG", N3: "LEXOFFICE API", N4: "E-MAIL", L2: "EIN WEG, KEIN NEUKAUF" },
+      "load-waterfall": { ALT: "Schlanker Request-Wasserfall einer handgebauten Seite", L1: "LADEZEIT", L2: "5 REQUESTS", L3: "BUDGET" },
+      "type-system": { ALT: "Schriftsystem und Alpine-Palette der Marke", L1: "MARKENSYSTEM", L2: "TYPOGRAFIE" },
     },
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",

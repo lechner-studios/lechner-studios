@@ -5,6 +5,7 @@ excerpt: "Being found locally is half maintaining your listing and half a techni
 date: "2026-06-15"
 category: "SEO & Growth"
 keywords: ["getting found locally", "local visibility", "website local search", "structured data", "technical local SEO", "found locally Tyrol"]
+graphic: load-waterfall
 ---
 
 When someone nearby searches for what you offer, it's decided in seconds whether you appear — and whether that person stays. Being found locally has two halves: maintaining your listing in map and search services, and having a website clean enough technically to support that listing rather than undermine it. The advertising side is someone else's topic; this is about the technical half that falls within web development — and, surprisingly often, the weakest link.

@@ -15,6 +15,7 @@ keywords:
   - logo design
   - brand system
   - SMB branding
+graphic: type-system
 ---
 When a small business owner says "we need a brand," they usually mean "we need a logo." That's a completely understandable starting point — a logo is visible, concrete, and easy to brief. But treating a logo as the finished product is one of the most common mistakes growing businesses make, and it tends to cost more to fix later than it would have to get right the first time.
 

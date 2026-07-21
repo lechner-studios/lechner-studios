@@ -16,6 +16,7 @@ keywords:
   - workflow automation
   - human-in-control AI
   - SMB productivity
+graphic: node-flow
 ---
 Artificial intelligence is everywhere in the conversation right now — and if you run a small business, you've probably been told it will either transform everything or replace half your team. Neither is quite right. The truth is quieter and more useful: in the right spots, AI can save you real time and reduce repetitive friction. In the wrong spots, it just adds complexity you don't need. This post is about telling the difference.
 

@@ -14,6 +14,7 @@ keywords:
   - Markenaufbau
   - Corporate Design
   - Branding KMU
+graphic: type-system
 ---
 Viele Unternehmen beauftragen ein Logo – und glauben danach, sie hätten eine Marke. Das ist verständlich, denn das Logo ist das Sichtbarste, das Greifbarste. Aber es ist nur ein Teil eines größeren Ganzen. Wer den Unterschied zwischen Logo und Marke kennt, trifft bessere Entscheidungen – beim Aufbau seines Unternehmens, bei der Zusammenarbeit mit Gestaltern und beim Einsatz von Kommunikationsmitteln.
 
