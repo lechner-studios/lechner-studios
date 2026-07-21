@@ -95,7 +95,11 @@ export default async function BlogArticlePage({
       name: "Lechner Studios",
       logo: {
         "@type": "ImageObject",
-        url: "https://lechner-studios.at/android-chrome-512.png",
+        // The wordmark. android-chrome-512 is the 2x2 tile, which is the
+        // favicon/utility variant of the mark rather than the logo.
+        url: "https://lechner-studios.at/logo.png",
+        width: 1280,
+        height: 400,
       },
     },
     mainEntityOfPage: `https://lechner-studios.at/${locale}/blog/${slug}`,
