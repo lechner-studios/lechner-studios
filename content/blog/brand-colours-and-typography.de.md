@@ -15,6 +15,7 @@ keywords:
   - Farbwahl Unternehmen
   - Corporate Design
   - Markenwirkung
+graphic: type-system
 ---
 Noch bevor jemand Ihren Firmennamen liest, hat das Auge bereits entschieden, ob es sich wohlfühlt. Farbe und Schrift wirken im Bruchteil einer Sekunde – und genau deshalb sind sie keine Nebensache, sondern das Fundament jeder visuellen Identität. Wer hier bewusste Entscheidungen trifft, kommuniziert Verlässlichkeit, Charakter und Haltung – ganz ohne ein einziges Wort.
 

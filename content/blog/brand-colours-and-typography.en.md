@@ -18,6 +18,7 @@ keywords:
   - colour psychology
   - typeface selection
   - brand fundamentals
+graphic: type-system
 ---
 Before a potential customer reads a single word on your website or brochure, they have already formed an impression. That impression is built almost entirely from two things: colour and type. Most business owners think of these as decorative choices — a matter of personal taste. In reality, they are functional tools that communicate values, set expectations, and quietly tell people whether to trust you.
 
