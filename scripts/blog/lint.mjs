@@ -43,5 +43,23 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   if (!body.includes(`/${locale}/contact`)) v.push(`link: body must link to /${locale}/contact`);
   if (!/^##\s/m.test(body)) v.push("structure: body needs at least one ## section");
 
+  // Dash budget. German uses the Gedankenstrich legitimately, so this is a cap,
+  // not a ban. Published posts averaged ~35 per post; natural prose is 2-5 per
+  // 1000 words.
+  const dashes = (body.match(/[—–]/g) || []).length;
+  if (dashes > 6) v.push(`cadence: ${dashes} dashes in the body (max 6) — use commas, colons or shorter sentences`);
+
+  // Intensifier padding in the title reads as machine-written and was the single
+  // most repeated tell across the published posts.
+  if (/\b(wirklich|really|actually|truly|genuinely)\b/i.test(String(fm.title))) {
+    v.push("title: drop the intensifier (wirklich/really/actually) — the claim is stronger without it");
+  }
+
+  // The "X - und wann/warum nicht" title formula, repeated six times across the
+  // published posts.
+  if (/[—–]\s*(und|and)\s+(wo|wann|warum|why|when|what|how)\b/i.test(String(fm.title))) {
+    v.push("title: avoid the 'X – und wann/warum nicht' formula; vary the shape");
+  }
+
   return v;
 }

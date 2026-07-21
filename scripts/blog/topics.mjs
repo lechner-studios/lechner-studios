@@ -41,6 +41,26 @@ export function readPublished(blogDir) {
   return { slugs, pillarCounts };
 }
 
+// Most recent `limit` published titles for one locale, newest first — fed into
+// the writer prompt so a one-post-at-a-time generator can see (and avoid
+// repeating) the shapes it has already used. Resilient: an unreadable or empty
+// content/blog directory yields [], never throws.
+export function readRecentTitles(blogDir, locale, limit = 8) {
+  let files = [];
+  try { files = fs.readdirSync(blogDir); } catch { files = []; }
+  const suffix = `.${locale}.md`;
+  const entries = [];
+  for (const f of files) {
+    if (!f.endsWith(suffix)) continue;
+    try {
+      const { data } = matter(fs.readFileSync(path.join(blogDir, f), "utf8"));
+      if (data.title && data.date) entries.push({ title: String(data.title), date: String(data.date) });
+    } catch { /* ignore unreadable */ }
+  }
+  entries.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  return entries.slice(0, limit).map((e) => e.title);
+}
+
 // Choose the pillar with the fewest published posts that still has an uncovered
 // topic; within it, the first uncovered topic. Deterministic, no state file.
 export function pickTopic({ topics, existingSlugs, pillarCounts, targetSlug }) {

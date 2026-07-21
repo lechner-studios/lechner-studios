@@ -77,3 +77,37 @@ test("rejects an unknown graphic key", () => {
   const v = lintPost({ frontmatter: { ...goodFm, graphic: "nope" }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /graphic/i.test(x)));
 });
+
+test("accepts a body with 0 dashes", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("accepts a body with 6 dashes (at the cap)", () => {
+  const dashy = goodBody + " A – b – c – d – e – f – g.";
+  assert.equal((dashy.match(/[—–]/g) || []).length, 6);
+  const v = lintPost({ frontmatter: goodFm, body: dashy, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("rejects a body with 7 dashes (over the cap)", () => {
+  const dashy = goodBody + " A – b – c – d – e – f – g – h.";
+  assert.equal((dashy.match(/[—–]/g) || []).length, 7);
+  const v = lintPost({ frontmatter: goodFm, body: dashy, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /cadence/i.test(x)));
+});
+
+test("accepts the clean goodFm title (no intensifier)", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.deepEqual(v, []);
+});
+
+test("rejects a title containing 'wirklich'", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, title: "Braucht Ihr Unternehmen wirklich eine neue Website?" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /title/i.test(x) && /intensifier/i.test(x)));
+});
+
+test("rejects a title with the 'X – und warum nicht' formula", () => {
+  const v = lintPost({ frontmatter: { ...goodFm, title: "Ein neues Logo – und warum nicht" }, body: goodBody, pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => /title/i.test(x) && /formula/i.test(x)));
+});
