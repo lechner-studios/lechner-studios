@@ -137,7 +137,10 @@ function buildJsonLd(locale: Locale) {
         "@id": "https://lechner-studios.at#organization",
         name: "Lechner Studios",
         url: `https://lechner-studios.at/${locale}`,
-        logo: "https://lechner-studios.at/og-image.png",
+        // The wordmark, not the OG card: Google renders this as the
+        // organization's logo (knowledge panel), so it needs to read as a logo
+        // on a white background rather than as a social share image.
+        logo: "https://lechner-studios.at/logo.png",
         email: "hallo@lechner-studios.at",
         telephone: "+43 664 153 4653",
         description: dict.meta.orgDescription,
