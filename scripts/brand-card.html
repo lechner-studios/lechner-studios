@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>lechner.studios — brand card v4.1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;700&family=Italiana&display=swap" rel="stylesheet">
+<title>lechner.studios — brand card (cool palette, ADR-0037)</title>
 <style>
+  /* Self-hosted faces, the same binaries the live site ships (A4: no Google
+     Fonts CDN). Rendered by scripts/render-brand-card.mjs over a local static
+     server rooted at the repo, so the output is reproducible offline. */
+  @font-face { font-family: "Cormorant"; src: url("/public/fonts/cormorant-variable.woff2") format("woff2"); font-weight: 300 700; font-display: block; }
+  @font-face { font-family: "Italiana";  src: url("/public/fonts/italiana-400.woff2") format("woff2");       font-weight: 400;     font-display: block; }
+
   :root {
-    --paper: #F6F1EB;
-    --paper-warm: #EFEDE7;
-    --ink: #1A1812;
-    --ink-mute: #6B665C;
+    /* Cool Alpine palette (ADR-0037). This card was the superseded warm-cream
+       version; recoloured 2026-07-22. Was: paper #F6F1EB, paper-warm #EFEDE7,
+       ink #1A1812, ink-mute #6B665C. Pillar hexes were already canon. */
+    --paper: #FCFDFD;
+    --paper-warm: #F2F4F5;
+    --ink: #15171A;
+    --ink-mute: #5B6168;
     --gold: #B8944D;
 
     --pillar-stone: #D6CDBE;
@@ -148,10 +154,12 @@
     z-index: 1;
   }
 
-  .pillar.stone { background: var(--pillar-stone); color: #4A4131; }
+  /* Label inks: #4A4131 (warm brown) → canon ink; #FDFBF8 (warm white) →
+     canon on-dark. #1A2638 is already cool, so it stays. */
+  .pillar.stone { background: var(--pillar-stone); color: #15171A; }
   .pillar.sky   { background: var(--pillar-sky);   color: #1A2638; }
-  .pillar.lake  { background: var(--pillar-lake);  color: #FDFBF8; }
-  .pillar.pine  { background: var(--pillar-pine);  color: #FDFBF8; }
+  .pillar.lake  { background: var(--pillar-lake);  color: #FBFCFC; }
+  .pillar.pine  { background: var(--pillar-pine);  color: #FBFCFC; }
 </style>
 </head>
 <body>
