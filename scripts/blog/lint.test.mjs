@@ -10,7 +10,9 @@ const goodFm = {
   category: "SEO & Growth",
   keywords: ["a", "b", "c", "d", "e"],
 };
-const goodBody = "Intro paragraph.\n\n## A section\n\nText. See [how we do SEO](/en/seo) or [get in touch](/en/contact).";
+// Carries a marked hypothetical example, because every post must — the prompt
+// mandates one and the studio has no client data to draw a real one from.
+const goodBody = "Intro paragraph.\n\n## A section\n\nConsider a joinery with one page. Text. See [how we do SEO](/en/seo) or [get in touch](/en/contact).";
 
 test("clean post passes", () => {
   assert.deepEqual(lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "seo", locale: "en" }), []);
@@ -123,4 +125,72 @@ test("rejects a title containing 'wirklich'", () => {
 test("rejects a title with the 'X – und warum nicht' formula", () => {
   const v = lintPost({ frontmatter: { ...goodFm, title: "Ein neues Logo – und warum nicht" }, body: goodBody, pillarPath: "seo", locale: "en" });
   assert.ok(v.some((x) => /title/i.test(x) && /formula/i.test(x)));
+});
+
+// --- pillar link target (#118 consolidation) ---
+
+test("a Web & Design post must link to the werk storefront, not the dead on-site route", () => {
+  // /:locale/webdesign only 301-redirects since #118. The old rule REQUIRED it.
+  const body = goodBody.replace("/en/seo", "/en/webdesign");
+  const v = lintPost({ frontmatter: goodFm, body, pillarPath: "webdesign", locale: "en" });
+  assert.deepEqual(v, ["link: body must link to https://werk.lechner-studios.at"]);
+});
+
+test("a Web & Design post linking to werk passes", () => {
+  const body = goodBody.replace("/en/seo", "https://werk.lechner-studios.at");
+  assert.deepEqual(lintPost({ frontmatter: goodFm, body, pillarPath: "webdesign", locale: "en" }), []);
+});
+
+test("the three on-site pillars still want their locale-prefixed route", () => {
+  for (const [pillar, path] of [["apps-automation", "/en/apps-automation"], ["seo", "/en/seo"], ["brand", "/en/brand"]]) {
+    const body = goodBody.replace("/en/seo", path);
+    assert.deepEqual(lintPost({ frontmatter: goodFm, body, pillarPath: pillar, locale: "en" }), [], pillar);
+  }
+});
+
+test("an unknown pillar is a config error, not a silently skipped rule", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody, pillarPath: "nope", locale: "en" });
+  assert.ok(v.some((x) => x.startsWith("pillar:")), v.join("; "));
+});
+
+// --- invented examples ---
+
+test("an unmarked example is rejected (the de draft that prompted this)", () => {
+  const body = "Intro.\n\n## H\n\nEin konkretes Beispiel: Eine kleine Pension in Tirol mit sechs Zimmern hatte nur eine einseitige Website. Nach dem Relaunch kamen die ersten Direktanfragen. Mehr unter https://werk.lechner-studios.at und /de/contact.";
+  const v = lintPost({ frontmatter: goodFm, body, pillarPath: "webdesign", locale: "de" });
+  assert.ok(v.some((x) => x.startsWith("example:")), v.join("; "));
+});
+
+test("'Ein konkretes Beispiel' alone does not count as a marker", () => {
+  const body = goodBody.replace("Consider a joinery with one page.", "Ein konkretes Beispiel: eine Tischlerei.").replace("/en/seo", "/de/seo").replace("/en/contact", "/de/contact");
+  const v = lintPost({ frontmatter: goodFm, body, pillarPath: "seo", locale: "de" });
+  assert.ok(v.some((x) => x.startsWith("example:")), v.join("; "));
+});
+
+test("Angenommen / Stellen Sie sich vor mark it properly", () => {
+  for (const marker of ["Angenommen, eine Tischlerei hat eine Seite.", "Stellen Sie sich vor, eine Tischlerei wächst."]) {
+    const body = goodBody.replace("Consider a joinery with one page.", marker).replace("/en/seo", "/de/seo").replace("/en/contact", "/de/contact");
+    assert.deepEqual(lintPost({ frontmatter: goodFm, body, pillarPath: "seo", locale: "de" }), [], marker);
+  }
+});
+
+// --- prose tells the prompt bans and the model produced anyway ---
+
+test("flags the not-X-it's-Y contrast in both locales", () => {
+  const en = lintPost({ frontmatter: goodFm, body: goodBody + " These are not cosmetic concerns — they are the difference.", pillarPath: "seo", locale: "en" });
+  assert.ok(en.some((x) => x.includes("not X")), en.join("; "));
+  const deBody = goodBody.replace("Consider a joinery with one page.", "Angenommen, eine Tischlerei.").replace("/en/seo", "/de/seo").replace("/en/contact", "/de/contact");
+  const de = lintPost({ frontmatter: goodFm, body: deBody + " Das ist keine Frage der Optik, sondern der Technik.", pillarPath: "seo", locale: "de" });
+  assert.ok(de.some((x) => x.includes("not X")), de.join("; "));
+});
+
+test("flags intensifier padding in the body, and names the word", () => {
+  const v = lintPost({ frontmatter: goodFm, body: goodBody + " That is simply how portals work.", pillarPath: "seo", locale: "en" });
+  assert.ok(v.some((x) => x.includes('"simply"')), v.join("; "));
+});
+
+test("German 'einfach' is not treated as padding", () => {
+  // "eine einfache Website" is ordinary de-AT; banning it would fail good posts.
+  const body = goodBody.replace("Consider a joinery with one page.", "Angenommen, eine Tischlerei hat eine einfache Website.").replace("/en/seo", "/de/seo").replace("/en/contact", "/de/contact");
+  assert.deepEqual(lintPost({ frontmatter: goodFm, body, pillarPath: "seo", locale: "de" }), []);
 });
