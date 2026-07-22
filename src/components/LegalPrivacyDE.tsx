@@ -5,10 +5,11 @@
 // only) and a KI-Chat-Assistent (Claude API via Anthropic, rate-limiting
 // via Upstash/Vercel KV). Cookieless analytics (Vercel Web Analytics); no cookies.
 // Processors: Vercel, Zoho, Anthropic, Upstash/Vercel KV — plus Sentry
-// (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN is set; the Sentry
-// disclosure below renders on that same env gate.
+// (error tracking) ONLY when NEXT_PUBLIC_SENTRY_DSN holds a valid EU DSN;
+// the Sentry disclosure below renders on that same gate.
 
 import Link from "next/link";
+import { isEuSentryDsn } from "../lib/monitoring/dsn";
 import {
   pageStyle,
   containerStyle,
@@ -25,10 +26,13 @@ import {
 
 export default function LegalPrivacyDE() {
   // Error tracking (Sentry) is opt-in via env. When enabled, the processor
-  // disclosure below must be shown — gated on the same flag so the page is
-  // truthful in both states (SSG: baked at build time, so set the env in
-  // Vercel and redeploy to activate both monitoring and this disclosure).
-  const sentryEnabled = Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN);
+  // disclosure below must be shown — gated on the same condition the runtime
+  // uses so the page is truthful in both states (SSG: baked at build time, so
+  // set the env in Vercel and redeploy to activate both monitoring and this
+  // disclosure). Boolean(dsn) is not that condition: monitoring/client.ts and
+  // server.ts both refuse a DSN that is set but not an EU-region one, which
+  // would leave this page naming Sentry as a processor while nothing is sent.
+  const sentryEnabled = isEuSentryDsn(process.env.NEXT_PUBLIC_SENTRY_DSN ?? "");
   return (
     <main style={pageStyle}>
       <div style={containerStyle}>
