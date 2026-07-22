@@ -154,6 +154,10 @@ export default function LegalPrivacyDE() {
             </p>
           )}
           <p style={mutedStyle}>
+            Wenn Sie uns über <strong>WhatsApp</strong> kontaktieren (Click-to-Chat, etwa über unser Google-Unternehmensprofil), verarbeiten wir die dabei übermittelten Daten zur Bearbeitung Ihrer Anfrage: Ihre Rufnummer, Ihren WhatsApp-Profilnamen und den Nachrichteninhalt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen). Betreiber des Dienstes ist{" "}
+            <strong>WhatsApp Ireland Limited</strong> (Irland), Teil der Meta-Unternehmensgruppe (<a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer" style={linkStyle}>Datenschutzerklärung</a>). Nachrichteninhalte sind Ende-zu-Ende-verschlüsselt. Metadaten wie Rufnummern, Zeitstempel und Gerätedaten werden jedoch von WhatsApp verarbeitet und können in die USA übermittelt werden, auf Basis des EU-US Data Privacy Framework sowie der EU-Standardvertragsklauseln gem. Art. 46 DSGVO. Die Nutzung ist freiwillig; Sie erreichen uns gleichwertig per E-Mail, Telefon oder Kontaktformular. Chatverläufe bewahren wir nur so lange auf, wie es zur Bearbeitung Ihrer Anfrage erforderlich ist.
+          </p>
+          <p style={mutedStyle}>
             Darüber hinaus werden keine weiteren Auftragsverarbeiter eingesetzt —
             insbesondere keine werblichen Tracking-, Profiling- oder
             Embed-Dienste Dritter und keine cookiebasierte Analyse.

@@ -148,6 +148,10 @@ export default function LegalPrivacyEN() {
             </p>
           )}
           <p style={mutedStyle}>
+            If you contact us via <strong>WhatsApp</strong> (click-to-chat, for example from our Google Business Profile), we process the data you send in order to handle your enquiry: your phone number, your WhatsApp profile name and the message content. The legal basis is Art. 6(1)(b) GDPR (pre-contractual measures). The service is operated by{" "}
+            <strong>WhatsApp Ireland Limited</strong> (Ireland), part of the Meta group (<a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer" style={linkStyle}>privacy policy</a>). Message content is end-to-end encrypted. Metadata such as phone numbers, timestamps and device data is nonetheless processed by WhatsApp and may be transferred to the US, based on the EU-US Data Privacy Framework and EU Standard Contractual Clauses pursuant to Art. 46 GDPR. Use is voluntary; you can reach us equally by email, telephone or the contact form. We retain chat histories only for as long as needed to handle your enquiry.
+          </p>
+          <p style={mutedStyle}>
             No further processors are used on this site — in particular no
             third-party advertising, tracking, profiling or embedded services
             and no cookie-based analytics.
