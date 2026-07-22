@@ -1,5 +1,5 @@
 ---
-title: 'Core Web Vitals verbessern: Was Googles Performance-Signale wirklich bedeuten'
+title: 'Was Googles Core Web Vitals über Ihre Website verraten'
 description: >-
   Core Web Vitals sind Googles Messwerte für Ladezeit, Interaktivität und
   visuelle Stabilität. Wir erklären, welche technischen Stellschrauben wirklich
@@ -18,17 +18,17 @@ keywords:
   - CLS beheben
 graphic: load-waterfall
 ---
-Wer sich mit SEO beschäftigt, stolpert früher oder später über den Begriff „Core Web Vitals". Google verwendet diese Messwerte seit 2021 als offiziellen Rankingfaktor – und trotzdem herrscht in vielen kleinen und mittleren Unternehmen noch Unsicherheit darüber, was dahintersteckt und wo man überhaupt ansetzen soll. Dieser Beitrag erklärt die drei zentralen Signale verständlich und zeigt, an welchen technischen Stellschrauben sich tatsächlich etwas bewegen lässt.
+Wer sich mit SEO beschäftigt, stolpert früher oder später über den Begriff „Core Web Vitals". Google verwendet diese Messwerte seit 2021 als offiziellen Rankingfaktor, und trotzdem herrscht in vielen kleinen und mittleren Unternehmen noch Unsicherheit darüber, was dahintersteckt und wo man überhaupt ansetzen soll. Dieser Beitrag erklärt die drei zentralen Signale verständlich und zeigt, an welchen technischen Stellschrauben sich etwas bewegen lässt.
 
-## Die drei Messwerte – und was sie im Alltag bedeuten
+## Die drei Messwerte im Alltag
 
 Die Core Web Vitals bestehen aus drei Kennzahlen, die Google im sogenannten Chrome User Experience Report (CrUX) auf Basis echter Nutzerdaten erhebt:
 
-**LCP – Largest Contentful Paint** misst, wie lange es dauert, bis das größte sichtbare Element einer Seite vollständig geladen ist – meistens ein Titelbild oder ein großer Textblock. Ein guter Wert liegt unter 2,5 Sekunden.
+**LCP (Largest Contentful Paint)** misst, wie lange es dauert, bis das größte sichtbare Element einer Seite vollständig geladen ist, meistens ein Titelbild oder ein großer Textblock. Ein guter Wert liegt unter 2,5 Sekunden.
 
-**INP – Interaction to Next Paint** (seit März 2024 offiziell, Nachfolger von FID) erfasst, wie schnell eine Seite auf Nutzereingaben wie Klicks oder Tastatureingaben reagiert. Ziel ist ein Wert unter 200 Millisekunden.
+**INP (Interaction to Next Paint)**, seit März 2024 offiziell und Nachfolger von FID, erfasst, wie schnell eine Seite auf Nutzereingaben wie Klicks oder Tastatureingaben reagiert. Ziel ist ein Wert unter 200 Millisekunden.
 
-**CLS – Cumulative Layout Shift** bewertet die visuelle Stabilität: Springen Elemente beim Laden unerwartet hin und her? Das passiert häufig, wenn Bilder ohne definierte Abmessungen eingebunden sind oder Werbebanner nachträglich in den Seitenfluss eingeschoben werden. Ein CLS-Wert unter 0,1 gilt als gut.
+**CLS (Cumulative Layout Shift)** bewertet die visuelle Stabilität: Springen Elemente beim Laden unerwartet hin und her? Das passiert häufig, wenn Bilder ohne definierte Abmessungen eingebunden sind oder Werbebanner nachträglich in den Seitenfluss eingeschoben werden. Ein CLS-Wert unter 0,1 gilt als gut.
 
 Diese Zahlen sind keine abstrakten Laborwerte – sie spiegeln, wie echte Besucherinnen und Besucher Ihre Website erleben.
 
@@ -44,7 +44,7 @@ Die gute Nachricht: Die häufigsten Ursachen für schlechte Core-Web-Vitals-Wert
 
 **Für einen besseren INP:**
 - Schwere JavaScript-Bundles aufteilen (Code Splitting) und nur das laden, was auf der jeweiligen Seite wirklich benötigt wird
-- Lange Tasks im Haupt-Thread des Browsers vermeiden – dazu helfen Tools wie der Chrome DevTools Performance Profiler
+- Lange Tasks im Haupt-Thread des Browsers vermeiden, dazu helfen Tools wie der Chrome DevTools Performance Profiler
 - Third-Party-Skripte (z. B. Chat-Widgets, Analytics, Social-Media-Einbindungen) kritisch prüfen und wenn möglich verzögert laden
 
 **Für einen besseren CLS:**
@@ -60,7 +60,7 @@ Stellen Sie sich eine Tischler-Website vor, deren Startseite ein großes Foto de
 2. Im HTML-Code wird `fetchpriority="high"` gesetzt, damit der Browser das Bild sofort priorisiert.
 3. Das Bild wird über ein CDN ausgeliefert, das den nächstgelegenen Server automatisch wählt.
 
-Das Ergebnis: Der LCP sinkt auf unter 2,5 Sekunden – ohne dass die Bildqualität für Besucherinnen und Besucher sichtbar leidet. Dieses Prinzip – gezielt messen, konkrete Ursache finden, punktuell beheben – ist der Kern einer soliden technischen SEO-Arbeit.
+Das Ergebnis: Der LCP sinkt auf unter 2,5 Sekunden, ohne dass die Bildqualität für Besucherinnen und Besucher sichtbar leidet. Das Prinzip dahinter ist einfach: gezielt messen, konkrete Ursache finden, punktuell beheben.
 
 ## Wo man mit der Analyse beginnt
 
