@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { pillarLink } from "./pillar-links.mjs";
 
 const MODEL = "claude-sonnet-4-6"; // matches src/app/api/chat/route.ts; swap to claude-opus-4-8 for max prose quality
 
@@ -21,9 +22,10 @@ TOPIC: pillar="${category}", primary keyword="${keyword}", angle="${intent}", ca
 REQUIRED — a post missing any of these is rejected:
 - LANGUAGE: write EVERY field — title, description, excerpt, keywords AND body — in ${L.lang}. The primary keyword above may be in another language; translate/adapt it. NEVER copy a foreign-language keyword or phrase verbatim as the ${L.lang} title (e.g. an English post must have an English title, not the German keyword).
 - ~600–900 words. Voice: written, professional-but-warm, honest, NO hype/buzzwords.
-- Start with a short intro paragraph (no heading), then **at least three "## " H2 sections** (one with a concrete example), then a closing paragraph.
-- The closing paragraph MUST end with exactly TWO markdown internal links, using these FULL paths:
-  [text](/${locale}/${pillarPath}) and [text](/${locale}/contact)
+- Start with a short intro paragraph (no heading), then **at least three "## " H2 sections** (one with a worked example), then a closing paragraph.
+- The example MUST be openly hypothetical, and marked as such in its FIRST sentence: "Consider a…", "Imagine a…", "Suppose a…" / "Angenommen, …", "Nehmen wir an, …", "Stellen Sie sich vor, …". The studio has no client data, so you are inventing it — say so. "A concrete example:" / "Ein konkretes Beispiel:" is NOT a marker: followed by past-tense narrative it reads as a real project, which is a false claim about a real business.
+- The closing paragraph MUST end with exactly TWO markdown links, using these FULL targets:
+  [text](${pillarLink(pillarPath, locale)}) and [text](/${locale}/contact)
 - description: 50–160 characters. excerpt: 60–100 characters. keywords: exactly 5 to 7 entries.
 
 HARD scope/honesty rules (also rejected if broken):
