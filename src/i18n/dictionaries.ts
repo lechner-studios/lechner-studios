@@ -16,7 +16,7 @@ export const dictionaries = {
     meta: {
       homeTitle: "Lechner Studios — Design-Led Digital Studio, Tirol",
       homeDescription:
-        "Family-run, AI-native digital studio in Wattens, Tirol. Websites, automation and SEO for SMBs across DACH. Brand & identity are part of every project.",
+        "Family-run, AI-native digital studio in Wattens, Tirol. Web & Design, Apps & Automation and SEO for SMBs in DACH. Brand & Identity in every project.",
       ogLocale: "en_US",
       orgDescription:
         "Family-run, AI-native digital studio. Web & design, apps & automation, and SEO for SMB clients across DACH, with brand & identity built into every build.",
@@ -569,7 +569,7 @@ export const dictionaries = {
     meta: {
       homeTitle: "Lechner Studios — Design-orientiertes Digitalstudio, Tirol",
       homeDescription:
-        "Familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol. Websites, Automatisierung und SEO für KMU. Marke & Identität gehören immer dazu.",
+        "Familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol. Web & Design, Apps & Automation und SEO für KMU. Marke & Identität gehören immer dazu.",
       ogLocale: "de_AT",
       orgDescription:
         "Familiengeführtes, KI-natives Digitalstudio. Web & Design, Apps & Automation und SEO für KMU im DACH-Raum, mit Marke & Identität in jedes Projekt integriert.",
