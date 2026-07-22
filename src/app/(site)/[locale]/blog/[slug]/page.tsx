@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { LanguageProvider } from "../../../../../context/LanguageContext";
 import { LOCALES, isLocale, HREFLANG, type Locale } from "../../../../../i18n/config";
@@ -12,6 +12,9 @@ import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
 import PostMedia, { pickGraphic } from "../../../../../components/PostMedia";
 import BlogOfferCta from "../../../../../components/BlogOfferCta";
+import PostFigure from "../../../../../components/PostFigure";
+import { figureKeyFromSrc } from "../../../../../lib/post-figures.mjs";
+import type { FigureKey } from "../../../../../lib/post-figures.d.mts";
 import { getPost, getAllSlugs } from "../../../../../lib/blog";
 
 export async function generateStaticParams() {
@@ -55,6 +58,53 @@ function formatDate(date: string, locale: Locale): string {
 
 function formatReadingTime(dict: Dictionary, minutes: number): string {
   return dict.blog.readingTime.replace("{n}", String(minutes));
+}
+
+// Inline figures are authored as a lone markdown image using the `figure:`
+// scheme — `![](figure:type-mood)` on its own line. remark wraps that in a
+// paragraph, so the swap happens on `p`: a <figure> nested inside a <p> would
+// be hoisted out by the HTML parser and break the layout, so we replace the
+// paragraph rather than the image.
+//
+// The markdown only ever names a key. `figureKeyFromSrc` returns undefined for
+// anything unregistered, in which case the paragraph renders normally and the
+// image degrades to a plain (broken-src) image rather than vanishing silently.
+function isWhitespace(n: { type: string; value?: string }) {
+  return n.type === "text" && !(n.value ?? "").trim();
+}
+
+function figureInParagraph(node: unknown): FigureKey | undefined {
+  const el = node as { children?: Array<Record<string, unknown>> } | undefined;
+  const kids = (el?.children ?? []).filter(
+    (c) => !isWhitespace(c as { type: string; value?: string }),
+  );
+  if (kids.length !== 1) return undefined;
+  const only = kids[0] as {
+    type?: string;
+    tagName?: string;
+    properties?: { src?: unknown };
+  };
+  if (only.type !== "element" || only.tagName !== "img") return undefined;
+  return figureKeyFromSrc(only.properties?.src);
+}
+
+// react-markdown sanitizes URLs by protocol allowlist, which strips the
+// `figure:` scheme before any component sees it. Let a URL through only when
+// it names a REGISTERED figure, and defer to the stock sanitizer for
+// everything else — so the allowlist stays intact for real post content.
+function urlTransform(url: string) {
+  return figureKeyFromSrc(url) ? url : defaultUrlTransform(url);
+}
+
+function markdownComponents(dict: Dictionary) {
+  return {
+    p({ node, children, ...rest }: { node?: unknown; children?: React.ReactNode }) {
+      const key = figureInParagraph(node);
+      const labels = key ? dict.blogFigure[key] : undefined;
+      if (key && labels) return <PostFigure figure={key} labels={labels} />;
+      return <p {...rest}>{children}</p>;
+    },
+  };
 }
 
 export default async function BlogArticlePage({
@@ -196,7 +246,13 @@ export default async function BlogArticlePage({
             )}
 
             <div className="blog-prose">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                urlTransform={urlTransform}
+                components={markdownComponents(dict)}
+              >
+                {content}
+              </ReactMarkdown>
             </div>
 
             <BlogOfferCta offer={meta.offer} />

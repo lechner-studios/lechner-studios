@@ -42,6 +42,8 @@ Size, weight, line spacing, and letter spacing all contribute too. Generous line
 
 Consider a small accountancy firm. Version one uses a clean, dark-green palette, a traditional serif for headings, and a neutral sans-serif for body copy. The overall impression: reliable, experienced, detail-oriented. Version two of the same firm uses a bright coral palette, an informal rounded sans-serif throughout, and inconsistent spacing. The services offered are identical, but the second version will likely face more hesitation from clients who are about to hand over sensitive financial information.
 
+![](figure:type-mood-trust)
+
 Neither palette nor typeface is objectively wrong. But only one is *aligned* with what the business needs to communicate. That alignment — between what you do, what you value, and what your visual identity signals — is the goal.
 
 ## Consistency Is the Real Deliverable

@@ -333,6 +333,92 @@ section, footer, nav, .theme-surface {
  * it scales to fill this box in both the tile (72px) and hero (100%) variants. */
 .pg-wrap svg { width: 100%; height: 100%; display: block; }
 
+/* ---------------------------------------------------------------------------
+ * Inline blog figures (src/components/PostFigure.tsx).
+ *
+ * Chrome (eyebrow, caption, card borders) is token-driven and follows the
+ * theme. The specimen cards do NOT: each supplies its own palette and type as
+ * CSS custom properties from the registry in post-figures.mjs, because those
+ * palettes are the FIGURE'S SUBJECT rather than site surfaces. They stay fixed
+ * in both themes, the way the hero graphics stay dark in light mode. That is
+ * the one sanctioned exception to the "never hardcode hex" rule in
+ * CONVENTIONS.md, and it lives in the registry, not here.
+ *
+ * NOTE: every card rule is scoped under `.bf` on purpose. The figure sits
+ * inside `.blog-prose`, whose element selectors (`.blog-prose p`, `.blog-prose
+ * h3`) are specificity 0-1-1 and would otherwise beat a bare `.bf-name`
+ * (0-1-0) — silently repainting the specimens in the site's display face and
+ * injecting prose margins into the cards. `.bf .bf-name` is 0-2-0 and wins.
+ * ------------------------------------------------------------------------- */
+.bf { margin: 2.4em 0; }
+.bf-eyebrow {
+  font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+}
+.bf-eyebrow::after {
+  content: ""; flex: 1; height: 1px;
+  background: var(--color-gold); opacity: 0.5;
+}
+.bf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.bf-cap {
+  font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.09em;
+  color: var(--text-muted); margin-top: 14px; line-height: 1.65;
+}
+
+/* One rule set drives every specimen; the vars come from post-figures.mjs.
+ * Each var carries a fallback so a specimen only declares what it changes. */
+.bf .bf-mock {
+  background: var(--bf-bg);
+  font-family: var(--bf-font);
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 26px 24px 24px; min-height: 258px;
+  display: flex; flex-direction: column;
+}
+.bf .bf-tag {
+  margin: 0 0 20px;
+  color: var(--bf-tag);
+  font-family: var(--bf-tag-font, inherit);
+  font-size: var(--bf-tag-size, 0.6rem);
+  font-style: var(--bf-tag-style, normal);
+  font-weight: var(--bf-tag-weight, 600);
+  letter-spacing: var(--bf-tag-ls, 0.14em);
+  text-transform: var(--bf-tag-transform, uppercase);
+}
+.bf .bf-name {
+  margin: 0 0 4px; line-height: 1.15;
+  color: var(--bf-head-color);
+  font-family: var(--bf-head-font);
+  font-size: var(--bf-head-size);
+  font-weight: var(--bf-head-weight);
+  letter-spacing: var(--bf-head-ls, normal);
+}
+.bf .bf-sub {
+  margin: 0 0 18px;
+  color: var(--bf-sub-color);
+  font-size: var(--bf-sub-size, 0.82rem);
+  font-style: var(--bf-sub-style, normal);
+  font-weight: var(--bf-sub-weight, 400);
+  letter-spacing: var(--bf-sub-ls, normal);
+  text-transform: var(--bf-sub-transform, none);
+}
+.bf .bf-body {
+  margin: 0 0 22px; font-size: 0.83rem; line-height: 1.65;
+  color: var(--bf-body-color);
+}
+.bf .bf-btn {
+  align-self: flex-start; margin-top: auto;
+  padding: 9px 18px; letter-spacing: 0.04em;
+  background: var(--bf-btn-bg); color: var(--bf-btn-fg);
+  border-radius: var(--bf-btn-radius, 2px);
+  font-family: var(--bf-btn-font, inherit);
+  font-size: var(--bf-btn-size, 0.72rem);
+  font-weight: var(--bf-btn-weight, 400);
+  text-transform: var(--bf-btn-transform, none);
+}
+.bf .bf-swatches { display: flex; gap: 5px; margin-top: 20px; }
+.bf .bf-sw { width: 26px; height: 8px; border-radius: 1px; }
+
 /* Nav responsive — desktop link group vs. mobile hamburger.
  * Base: desktop group shows, burger hidden; the @media block below flips them.
  * The burger button carries NO inline `display` so this class governs it. */
@@ -362,6 +448,11 @@ section, footer, nav, .theme-surface {
   }
   .lc-stack-pillars {
     grid-template-columns: 1fr !important;
+  }
+  /* Inline figure specimens stack rather than shrink — side-by-side cards
+     below ~380px each would crush the type the figure exists to show. */
+  .bf-grid {
+    grid-template-columns: 1fr;
   }
   /* /stack tech rows: name over description on narrow viewports, so the
      "why" column isn't crushed into a ribbon. */
