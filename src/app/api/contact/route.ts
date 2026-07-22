@@ -53,6 +53,13 @@ export async function POST(req: NextRequest) {
   if (
     !payload.consent ||
     name.length < 2 || name.length > 200 ||
+    // Bound the length BEFORE the regex runs. "." is itself a member of
+    // [^\s@], so `[^\s@]+\.[^\s@]+` is ambiguous and backtracks over every
+    // candidate separator; an unbounded address ending in "@" makes the final
+    // group unmatchable and costs O(n^2). 254 is the RFC 5321 forward-path
+    // limit, so no deliverable address is turned away. Order matters here:
+    // `||` short-circuits, and moving this below the test restores the flaw.
+    email.length > 254 ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
     message.length < 20 || message.length > 5000
   ) {
