@@ -40,6 +40,10 @@ test("every offer has de/en prices, an absolute werk href, and an accent", () =>
     // #118 moved these offers to the werk storefront. The href is absolute and
     // callers must not locale-prefix it; a relative path would only 301-hop.
     assert.ok(o.href.startsWith("https://werk.lechner-studios.at/"), `${o.key} href must be an absolute werk URL`);
-    assert.match(o.accent, /^#[0-9a-f]{6}$/i, `${o.key} accent must be a hex colour`);
+    // A palette token, never a fixed hex. The accent paints an edge on --card,
+    // which changes between themes, so a hardcoded colour cannot stay legible
+    // in both: lake-navy measured 1.53 against the dark card before this.
+    assert.match(o.accent, /^var\(--[a-z0-9-]+\)$/, `${o.key} accent must be a palette token`);
+    assert.doesNotMatch(o.accent, /#[0-9a-f]{3,6}/i, `${o.key} accent must not hardcode a hex`);
   }
 });
