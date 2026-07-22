@@ -55,6 +55,10 @@ webdesign:
     keyword: "Direktbuchung Website Pension"
     intent: "a guesthouse site that wins direct bookings instead of paying portal commission — technically"
     offer: direktbucher
+    # The one topic whose argument the calculator actually serves: the reader is
+    # weighing commission against a build. Deliberately not set on the other
+    # direktbucher topics — the same calculator on five posts reads as filler.
+    widget: portal-commission
   - slug: ai-in-web-development
     keyword: "KI in der Webentwicklung"
     intent: "what AI does and doesn't do when building a real website — a tool that speeds the craft, not a replacement for it"
