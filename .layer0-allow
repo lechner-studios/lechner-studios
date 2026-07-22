@@ -52,3 +52,20 @@ public/llms.txt
 # NAP consistency. The digit run trips the phone-like guard; it is the studio's
 # own published contact number, not third-party PII.
 src/app/(site)/[locale]/layout.tsx
+
+# Studio Director knowledge base. States the Direktbucher package prices and
+# care-plan rates so the assistant can answer a prospect without inventing
+# figures. Verified 2026-07-22 against werk.lechner-studios.at: identical.
+# Same rationale as offers.mjs, and the honest alternative is worse — an
+# assistant with no prices guesses.
+#
+# NOTE: this file predates its exemption. It carried these amounts for weeks
+# while the guard never fired, because the local pre-commit hook cannot see
+# commits authored through the GitHub API. The server-side scan added in
+# .github/workflows/layer0-scan.yml is what actually closes that gap.
+src/lib/studio-director/knowledge.ts
+
+# The Layer-0 scanner itself. A scanner necessarily contains the patterns it
+# scans for, so its own source trips the currency rule. The local pre-commit
+# hook escapes this only because it lives in .git/hooks and is never in a diff.
+.github/workflows/layer0-scan.yml
