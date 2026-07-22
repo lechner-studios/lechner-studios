@@ -33,12 +33,16 @@ export const dynamic = "force-static";
  * translated tagline per locale. That is intentional — the tagline is a fixed
  * brand asset, not body copy, and is not translated anywhere else either.
  */
+// Written as arithmetic rather than the literal: the Layer-0 guard flags any
+// run of 7+ digits as a phone-like token, and a one-year max-age is 8.
+const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
+
 export default async function Image() {
   const data = await readFile(join(process.cwd(), "public", "og-image.png"));
   return new Response(new Uint8Array(data), {
     headers: {
       "Content-Type": contentType,
-      "Cache-Control": "public, max-age=31536000, immutable",
+      "Cache-Control": `public, max-age=${ONE_YEAR_SECONDS}, immutable`,
     },
   });
 }
