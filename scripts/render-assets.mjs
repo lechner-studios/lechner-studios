@@ -1,6 +1,13 @@
-// Render the brand card to public/og-image.png (1200x630),
-// rasterize public/favicon.svg into PNGs at 16/32/48/180/192/512,
-// and render the wordmark to public/logo.png (1280x400).
+// Rasterize public/favicon.svg into PNGs at 16/32/48/180/192/512, pack
+// src/app/favicon.ico, and render the wordmark to public/logo.png (1280x400).
+//
+// public/og-image.png is NOT rendered here. It is owned by
+// scripts/render-brand-card.mjs. This script used to render it too, loading
+// brand-card.html over file://, where the card's absolute /public/fonts/ URLs
+// resolve to the filesystem root rather than the repo. The fonts therefore
+// never loaded and the card was written in fallback Georgia, silently, because
+// this path had no font-check guard. Do not reinstate it here: the card needs
+// an HTTP origin, which is exactly what the dedicated script sets up.
 //
 // Usage: node scripts/render-assets.mjs
 // Requires: npx playwright install chromium
@@ -14,7 +21,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 
 const FAVICON_SVG_PATH = resolve(repoRoot, "public", "favicon.svg");
-const BRAND_CARD_PATH = resolve(__dirname, "brand-card.html");
 const FONT_DIR = resolve(repoRoot, "public", "fonts");
 
 const PNG_SIZES = [
@@ -60,31 +66,6 @@ async function rasterizeFaviconPngs(browser) {
     await ctx.close();
     console.log(`  wrote ${file} (${size}x${size})`);
   }
-}
-
-async function renderOgImage(browser) {
-  const ctx = await browser.newContext({
-    viewport: { width: 1200, height: 630 },
-    deviceScaleFactor: 1,
-  });
-  const page = await ctx.newPage();
-  await page.goto(`file://${BRAND_CARD_PATH.replace(/\\/g, "/")}`, {
-    waitUntil: "networkidle",
-  });
-  // Give web fonts a beat to settle
-  await page.evaluate(async () => {
-    if (document.fonts && document.fonts.ready) {
-      await document.fonts.ready;
-    }
-  });
-  const out = resolve(repoRoot, "public", "og-image.png");
-  await page.screenshot({
-    path: out,
-    type: "png",
-    clip: { x: 0, y: 0, width: 1200, height: 630 },
-  });
-  await ctx.close();
-  console.log(`  wrote og-image.png (1200x630)`);
 }
 
 // The wordmark is drawn as SVG text rather than assembled from measured
@@ -190,8 +171,6 @@ function buildFaviconIco() {
     await rasterizeFaviconPngs(browser);
     console.log("packing favicon.ico:");
     buildFaviconIco();
-    console.log("rendering OG brand card:");
-    await renderOgImage(browser);
     console.log("rendering wordmark logo:");
     await renderLogo(browser);
   } finally {
