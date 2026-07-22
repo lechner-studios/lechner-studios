@@ -28,7 +28,13 @@
 
 const SANS = '"Helvetica Neue", Arial, sans-serif';
 const SERIF = 'Georgia, "Times New Roman", serif';
-const ROUNDED = '"Trebuchet MS", "Segoe UI", Verdana, sans-serif';
+// Self-hosted Quicksand (OFL), wired in the locale layout as
+// `--font-specimen-rounded`. SPECIMEN type only — outside the ADR-0027 brand
+// set on purpose, and it must never dress a Lechner Studios surface. The
+// system stack behind it is a fallback, not the intended render: an earlier
+// pass used Trebuchet MS alone, which only approximated the "informal rounded
+// sans-serif" the EN post describes.
+const ROUNDED = 'var(--font-specimen-rounded), "Trebuchet MS", "Segoe UI", Verdana, sans-serif';
 // The site's own display face, self-hosted. Used where a specimen is meant to
 // read as a considered serif rather than a system default.
 const DISPLAY = "var(--font-display), Georgia, serif";

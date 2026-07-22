@@ -59,6 +59,28 @@ const generalSans = localFont({
   ],
 });
 
+// NOT a brand face. Quicksand (OFL) exists solely as SPECIMEN type inside a
+// blog figure: the EN "concrete example" post describes an accountancy firm
+// branded with "an informal rounded sans-serif", and the figure has to show
+// that rather than approximate it with a system font.
+//
+// Deliberately outside the ADR-0027 type set (General Sans / Cormorant /
+// Italiana / IBM Plex Mono) and never to be used on a Lechner Studios surface
+// — hence the `--font-specimen-*` name rather than `--font-*`. Weights track
+// exactly what the specimen's CSS asks for: 400 body/sub, 600 tag, 700 heading
+// and button. `preload: false` because one figure on one post should not cost
+// every other page a font fetch.
+const specimenRounded = localFont({
+  variable: "--font-specimen-rounded",
+  display: "swap",
+  preload: false,
+  src: [
+    { path: "../../../../public/fonts/quicksand-400.woff2", weight: "400", style: "normal" },
+    { path: "../../../../public/fonts/quicksand-600.woff2", weight: "600", style: "normal" },
+    { path: "../../../../public/fonts/quicksand-700.woff2", weight: "700", style: "normal" },
+  ],
+});
+
 const ibmPlexMono = localFont({
   variable: "--font-mono",
   display: "swap",
@@ -220,7 +242,7 @@ export default async function LocaleRootLayout({
   return (
     <html lang={HREFLANG[locale]}>
       <body
-        className={`${cormorantBold.variable} ${italiana.variable} ${cormorant.variable} ${generalSans.variable} ${ibmPlexMono.variable} antialiased`}
+        className={`${cormorantBold.variable} ${italiana.variable} ${cormorant.variable} ${generalSans.variable} ${ibmPlexMono.variable} ${specimenRounded.variable} antialiased`}
       >
         <script
           dangerouslySetInnerHTML={{
