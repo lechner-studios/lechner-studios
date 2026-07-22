@@ -16,7 +16,11 @@ keywords:
   - visual identity
   - brand strategy
   - SMB branding
-graphic: type-system
+image: /blog/rebrand-when-worth-it.jpg
+imageAlt: Monochrome image featuring a message board with 'I LOVE PHOTOGRAPHY' and a plant.
+imageCredit: Nothing Ahead
+imageCreditUrl: https://www.pexels.com/@ian-panelo
+imagePexelsUrl: https://www.pexels.com/photo/black-and-white-photo-of-a-board-with-a-script-and-a-potted-flower-8230313/
 ---
 Your logo has been the same since 2009. A colleague mentions it looks "a bit dated." Someone on your team floats the idea of a rebrand. Sound familiar? The question of whether to refresh a brand is one of the most common, and most emotionally charged, decisions a small or mid-sized business faces. The honest answer is that sometimes a rebrand is exactly the right move, and sometimes it is an expensive distraction. Knowing the difference matters.
 
