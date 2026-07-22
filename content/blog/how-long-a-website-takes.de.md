@@ -5,7 +5,11 @@ excerpt: "„Wie lange dauert das?“ ist nach dem Preis die zweite Frage. Die e
 date: "2026-06-15"
 category: "Web & Design"
 keywords: ["wie lange dauert eine Website", "Website Dauer", "Website Projekt Ablauf", "Website erstellen lassen", "Webdesign Ablauf"]
-graphic: dom-diff
+image: /blog/how-long-a-website-takes.jpg
+imageAlt: A vibrant workspace featuring colorful code on computer monitors, ideal for developers.
+imageCredit: Jakub Zerdzicki
+imageCreditUrl: https://www.pexels.com/@jakubzerdzicki
+imagePexelsUrl: https://www.pexels.com/photo/colorful-computer-programming-workspace-setup-34212916/
 ---
 
 Nach dem Preis ist die Dauer die häufigste Frage, und auch hier gibt es keine ehrliche Pauschalzahl, sondern eine Bandbreite. Eine schlanke, klar umrissene Website kann in wenigen Wochen stehen; ein umfangreicher, mehrsprachiger Auftritt mit Funktionen braucht entsprechend länger. Interessant ist aber, dass die Dauer selten an der reinen Bauzeit hängt. Verzögert wird ein Projekt fast immer an denselben zwei Stellen: Inhalte und Entscheidungen.

@@ -19,6 +19,12 @@ const OUT_DIR = path.join(ROOT, "public", "blog");
 const IMAGE_FIELDS = ["image", "imageAlt", "imageCredit", "imageCreditUrl", "imagePexelsUrl"];
 const dryRun = process.argv.includes("--dry-run");
 
+// --slug=a,b,c restricts the run to named posts. Without it every post lacking
+// an image is fetched, which is rarely what you want now that most posts carry
+// a crafted graphic instead.
+const slugArg = process.argv.find((a) => a.startsWith("--slug="));
+const onlySlugs = slugArg ? new Set(slugArg.slice("--slug=".length).split(",").map((s) => s.trim()).filter(Boolean)) : null;
+
 const apiKey = process.env.PEXELS_API_KEY;
 if (!apiKey) { console.error("PEXELS_API_KEY not set (use --env-file=.env.local)"); process.exit(1); }
 
@@ -44,7 +50,11 @@ for (const enFile of enFiles) {
   const enPath = path.join(BLOG_DIR, `${slug}.en.md`);
   const dePath = path.join(BLOG_DIR, `${slug}.de.md`);
   const { data: enFm } = matter(fs.readFileSync(enPath, "utf8"));
+  if (onlySlugs && !onlySlugs.has(slug)) { skipped++; continue; }
   if (enFm.image) { console.log(`  skip  ${slug} (already has image)`); usedUrls.add(enFm.imagePexelsUrl); skipped++; continue; }
+  // A crafted graphic outranks a photo at render, so fetching one would spend
+  // API quota and commit a jpg nothing displays. Same guard as generate.mjs.
+  if (enFm.graphic) { console.log(`  skip  ${slug} (has graphic "${enFm.graphic}")`); skipped++; continue; }
   if (!fs.existsSync(dePath)) { console.warn(`  WARN  ${slug} has no .de.md — skipping`); skipped++; continue; }
 
   try {
