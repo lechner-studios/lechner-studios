@@ -20,14 +20,20 @@ export const OFFERS = {
     href: "https://werk.lechner-studios.at/website-check",
     title: "Website-Check",
     price: { de: "€290", en: "€290" },
-    accent: "#254268",
+    // Palette token, not a fixed hex. The card sits on --card, which is near
+    // white in light and #20242B in dark, so a fixed lake-navy edge measured
+    // 1.53 against the dark card and was effectively invisible. The tokens
+    // carry a per-theme value (#254268 / #8FA8C5), giving 10.09 and 6.36.
+    accent: "var(--accent)",
   },
   "direktbucher": {
     key: "direktbucher",
     href: "https://werk.lechner-studios.at/pension-website-tirol",
     title: "Direktbucher",
     price: { de: "ab €3.900", en: "from €3,900" },
-    accent: "#5E8263",
+    // #4A6A4E / #8FB89A: 6.00 light, 7.04 dark. Slightly deeper than the
+    // previous #5E8263 in light mode; both are canon pine variants.
+    accent: "var(--accent-2)",
   },
 };
 
