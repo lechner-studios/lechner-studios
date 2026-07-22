@@ -47,3 +47,20 @@ test("identical body yields identical result (pure, no mutation)", () => {
   assert.equal(first, second);
   assert.equal(body, before);
 });
+
+test("inline-figure sentinel and images contribute no words", () => {
+  // `![](figure:type-mood)` is the blog's inline-figure sentinel (see
+  // post-figures.mjs). Stripping it with the link rule alone leaves a stray
+  // "!" token behind, so an image-aware rule has to run first.
+  //
+  // Asserted on the 200-word / 1-minute boundary: exactly 200 real words plus
+  // the sentinel. One phantom word tips this to 201 and a 2-minute result, so
+  // this only passes if the sentinel truly contributes nothing.
+  assert.equal(readingTime(`${words(200)}
+
+![](figure:type-mood)`), 1);
+  // Image alt text is not prose a reader reads either.
+  assert.equal(readingTime(`${words(200)}
+
+![Alt words here now](/img/x.png)`), 1);
+});

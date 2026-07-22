@@ -39,6 +39,8 @@ Ein häufiger Fehler ist, Schriften nach persönlichem Gefallen zu wählen, ohne
 
 Stellen Sie sich zwei Tischlereibetriebe vor, die dasselbe Leistungsangebot haben. Betrieb A verwendet eine schwarze, serifenlose Schrift auf weißem Grund, kombiniert mit einem kühlen Grau. Das wirkt professionell, aber auch ein wenig kalt, eher wie ein Tech-Unternehmen als wie ein Handwerksbetrieb. Betrieb B wählt eine leicht warme Cremeton als Hintergrundfarbe, eine klassische Serifenschrift für Überschriften und ein sattes Waldgrün als Akzentfarbe. Ohne ein einziges Wort über Qualität oder Tradition zu verlieren, transportiert Betrieb B genau das, durch die reine Wahl von Farbe und Schrift.
 
+![](figure:type-mood-craft)
+
 Dieser Unterschied entscheidet mit, ob ein potenzieller Kunde das Gefühl hat: *Das ist genau das Richtige für mich* – oder ob er weiterschaut. Und das passiert, bevor er den ersten Satz gelesen hat.
 
 ## Konsistenz als eigentliche Stärke

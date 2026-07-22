@@ -28,6 +28,11 @@ function stripMarkdownSyntax(text) {
     .replace(/`([^`]*)`/g, (_match, inner) => inner)
     // ATX headings: "## Heading" -> "Heading" (the "#" markers are not words).
     .replace(/^#{1,6}\s+/gm, "")
+    // Images, including the `![](figure:key)` inline-figure sentinel, drop
+    // entirely — nothing inside them is prose. This must run BEFORE the link
+    // rule, which would otherwise consume the "[...](...)" half and leave a
+    // dangling "!" behind to be counted as a word.
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
     // Links: "[text](url)" -> "text" (the URL is not prose).
     .replace(/\[([^\]]*)\]\([^)]*\)/g, (_match, anchorText) => anchorText);
 }
