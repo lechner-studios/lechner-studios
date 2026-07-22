@@ -1,4 +1,3 @@
-import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -7,105 +6,39 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const runtime = "nodejs";
 
-const TAGLINES: Record<string, string> = {
-  de: "Design-orientiertes Digitalstudio aus Tirol.",
-  en: "Design-led digital studio from Tirol.",
-};
+// Prerendered at build time, so the file read below happens during the build
+// and never on a request. Also means no serverless invocation per crawler hit.
+export const dynamic = "force-static";
 
-// Brand colours
-const INK = "#101216";
-const GOLD = "#B8944D";
-const OFF_WHITE = "#F7F8F8";
-const MUTED = "rgba(247,248,248,0.7)";
-const FAINT = "rgba(247,248,248,0.5)";
-
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const tagline = TAGLINES[locale] ?? TAGLINES.de;
-
-  // Satori needs a TTF (can't parse woff2). Self-hosted font read from the repo
-  // at request time — NO third-party / runtime network request (was a jsdelivr
-  // fetch). Falls back to the default font if the read fails so it never crashes.
-  let fontData: Buffer | null = null;
-  try {
-    fontData = await readFile(
-      join(process.cwd(), "public/fonts/cormorant-700.ttf"),
-    );
-  } catch {
-    fontData = null;
-  }
-
-  const fontFamily = fontData ? "Cormorant" : "serif";
-
-  const element = (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        backgroundColor: INK,
-        padding: "80px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          fontFamily,
-          fontSize: 110,
-          lineHeight: 1,
-          color: OFF_WHITE,
-        }}
-      >
-        <span style={{ color: OFF_WHITE, fontFamily }}>lechner</span>
-        <span style={{ color: GOLD, fontFamily }}>.</span>
-        <span style={{ color: OFF_WHITE, fontFamily }}>studios</span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          marginTop: 36,
-          fontFamily,
-          fontSize: 34,
-          color: MUTED,
-        }}
-      >
-        {tagline}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          marginTop: 56,
-          fontFamily,
-          fontSize: 22,
-          letterSpacing: 6,
-          color: FAINT,
-        }}
-      >
-        WATTENS · TIROL · ÖSTERREICH
-      </div>
-    </div>
-  );
-
-  return new ImageResponse(
-    element,
-    fontData
-      ? {
-          ...size,
-          fonts: [
-            {
-              name: "Cormorant",
-              data: fontData,
-              weight: 700,
-              style: "normal",
-            },
-          ],
-        }
-      : { ...size },
-  );
+/**
+ * Serves the canonical brand card (public/og-image.png) as the Open Graph and
+ * Twitter image.
+ *
+ * This route used to rebuild a *second* card in Satori, and the two had drifted
+ * badly. The generated one set ".studios" in Cormorant rather than Italiana,
+ * which breaks the mark spec (ADR-0027) on the single most-seen rendering of
+ * the wordmark — every link shared to WhatsApp, LinkedIn or Slack. It also used
+ * a dark #101216 ground and #F7F8F8 off-white, neither of which is in the cool
+ * Alpine palette (ADR-0037; #F7F8F8 was explicitly rejected as too close to
+ * --card), and a "WATTENS · TIROL · ÖSTERREICH" line instead of the canonical
+ * "Tirol · Österreich".
+ *
+ * Serving the rendered card instead of re-implementing it removes the second
+ * wordmark implementation entirely, so the two can no longer diverge. The card
+ * is produced by scripts/render-brand-card.mjs, which asserts the real faces
+ * loaded before it writes.
+ *
+ * Consequence worth knowing: the card carries the brand tagline
+ * "Web, Identity & Growth" in both locales, where the Satori version had a
+ * translated tagline per locale. That is intentional — the tagline is a fixed
+ * brand asset, not body copy, and is not translated anywhere else either.
+ */
+export default async function Image() {
+  const data = await readFile(join(process.cwd(), "public", "og-image.png"));
+  return new Response(new Uint8Array(data), {
+    headers: {
+      "Content-Type": contentType,
+      "Cache-Control": "public, max-age=31536000, immutable",
+    },
+  });
 }
