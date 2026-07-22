@@ -20,6 +20,8 @@ export type BlogMeta = {
   offer: OfferKey;
   /** Crafted technical graphic key (src/lib/post-graphics.mjs). Optional; falls back to a photo, then a flat band. */
   graphic?: string | undefined;
+  /** Interactive widget key (src/lib/post-widgets.mjs). Optional; absent means no widget renders. */
+  widget?: string | undefined;
   /** Self-hosted photo path (/blog/<slug>.jpg) and its Pexels attribution. All optional; a post without a photo is still valid. */
   image?: string | undefined;
   imageAlt?: string | undefined;
@@ -71,6 +73,9 @@ function toMeta(data: Record<string, unknown>, content: string, slug: string, lo
     // Not defaulted (unlike offer): an absent graphic is a valid state — the
     // renderer falls back to the post's photo, then a flat band.
     graphic: typeof data.graphic === "string" ? data.graphic : undefined,
+    // Not defaulted, same reasoning as graphic: an absent widget is a valid
+    // state — no widget renders.
+    widget: typeof data.widget === "string" ? data.widget : undefined,
     // Image fields are NOT defaulted (unlike offer): an absent photo is a
     // valid, expected state (PostImage renders a plain fallback block).
     image: typeof data.image === "string" ? data.image : undefined,

@@ -11,6 +11,7 @@ import { pageMetadata } from "../../../../../lib/seo";
 import Nav from "../../../../../components/Nav";
 import Footer from "../../../../../components/Footer";
 import PostMedia, { pickGraphic } from "../../../../../components/PostMedia";
+import PostWidget from "../../../../../components/PostWidget";
 import BlogOfferCta from "../../../../../components/BlogOfferCta";
 import PostFigure from "../../../../../components/PostFigure";
 import { figureKeyFromSrc } from "../../../../../lib/post-figures.mjs";
@@ -254,6 +255,8 @@ export default async function BlogArticlePage({
                 {content}
               </ReactMarkdown>
             </div>
+
+            <PostWidget widget={meta.widget} dict={dict} />
 
             <BlogOfferCta offer={meta.offer} />
           </article>

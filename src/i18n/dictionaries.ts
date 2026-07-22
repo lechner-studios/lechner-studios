@@ -104,6 +104,17 @@ export const dictionaries = {
         CTA: "Book a consultation",
       },
     },
+    postWidget: {
+      "portal-commission": {
+        heading: "What portal commission costs",
+        revenueLabel: "Annual booking revenue",
+        rateLabel: "Portal commission rate",
+        rateNote:
+          "Booking portals typically charge around 15% per booking. Adjust it to match your own agreements. Some guests will always book through a portal.",
+        annualLabel: "Commission paid per year",
+        monthlyLabel: "Monthly equivalent",
+      },
+    },
     hero: {
       overline: "DESIGN-LED · TIROL · AI-NATIVE",
       tagline: "Websites, apps & automation,\nbuilt to measure.",
@@ -652,6 +663,17 @@ export const dictionaries = {
         SUB: "Steuerberatung",
         BODY: "Jahresabschluss, Lohnverrechnung und Steuererklärungen für inhabergeführte Betriebe in der Region.",
         CTA: "Beratung vereinbaren",
+      },
+    },
+    postWidget: {
+      "portal-commission": {
+        heading: "Was Portal-Provision kostet",
+        revenueLabel: "Jährlicher Buchungsumsatz",
+        rateLabel: "Provisionssatz des Portals",
+        rateNote:
+          "Buchungsportale verlangen üblicherweise rund 15 % je Buchung. Passen Sie den Wert an Ihre eigenen Konditionen an. Manche Gäste buchen immer über ein Portal.",
+        annualLabel: "Provision pro Jahr",
+        monthlyLabel: "Entspricht pro Monat",
       },
     },
     hero: {

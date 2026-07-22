@@ -68,6 +68,15 @@ async function main() {
         ? picked.graphic
         : CATEGORY_GRAPHIC[picked.category];
     if (g) { post.en.frontmatter.graphic = g; post.de.frontmatter.graphic = g; }
+    // Optional interactive widget (topics.yaml `widget:`), owner data — same
+    // as offer/graphic, never model output. No category default exists (only
+    // one widget key so far), so an invalid or absent value simply attaches
+    // nothing; lintPost below is the net that catches a typo.
+    const { isWidgetKey } = await import("../../src/lib/post-widgets.mjs");
+    if (isWidgetKey(picked.widget)) {
+      post.en.frontmatter.widget = picked.widget;
+      post.de.frontmatter.widget = picked.widget;
+    }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
     violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];

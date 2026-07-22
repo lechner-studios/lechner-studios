@@ -19,6 +19,10 @@
 #   only way to reach the photo path, for a post where atmosphere (a real
 #   developer workspace) serves better than a diagram. With neither a graphic
 #   nor a photo, the post falls back to a plain tinted band.
+# widget = OPTIONAL. Which interactive calculator renders after the post body,
+#   before the offer CTA (see src/lib/post-widgets.mjs). Valid keys:
+#   portal-commission. There is no category default — omit it and no widget
+#   renders. A typo is caught by lint.mjs, same as offer/graphic.
 webdesign:
   - slug: website-without-page-builder
     keyword: "Website ohne Baukasten"

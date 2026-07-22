@@ -11,6 +11,7 @@ const FIELD_ORDER = [
   "keywords",
   "offer",
   "graphic",
+  "widget",
   "image",
   "imageAlt",
   "imageCredit",

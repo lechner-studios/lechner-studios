@@ -69,3 +69,10 @@ src/lib/studio-director/knowledge.ts
 # scans for, so its own source trips the currency rule. The local pre-commit
 # hook escapes this only because it lives in .git/hooks and is never in a diff.
 .github/workflows/layer0-scan.yml
+
+# Portal-commission calculator widget. It displays money it computed from the
+# visitor's own inputs (Intl.NumberFormat with a currency code), which trips
+# the currency-code rule the same way offers.mjs's fixed prices do — a
+# calculator that outputs money cannot avoid a currency token. No fixed price
+# lives here; see src/lib/post-widgets.mjs / src/components/PostWidget.tsx.
+src/components/widgets/PortalCommission.tsx
