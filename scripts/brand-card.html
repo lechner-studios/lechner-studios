@@ -65,7 +65,10 @@
 
   /* LEFT SIDE */
   .left {
-    padding: 5% 5% 5% 7%;
+    /* Left inset 7%→12%: at 7% (~40px of the 571px column) the wordmark hugged
+       the edge and left a wide dead gap before the pillar grid. .location below
+       is pinned to the same value so the two stay flush. */
+    padding: 5% 5% 5% 12%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,8 +78,14 @@
   }
 
   .wordmark-svg {
-    width: 58%;
-    max-width: 360px;
+    /* Explicit px, not a percentage: `.left` is a flex column with
+       align-items:flex-start, so the SVG is shrink-to-fit and a % width does
+       NOT resolve against the 474px content box (`width:80%` computed to 240px,
+       not 379px). The glyphs span 276 of the 380 viewBox units (0.726), so
+       400px yields a ~290px mark inside a 474px column. Scaling the element
+       beats retightening the viewBox, which risks clipping descenders. */
+    width: 400px;
+    max-width: 100%;
     height: auto;
     display: block;
   }
@@ -84,9 +93,11 @@
   .tagline {
     margin-top: 18px;
     padding-top: 10px;
-    border-top: 1px solid rgba(26,24,18,0.25);
+    border-top: 1px solid rgba(21,23,26,0.25);
     font-family: 'Cormorant', serif;
-    font-size: 11px;
+    /* Scaled with the wordmark (×1.38) so the rule above it keeps tracking the
+       mark's width rather than falling short of it. */
+    font-size: 15px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink);
@@ -98,7 +109,7 @@
   .location {
     position: absolute;
     bottom: 6%;
-    left: 7%;
+    left: 12%;
     font-family: 'Cormorant', serif;
     font-weight: 400;
     font-size: 10px;
