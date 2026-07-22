@@ -45,12 +45,25 @@ async function main() {
     de: readRecentTitles(BLOG_DIR, "de", 8),
   };
 
-  // Generate + lint, retrying on lint failure — the model occasionally trips a
-  // scope/structure rule; a fresh generation usually clears it.
+  // Generate + lint, feeding each attempt's violations back into the next.
+  //
+  // This loop used to retry BLIND: three independent generations, none of them
+  // told what the previous one got wrong. That works for a rule the model trips
+  // at random and fails for every countable one. A real run went 10 -> 8 -> 7
+  // dashes against a cap of 6 and exited, and tripped a different intensifier
+  // each round. The loop was discarding the one thing that makes these rules
+  // trivial to satisfy: an exact count and an exact word. lint.mjs writes its
+  // violations to be actionable for precisely this reason.
+  //
+  // Five attempts, not three: converging on a countable target takes a round or
+  // two, and an informed retry is worth more than a blind one.
+  const MAX_ATTEMPTS = 5;
   let post;
-  let violations = [];
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey, recentTitles });
+  // null = nothing to correct yet (first attempt), and also the success signal
+  // once a pass comes back clean. Otherwise { en: [...], de: [...] }.
+  let violations = null;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    post = await writePost({ ...picked, pillarPath: picked.pillar, date, apiKey, recentTitles, violations });
     // `offer` is owner data from topics.yaml, never model output — the writer is
     // deliberately not told about offers, so its "NO prices" rule stays true.
     if (picked.offer !== undefined) {
@@ -79,12 +92,16 @@ async function main() {
     }
     const enViol = lintPost({ frontmatter: post.en.frontmatter, body: post.en.body, pillarPath: picked.pillar, locale: "en" });
     const deViol = lintPost({ frontmatter: post.de.frontmatter, body: post.de.body, pillarPath: picked.pillar, locale: "de" });
-    violations = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
-    if (!violations.length) break;
-    console.error(`Attempt ${attempt}/3 — lint failed:\n` + violations.join("\n"));
+    // Kept per-locale: writer.mjs generates each locale in its own call, so the
+    // German attempt must not be handed the English attempt's violations.
+    violations = { en: enViol, de: deViol };
+    const flat = [...enViol.map((x) => `[en] ${x}`), ...deViol.map((x) => `[de] ${x}`)];
+    if (!flat.length) { violations = null; break; }
+    console.error(`Attempt ${attempt}/${MAX_ATTEMPTS} — lint failed:\n` + flat.join("\n"));
   }
-  if (violations.length) {
-    console.error("Lint failed after 3 attempts:\n" + violations.join("\n"));
+  if (violations) {
+    const flat = [...violations.en.map((x) => `[en] ${x}`), ...violations.de.map((x) => `[de] ${x}`)];
+    console.error(`Lint failed after ${MAX_ATTEMPTS} attempts:\n` + flat.join("\n"));
     process.exit(3);
   }
 
