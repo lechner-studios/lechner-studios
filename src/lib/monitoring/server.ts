@@ -13,6 +13,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import type * as SentryNode from "@sentry/node";
+import { isEuSentryDsn, EU_DSN_REJECTED } from "./dsn";
 
 let clientPromise: Promise<typeof SentryNode | null> | null = null;
 
@@ -22,8 +23,9 @@ async function getSentry(): Promise<typeof SentryNode | null> {
   // EU-region guard: server events are NOT subject to the browser CSP, so a
   // non-EU DSN would silently ship server-side errors to a US ingest host and
   // falsify the Datenschutz EU-region statement. Refuse it. (See OWNER ACTION.)
-  if (!dsn.includes(".de.sentry.io")) {
-    console.error("[monitoring] NEXT_PUBLIC_SENTRY_DSN is not an EU-region DSN (*.de.sentry.io) — server monitoring disabled to honour the EU-region disclosure.");
+  // Host comparison, not a substring match — see ./dsn.ts.
+  if (!isEuSentryDsn(dsn)) {
+    console.error(EU_DSN_REJECTED);
     return null;
   }
   if (!clientPromise) {

@@ -15,6 +15,8 @@
 // false), but the disclosure is still required.
 // ─────────────────────────────────────────────────────────────
 
+import { isEuSentryDsn, EU_DSN_REJECTED } from "./dsn";
+
 let started = false;
 
 export async function initClientMonitoring(): Promise<void> {
@@ -24,8 +26,9 @@ export async function initClientMonitoring(): Promise<void> {
   // EU-region guard: the CSP connect-src and the Datenschutz disclosure both
   // assert Sentry's EU data region. A non-EU DSN would falsify that, so refuse
   // it rather than ship events to a US ingest host. (See OWNER ACTION in PR.)
-  if (!dsn.includes(".de.sentry.io")) {
-    console.error("[monitoring] NEXT_PUBLIC_SENTRY_DSN is not an EU-region DSN (*.de.sentry.io) — monitoring disabled to honour the EU-region disclosure.");
+  // Host comparison, not a substring match — see ./dsn.ts.
+  if (!isEuSentryDsn(dsn)) {
+    console.error(EU_DSN_REJECTED);
     return;
   }
   started = true;
