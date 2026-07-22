@@ -65,3 +65,19 @@ test("omits the graphic key when absent", () => {
   emitPost("no-g", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
   assert.doesNotMatch(fs.readFileSync(path.join(dir, "no-g.en.md"), "utf8"), /graphic/);
 });
+
+test("writes the widget key when present", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-22", category: "Web & Design", keywords: ["a","b","c","d","e"], widget: "portal-commission" };
+  emitPost("with-w", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  assert.equal(matter(fs.readFileSync(path.join(dir, "with-w.en.md"), "utf8")).data.widget, "portal-commission");
+});
+test("omits the widget key entirely when absent, rather than writing undefined", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "blogemit-"));
+  const fm = { title: "T", description: "D", excerpt: "E", date: "2026-07-22", category: "Web & Design", keywords: ["a","b","c","d","e"] };
+  emitPost("no-w", { en: { frontmatter: fm, body: "B" }, de: { frontmatter: fm, body: "B" } }, dir);
+  const raw = fs.readFileSync(path.join(dir, "no-w.en.md"), "utf8");
+  assert.doesNotMatch(raw, /widget/, "an absent widget must not appear in the file at all");
+  const en = matter(raw);
+  assert.equal("widget" in en.data, false);
+});
