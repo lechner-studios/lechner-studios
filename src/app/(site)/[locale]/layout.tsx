@@ -192,7 +192,13 @@ function buildJsonLd(locale: Locale) {
           latitude: 47.293,
           longitude: 11.601,
         },
-        areaServed: ["AT", "DE", "CH"],
+        // No areaServed on purpose. It used to read ["AT","DE","CH"], which
+        // encoded a ceiling the business does not apply: a client in Italy or
+        // England is a client. Omitting the property makes no claim at all,
+        // which is both accurate and better for local relevance than a broad
+        // region competing with the address and geo above. The "areaServed":
+        // "Tirol" line in the /seo schema artifact is unaffected — that one is
+        // backed by the Service node live on werk.lechner-studios.at.
       },
       {
         "@type": "Person",
