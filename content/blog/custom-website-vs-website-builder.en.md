@@ -34,4 +34,4 @@ Ask what the site has to do over the next two to three years, not just today. If
 
 Either way, the worst outcome is choosing by default. A builder picked deliberately can be excellent. A custom site built without a clear reason can be overkill. The decision is about fit, not status.
 
-If you are weighing this up for your own project, take a look at [our web design work](/en/webdesign), or [start a project](/en/contact) for a straight, no-pressure read on which way to go.
+If you are weighing this up for your own project, take a look at [our web design work](https://werk.lechner-studios.at), or [start a project](/en/contact) for a straight, no-pressure read on which way to go.

@@ -34,4 +34,4 @@ Fragen Sie sich, was die Website über die nächsten zwei bis drei Jahre leisten
 
 So oder so: Das schlechteste Ergebnis ist eine Wahl aus Gewohnheit. Ein bewusst gewählter Baukasten kann hervorragend sein. Eine maßgeschneiderte Website ohne klaren Grund kann überdimensioniert sein. Am Ende zählt die Passung, nicht der Status.
 
-Wenn Sie das für Ihr eigenes Projekt abwägen, werfen Sie einen Blick auf [unsere Webdesign-Arbeit](/de/webdesign), oder [sprechen wir direkt](/de/contact) und gehen es gemeinsam durch, klar und unverbindlich.
+Wenn Sie das für Ihr eigenes Projekt abwägen, werfen Sie einen Blick auf [unsere Webdesign-Arbeit](https://werk.lechner-studios.at), oder [sprechen wir direkt](/de/contact) und gehen es gemeinsam durch, klar und unverbindlich.
