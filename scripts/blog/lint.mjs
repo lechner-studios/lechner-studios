@@ -85,7 +85,9 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
   // not a ban. Published posts averaged ~35 per post; natural prose is 2-5 per
   // 1000 words.
   const dashes = (body.match(/[—–]/g) || []).length;
-  if (dashes > 6) v.push(`cadence: ${dashes} dashes in the body (max 6) — use commas, colons or shorter sentences`);
+  // States the arithmetic, not just the verdict. A blind retry moved 10 → 8 → 7
+  // and never landed; "remove at least 4" is a target the model can hit.
+  if (dashes > 6) v.push(`cadence: ${dashes} dashes in the body (max 6) — remove at least ${dashes - 6}, using commas, colons or shorter sentences`);
 
   // Intensifier padding in the title reads as machine-written and was the single
   // most repeated tell across the published posts.
@@ -104,8 +106,12 @@ export function lintPost({ frontmatter: fm, body, pillarPath, locale }) {
     v.push("example: mark the worked example as hypothetical (Consider a… / Angenommen, …) — an unmarked one reads as a real client");
   }
 
-  if (NOT_X_BUT_Y[locale]?.test(body)) {
-    v.push("cadence: drop the 'not X, it's Y' contrast — state the point directly");
+  // Quote the offending clause. These messages are fed back to the model on
+  // retry, and "you used the banned contrast" is not actionable — the exact
+  // sentence is.
+  const contrast = body.match(NOT_X_BUT_Y[locale] ?? /(?!)/);
+  if (contrast) {
+    v.push(`cadence: rewrite "${contrast[0].trim()}" — drop the 'not X, it's Y' contrast and state the point directly`);
   }
 
   const padding = body.match(BODY_INTENSIFIERS);

@@ -10,8 +10,15 @@ const LOCALES = {
 
 // One locale, generated in its own focused call (cramming both into one response
 // made the model under-produce the second locale → lint failures).
-function systemPrompt({ category, keyword, intent, slug, date, pillarPath, locale, recentTitles }) {
+export function systemPrompt({ category, keyword, intent, slug, date, pillarPath, locale, recentTitles, violations }) {
   const L = LOCALES[locale];
+  // The previous attempt's linter output, verbatim. Placed last so it is the
+  // final thing read before writing. Without it the retry is blind: a real run
+  // moved 10 -> 8 -> 7 dashes against a cap of 6 and never landed, because
+  // nothing told it a count was being measured.
+  const correctionBlock = violations && violations.length
+    ? `\n\nYOUR PREVIOUS ATTEMPT WAS REJECTED. Fix exactly these, and change nothing else about your approach:\n${violations.map((x) => `- ${x}`).join("\n")}\n\nThese are mechanical checks, not opinions. A count is a count: if it says remove at least two dashes, remove at least two. If it names a word, that word must not appear anywhere in the body. Re-read your draft against this list before calling submit_post.`
+    : "";
   const recentTitlesBlock = recentTitles && recentTitles.length
     ? `\n\nRECENT TITLES IN ${L.lang.toUpperCase()} (most recent first) — do not reuse their shape, opening word, or rhetorical structure:\n${recentTitles.map((t) => `- "${t}"`).join("\n")}`
     : "";
@@ -39,7 +46,7 @@ VOICE & CADENCE (violating these reads as machine-written; rewrite until they're
 - Never use "It's not X, it's Y" or "Es geht nicht um X, sondern um Y" as a rhetorical move.
 - Use a three-item list only when there are exactly three things to list. Do not reach for one purely for rhythm.
 - Skip throat-clearing openers: "Here's the thing", "Kurz gesagt", "Let's dive in", "It's worth noting".
-- Do not stack bold-lead paragraphs: consecutive paragraphs that each open with a bolded phrase.${recentTitlesBlock}
+- Do not stack bold-lead paragraphs: consecutive paragraphs that each open with a bolded phrase.${recentTitlesBlock}${correctionBlock}
 
 Return the post by calling the \`submit_post\` tool. \`body\` is the markdown body only (no frontmatter, no H1). The date is added later.`;
 }
@@ -104,11 +111,14 @@ async function writeLocale(client, args) {
 // Generates each locale in its own focused tool-use call and returns { en, de }
 // entries ready for the linter + emitter. `recentTitles` is per-locale
 // ({ en: [...], de: [...] }) so each call only sees its own language's titles.
-export async function writePost({ pillar, category, keyword, intent, slug, date, pillarPath, apiKey, recentTitles }) {
+export async function writePost({ pillar, category, keyword, intent, slug, date, pillarPath, apiKey, recentTitles, violations }) {
   const client = new Anthropic({ apiKey });
   const base = { pillar, category, keyword, intent, slug, date, pillarPath };
   const rt = recentTitles || {};
-  const en = await writeLocale(client, { ...base, locale: "en", recentTitles: rt.en });
-  const de = await writeLocale(client, { ...base, locale: "de", recentTitles: rt.de });
+  // Per-locale, like recentTitles: the German call must not be corrected against
+  // the English attempt's violations.
+  const vi = violations || {};
+  const en = await writeLocale(client, { ...base, locale: "en", recentTitles: rt.en, violations: vi.en });
+  const de = await writeLocale(client, { ...base, locale: "de", recentTitles: rt.de, violations: vi.de });
   return { en: toEntry(en, category, date), de: toEntry(de, category, date) };
 }
