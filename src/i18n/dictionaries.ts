@@ -358,7 +358,7 @@ export const dictionaries = {
         sections: [
           {
             h: "Start from the bottleneck",
-            p: "We look at where time actually goes and automate the specific, repeatable steps: not a vague \"digital transformation,\" but the concrete process that's costing you hours each week.",
+            p: "We look at where time actually goes and automate the specific, repeatable steps that are costing you hours each week, without the vague \"digital transformation\" talk.",
           },
           {
             h: "Full-stack apps, built to fit",
@@ -392,7 +392,7 @@ export const dictionaries = {
         overline: "SEO",
         headline: "Technical SEO that makes good businesses findable.",
         intro:
-          "Most good businesses are effectively invisible in search, not because the work is poor, but because the site isn't built to be found. We focus strictly on technical and on-page search optimisation for SMBs in Tirol and across DACH: the structural foundations that let search engines crawl, understand and surface your pages.",
+          "Most good businesses are effectively invisible in search. The work is good; the site isn't built to be found. We focus strictly on technical and on-page search optimisation for SMBs in Tirol and across DACH: the structural foundations that let search engines crawl, understand and surface your pages.",
         sections: [
           {
             h: "Technical audit & crawlability",
@@ -918,7 +918,7 @@ export const dictionaries = {
         sections: [
           {
             h: "Beim Engpass ansetzen",
-            p: "Wir schauen, wohin die Zeit tatsächlich fließt, und automatisieren die konkreten, wiederholbaren Schritte: keine vage „digitale Transformation“, sondern genau den Prozess, der Sie jede Woche Stunden kostet.",
+            p: "Wir schauen, wohin die Zeit tatsächlich fließt, und automatisieren die konkreten, wiederholbaren Schritte, die Sie jede Woche Stunden kosten, ohne vages Gerede von „digitaler Transformation“.",
           },
           {
             h: "Full-Stack-Apps, passgenau gebaut",
@@ -952,7 +952,7 @@ export const dictionaries = {
         overline: "SEO",
         headline: "Technisches SEO, das gute Unternehmen auffindbar macht.",
         intro:
-          "Die meisten guten Unternehmen sind in der Suche praktisch unsichtbar, nicht, weil die Arbeit schlecht wäre, sondern weil die Site nicht aufs Gefundenwerden gebaut ist. Wir konzentrieren uns strikt auf technische und On-Page-Suchmaschinenoptimierung für KMU in Tirol und im DACH-Raum: die strukturellen Grundlagen, die Suchmaschinen erlauben, Ihre Seiten zu crawlen, zu verstehen und anzuzeigen.",
+          "Die meisten guten Unternehmen sind in der Suche praktisch unsichtbar. Die Arbeit ist gut; die Site ist nicht aufs Gefundenwerden gebaut. Wir konzentrieren uns strikt auf technische und On-Page-Suchmaschinenoptimierung für KMU in Tirol und im DACH-Raum: die strukturellen Grundlagen, die Suchmaschinen erlauben, Ihre Seiten zu crawlen, zu verstehen und anzuzeigen.",
         sections: [
           {
             h: "Technisches Audit & Crawlbarkeit",
