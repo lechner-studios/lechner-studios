@@ -28,7 +28,7 @@ export const dictionaries = {
         "Privacy notice under GDPR for lechner-studios.at.",
       workTitle: "Work — Products & Projects",
       workDescription:
-        "Selected products and projects from Lechner Studios — our own platforms and client work, built with editorial precision.",
+        "Selected products and projects from Lechner Studios: our own platforms and client work, built with editorial precision.",
       aboutTitle: "About the Studio",
       aboutDescription:
         "Lechner Studios is a family-run, AI-native digital studio in Wattens, Tirol, founded by Sonja Lechner.",
@@ -37,10 +37,10 @@ export const dictionaries = {
         "The tools and principles behind every Lechner Studios site: hand-written code, self-hosted and privacy-first, fast, accessible, and GDPR-compliant by construction.",
       contactTitle: "Contact",
       contactDescription:
-        "Tell us what you're building — a straight answer within two business days. Lechner Studios, Wattens, Tirol.",
+        "Tell us what you're building. A straight answer within two business days. Lechner Studios, Wattens, Tirol.",
       startTitle: "Discuss a Project",
       startDescription:
-        "Tell us about your project — web, apps, automation or SEO. The more you share, the sharper our first call. Lechner Studios, Wattens, Tirol.",
+        "Tell us about your project: web, apps, automation or SEO. The more you share, the sharper our first call. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
       blogDescription:
         "Practical notes on web design, apps, automation and SEO for independent businesses.",
@@ -49,7 +49,7 @@ export const dictionaries = {
       overline: "JOURNAL",
       headline: "Notes on craft, code & the web.",
       intro:
-        "Occasional, practical writing on web design, apps, automation and SEO — what we've learned building digital products for independent businesses.",
+        "Occasional, practical writing on web design, apps, automation and SEO: what we've learned building digital products for independent businesses.",
       readMore: "Read →",
       backToBlog: "← All articles",
       empty: "Articles coming soon.",
@@ -127,12 +127,12 @@ export const dictionaries = {
       proofCta: "View live",
       pillars: {
         eyebrow: "FOUR DISCIPLINES, ONE STUDIO",
-        rest: "Four disciplines, one studio. Hover a discipline to see what each one delivers — tap on mobile.",
+        rest: "Four disciplines, one studio. Hover a discipline to see what each one delivers, or tap on mobile.",
         // order matches dict.services.items: Apps, Web, Brand & Identity, SEO
         proofs: [
           "Full-stack apps & AI automation, in production today.",
-          "Hand-built websites, designed to measure — no templates.",
-          "Coherent visual systems — marks, palette, voice.",
+          "Hand-built websites, designed to measure. No templates.",
+          "Coherent visual systems: marks, palette, voice.",
           "Technical SEO that compounds over years, not quarters.",
         ],
       },
@@ -140,12 +140,12 @@ export const dictionaries = {
     stance: {
       overline: "OUR STANCE",
       headline: "No builders. No templates.",
-      body: "We hand-write every site on a modern stack — fast, self-hosted and privacy-first, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
+      body: "We hand-write every site on a modern stack: fast, self-hosted and privacy-first, GDPR-compliant by construction, and accessible by default. No page builder boxes you in, no template makes you look like everyone else. And you talk directly to the person who builds it.",
       moreLink: "See the stack and why it matters →",
       slider: {
         code: "Code",
         result: "Result",
-        aria: "Before/after: source code and its rendered result — drag to reveal.",
+        aria: "Before/after: source code and its rendered result, drag to reveal.",
       },
     },
     stack: {
@@ -179,7 +179,7 @@ export const dictionaries = {
     about: {
       overline: "ABOUT THE STUDIO",
       headline: "A family-run studio building digital products with editorial precision.",
-      body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH — built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
+      body: "Lechner Studios is a family-run digital studio in Wattens, Tirol. Founded by Sonja Lechner, we design and ship digital products for SMB clients across DACH, built on craft, restraint, and an AI-native operating model. Quiet, precise, on the long horizon.",
       stat1n: "5", stat1l: "Products built",
       stat2n: "2026", stat2l: "Founded",
       stat3n: "4", stat3l: "Disciplines",
@@ -190,17 +190,17 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Founder, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Founder",
-      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera — a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern runs through a growing set of products she's built — each a missing thing, made real, several launching publicly soon.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
+      body: "Sonja Lechner is a founder with a clear pattern: when she sees a problem and no satisfying solution exists, she builds one.\n\nBorn in Grenada and Tyrolean-by-adoption since 2009, she studied Softwareentwicklung und Management at IT-Kolleg Imst. Years of relocation under difficult conditions planted the idea for Vistera: a spatial-web platform for walking through a space before visiting it in person. She built it alone between 2025 and 2026, using AI as her team, while holding a full-time role in banking-sector IT.\n\nThe same pattern runs through a growing set of products she's built: each a missing thing, made real, several launching publicly soon.\n\nIn 2026, Lechner Studios was formed to house and continue these creations. The vision has grown from solo founder to family business. Family members contribute internally, by choice not publicly positioned.",
     },
     howWeWork: {
       overline: "HOW WE WORK",
       headline: "AI-native, transparently.",
-      statement: "Every leader at Lechner Studios has a disclosed AI twin. Every twin operates inside a declared, revocable autonomy scope. Inside it, the twin acts; outside it, the twin drafts — and a human decides.",
+      statement: "Every leader at Lechner Studios has a disclosed AI twin. Every twin operates inside a declared, revocable autonomy scope. Inside it, the twin acts; outside it, the twin drafts, and a human decides.",
     },
     work: {
       overline: "SELECTED WORK",
       headline: "Products & Projects",
-      lead: "We don't only build for clients — we build our own products, too. The same craft goes into every project.",
+      lead: "We don't only build for clients; we build our own products, too. The same craft goes into every project.",
       statusLive: "Live",
       statusDev: "In Development",
       statusPaused: "Paused",
@@ -220,7 +220,7 @@ export const dictionaries = {
           category: "Service · Web Design",
           year: "2026",
           status: "service",
-          desc: "Custom websites for independent businesses. No templates, no builders — every site is designed to measure for the client's market and voice.",
+          desc: "Custom websites for independent businesses. No templates, no builders: every site is designed to measure for the client's market and voice.",
           url: "https://werk.lechner-studios.at",
         },
         {
@@ -229,7 +229,7 @@ export const dictionaries = {
           category: "PropTech · VR",
           year: "2025",
           status: "comingSoon",
-          desc: "4K cinema and VR property walkthroughs for real estate. A global platform built for the Austrian market — the DUO Standard.",
+          desc: "4K cinema and VR property walkthroughs for real estate. A global platform built for the Austrian market: the DUO Standard.",
           url: "#",
         },
         {
@@ -247,7 +247,7 @@ export const dictionaries = {
           category: "SaaS · EdTech",
           year: "2026",
           status: "live",
-          desc: "Developer flashcards across 45 topics — from HTML and Git to OWASP and kernel exploits. Spaced repetition, bilingual, foundations free. An AI-native product we designed, built and shipped end-to-end — payments included.",
+          desc: "Developer flashcards across 45 topics: from HTML and Git to OWASP and kernel exploits. Spaced repetition, bilingual, foundations free. An AI-native product we designed, built and shipped end-to-end, payments included.",
           url: "https://codeflash.lechner-studios.at",
         },
         {
@@ -256,7 +256,7 @@ export const dictionaries = {
           category: "SaaS · EdTech",
           year: "2026",
           status: "maintenance",
-          desc: "Spaced-repetition packs for the AI/ML engineering stack — LLMs, prompt engineering, RAG, MLOps.",
+          desc: "Spaced-repetition packs for the AI/ML engineering stack: LLMs, prompt engineering, RAG, MLOps.",
           url: "#",
         },
       ],
@@ -264,17 +264,17 @@ export const dictionaries = {
     demos: {
       overline: "DEMO PORTFOLIO",
       headline: "What a custom site looks like.",
-      lead: "Four working demos, each hand-coded from scratch — no builders, no templates. They're concept designs for fictional businesses, built to show exactly how a bespoke site looks, loads and behaves.",
+      lead: "Four working demos, each hand-coded from scratch: no builders, no templates. They're concept designs for fictional businesses, built to show exactly how a bespoke site looks, loads and behaves.",
       conceptLabel: "Concept",
       visit: "Open demo →",
       // The demos are concepts for fictional businesses. This row points at the
       // real, priced offer behind each one, on the werk storefront.
       offersOverline: "THE OFFER BEHIND EACH DEMO",
       items: [
-        { slug: "pension", title: "Pension Musterhof", category: "Concept · Hospitality", desc: "A small-hotel site with a direct-booking calendar and a commission-savings calculator — built to keep guests off the booking portals." },
+        { slug: "pension", title: "Pension Musterhof", category: "Concept · Hospitality", desc: "A small-hotel site with a direct-booking calendar and a commission-savings calculator, built to keep guests off the booking portals." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Concept · Restaurant", desc: "A guesthouse site with a seasonal menu and an interactive table-reservation flow." },
         { slug: "skischule", title: "Skischule Musteralm", category: "Concept · Ski school", desc: "A ski-school site with clear course tiers and a season-aware course configurator." },
-        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Concept · Carpentry", desc: "A carpentry site with a material-led portfolio and a project-scoping intake — no pricing implied." },
+        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Concept · Carpentry", desc: "A carpentry site with a material-led portfolio and a project-scoping intake, no pricing implied." },
       ],
     },
     services: {
@@ -288,15 +288,15 @@ export const dictionaries = {
         },
         {
           title: "Web & Design",
-          desc: "A template makes you look like everyone else. We design and build websites to measure — for independent businesses, and for the platforms we've built ourselves. No builders, no compromises.",
+          desc: "A template makes you look like everyone else. We design and build websites to measure, for independent businesses and for the platforms we've built ourselves. No builders, no compromises.",
         },
         {
           title: "Brand & Identity",
-          desc: "An inconsistent look undercuts good work. We build coherent visual systems — names, marks, palettes, voice — and the content that carries them, woven into a build or as a brand project in its own right.",
+          desc: "An inconsistent look undercuts good work. We build coherent visual systems from names, marks, palettes and voice, plus the content that carries them, woven into a build or as a brand project in its own right.",
         },
         {
           title: "SEO & Growth",
-          desc: "Most good businesses are invisible on Google. We fix that the durable way — technical SEO and search optimisation that compound over years, not quarters.",
+          desc: "Most good businesses are invisible on Google. We fix that the durable way: technical SEO and search optimisation that compound over years, not quarters.",
         },
       ],
     },
@@ -305,33 +305,33 @@ export const dictionaries = {
         slug: "webdesign",
         metaTitle: "Web Design Tirol — custom websites for SMBs",
         metaDescription:
-          "Web design studio in Tirol. Custom, hand-built websites for SMBs across DACH — no templates, no builders. Designed to measure, built to last.",
+          "Web design studio in Tirol. Custom, hand-built websites for SMBs across DACH: no templates, no builders. Designed to measure, built to last.",
         overline: "WEB & DESIGN",
         headline: "Custom websites for independent businesses.",
         intro:
-          "A template makes you look like everyone else, and a builder boxes you in the moment you grow. As a web design studio in Tirol, we design and build every website to measure — for SMBs across the DACH region who want a site that fits their market, their voice, and the way they actually work.",
+          "A template makes you look like everyone else, and a builder boxes you in the moment you grow. As a web design studio in Tirol, we design and build every website to measure for SMBs across the DACH region who want a site that fits their market, their voice, and the way they actually work.",
         sections: [
           {
             h: "Designed to measure, not assembled",
-            p: "No templates, no page builders. Every layout, typeface and interaction is decided for your business — so the site reads as yours, not as another instance of the same theme.",
+            p: "No templates, no page builders. Every layout, typeface and interaction is decided for your business, so the site reads as yours, not as another instance of the same theme.",
             artifact: { src: "/proof/gasthof.webp", alt: "Gasthof — built to measure" },
           },
           {
             h: "Built on a fast, durable foundation",
-            p: "Every site is hand-coded — React and Next.js, the same stack we build our own platforms on — never a page builder or a generic marketing wrapper. Assets are self-hosted and privacy-first, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
+            p: "Every site is hand-coded with React and Next.js, the same stack we build our own platforms on, never a page builder or a generic marketing wrapper. Assets are self-hosted and privacy-first, so the result is fast, GDPR-compliant by construction, accessible (WCAG AA), and maintainable enough to age well rather than need a rebuild in two years.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — hand-coded, self-hosted" },
           },
           {
             h: "Bilingual and ready for Tirol & DACH",
-            p: "German and English from the same source, with the structure search engines and local visitors expect — proper headings, accessible markup, and a clear path to contact you.",
+            p: "German and English from the same source, with the structure search engines and local visitors expect: proper headings, accessible markup, and a clear path to contact you.",
           },
           {
             h: "Brand consistency built in",
-            p: "A coherent visual system — marks, palette, type and voice — is part of the build from the start, so your site looks of a piece rather than stitched together.",
+            p: "A coherent visual system of marks, palette, type and voice is part of the build from the start, so your site looks of a piece rather than stitched together.",
           },
         ],
         proof:
-          "We don't only build for clients — Werk is our own custom-website service, and every product we build for ourselves is held to the same standard. The work is the proof.",
+          "We don't only build for clients: Werk is our own custom-website service, and every product we build for ourselves is held to the same standard. The work is the proof.",
         ctaLabel: "Discuss your project",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — a website we designed and built", caption: "Live demo · pension" },
         includedLabel: "What's included",
@@ -354,11 +354,11 @@ export const dictionaries = {
         overline: "APPS & AUTOMATION",
         headline: "Apps and automation that do the actual work.",
         intro:
-          "The repetitive work that eats your week — re-keying data, chasing forms, answering the same questions — is work software can take off your hands. We build full-stack apps and AI automation for SMBs in Tirol and across DACH, aimed squarely at the tasks that drain time today.",
+          "Re-keying data, chasing forms, answering the same questions. That repetitive work eats your week, and software can take it off your hands. We build full-stack apps and AI automation for SMBs in Tirol and across DACH, aimed squarely at the tasks that drain time today.",
         sections: [
           {
             h: "Start from the bottleneck",
-            p: "We look at where time actually goes and automate the specific, repeatable steps — not a vague \"digital transformation,\" but the concrete process that's costing you hours each week.",
+            p: "We look at where time actually goes and automate the specific, repeatable steps: not a vague \"digital transformation,\" but the concrete process that's costing you hours each week.",
           },
           {
             h: "Full-stack apps, built to fit",
@@ -381,22 +381,22 @@ export const dictionaries = {
         includedLabel: "What we build",
         included: ["Custom web apps (Next.js + Supabase)", "Workflow automation (n8n / Make / Zapier)", "CRM & invoicing sync", "Form-to-database routing", "AI integrations (Claude / OpenAI)", "Content pipelines", "Internal tools & dashboards"],
         proof:
-          "The automation we describe here we run in our own studio first — built in-house, the same way we'd build yours.",
+          "The automation we describe here we run in our own studio first, built in-house, the same way we'd build yours.",
         ctaLabel: "Discuss your project",
       },
       seo: {
         slug: "seo",
         metaTitle: "SEO Tirol — technical search optimisation for SMBs",
         metaDescription:
-          "Technical SEO in Tirol. On-page and technical search optimisation for SMBs — clean markup, fast load times, structured data and local findability.",
+          "Technical SEO in Tirol. On-page and technical search optimisation for SMBs: clean markup, fast load times, structured data and local findability.",
         overline: "SEO",
         headline: "Technical SEO that makes good businesses findable.",
         intro:
-          "Most good businesses are effectively invisible in search — not because the work is poor, but because the site isn't built to be found. We focus strictly on technical and on-page search optimisation for SMBs in Tirol and across DACH: the structural foundations that let search engines crawl, understand and surface your pages.",
+          "Most good businesses are effectively invisible in search, not because the work is poor, but because the site isn't built to be found. We focus strictly on technical and on-page search optimisation for SMBs in Tirol and across DACH: the structural foundations that let search engines crawl, understand and surface your pages.",
         sections: [
           {
             h: "Technical audit & crawlability",
-            p: "We check what search engines actually see — indexability, crawl paths, redirects, canonical tags and sitemaps — and fix the technical issues that quietly keep pages out of results.",
+            p: "We check what search engines actually see: indexability, crawl paths, redirects, canonical tags and sitemaps. Then we fix the technical issues that quietly keep pages out of results.",
           },
           {
             h: "On-page optimisation",
@@ -404,7 +404,7 @@ export const dictionaries = {
           },
           {
             h: "Core Web Vitals & performance",
-            p: "Load time and page experience are ranking and usability factors. We optimise performance — Core Web Vitals, image and asset handling — so pages are fast on real devices.",
+            p: "Load time and page experience are ranking and usability factors. We optimise performance, from Core Web Vitals to image and asset handling, so pages are fast on real devices.",
           },
           {
             h: "Structured data & local findability",
@@ -423,49 +423,49 @@ export const dictionaries = {
         includedLabel: "What we implement",
         included: ["Semantic HTML", "JSON-LD schema", "Sitemap / robots", "Internal linking"],
         proof:
-          "The technical foundations of search visibility — semantic markup, fast load times, structured data, bilingual hreflang — are built into every site we ship, including our own platforms. We optimise on the same fundamentals we apply to our own work; we don't promise rankings or sell business strategy.",
+          "The technical foundations of search visibility are built into every site we ship, including our own platforms: semantic markup, fast load times, structured data, bilingual hreflang. We optimise on the same fundamentals we apply to our own work; we don't promise rankings or sell business strategy.",
         ctaLabel: "Discuss your project",
       },
       brand: {
         slug: "brand",
         metaTitle: "Brand & Identity Tirol — coherent visual systems for SMBs",
         metaDescription:
-          "Brand and identity design in Tirol. Coherent visual systems — names, marks, palettes, type and voice — plus the content that carries them, built into a website or delivered as a standalone brand project.",
+          "Brand and identity design in Tirol. Coherent visual systems of names, marks, palettes, type and voice, plus the content that carries them, built into a website or delivered as a standalone brand project.",
         overline: "Brand & Identity",
         headline: "A coherent identity, not a one-off logo.",
         intro:
-          "An inconsistent look quietly undercuts good work — a logo here, a different colour there, a tone that shifts from page to post. We build coherent visual systems for SMBs in Tirol and across DACH: the marks, palettes, type and voice that make a business recognisable everywhere it appears — plus the content that carries them. Woven into a website build, or delivered as a brand project in its own right.",
+          "An inconsistent look quietly undercuts good work: a logo here, a different colour there, a tone that shifts from page to post. We build coherent visual systems for SMBs in Tirol and across DACH: the marks, palettes, type and voice that make a business recognisable everywhere it appears, plus the content that carries them. Woven into a website build, or delivered as a brand project in its own right.",
         sections: [
           {
             h: "A system, not a single asset",
-            p: "A logo is the start, not the brand. We design the whole system — wordmark and marks, a colour palette with accessible pairings, type, spacing and the rules that hold it together — so every surface, from the website to a business card, reads as one business.",
+            p: "A logo is the start, not the brand. We design the whole system: wordmark and marks, a colour palette with accessible pairings, type, spacing and the rules that hold it together. Every surface, from the website to a business card, then reads as one business.",
           },
           {
             h: "Voice & content",
-            p: "How a business sounds matters as much as how it looks. We define a clear, honest tone — no hype, no buzzwords — and write the content that carries it: site copy, section text and the words that do the actual work, in German and English.",
+            p: "How a business sounds matters as much as how it looks. We define a clear, honest tone, with no hype and no buzzwords, and write the content that carries it: site copy, section text and the words that do the actual work, in German and English.",
           },
           {
             h: "Built into the build",
-            p: "Brand and website are strongest designed together. When we build a site, the identity is part of it from the first screen — tokens in the code, consistent components, one visual language — rather than a logo bolted onto a template afterwards.",
+            p: "Brand and website are strongest designed together. When we build a site, the identity is part of it from the first screen: tokens in the code, consistent components, one visual language, rather than a logo bolted onto a template afterwards.",
           },
           {
             h: "Or a brand project on its own",
-            p: "Keeping the site you have? We can deliver the identity as a standalone project — the system, the assets and a short set of guidelines — so whoever builds next has a clear, consistent foundation to work from.",
+            p: "Keeping the site you have? We can deliver the identity as a standalone project: the system, the assets and a short set of guidelines, so whoever builds next has a clear, consistent foundation to work from.",
           },
         ],
         includedLabel: "What you get",
         included: ["Wordmark & marks", "Colour palette (AA)", "Type system", "Brand voice", "Usage guidelines", "Self-hosted assets"],
         proof:
-          "We hold our own identity to the standard we'd build for you — a coherent system, accessible colour, consistent type, applied the same way on every surface and self-hosted. Brand is craft we do by hand, never a stock kit; it's the same eye we bring to every studio and product we build.",
+          "We hold our own identity to the standard we'd build for you: a coherent system, accessible colour, consistent type, applied the same way on every surface and self-hosted. Brand is craft we do by hand, never a stock kit; it's the same eye we bring to every studio and product we build.",
         ctaLabel: "Discuss your project",
       },
     },
     contact: {
       overline: "CONTACT",
       headline: "Let's talk.",
-      body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call — in person or online — and figure out what's possible together. No pitch, no obligation.",
+      body: "Tell us what you're building. We'll get back to you within two business days to set up a short first call, in person or online, and figure out what's possible together. No pitch, no obligation.",
       startNudge: "Already know exactly what you want? Discuss a project →",
-      ctaLine: "The easiest way to reach us — a message, an email, or WhatsApp. We reply within two business days.",
+      ctaLine: "The easiest way to reach us: a message, an email, or WhatsApp. We reply within two business days.",
       optMessage: "Write a message",
       optEmail: "Email",
       optWhatsapp: "WhatsApp",
@@ -480,9 +480,9 @@ export const dictionaries = {
         submit: "Send message",
         submitting: "Sending…",
         responseTime: "We'll reply within two business days.",
-        success: "Thank you. Your message has reached us — we'll be in touch shortly.",
-        errorValidation: "Please check your entries — all fields are required and your message must be at least 20 characters.",
-        errorRateLimit: "Too many requests from your address — please try again in an hour.",
+        success: "Thank you. Your message has reached us. We'll be in touch shortly.",
+        errorValidation: "Please check your entries: all fields are required and your message must be at least 20 characters.",
+        errorRateLimit: "Too many requests from your address. Please try again in an hour.",
         errorGeneric: "Something went wrong. Please try again, or email us directly.",
         consent: "By submitting this enquiry you consent to the processing of the data you provide (name, email address, message) for the purpose of handling your contact request. Legal basis: Art. 6(1)(b) GDPR (pre-contractual steps) and/or Art. 6(1)(a) GDPR (consent). You can withdraw this consent at any time for future processing. The lawfulness of processing carried out before withdrawal remains unaffected. Withdrawal is informal — an email to hallo@lechner-studios.at is sufficient. See Privacy for details.",
         mailtoFallback: "Or email directly:",
@@ -492,16 +492,16 @@ export const dictionaries = {
     homeOffers: {
       overline: "START HERE",
       headline: "A clear entry point, at a fixed price.",
-      lead: "Not ready for a full project? Start small. Two productized, fixed-price ways to work with us — no open-ended quotes, no guesswork.",
+      lead: "Not ready for a full project? Start small. Two productized, fixed-price ways to work with us: no open-ended quotes, no guesswork.",
       items: [
-        { label: "Fixed-price audit", desc: "A focused audit of your existing site — technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.", cta: "Book a Website-Check" },
-        { label: "Productized package", desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol — live in two weeks, with the portal commission back in your pocket.", cta: "See Direktbucher" },
+        { label: "Fixed-price audit", desc: "A focused audit of your existing site: technical SEO, speed, accessibility and DSGVO. Written report plus a call, and the fee is credited toward a project.", cta: "Book a Website-Check" },
+        { label: "Productized package", desc: "Complete direct-booking websites for guesthouses and holiday lets in Tirol, live in two weeks, with the portal commission back in your pocket.", cta: "See Direktbucher" },
       ],
     },
     foundation: {
       overline: "FOUNDATION PARTNERS",
       headline: "Deliberately few clients. Exactly the right moment.",
-      body: "We take on only a small number of clients — and that's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. Yes, we're a young studio — and that's precisely the advantage. The craft isn't a promise: it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
+      body: "We take on only a small number of clients, and that's a choice in your favour: more attention, founder-stage terms, and a real partnership rather than a slot in a queue. Yes, we're a young studio, and that's precisely the advantage. The craft isn't a promise: it shows in what we've already built and run ourselves, from Werk to a growing set of products, several launching publicly soon. The same hands that built those will build yours.",
       est: "Founder-stage",
       place: "Wattens · Tirol · Österreich",
     },
@@ -509,7 +509,7 @@ export const dictionaries = {
       overline: "DISCUSS A PROJECT",
       headline: "Let's build the right thing.",
       intro:
-        "Tell us about your project. The more you share, the sharper our first call — we'll come prepared with a clear sense of what's possible and what it takes.",
+        "Tell us about your project. The more you share, the sharper our first call. We'll come prepared with a clear sense of what's possible and what it takes.",
       nameLabel: "Name",
       emailLabel: "Email",
       companyLabel: "Company (optional)",
@@ -545,12 +545,12 @@ export const dictionaries = {
       title: "The Studio Director",
       subtitle: "AI twin · Lechner Studios",
       greeting:
-        "Hi — I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll bring Sonja in when the stakes need it.",
+        "Hi, I'm The Studio Director, the AI twin for Sonja Lechner at Lechner Studios. Happy to help directly; I'll bring Sonja in when the stakes need it.",
       placeholder: "Ask about services & pricing…",
       send: "Send",
       close: "Close",
       privacyNote: "AI assistant. Messages aren't stored. Please don't enter sensitive data.",
-      errorRate: "One moment — that was a lot of messages. Please try again shortly.",
+      errorRate: "One moment, that was a lot of messages. Please try again shortly.",
       errorGlobal: "I'm taking a short break. Please reach us via the contact form.",
       errorGeneric: "Something went wrong. Please try again or use the contact form.",
     },
@@ -592,7 +592,7 @@ export const dictionaries = {
         "Datenschutzerklärung gem. DSGVO für lechner-studios.at.",
       workTitle: "Arbeiten — Produkte & Projekte",
       workDescription:
-        "Ausgewählte Produkte und Projekte von Lechner Studios — eigene Plattformen und Kundenarbeit, mit editorischer Präzision gebaut.",
+        "Ausgewählte Produkte und Projekte von Lechner Studios: eigene Plattformen und Kundenarbeit, mit editorischer Präzision gebaut.",
       aboutTitle: "Über das Studio",
       aboutDescription:
         "Lechner Studios ist ein familiengeführtes, KI-natives Digitalstudio in Wattens, Tirol, gegründet von Sonja Lechner.",
@@ -601,10 +601,10 @@ export const dictionaries = {
         "Die Werkzeuge und Prinzipien hinter jeder Website von Lechner Studios: von Hand geschrieben, selbst gehostet und datenschutzfreundlich, schnell, barrierearm und DSGVO-konform von Grund auf.",
       contactTitle: "Kontakt",
       contactDescription:
-        "Erzählen Sie uns, was Sie vorhaben — eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
+        "Erzählen Sie uns, was Sie vorhaben. Eine klare Antwort innerhalb von zwei Werktagen. Lechner Studios, Wattens, Tirol.",
       startTitle: "Projekt besprechen",
       startDescription:
-        "Erzählen Sie uns von Ihrem Projekt — Web, Apps, Automatisierung oder SEO. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Lechner Studios, Wattens, Tirol.",
+        "Erzählen Sie uns von Ihrem Projekt: Web, Apps, Automatisierung oder SEO. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Lechner Studios, Wattens, Tirol.",
       blogTitle: "Journal",
       blogDescription:
         "Praktische Notizen zu Webdesign, Apps, Automatisierung und SEO für unabhängige Unternehmen.",
@@ -613,7 +613,7 @@ export const dictionaries = {
       overline: "JOURNAL",
       headline: "Notizen zu Handwerk, Code & Web.",
       intro:
-        "Gelegentliche, praxisnahe Texte zu Webdesign, Apps, Automatisierung und SEO — was wir beim Bauen digitaler Produkte für unabhängige Unternehmen gelernt haben.",
+        "Gelegentliche, praxisnahe Texte zu Webdesign, Apps, Automatisierung und SEO: was wir beim Bauen digitaler Produkte für unabhängige Unternehmen gelernt haben.",
       readMore: "Lesen →",
       backToBlog: "← Alle Beiträge",
       empty: "Beiträge folgen in Kürze.",
@@ -679,7 +679,7 @@ export const dictionaries = {
     hero: {
       overline: "DESIGN-LED · TIROL · KI-NATIV",
       tagline: "Websites, Apps & Automatisierung,\nmaßgeschneidert.",
-      subline: "Ein design-orientiertes Digitalstudio aus Tirol — für unabhängige Unternehmen im DACH-Raum.",
+      subline: "Ein design-orientiertes Digitalstudio aus Tirol, für unabhängige Unternehmen im DACH-Raum.",
       ctaPrimary: "Projekt besprechen",
       ctaSecondary: "Arbeiten ansehen",
       location: "WATTENS · TIROL · ÖSTERREICH",
@@ -688,12 +688,12 @@ export const dictionaries = {
       proofCta: "Live ansehen",
       pillars: {
         eyebrow: "VIER DISZIPLINEN, EIN STUDIO",
-        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Disziplin, um zu sehen, was sie leistet — am Handy antippen.",
+        rest: "Vier Disziplinen, ein Studio. Fahren Sie über eine Disziplin, um zu sehen, was sie leistet, oder am Handy antippen.",
         // Reihenfolge wie dict.services.items: Apps, Web, Marke & Identität, SEO
         proofs: [
           "Full-Stack-Apps & KI-Automatisierung, heute in Produktion.",
-          "Handgebaute Websites nach Maß — keine Vorlagen.",
-          "Stimmige visuelle Systeme — Marke, Farben, Stimme.",
+          "Handgebaute Websites nach Maß. Keine Vorlagen.",
+          "Stimmige visuelle Systeme: Marke, Farben, Stimme.",
           "Technisches SEO, das sich über Jahre auszahlt, nicht über Quartale.",
         ],
       },
@@ -701,7 +701,7 @@ export const dictionaries = {
     stance: {
       overline: "UNSERE HALTUNG",
       headline: "Kein Baukasten. Keine Vorlage.",
-      body: "Wir programmieren jede Seite von Hand — auf einem modernen Stack: schnell, selbst gehostet und datenschutzfreundlich, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
+      body: "Wir programmieren jede Seite von Hand, auf einem modernen Stack: schnell, selbst gehostet und datenschutzfreundlich, DSGVO-konform von Grund auf und barrierefrei. Kein Baukasten engt Sie ein, keine Vorlage lässt Sie aussehen wie alle anderen. Und Sie sprechen direkt mit dem Menschen, der baut.",
       moreLink: "Der Stack und warum er zählt →",
       slider: {
         code: "Code",
@@ -740,7 +740,7 @@ export const dictionaries = {
     about: {
       overline: "ÜBER DAS STUDIO",
       headline: "Ein familiengeführtes Studio, das digitale Produkte mit editorischer Präzision baut.",
-      body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum — gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
+      body: "Lechner Studios ist ein familiengeführtes Digitalstudio aus Wattens, Tirol. Gegründet von Sonja Lechner, gestalten und entwickeln wir digitale Produkte für KMU im DACH-Raum, gebaut auf Handwerk, Zurückhaltung und einem KI-nativen Betriebsmodell. Leise, präzise, auf lange Sicht.",
       stat1n: "5", stat1l: "Projekte gebaut",
       stat2n: "2026", stat2l: "Gegründet",
       stat3n: "4", stat3l: "Disziplinen",
@@ -751,17 +751,17 @@ export const dictionaries = {
       photoAlt: "Sonja Lechner — Gründerin, Lechner Studios",
       sonjaName: "Sonja Lechner",
       sonjaRole: "Gründerin",
-      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem — und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera — eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team — parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster zieht sich durch eine wachsende Reihe von Produkten, die sie gebaut hat — jedes eine fehlende Lösung, umgesetzt, einige davon bald öffentlich.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten — und um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei — bewusst ohne öffentliche Rolle.",
+      body: "Sonja Lechner ist Gründerin mit einem klaren Muster: Sie sieht ein Problem, und wenn es keine passende Lösung gibt, baut sie eine.\n\nGeboren in Grenada, seit 2009 in Tirol zu Hause, ausgebildet am IT-Kolleg Imst in Softwareentwicklung und Management. Mehrere Umzüge unter schwierigen Bedingungen wurden zur Grundlage für Vistera: eine Spatial-Web-Plattform, mit der man einen Raum durchläuft, bevor man ihn physisch besichtigt. Zwischen 2025 und 2026 alleine gebaut, mit KI als Team, parallel zu einer Vollzeitstelle in der Banken-IT.\n\nDasselbe Muster zieht sich durch eine wachsende Reihe von Produkten, die sie gebaut hat: jedes eine fehlende Lösung, umgesetzt, einige davon bald öffentlich.\n\n2026 entstand Lechner Studios als Dach für diese Arbeiten, um weiterzubauen. Aus der Solo-Gründerin ist ein Familienunternehmen geworden. Familienmitglieder tragen intern bei, bewusst ohne öffentliche Rolle.",
     },
     howWeWork: {
       overline: "WIE WIR ARBEITEN",
       headline: "KI-nativ, transparent.",
-      statement: "Jede Führungsperson bei Lechner Studios hat einen öffentlich deklarierten KI-Zwilling. Jeder Zwilling operiert innerhalb eines deklarierten und widerrufbaren Autonomie-Bereichs. Innerhalb dieses Bereichs handelt der Zwilling selbst; außerhalb entwirft er — und ein Mensch entscheidet.",
+      statement: "Jede Führungsperson bei Lechner Studios hat einen öffentlich deklarierten KI-Zwilling. Jeder Zwilling operiert innerhalb eines deklarierten und widerrufbaren Autonomie-Bereichs. Innerhalb dieses Bereichs handelt der Zwilling selbst; außerhalb entwirft er, und ein Mensch entscheidet.",
     },
     work: {
       overline: "AUSGEWÄHLTE ARBEITEN",
       headline: "Produkte & Projekte",
-      lead: "Wir bauen nicht nur für Kunden — wir entwickeln auch eigene Produkte. Dieselbe Sorgfalt steckt in jedem Projekt.",
+      lead: "Wir bauen nicht nur für Kunden; wir entwickeln auch eigene Produkte. Dieselbe Sorgfalt steckt in jedem Projekt.",
       statusLive: "Live",
       statusDev: "In Entwicklung",
       statusPaused: "Pausiert",
@@ -781,7 +781,7 @@ export const dictionaries = {
           category: "Service · Webdesign",
           year: "2026",
           status: "service",
-          desc: "Maßgeschneiderte Websites für unabhängige Unternehmen. Keine Vorlagen, kein Baukasten — jede Site wird für Markt und Stimme des Kunden entworfen.",
+          desc: "Maßgeschneiderte Websites für unabhängige Unternehmen. Keine Vorlagen, kein Baukasten: Jede Site wird für Markt und Stimme des Kunden entworfen.",
           url: "https://werk.lechner-studios.at",
         },
         {
@@ -790,7 +790,7 @@ export const dictionaries = {
           category: "PropTech · VR",
           year: "2025",
           status: "comingSoon",
-          desc: "4K-Kino und VR-Rundgänge für Immobilien. Eine globale Plattform für den österreichischen Markt — der DUO Standard.",
+          desc: "4K-Kino und VR-Rundgänge für Immobilien. Eine globale Plattform für den österreichischen Markt: der DUO Standard.",
           url: "#",
         },
         {
@@ -808,7 +808,7 @@ export const dictionaries = {
           category: "SaaS · EdTech",
           year: "2026",
           status: "live",
-          desc: "Entwickler-Lernkarten über 45 Themen — von HTML und Git bis OWASP und Kernel-Exploits. Spaced Repetition, zweisprachig, Grundlagen kostenlos. Ein KI-natives Produkt, das wir End-to-End gestaltet, gebaut und live gebracht haben — inkl. Zahlungen.",
+          desc: "Entwickler-Lernkarten über 45 Themen: von HTML und Git bis OWASP und Kernel-Exploits. Spaced Repetition, zweisprachig, Grundlagen kostenlos. Ein KI-natives Produkt, das wir End-to-End gestaltet, gebaut und live gebracht haben, inkl. Zahlungen.",
           url: "https://codeflash.lechner-studios.at",
         },
         {
@@ -817,7 +817,7 @@ export const dictionaries = {
           category: "SaaS · EdTech",
           year: "2026",
           status: "maintenance",
-          desc: "Lernkarten-Packs für den AI/ML-Stack — LLMs, Prompt Engineering, RAG, MLOps.",
+          desc: "Lernkarten-Packs für den AI/ML-Stack: LLMs, Prompt Engineering, RAG, MLOps.",
           url: "#",
         },
       ],
@@ -825,17 +825,17 @@ export const dictionaries = {
     demos: {
       overline: "DEMO-PORTFOLIO",
       headline: "Wie eine maßgeschneiderte Seite aussieht.",
-      lead: "Vier funktionierende Demos, jede von Hand programmiert — kein Baukasten, keine Vorlage. Es sind Konzept-Entwürfe für fiktive Betriebe, gebaut um zu zeigen, wie sich eine maßgeschneiderte Seite anfühlt, lädt und verhält.",
+      lead: "Vier funktionierende Demos, jede von Hand programmiert: kein Baukasten, keine Vorlage. Es sind Konzept-Entwürfe für fiktive Betriebe, gebaut um zu zeigen, wie sich eine maßgeschneiderte Seite anfühlt, lädt und verhält.",
       conceptLabel: "Konzept",
       visit: "Demo öffnen →",
       // Die Demos sind Konzepte für fiktive Betriebe. Diese Zeile führt zum
       // echten, bepreisten Angebot dahinter, im werk-Storefront.
       offersOverline: "DAS ANGEBOT HINTER JEDER DEMO",
       items: [
-        { slug: "pension", title: "Pension Musterhof", category: "Konzept · Hotellerie", desc: "Eine Pensions-Seite mit Direktbuchungs-Kalender und Provisions-Rechner — gebaut, um Gäste von den Buchungsportalen fernzuhalten." },
+        { slug: "pension", title: "Pension Musterhof", category: "Konzept · Hotellerie", desc: "Eine Pensions-Seite mit Direktbuchungs-Kalender und Provisions-Rechner, gebaut, um Gäste von den Buchungsportalen fernzuhalten." },
         { slug: "gasthof", title: "Gasthof Musterwirt", category: "Konzept · Gastronomie", desc: "Eine Gasthof-Seite mit saisonaler Karte und interaktiver Tisch-Reservierung." },
         { slug: "skischule", title: "Skischule Musteralm", category: "Konzept · Skischule", desc: "Eine Skischul-Seite mit klaren Kursstufen und einem saisonabhängigen Kurs-Konfigurator." },
-        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Konzept · Tischlerei", desc: "Eine Tischlerei-Seite mit material-geführtem Portfolio und Projekt-Scoping — ganz ohne Preisangabe." },
+        { slug: "tischlerei", title: "Tischlerei Musterholz", category: "Konzept · Tischlerei", desc: "Eine Tischlerei-Seite mit material-geführtem Portfolio und Projekt-Scoping, ganz ohne Preisangabe." },
       ],
     },
     services: {
@@ -848,15 +848,15 @@ export const dictionaries = {
         },
         {
           title: "Web & Design",
-          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß — für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
+          desc: "Eine Website von der Stange lässt Sie aussehen wie alle anderen. Wir gestalten und bauen Websites nach Maß, für unabhängige Unternehmen und für die Plattformen, die wir selbst gebaut haben. Keine Baukästen, keine Kompromisse.",
         },
         {
           title: "Marke & Identität",
-          desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Wir gestalten stimmige visuelle Systeme — Namen, Marken, Farben, Stimme — und die Inhalte, die sie tragen: in ein Projekt integriert oder als eigenständige Markenarbeit.",
+          desc: "Ein uneinheitlicher Auftritt schwächt gute Arbeit. Wir gestalten stimmige visuelle Systeme aus Namen, Marken, Farben und Stimme, dazu die Inhalte, die sie tragen: in ein Projekt integriert oder als eigenständige Markenarbeit.",
         },
         {
           title: "SEO & Growth",
-          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig — technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
+          desc: "Die meisten guten Unternehmen sind bei Google unsichtbar. Wir ändern das nachhaltig: technisches SEO und Suchmaschinen-Optimierung, die sich über Jahre auszahlen, nicht über Quartale.",
         },
       ],
     },
@@ -865,33 +865,33 @@ export const dictionaries = {
         slug: "webdesign",
         metaTitle: "Webdesign Tirol — maßgeschneiderte Websites für KMU",
         metaDescription:
-          "Webagentur in Tirol & Innsbruck. Maßgeschneiderte Websites für KMU im DACH-Raum — keine Vorlagen, kein Baukasten, nach Maß gebaut.",
+          "Webagentur in Tirol & Innsbruck. Maßgeschneiderte Websites für KMU im DACH-Raum: keine Vorlagen, kein Baukasten, nach Maß gebaut.",
         overline: "WEB & DESIGN",
         headline: "Maßgeschneiderte Websites für unabhängige Unternehmen.",
         intro:
-          "Eine Website von der Stange lässt Sie aussehen wie alle anderen, und ein Baukasten engt Sie ein, sobald Sie wachsen. Als Webagentur aus Tirol gestalten und bauen wir jede Website nach Maß — für KMU im DACH-Raum, die eine Site wollen, die zu ihrem Markt, ihrer Stimme und ihrer tatsächlichen Arbeitsweise passt.",
+          "Eine Website von der Stange lässt Sie aussehen wie alle anderen, und ein Baukasten engt Sie ein, sobald Sie wachsen. Als Webagentur aus Tirol gestalten und bauen wir jede Website nach Maß für KMU im DACH-Raum, die eine Site wollen, die zu ihrem Markt, ihrer Stimme und ihrer tatsächlichen Arbeitsweise passt.",
         sections: [
           {
             h: "Nach Maß gestaltet, nicht zusammengesteckt",
-            p: "Keine Vorlagen, kein Baukasten. Jedes Layout, jede Schrift und jede Interaktion wird für Ihr Unternehmen entschieden — damit die Site nach Ihnen aussieht und nicht nach dem nächsten Exemplar desselben Themes.",
+            p: "Keine Vorlagen, kein Baukasten. Jedes Layout, jede Schrift und jede Interaktion wird für Ihr Unternehmen entschieden, damit die Site nach Ihnen aussieht und nicht nach dem nächsten Exemplar desselben Themes.",
             artifact: { src: "/proof/gasthof.webp", alt: "Gasthof — maßgeschneidert gebaut" },
           },
           {
             h: "Auf schnellem, langlebigem Fundament gebaut",
-            p: "Jede Seite ist von Hand programmiert — mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen — nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet und datenschutzfreundlich: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar — gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
+            p: "Jede Seite ist von Hand programmiert, mit React und Next.js, demselben Stack, auf dem auch unsere eigenen Plattformen laufen, nie mit einem Baukasten oder einer generischen Marketing-Hülle. Alle Inhalte sind selbst gehostet und datenschutzfreundlich: schnell, DSGVO-konform von Grund auf, barrierefrei (WCAG AA) und wartbar, gebaut, um zu bleiben, statt in zwei Jahren neu gebaut zu werden.",
             artifact: { src: "/proof/tischlerei.webp", alt: "Tischlerei — handgeschrieben, selbst gehostet" },
           },
           {
             h: "Zweisprachig und bereit für Tirol & DACH",
-            p: "Deutsch und Englisch aus einer Quelle, mit der Struktur, die Suchmaschinen und lokale Besucher erwarten — saubere Überschriften, barrierearmes Markup und ein klarer Weg zur Kontaktaufnahme.",
+            p: "Deutsch und Englisch aus einer Quelle, mit der Struktur, die Suchmaschinen und lokale Besucher erwarten: saubere Überschriften, barrierearmes Markup und ein klarer Weg zur Kontaktaufnahme.",
           },
           {
             h: "Markenkonsistenz von Anfang an",
-            p: "Ein stimmiges visuelles System — Marken, Farben, Schrift und Stimme — ist von Beginn an Teil des Projekts, damit Ihre Site aus einem Guss wirkt statt zusammengeflickt.",
+            p: "Ein stimmiges visuelles System aus Marken, Farben, Schrift und Stimme ist von Beginn an Teil des Projekts, damit Ihre Site aus einem Guss wirkt statt zusammengeflickt.",
           },
         ],
         proof:
-          "Wir bauen nicht nur für Kunden — Werk ist unser eigener Service für maßgeschneiderte Websites, und jedes Produkt, das wir für uns selbst bauen, entsteht nach demselben Standard. Die Arbeit ist der Beweis.",
+          "Wir bauen nicht nur für Kunden: Werk ist unser eigener Service für maßgeschneiderte Websites, und jedes Produkt, das wir für uns selbst bauen, entsteht nach demselben Standard. Die Arbeit ist der Beweis.",
         ctaLabel: "Projekt besprechen",
         heroArtifact: { src: "/proof/pension.webp", alt: "Pension Musterhof — eine von uns gestaltete und gebaute Website", caption: "Live-Demo · Pension" },
         includedLabel: "Enthalten",
@@ -914,11 +914,11 @@ export const dictionaries = {
         overline: "APPS & AUTOMATION",
         headline: "Apps und Automatisierung, die die Arbeit wirklich erledigen.",
         intro:
-          "Die wiederkehrende Arbeit, die Ihre Woche frisst — Daten neu eintippen, Formularen hinterherlaufen, dieselben Fragen beantworten — kann Software übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung für KMU in Tirol und im DACH-Raum, gezielt für die Aufgaben, die heute Zeit kosten.",
+          "Daten neu eintippen, Formularen hinterherlaufen, dieselben Fragen beantworten. Diese wiederkehrende Arbeit frisst Ihre Woche, und Software kann sie übernehmen. Wir bauen Full-Stack-Apps und KI-Automatisierung für KMU in Tirol und im DACH-Raum, gezielt für die Aufgaben, die heute Zeit kosten.",
         sections: [
           {
             h: "Beim Engpass ansetzen",
-            p: "Wir schauen, wohin die Zeit tatsächlich fließt, und automatisieren die konkreten, wiederholbaren Schritte — keine vage „digitale Transformation“, sondern genau den Prozess, der Sie jede Woche Stunden kostet.",
+            p: "Wir schauen, wohin die Zeit tatsächlich fließt, und automatisieren die konkreten, wiederholbaren Schritte: keine vage „digitale Transformation“, sondern genau den Prozess, der Sie jede Woche Stunden kostet.",
           },
           {
             h: "Full-Stack-Apps, passgenau gebaut",
@@ -930,7 +930,7 @@ export const dictionaries = {
           },
           {
             h: "Wartbar und nachvollziehbar",
-            p: "Sauberer Code, sinnvolles Logging und Dokumentation, damit das Gebaute weiterläuft und sich übergeben oder erweitern lässt — ohne Neuschreiben.",
+            p: "Sauberer Code, sinnvolles Logging und Dokumentation, damit das Gebaute weiterläuft und sich übergeben oder erweitern lässt, ohne Neuschreiben.",
           },
         ],
         steps: [
@@ -941,22 +941,22 @@ export const dictionaries = {
         includedLabel: "Was wir bauen",
         included: ["Individuelle Web-Apps (Next.js + Supabase)", "Workflow-Automatisierung (n8n / Make / Zapier)", "CRM- & Rechnungs-Sync", "Formular-zu-Datenbank-Routing", "KI-Integrationen (Claude / OpenAI)", "Content-Pipelines", "Interne Tools & Dashboards"],
         proof:
-          "Die Automatisierung, von der hier die Rede ist, setzen wir zuerst im eigenen Studio ein — im Haus gebaut, so, wie wir auch Ihres bauen würden.",
+          "Die Automatisierung, von der hier die Rede ist, setzen wir zuerst im eigenen Studio ein, im Haus gebaut, so, wie wir auch Ihres bauen würden.",
         ctaLabel: "Projekt besprechen",
       },
       seo: {
         slug: "seo",
         metaTitle: "SEO Tirol — technische Suchmaschinenoptimierung für KMU",
         metaDescription:
-          "Technisches SEO in Tirol & Innsbruck. On-Page- und technische Suchmaschinenoptimierung für KMU — sauberes Markup, schnelle Ladezeiten, lokale Sichtbarkeit.",
+          "Technisches SEO in Tirol & Innsbruck. On-Page- und technische Suchmaschinenoptimierung für KMU: sauberes Markup, schnelle Ladezeiten, lokale Sichtbarkeit.",
         overline: "SEO",
         headline: "Technisches SEO, das gute Unternehmen auffindbar macht.",
         intro:
-          "Die meisten guten Unternehmen sind in der Suche praktisch unsichtbar — nicht, weil die Arbeit schlecht wäre, sondern weil die Site nicht aufs Gefundenwerden gebaut ist. Wir konzentrieren uns strikt auf technische und On-Page-Suchmaschinenoptimierung für KMU in Tirol und im DACH-Raum: die strukturellen Grundlagen, die Suchmaschinen erlauben, Ihre Seiten zu crawlen, zu verstehen und anzuzeigen.",
+          "Die meisten guten Unternehmen sind in der Suche praktisch unsichtbar, nicht, weil die Arbeit schlecht wäre, sondern weil die Site nicht aufs Gefundenwerden gebaut ist. Wir konzentrieren uns strikt auf technische und On-Page-Suchmaschinenoptimierung für KMU in Tirol und im DACH-Raum: die strukturellen Grundlagen, die Suchmaschinen erlauben, Ihre Seiten zu crawlen, zu verstehen und anzuzeigen.",
         sections: [
           {
             h: "Technisches Audit & Crawlbarkeit",
-            p: "Wir prüfen, was Suchmaschinen tatsächlich sehen — Indexierbarkeit, Crawl-Pfade, Weiterleitungen, Canonical-Tags und Sitemaps — und beheben die technischen Probleme, die Seiten still aus den Ergebnissen halten.",
+            p: "Wir prüfen, was Suchmaschinen tatsächlich sehen: Indexierbarkeit, Crawl-Pfade, Weiterleitungen, Canonical-Tags und Sitemaps. Und wir beheben die technischen Probleme, die Seiten still aus den Ergebnissen halten.",
           },
           {
             h: "On-Page-Optimierung",
@@ -964,7 +964,7 @@ export const dictionaries = {
           },
           {
             h: "Core Web Vitals & Performance",
-            p: "Ladezeit und Seitenerlebnis sind Ranking- und Usability-Faktoren. Wir optimieren die Performance — Core Web Vitals, Bild- und Asset-Handling — damit Seiten auf echten Geräten schnell sind.",
+            p: "Ladezeit und Seitenerlebnis sind Ranking- und Usability-Faktoren. Wir optimieren die Performance, von Core Web Vitals bis Bild- und Asset-Handling, damit Seiten auf echten Geräten schnell sind.",
           },
           {
             h: "Strukturierte Daten & lokale Auffindbarkeit",
@@ -983,49 +983,49 @@ export const dictionaries = {
         includedLabel: "Was wir umsetzen",
         included: ["Semantisches HTML", "JSON-LD-Schema", "Sitemap / robots", "Interne Verlinkung"],
         proof:
-          "Die technischen Grundlagen der Sichtbarkeit — semantisches Markup, kurze Ladezeiten, strukturierte Daten, zweisprachiges hreflang — sind in jeder Site enthalten, die wir ausliefern, auch in unseren eigenen Plattformen. Wir optimieren auf denselben Grundlagen, die wir auf unsere eigene Arbeit anwenden; wir versprechen keine Rankings und verkaufen keine Unternehmensberatung.",
+          "Die technischen Grundlagen der Sichtbarkeit sind in jeder Site enthalten, die wir ausliefern, auch in unseren eigenen Plattformen: semantisches Markup, kurze Ladezeiten, strukturierte Daten, zweisprachiges hreflang. Wir optimieren auf denselben Grundlagen, die wir auf unsere eigene Arbeit anwenden; wir versprechen keine Rankings und verkaufen keine Unternehmensberatung.",
         ctaLabel: "Projekt besprechen",
       },
       brand: {
         slug: "brand",
         metaTitle: "Marke & Identität Tirol — stimmige visuelle Systeme für KMU",
         metaDescription:
-          "Marken- und Identitätsgestaltung in Tirol. Stimmige visuelle Systeme — Namen, Marken, Farben, Typografie und Stimme — samt den Inhalten, die sie tragen. In eine Website integriert oder als eigenständiges Markenprojekt.",
+          "Marken- und Identitätsgestaltung in Tirol. Stimmige visuelle Systeme aus Namen, Marken, Farben, Typografie und Stimme, samt den Inhalten, die sie tragen. In eine Website integriert oder als eigenständiges Markenprojekt.",
         overline: "Marke & Identität",
         headline: "Eine stimmige Identität, kein einzelnes Logo.",
         intro:
-          "Ein uneinheitlicher Auftritt schwächt gute Arbeit — hier ein Logo, dort eine andere Farbe, ein Ton, der von Seite zu Beitrag wechselt. Wir gestalten stimmige visuelle Systeme für KMU in Tirol und im DACH-Raum: Marken, Farben, Typografie und Stimme, die ein Unternehmen überall wiedererkennbar machen — samt den Inhalten, die sie tragen. In einen Website-Build integriert oder als eigenständiges Markenprojekt.",
+          "Ein uneinheitlicher Auftritt schwächt gute Arbeit: hier ein Logo, dort eine andere Farbe, ein Ton, der von Seite zu Beitrag wechselt. Wir gestalten stimmige visuelle Systeme für KMU in Tirol und im DACH-Raum: Marken, Farben, Typografie und Stimme, die ein Unternehmen überall wiedererkennbar machen, samt den Inhalten, die sie tragen. In einen Website-Build integriert oder als eigenständiges Markenprojekt.",
         sections: [
           {
             h: "Ein System, kein Einzelstück",
-            p: "Ein Logo ist der Anfang, nicht die Marke. Wir gestalten das ganze System — Wortmarke und Zeichen, eine Farbpalette mit barrierefreien Kombinationen, Typografie, Abstände und die Regeln, die alles zusammenhalten — damit jede Fläche, von der Website bis zur Visitenkarte, als ein Unternehmen wirkt.",
+            p: "Ein Logo ist der Anfang, nicht die Marke. Wir gestalten das ganze System: Wortmarke und Zeichen, eine Farbpalette mit barrierefreien Kombinationen, Typografie, Abstände und die Regeln, die alles zusammenhalten. So wirkt jede Fläche, von der Website bis zur Visitenkarte, als ein Unternehmen.",
           },
           {
             h: "Stimme & Inhalt",
-            p: "Wie ein Unternehmen klingt, zählt so viel wie sein Aussehen. Wir definieren einen klaren, ehrlichen Ton — ohne Hype, ohne Floskeln — und schreiben die Inhalte, die ihn tragen: Website-Texte, Abschnitte und die Worte, die wirklich arbeiten, auf Deutsch und Englisch.",
+            p: "Wie ein Unternehmen klingt, zählt so viel wie sein Aussehen. Wir definieren einen klaren, ehrlichen Ton, ohne Hype und ohne Floskeln, und schreiben die Inhalte, die ihn tragen: Website-Texte, Abschnitte und die Worte, die wirklich arbeiten, auf Deutsch und Englisch.",
           },
           {
             h: "In den Build integriert",
-            p: "Marke und Website sind am stärksten, wenn sie gemeinsam entstehen. Wenn wir eine Seite bauen, ist die Identität von der ersten Ansicht an Teil davon — Tokens im Code, einheitliche Komponenten, eine visuelle Sprache — statt ein Logo, das nachträglich auf eine Vorlage gesetzt wird.",
+            p: "Marke und Website sind am stärksten, wenn sie gemeinsam entstehen. Wenn wir eine Seite bauen, ist die Identität von der ersten Ansicht an Teil davon: Tokens im Code, einheitliche Komponenten, eine visuelle Sprache, statt eines Logos, das nachträglich auf eine Vorlage gesetzt wird.",
           },
           {
             h: "Oder ein Markenprojekt für sich",
-            p: "Sie behalten Ihre bestehende Seite? Wir liefern die Identität als eigenständiges Projekt — das System, die Assets und eine kurze Richtlinie — damit alle, die danach bauen, eine klare, stimmige Grundlage haben.",
+            p: "Sie behalten Ihre bestehende Seite? Wir liefern die Identität als eigenständiges Projekt: das System, die Assets und eine kurze Richtlinie, damit alle, die danach bauen, eine klare, stimmige Grundlage haben.",
           },
         ],
         includedLabel: "Das bekommen Sie",
         included: ["Wortmarke & Zeichen", "Farbpalette (AA)", "Typo-System", "Markenstimme", "Anwendungsrichtlinie", "Selbst gehostete Assets"],
         proof:
-          "Wir halten unsere eigene Identität an dem Standard, den wir für Sie bauen würden — ein stimmiges System, barrierefreie Farben, konsistente Typografie, auf jeder Fläche gleich angewendet und selbst gehostet. Marke ist für uns Handarbeit, nie ein Baukasten-Set; es ist derselbe Blick, den wir in jedes Studio und Produkt legen, das wir bauen.",
+          "Wir halten unsere eigene Identität an dem Standard, den wir für Sie bauen würden: ein stimmiges System, barrierefreie Farben, konsistente Typografie, auf jeder Fläche gleich angewendet und selbst gehostet. Marke ist für uns Handarbeit, nie ein Baukasten-Set; es ist derselbe Blick, den wir in jedes Studio und Produkt legen, das wir bauen.",
         ctaLabel: "Projekt besprechen",
       },
     },
     contact: {
       overline: "KONTAKT",
       headline: "Sprechen wir.",
-      body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch — vor Ort oder online — und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
+      body: "Erzählen Sie uns, was Sie vorhaben. Wir melden uns innerhalb von zwei Werktagen für ein kurzes erstes Gespräch, vor Ort oder online, und finden gemeinsam heraus, was möglich ist. Kein Verkaufsgespräch, keine Verpflichtung.",
       startNudge: "Wissen Sie schon genau, was Sie wollen? Projekt besprechen →",
-      ctaLine: "Der einfachste Weg zu uns — eine Nachricht, eine E-Mail oder WhatsApp. Wir antworten innerhalb von zwei Werktagen.",
+      ctaLine: "Der einfachste Weg zu uns: eine Nachricht, eine E-Mail oder WhatsApp. Wir antworten innerhalb von zwei Werktagen.",
       optMessage: "Nachricht schreiben",
       optEmail: "E-Mail",
       optWhatsapp: "WhatsApp",
@@ -1040,9 +1040,9 @@ export const dictionaries = {
         submit: "Nachricht senden",
         submitting: "Wird gesendet…",
         responseTime: "Wir melden uns innerhalb von zwei Werktagen.",
-        success: "Danke. Ihre Nachricht ist bei uns angekommen — wir melden uns in Kürze.",
-        errorValidation: "Bitte prüfen Sie Ihre Angaben — alle Felder sind erforderlich und Ihre Nachricht muss mindestens 20 Zeichen lang sein.",
-        errorRateLimit: "Zu viele Anfragen von Ihrer Adresse — bitte in einer Stunde erneut versuchen.",
+        success: "Danke. Ihre Nachricht ist bei uns angekommen. Wir melden uns in Kürze.",
+        errorValidation: "Bitte prüfen Sie Ihre Angaben: Alle Felder sind erforderlich und Ihre Nachricht muss mindestens 20 Zeichen lang sein.",
+        errorRateLimit: "Zu viele Anfragen von Ihrer Adresse. Bitte in einer Stunde erneut versuchen.",
         errorGeneric: "Etwas ist schiefgelaufen. Bitte erneut versuchen oder uns direkt per E-Mail kontaktieren.",
         consent: "Mit dem Absenden Ihrer Anfrage stimmen Sie zu, dass Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Kontaktaufnahme verarbeitet werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Diese Einwilligung können Sie jederzeit für die Zukunft widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt vom Widerruf unberührt. Ein Widerruf ist formlos per E-Mail an hallo@lechner-studios.at möglich. Details siehe Datenschutz.",
         mailtoFallback: "Oder direkt per E-Mail:",
@@ -1052,16 +1052,16 @@ export const dictionaries = {
     homeOffers: {
       overline: "EINSTIEG",
       headline: "Ein klarer Einstieg — zum Festpreis.",
-      lead: "Noch nicht bereit für ein ganzes Projekt? Fangen Sie klein an. Zwei produktisierte Festpreis-Wege, mit uns zu arbeiten — keine offenen Angebote, kein Rätselraten.",
+      lead: "Noch nicht bereit für ein ganzes Projekt? Fangen Sie klein an. Zwei produktisierte Festpreis-Wege, mit uns zu arbeiten: keine offenen Angebote, kein Rätselraten.",
       items: [
-        { label: "Festpreis-Analyse", desc: "Eine fokussierte Analyse Ihrer bestehenden Website — technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.", cta: "Website-Check buchen" },
-        { label: "Produktisiertes Paket", desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol — live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.", cta: "Direktbucher ansehen" },
+        { label: "Festpreis-Analyse", desc: "Eine fokussierte Analyse Ihrer bestehenden Website: technisches SEO, Tempo, Barrierefreiheit und DSGVO. Schriftlicher Bericht plus Gespräch, und die Gebühr wird auf ein Projekt angerechnet.", cta: "Website-Check buchen" },
+        { label: "Produktisiertes Paket", desc: "Komplette Direktbuchungs-Websites für Pensionen und Ferienwohnungen in Tirol, live in zwei Wochen, mit der Portal-Provision zurück in Ihrer Tasche.", cta: "Direktbucher ansehen" },
       ],
     },
     foundation: {
       overline: "FRÜHPHASEN-PARTNER",
       headline: "Bewusst wenige Kunden. Genau der richtige Moment.",
-      body: "Wir nehmen bewusst nur eine kleine Zahl an Kunden an — das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Ja, wir sind ein junges Studio — und genau das ist der Vorteil. Das Handwerk ist kein Versprechen: Es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
+      body: "Wir nehmen bewusst nur eine kleine Zahl an Kunden an, das spricht für Sie: mehr Aufmerksamkeit, Konditionen der Gründungsphase und eine echte Partnerschaft statt eines Platzes in der Warteschlange. Ja, wir sind ein junges Studio, und genau das ist der Vorteil. Das Handwerk ist kein Versprechen: Es zeigt sich in dem, was wir bereits selbst gebaut haben und betreiben, von Werk bis zu einer wachsenden Reihe von Produkten, von denen einige bald öffentlich starten. Dieselben Hände, die diese gebaut haben, bauen auch Ihres.",
       est: "Gründungsphase",
       place: "Wattens · Tirol · Österreich",
     },
@@ -1069,7 +1069,7 @@ export const dictionaries = {
       overline: "PROJEKT BESPRECHEN",
       headline: "Lassen Sie uns das Richtige bauen.",
       intro:
-        "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch — wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",
+        "Erzählen Sie uns von Ihrem Projekt. Je mehr Sie teilen, desto präziser unser erstes Gespräch. Wir kommen vorbereitet, mit einem klaren Bild davon, was möglich ist und was es braucht.",
       nameLabel: "Name",
       emailLabel: "E-Mail",
       companyLabel: "Unternehmen (optional)",
@@ -1105,12 +1105,12 @@ export const dictionaries = {
       title: "The Studio Director",
       subtitle: "KI-Zwilling · Lechner Studios",
       greeting:
-        "Hallo — ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich Sonja dazu.",
+        "Hallo, ich bin The Studio Director, der KI-Zwilling von Sonja Lechner bei Lechner Studios. Ich helfe Ihnen gern direkt; bei heiklen Themen hole ich Sonja dazu.",
       placeholder: "Fragen Sie zu Leistungen & Preisen…",
       send: "Senden",
       close: "Schließen",
       privacyNote: "KI-Assistent. Nachrichten werden nicht gespeichert. Bitte keine sensiblen Daten eingeben.",
-      errorRate: "Einen Moment — das waren viele Nachrichten. Bitte versuchen Sie es gleich erneut.",
+      errorRate: "Einen Moment, das waren viele Nachrichten. Bitte versuchen Sie es gleich erneut.",
       errorGlobal: "Ich mache eine kurze Pause. Bitte erreichen Sie uns über das Kontaktformular.",
       errorGeneric: "Etwas ist schiefgelaufen. Bitte erneut versuchen oder das Kontaktformular nutzen.",
     },
